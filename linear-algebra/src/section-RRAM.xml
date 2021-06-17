@@ -150,13 +150,132 @@
                 \end{bmatrix}
             </me>
             which is the augmented matrix of the linear system,
-            <md alignment="alignat">
-                <mrow>x \amp \amp -5z \amp = \amp 1</mrow>
-                <mrow>\amp y \amp + z \amp = \amp 4</mrow>
-                <mrow>\amp \amp 0 \amp = \amp 0</mrow>
-            </md>
-            Notice that if we choose an arbitrary value of <m>z</m>, then we can solve for <m>x</m> and <m>y</m> in equation 1 and 2, respectively, and get a solution of the system. Here, <z>z</z> is called a <i>free variable</i>, because it can take on any value to generate a solution of the system.
+            <me>
+                \begin{array}{rrrrr}
+                x \amp \amp -5z \amp = \amp 1 \\
+                \amp y \amp + z \amp = \amp 4 \\
+                \amp \amp 0 \amp = \amp 0
+                \end{array}
+            </me>
+            Notice that if we choose an arbitrary value of <m>z</m>, then we can solve for <m>x</m> and <m>y</m> in equation 1 and 2, respectively, and get a solution of the system. Here, <m>z</m> is called a <i>free variable</i>, because it can take on any value to generate a solution of the system.
+        </example>
+
+        <definition>
+            Variables which correspond to pivot columns are called <term>basic variables</term>. The other variables are called <term>free variables</term>.
+        </definition>
+        
+        <p>
+            In general, for the augmented matrix of a system in REF, any non-pivot column corresponds to a free variable (besides the right-most constant column). Free variables can take on any value, and then we can solve for the basic variables in terms of the free variables.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Systems with No Solution</title>
+
+        <p>
+            If the REF of the augmented matrix of a system has a row which corresponds to a false statement, then the system has no solution.
+        </p>
+
+        <example>
+            Consider the matrix in REF,
+            <me>
+                \begin{bmatrix}
+                1 \amp -3 \amp 1 \amp 4 \\
+                0 \amp -1 \amp -4 \amp 7 \\
+                0 \amp 0 \amp 0 \amp 2
+                \end{bmatrix}
+            </me>
+            which corresponds to the linear system,
+            <me>
+                \begin{array}{rrrrr}
+                    x \amp -3y \amp + z \amp = \amp 1 \\
+                    \amp -y \amp -4 z \amp = \amp 4 \\
+                    \amp \amp 0 \amp = \amp 2
+                \end{array}
+            </me>
+            The 3rd equation is the false statement (or, <i>contradiction</i>) <m>0 = 2</m>, so the system has no solution. This is because, no matter what the values of <m>x, y, z</m>, it is not possible for the third equation to be satisfied. A solution of the system must make every equation true, so no such solution exists. Thus, the system is inconsistent.
         </example>
     </subsection>
-    
+
+    <subsection>
+        <title>Reduced Row Echelon Form</title>
+        
+        <p>
+            The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into <i>reduced</i> row ecehlon form.
+        </p>
+
+        <definition>
+            A matrix is in <term>reduced row echelon form</term> (<term>RREF</term>) if,
+            <ol>
+                <li>The matrix is in REF.</li>
+                <li>Every pivot is 1.</li>
+                <li>Every pivot is the only non-zero entry in its column. In other words, there are all 0's below <i>and</i> above each pivot.</li>
+            </ol>
+        </definition>
+
+        <p>
+            The classic example of a matrix in RREF is a matrix of the form,
+        </p>
+        <me>
+            \begin{bmatrix} 1 \amp 0 \amp 0 \amp a \\ 0 \amp 1 \amp 0 \amp b \\ 0 \amp 0 \amp 1 \amp c \end{bmatrix}
+        </me>
+        <p>
+            This represents a system of 3 linear equations in 3 unknowns. In particular the system,
+        </p>
+
+        <me>
+            \begin{array}{rrrrr}
+            1x \amp + 0y \amp + 0z \amp = \amp a \\
+            0x \amp + 1y \amp + 0z \amp = \amp b \\
+            0x \amp + 0y \amp + 1z \amp = \amp c
+            \end{array}
+        </me>
+        In other words,
+        <me>
+            \begin{array}{rrr}
+            x \amp = \amp a \\
+            y \amp = \amp b \\
+            z \amp = \amp c \end{array}
+        </me>
+        <p>
+            from which the solution can be read right off as $(a,b,c)$.
+        </p>
+
+        <theorem>
+            Every matix is row equivalent to a unique matrix in RREF.
+        </theorem>
+
+        <proof>
+            <emp>EXERCISE</emp>.
+        </proof>
+    </subsection>
+
+    <subsection>
+        <title>Existence and Uniqueness, Summary</title>
+
+        <theorem>
+            A linear system is consistent if and only if the right-most column of its augmented matrix is not a pivot column. In other words, if and only if the REF of the augmented matrix has no row of the form,
+            <me>
+                \begin{bmatrix} 0 \amp \dots \amp 0 \amp b \end{bmatrix} \qquad \text{where <m>b \neq 0</m>}
+            </me>
+            If a linear system in consistent, then the solution set is either:
+            <ol>
+                <li>A unique solution, if there are no free variables.</li>
+                <li>Infinitely many solutions, if there are at least one free variable.</li>
+            </ol>
+        </theorem>
+
+    </subsection>
+
+    <subsection>
+        <title>Summary of Solving Systems with Gaussian Elimination</title>
+        <ol>
+            <li>Determine the augmented matrix of the system <m>\begin{bmatrix} A \mid b \end{bmatrix}</m>.</li>
+            <li>Convert the matrix into an equivalent matrix in REF, using row reduction. If the system is inconsistent, then we are done.</li>
+            <li>If the system is consistent, then convert the matrix into RREF.</li>
+            <li>Write the system of equations corresponding to the matrix in RREF.</li>
+            <li>Solve for each basic variable in terms of any free variables.</li>
+        </ol>
+    </subsection>
+
 </section>

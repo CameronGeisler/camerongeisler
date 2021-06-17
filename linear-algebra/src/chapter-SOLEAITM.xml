@@ -12,4 +12,5 @@
         <xi:include href="./section-ITSSGE.xml"/>
         <xi:include href="./section-ITMAMOAS.xml"/>
         <xi:include href="./section-RRAM.xml"/>
+        <xi:include href="./section-VE.xml"/>
 </chapter>
