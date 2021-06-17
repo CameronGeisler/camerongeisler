@@ -1,0 +1,235 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-06-16T20:17:18-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gaussian Elimination and Matrices</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\require{cancel}\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra:</span> <span class="subtitle">My First PreTeXt Experiment</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-ITMAMOAS.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-ITMAMOAS.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
+<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
+<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-RRAM.html" data-scroll="section-RRAM" class="active">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-RRAM"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">Gaussian Elimination and Matrices</span>
+</h2>
+<section class="introduction" id="introduction-6">Then, Gaussian elimination can be reframed in terms of modifying rows of the augmented matrix of a system.</section><section class="subsection" id="subsection-14"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.1</span> <span class="title">Elementary Row Operations</span>
+</h3>
+<article class="definition definition-like" id="definition-9"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Elementary Row Operation.</span>
+</h6>
+<ul class="disc">
+<li id="li-33">
+<dfn class="terminology">Interchange</dfn>. Interchange two rows in the matrix.</li>
+<li id="li-34">
+<dfn class="terminology">Scaling</dfn>. Multiply (or divide) an equation by a non-zero real number.</li>
+<li id="li-35">
+<dfn class="terminology">Replacement</dfn>. Add to one equation a multiple of another equation.</li>
+</ul>
+<p id="p-31">These row operations are denoted by,</p>
+<ul class="disc">
+<li id="li-36">\(\displaystyle R_i \leftrightarrow R_j\)</li>
+<li id="li-37">\(\displaystyle kR_i \rightarrow R_i\)</li>
+<li id="li-38">\(\displaystyle R_i + k R_j \rightarrow R_i\)</li>
+</ul></article><p id="p-32">Performing Gaussian elimination with this matrix form removes the need of repeatedly writing the variables. This process on a matrix is also called <dfn class="terminology">row reduction</dfn>.</p>
+<ul class="disc">
+<li id="li-39">Two matrices are <dfn class="terminology">row equivalent</dfn> if one can be obtained from the other by a (finite) sequence of row oeprations.</li>
+<li id="li-40">A <dfn class="terminology">zero</dfn> row has only zeros. A <dfn class="terminology">non-zero</dfn> row is a row with at least one non-zero entry.</li>
+<li id="li-41">The <dfn class="terminology">leading entry</dfn> of a non-zero row is the left-most non-zero entry. It is also called the <dfn class="terminology">leading coefficient</dfn>, or <dfn class="terminology">pivot</dfn>.</li>
+</ul></section><section class="subsection" id="subsection-15"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Row Echelon Form</span>
+</h3>
+<p id="p-33">After Gaussian elimination is performed on a matrix, the staircase or triangular form of the matrix is called row echelon form.</p>
+<article class="definition definition-like" id="definition-10"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
+</h6>A matrix is in <dfn class="terminology">row echelon form</dfn> (or simply <dfn class="terminology">echelon form</dfn>, or <dfn class="terminology">REF</dfn>) if, <ol class="decimal">
+<li id="li-42">Any zero rows are the bottom of the matrix.</li>
+<li id="li-43">the leading entry of every non-zero row is always strictly to the right of any leading entry above it.</li>
+</ol></article><p id="p-34">Matrices in row echelon form have the broad form,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \amp \cdots \amp \cdots \\
+0 \amp b \amp \cdots \amp \cdots \amp \cdots \amp \cdots \\
+0 \amp 0 \amp 0 \amp c \amp \cdots \amp \cdots \\
+0 \amp 0 \amp 0 \amp 0 \amp 0 \amp d \\
+0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \end{bmatrix}
+\end{equation*}
+</div>where the pivots $a, b, c, d$ are non-zero numbers. Notice that, <ul class="disc"><li id="li-44">Every entry below a pivot is 0.</li></ul>
+<p id="p-35">The terminology echelon is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called <dfn class="terminology">row reduction</dfn>. In summary,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{pmatrix} \text{doing operations on a} \\ \text{system of equations} \\ \text{to convert it to triangular form} \end{pmatrix} \quad \iff \quad \begin{pmatrix} \text{doing row operations on a} \\ \text{augmented matrix} \\ \text{to convert it to row echelon form} \end{pmatrix}
+\end{equation*}
+</div>
+<article class="definition definition-like" id="definition-11"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span>
+</h6>A <dfn class="terminology">pivot position</dfn> in a matrix \(A\) is a location which corresponds to a leading entry in the row echelon form of \(A\text{.}\) A <dfn class="terminology">pivot column</dfn> is a column of \(A\) which contains a pivot position.</article></section><section class="subsection" id="subsection-16"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.3</span> <span class="title">Summary of Row Reduction</span>
+</h3> Consider a matrix \(A\text{.}\) <ol class="decimal">
+<li id="li-45">In the left-most non-zero column (the first pivot column), choose a non-zero entry to be the pivot, and if necessary, use a row exchange to position the pivot at the top of the column.<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \\
+\vdots \amp \ddots \amp \vdots \amp \vdots \\
+\vdots \amp \vdots \amp \vdots \amp \vdots \end{bmatrix}
+\end{equation*}
+</div>
+</li>
+<li id="li-46">Use row replacement operations to create zeros in all positions below the pivot.<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \\
+0 \amp \ddots \amp \vdots \amp \vdots \\
+0 \amp \vdots \amp \vdots \amp \vdots \end{bmatrix}
+\end{equation*}
+</div>
+</li>
+<li id="li-47">Repeat the previous steps with the remaining submatrix, ignoring the row and column of the pivot,<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix}
+a \amp \cdots \amp \cdots \amp \cdots \\
+0 \amp b \amp \vdots \amp \vdots \\
+0 \amp 0 \amp \vdots \amp \vdots
+\end{bmatrix}
+\end{equation*}
+</div>Repeat this process until there are no more non-zero rows to modify.</li>
+</ol>
+<p id="p-36">Finally, to convert the matrix to RREF,</p>
+<ol class="decimal"><li id="li-48">Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation.</li></ol>
+<p id="p-37">Steps 1-3 to convert a matrix to REF is called the <dfn class="terminology">forward phase</dfn> of Gaussian elimination. Step 5 to convert it to the unique RREF is called the <dfn class="terminology">backwards phase</dfn>.</p></section><section class="subsection" id="subsection-17"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.4</span> <span class="title">Remark on Gaussian Elimination</span>
+</h3>
+<p id="p-38">Gaussian elimination is named after German mathematician <dfn class="terminology">Carl Friedrich Gauss</dfn> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer <dfn class="terminology">Wilhelm Jordan</dfn> (1842-1899) helped popularize the method.</p></section><section class="subsection" id="subsection-18"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.5</span> <span class="title">Systems with Infinitely Many Solutions</span>
+</h3>
+<p id="p-39">If the REF of the augmented matrix of a system has a zero row, then the system has infinitely many solutions.</p>
+<article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-40">Consider the matrix in REF,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix}
+1 \amp 0 \amp -5 \amp 1 \\
+0 \amp 1 \amp 1 \amp 4 \\
+0 \amp 0 \amp 0 \amp 0
+\end{bmatrix}
+\end{equation*}
+</div>which is the augmented matrix of the linear system,<div class="displaymath">
+\begin{alignat*}{3}
+x \amp \amp -5z \amp = \amp 1\\
+\amp y \amp + z \amp = \amp 4\\
+\amp \amp 0 \amp = \amp 0
+\end{alignat*}
+</div>Notice that if we choose an arbitrary value of \(z\text{,}\) then we can solve for \(x\) and \(y\) in equation 1 and 2, respectively, and get a solution of the system. Here, z is called a free variable, because it can take on any value to generate a solution of the system.</article></div></section></section></div></main>
+</div>
+</body>
+</html>
