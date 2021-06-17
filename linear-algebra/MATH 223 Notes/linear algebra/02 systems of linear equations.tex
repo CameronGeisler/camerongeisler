@@ -1,0 +1,305 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{graphicx}
+\pagestyle{fancy}
+
+\lhead{Math 223} \chead{Systems of Linear Equations} \rhead{\myname \\ \mynumber}
+\lfoot{\myname} \cfoot{Page \thepage} \rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\usepackage{enumerate}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{result}{Result}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+%% Vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{null}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newenvironment{amatrix}[1]{\left(\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right)}
+
+\begin{document}
+
+\begin{example}
+Solve the system of linear equations
+\begin{equation*}
+    \begin{cases} 3x + 8y = 18 \\ 5x + 12y = 29 \end{cases}
+\end{equation*}
+using inverses.
+\end{example}
+
+
+
+\section*{Misc Advanced Linear Maps}
+
+Considering $A$ as a linear map, if $\exists x$ such that $Ax = b$, then $b \in \Image{A}$.
+
+
+\begin{definition}
+A \textbf{homogeneous} system of linear equations is a system where $b_1 = \dots = b_m = 0$. In other words, $Ax = 0$.
+\begin{itemize}
+    \item A system is \textbf{inhomogeneous} if it is not homogeneous. In other words, $Ax = b$.
+    \begin{itemize}
+        \item $Ax = 0$ is the homogeneous system associated with $Ax = b$.
+    \end{itemize}
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $Ax = b$ be a system of linear equations. The \textbf{solution set} associated with $(A \mid b)$ is
+\begin{equation*}
+    \boxed{\sol{(A \mid b)} = \set{x \in \mathbb{F}^n : Ax = b}}
+\end{equation*}
+Considering $A$ as the map $A: \mathbb{F}^n \rightarrow \mathbb{F}^m$, $\sol{(A \mid b)}$ is the preimage of $\set{b} \subset \mathbb{F}^m$. In other words, the set of all $x$ that $A$ maps to $b$.
+\begin{equation*}
+    \boxed{\sol{(A \mid b)} = A^{-1}(\set{b})}
+\end{equation*}
+\end{definition}
+
+\begin{definition}
+A system of equations $Ax = b$ is \textbf{consistent} if $\sol{(A \mid b)} \neq \emptyset$. In other words, there is at least one solution.
+\begin{itemize}
+    \item $Ax = b$ is \textbf{inconsistent} if $\sol{(A \mid b)} = \emptyset$, i.e. there is no solution.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+A system of equations $Ax = b$ is consistent if and only if the rank of the coefficient matrix is equal to the rank of the augmented matrix. In other words, $\rk{(A)} = \rk{(A \mid b)}$, or
+\begin{equation*}
+    \rk{\begin{pmatrix} a_{11} & \dots & a_{1n} \\ \vdots & & \vdots \\ a_{m1} & \dots & a_{mn} \end{pmatrix}} = \rk{\begin{pmatrix} a_{11} & \dots & a_{1n} & b_1 \\ \vdots & & \vdots & \vdots \\ a_{m1} & \dots & a_{mn} & b_m \end{pmatrix}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item Let $Ax = b$ be solvable. Thus, $\exists x = (x_1, \dots, x_n)$ such that $Ax = b$. Thus, $b \in \Image{A}$, in other words, $b$ can be written as a linear combination of the columns of $A$. Thus, the column rank of $A$ does not change by adding $b$ as the $(n+1)$st column, and so the rank doesn't change, and so $\rk{A} = \rk{(A \mid b)}$.
+    \item Next, let $\rk{(A \mid b)} = \rk{A}$. Then, $\dim{\Image{(A \mid b)}} = \dim{\Image{A}}$. Since $\Image{A} \subseteq \Image{(A \mid b)}$, $\Image{(A \mid b)} = \Image{A}$. Thus, since $b \in \Image{(A \mid b)}$, it follows that $b \in \Image{A}$, and so $Ax = b$ is solvable.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+A system of equations $Ax = b$ is consistent if and only if its augmented matrix converted to reduced row echelon form, $\matrref{(A \mid b)}$, has a pivot in the augmentation column.
+\begin{itemize}
+    \item If there is a pivot in the augmentation column, then $\rk{A \mid b} > \rk{A}$, so $Ax = b$ is inconsistent. Also, the row with the pivot in the augmentation column would correspond to the equation $0=1$, which is a contradiction.
+    \item If there is no pivot in the augmentation column, 
+\end{itemize}
+\end{corollary}
+To determine if a system is consistent or inconsistent, convert its augmented matrix to RREF, and check for a pivot in the augmentation column.
+
+\begin{theorem}
+Let $Ax = b$ be a system of linear equations. If the system is consistent, then for any particular solution $x_0 \in \mathbb{F}^n$, the solution set is given by
+\begin{align*}
+    \sol{(A \mid b)} & = x_0 + \ker{A} \\
+    & = \set{x_0 + v: v \in \ker{A}}
+\end{align*}
+In other words, $\forall x \in \sol{(A \mid b)}$, there exists a unique $v \in \ker{A}$ such that $x = x_0 + v$. Also, $\ker{A}$ represents the general solution of the associated homogeneous system.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item Let $v \in \ker{A}$. Then,
+    \begin{equation*}
+        A(x_0 + v) = Ax_0 + Av = Ax_0 = b
+    \end{equation*}
+    Thus, $x_0 + v \in \sol{(A \mid b)}$.
+    \item Let $x \in \sol{(A \mid b)}$. Then,
+    \begin{equation*}
+        A(x - x_0) = Ax - Ax_0 = b - b = 0
+    \end{equation*}
+    Thus, $x - x_0 \in \ker{A}$, and so $\exists v \in \ker{A}$ such that $x - x_0 = v$, and so $x = x_0 + v$.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+If $x_0 \in \sol{(A \mid b)}$ and $(v_1, \dots, v_r)$ is a basis of $\ker{A}$, then
+\begin{equation*}
+    \sol{(A \mid b)} = \set{x_0 + \lambda_1 v_1 + \dots + \lambda_r v_r : \lambda_i \in \mathbb{F}}
+\end{equation*}
+where $r = \dim{\Ker{A}} = n - \rk{A}$, by the dimension formula for linear maps.
+\end{corollary}
+
+\begin{corollary}
+Let $Ax = b$ be a consistent system of equations, $x_0 \in \mathbb{F}^n$ such that $Ax_0 = b$. Then, $Ax = b$ has a unique solution if and only if $\ker{A} = 0$.
+\end{corollary}
+
+\begin{corollary}
+Let $A \in M(n \times n, \mathbb{F})$, $Ax = b$ be a system of equations. $Ax = b$ has a unique solution if and only if $\det{A} \neq 0$.
+\begin{itemize}
+    \item If $\det{A} \neq 0$, then $A$ is invertible, and so for each $b \in \mathbb{F}^n$, there exists a unique $x = A^{-1} b$ such that $Ax = b$.
+\end{itemize}
+\end{corollary}
+
+\begin{definition}
+A \textbf{free variable} is an unknown of a system of linear equations that can be assigned any arbitrary value to generate a solution.
+\end{definition}
+
+\begin{theorem}
+Let $(A \mid b)$ be an augmented matrix. If $(A' \mid b')$ is an augmented matrix that is row equivalent to $(A \mid b)$, then $\sol{(A \mid b)} = \sol{(A' \mid b')}$. In other words, elementary row transformations don't change the solution set of a system of linear equations.
+\begin{proof}
+Let $(A \mid b)$ be an augmented coefficient matrix. Applying the same row operations on $A$ and $b$ to obtain $A'$ and $b'$, then there exists an elementary matrix $E$ such that $A' = EA$ and $b' = Eb$. Then,
+\begin{align*}
+    Ax & = b \\
+    EAx & = Eb \\
+    A'x & = b'
+\end{align*}
+Thus, $\sol{(A \mid b)} = \sol{(A' \mid b')}$.
+\end{proof}
+\end{theorem}
+
+\section*{Gaussian Elimination}
+Let $A \in M(m \times n, \mathbb{F})$, $b \in \mathbb{F}^n$, $\det{A} \neq 0$.
+\begin{enumerate}
+    \item Form the augmented matrix $(A \mid b)$.
+    \item If necessary, use row exchanges to make the top-left entry non-zero.
+    \item Add a suitable multiple of the first row to the other rows to make zero all entries in the first column and below the diagonal.
+    \item 
+\end{enumerate}
+
+\textbf{Back substitution} can be done by first converting back to a system of linear equations. Or, it can be done by converting to \textbf{reduced row echelon form}.
+\begin{enumerate}
+    \item in REF
+    \item pivots = 1
+    \item every pivot is the only non-zero entry in its column, i.e. all entries above pivots must be zero (in addition to REF requiring all entires below must be zero)
+\end{enumerate}
+\begin{theorem}
+Every matrix is equivalent to a unique matrix in RREF.
+\end{theorem}
+\begin{proof}
+For existence, using Gaussian elimination, every matrix can be transformed into an RREF matrix by row operations.
+\\ \\ For uniqueness, let $A$ and $B$ be row equivalent, both in RREF. We want to show that $A = B$. By contradiction, suppose that $A \neq B$. Let column $k$ be the leftmost column where $A_k \neq B_k$. Let $A'$ and $B'$ be the matrices formed from $A$ and $B$ after removing all columns to the right of column $k$. Since $A$ and $B$ are row equivalent, they are row equivalent after removing columns, so $A'$ is row equivalent to $B'$. These will be of the form
+\begin{align*}
+    A' & = \begin{pmatrix}[ccc|c] & I_{k-1} & & a \\ & & & \\ \hline & 0 & & \delta \\ & 0 & & 0 \end{pmatrix}
+    && B' = \begin{pmatrix}[ccc|c] & I_{k-1} & & b \\ & & & \\ \hline & 0 & & \delta' \\ & 0 & & 0 \end{pmatrix}
+\end{align*}
+with $\delta$, $\delta' = \set{0,1}$.
+\begin{itemize}
+    \item If $\delta = 1$, then the system $A'$ is inconsistent. Since $\sol{A} = \sol{B}$, $B$ is inconsistent, and so $\delta' = 1$. Thus, since $A$ and $B$ are in RREF, all entries above $\delta$ and $\delta'$ are $0$. Therefore, $A_k = B_k$, contradicting our assumption, and so $A = B$.
+    \item If $\delta = 0$, then $A'$ has a unique solution $a$. Since $\sol{A} = \sol{B}$, $B'$ has a unique solution, so $\delta' = 0$. Thus, $a = b$, so $A_k = B_k$, contradicting our assumption, and so $A = B$.
+\end{itemize}
+\end{proof}
+
+\section*{Homogeneous Systems}
+Considering $A$ as a linear map $A: \mathbb{F}^n \rightarrow \mathbb{F}^m$, the solution set of the system $Ax = 0$ is $\sol{(A,0)} = \ker{A}$.
+
+\begin{theorem}
+Let $Ax = 0$ be a homogeneous system of equations. If $B$ is row equivalent to $A$, then $\sol{(A,0)} = \ker{B}$.
+\end{theorem}
+\begin{proof}
+Consider $Ax = 0$. Then, $Bx = (EA)x = E(Ax) = E(0) = 0$. Thus, $\ker{A} = \ker{B}$, and so $\sol{(A,0)} = \ker{B}$.
+\end{proof}
+
+We can determine $\ker{A}$ completely by finding a basis for $\ker{A}$.
+\begin{enumerate}
+    \item Convert $A$ to reduced row echelon form, $A'$.
+    \item Since $\rk{A} + \dim{\ker{A}} = n$, $\dim{\ker{A}} = n - \rk{A}$, which is equivalent to the number of non-pivot columns, or the number of free variables.
+    \item The $i$th basis vector is determined by setting the $i$th free variables to $1$, and the rest to $0$.
+    \item If $j_1, \dots, j_k$ are the $k$ pivot columns, and $v_{j_1}, \dots, v_{j_k}$ are the $k$ basis vectors, then
+    \begin{equation*}
+        \sol{(A,0)} = \ker{A} = \Span{(v_{j_1}, \dots, v_{j_k})} = \set{v_{j_1} x_{j_1} + \dots + x_{j_k} v_{j_k}: x_{j_i}, \dots, x_{j_k} \in \mathbb{F}}
+    \end{equation*}
+\end{enumerate}
+
+\begin{example}
+if $A' = \begin{pmatrix} 1 & 2 & 0 & 3 \\ 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{pmatrix}$, then
+\begin{align*}
+    \begin{pmatrix} 1 & 2 & 0 & 3 \\ 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} & = \begin{pmatrix} -2x_2 - 3x_4 \\ x_2 \\ -4x_4 \\ x_4 \end{pmatrix} \\
+    & = x_2 \begin{pmatrix} -2 \\ 1 \\ 0 \\ 0 \end{pmatrix} + x_4 \begin{pmatrix} -3 \\ 0 \\ -4 \\ 1 \end{pmatrix}
+\end{align*}
+Thus, the basis of $\ker{A}$ is $\set{\begin{pmatrix} -2 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} -3 \\ 0 \\ -4 \\ 1 \end{pmatrix}}$, they are the "basic solutions".
+\end{example}
+
+\section*{Examples}
+\begin{example}
+Determine the general solution in $\mathbb{Q}^5$ for the system of equations
+\begin{equation*}
+    \begin{array}{rrrrrrrr}
+    x_1 & -x_2 & -3x_3 & +x_4 & & = & 3 \\
+    & x_2 & +2x_3 & +x_4 & & = & -1 \\
+    x_1 & +2x_2 & +3x_3 & +4x_4 & 2x_5 & = & 6 \\
+    x_1 & +x_2 & +x_3 & +3x_4 & +x_5 & = & 4
+    \end{array}
+\end{equation*}
+Converting to an augmented matrix $A$, we get
+\begin{equation*}
+    A = \begin{amatrix}{5}
+    1 & -1 & -3 & 1 & 0 & 3 \\
+    0 & 1 & 2 & 1 & 0 & -1 \\
+    1 & 2 & 3 & 4 & 2 & 6 \\
+    1 & 1 & 1 & 3 & 1 & 4
+    \end{amatrix}
+\end{equation*}
+Using row reduction to convert to reduced row echelon form, we get
+\begin{equation*}
+    A' = \begin{amatrix}{5}
+    1 & 0 & -1 & 0 & 0 & 2 \\
+    0 & 1 & 2 & 1 & 0 & -1 \\
+    0 & 0 & 0 & 0 & 1 & 3 \\
+    0 & 0 & 0 & 0 & 0 & 0
+    \end{amatrix}
+\end{equation*}
+Thus, we free variables $x_3$ and $x_4$, the general solution $x$, is
+\begin{equation*}
+    x = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} = \begin{pmatrix} x_3 + 2 \\ -2x_3 - x_4 - 1 \\ x_3 \\ x_4 \\ 3 \end{pmatrix} = x_3 \begin{pmatrix} 1 \\ -2 \\ 1 \\ 0 \\ 0 \end{pmatrix} + x_4 \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \\ 0 \end{pmatrix} + \begin{pmatrix} 2 \\ -1 \\ 0 \\ 0 \\ 3 \end{pmatrix}
+\end{equation*}
+The rank of the matrix is $3$, so $\dim{(\Image{A})} = 3$. Columns $1$, $2$, and $5$ are pivot columns, so they form a basis for the column space.
+\begin{equation*}
+    \set{\begin{pmatrix} 1 \\ 0 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 1 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 2 \\ 1 \end{pmatrix}}
+\end{equation*}
+A basis for $\ker{A}$ is
+\begin{equation*}
+    \set{\begin{pmatrix} 1 \\ -2 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \\ 0 \end{pmatrix}}
+\end{equation*}
+\end{example}
+
+
+
+
+
+\end{document}

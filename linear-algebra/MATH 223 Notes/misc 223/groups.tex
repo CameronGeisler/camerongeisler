@@ -1,0 +1,209 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Math 223}
+\chead{Groups}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}} %vector
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value / magnitude of vector
+\renewcommand{\neg}{\sim}
+
+%% Linear algebra
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+\begin{document}
+
+\section*{Groups}
+\begin{definition}
+A \textbf{group} is a pair $(G, \cdot)$, where $G$ is a set, and $\cdot$ is the group operation
+\begin{align*}
+    \cdot : G \times G & \longrightarrow G \\
+    (a,b) & \longmapsto a \cdot b = ab
+\end{align*}
+with the following axioms:
+\begin{enumerate}
+    \item \textbf{Closure under the group operation}, $\forall a$, $b \in G$, $a \cdot b \in G$. This is superfluous, but important if $\cdot$ is taken from a larger set having $G$ as a subset.
+    \item \textbf{Associative property}, $\forall a$, $b$, $c \in G$, $(ab)c = a(bc)$
+    \item \textbf{Existence of a "neutral element"}, $\exists e \in G$ such that $\forall a \in G$ such that $ge = eg = g$
+    \begin{itemize}
+        \item The neutral element is typically denoted by $1$
+    \end{itemize}
+    \begin{corollary}
+    The neutral element $e$ is unique.
+    \end{corollary}
+    \begin{proof}
+    Let $e$, $e' \in G$ such that $\forall a \in G$, $ae = ea = a$ and $ae' = e'a = a$. Then, for $a = e$, we have $ee' = e$, and for $a = e'$, we have $e'e = ee' = e'$. Thus, $e = e'$.
+    \end{proof}
+    \item \textbf{Existence of inverses}, $\forall a \in G$, $\exists a^{-1} \in G$ such that $aa^{-1} = a^{-1}a = e$
+    \begin{corollary}
+    The inverse element $a_{-1}$ is unique.
+    \end{corollary}
+    \begin{proof}
+    Let $a \in G$ with inverses $b = c = a^{-1}$, so that $ab = ba = e$ and $ac = ca = e$. Then, $c = ce = c(ab) = (ca)b = eb = b$, and so $c = b$.
+    \end{proof}
+\end{enumerate}
+\end{definition}
+
+\section*{Abelian Groups}
+\begin{definition}
+An \textbf{abelian group} is a group that satisfies the commutative property. In other words, $\forall a$, $b \in G$, $ab = ba$
+\begin{itemize}
+    \item For abelian groups, typically the map $\cdot$ is notated as $+$, the neutral element by $0$, and the inverse element of $a$ by $-a$.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+Addition over the real numbers or integers, $(\mathbb{Z}, +)$ or $(\mathbb{R}, +)$, is an abelian group.
+\end{example}
+
+\begin{example}
+Multiplication over the real numbers excluding zero, $(\mathbb{R} \setminus \set{0}, \cdot)$, is an abelian group.
+\end{example}
+
+\begin{example}
+Let $(\mathbb{F}, +, \cdot)$ be a field. Then, $(\mathbb{F}, +)$ and $(\mathbb{F} \setminus \set{0}, \cdot)$ are abelian groups.
+\end{example}
+
+\begin{example}
+Let $(V, +, \cdot)$ be a vector space over $\mathbb{F}$. Then, $(V, +)$ is an abelian group.
+\end{example}
+
+\begin{definition}
+Let $(G, \cdot)$ be a group, $H \subseteq G$ be a subset. Then, $H$ is a \textbf{subgroup} of $G$ if
+\begin{enumerate}
+    \item \textbf{$H$ is closed under the group operation in $G$}. For all $a, b \in H$, $a \cdot b \in H$.
+    \item \textbf{$H$ includes the identity element from $G$}. In other words, $e \in H$.
+    \item \textbf{Closed under inverses}. For all $a \in H$, $a^{-1} \in H$.
+\end{enumerate}
+\end{definition}
+
+\begin{corollary}
+If $H$ is a subgroup of the group $G$, then $H$ with the restriction of $\cdot: H \times H \rightarrow H$  as the group operation, is a group.
+\end{corollary}
+
+\begin{example}
+Let $X$ be a set, $\operatorname{Bij}(X)$ be the set of bijective maps $f: X \rightarrow X$. Then, $(\operatorname{Bij}(X), \circ)$, where $\circ$ is function composition, is an group.
+\begin{align*}
+    \circ: \operatorname{Bij}(X) \times \operatorname{Bij}(X) & \longrightarrow \operatorname{Bij}(X) \\
+    (f,g) & \longmapsto f \circ g
+\end{align*}
+\begin{enumerate}
+    \item The composition of two bijective functions is bijective.
+    \item Let $f$, $g$, $h \in \operatorname{Bij}(X)$, $x \in X$. Then,
+    \begin{align*}
+        ((f \circ g) \circ h)(x) = (f \circ g)(h(x)) = f(g(h(x))) = f((g \circ h)(x)) = (f \circ (g \circ h))(x)
+    \end{align*}
+    \item The identity element is $Id_{X}$
+    \item $\forall f \in \operatorname{Bij}(X)$, the inverse is the inverse function $f^{-1}$, which exists because $f$ is bijective.
+\end{enumerate}
+\end{example}
+
+\begin{example}
+Let $V$ be a vector space over $\mathbb{F}$. The set of all automorphisms $f: V \rightarrow V$, with function composition as the group operation, is a group.
+\end{example}
+
+\section*{Linear Groups over a Vector Space}
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$. Then, the \textbf{general linear group} of $V$, $\operatorname{GL}(V)$, is the set of all automorphisms, with function composition as the group operation. Note, $\operatorname{GL}(V)$ is a subgroup of $\operatorname{Bij}(V)$.
+\begin{enumerate}
+    \item The composition of linear maps is linear.
+    \item Function composition is associative.
+    \item The identity element is $Id_{V}: V \rightarrow V$.
+    \item All linear maps $f$ are bijective, so $f^{-1}$ exists and is linear.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+Let $V$ be a vector space over $\mathbb{F}$. Then, the \textbf{special linear group} of $V$, $\operatorname{SL}(V)$, is
+\begin{equation*}
+    \operatorname{SL}(V) = \set{f \in \operatorname{GL}(V) : \det{f} = 1}
+\end{equation*}
+$SL(V) \subset GL(V)$ is a subgroup, as $\det{f \circ g} = \det{f} \cdot \det{g}$, $\det{I_n} = 1$, and if $\det{f} = 1$ then $\det{f^{-1}}$.
+\end{example}
+
+\section*{Linear Groups of Matrices}
+\begin{definition}
+A \textbf{general linear group} of degree $n$ over $\mathbb{F}$, $\operatorname{GL}(n, \mathbb{F})$ (or $\operatorname{GL}(\mathbb{F}^n)$) is the set of all invertible $n \times n$ matrices over $\mathbb{F}$, with matrix multiplication as the group operation.
+\end{definition}
+
+\begin{definition}
+The \textbf{special linear group} of degree $n$ over $\mathbb{F}$, $\operatorname{SL}(n, \mathbb{F})$, is
+\begin{equation*}
+    \operatorname{SL(n, \mathbb{F}}) = \set{A \in \operatorname{GL}(n, \mathbb{F}) : \det{A} = 1}
+\end{equation*}
+$\operatorname{SL}(n, \mathbb{F})$ is a subgroup of $\operatorname{GL}(n, \mathbb{F})$.
+\end{definition}
+
+\section*{Coordinates}
+Let $V$ be a finite-dimensional vector space over $\mathbb{F}$, $B = (v_1, \dots, v_n)$ be a basis of $V$. Let $v \in V$, then $v$ can be written as
+\begin{align*}
+    v = x_1v_1 + \dots x_nv_n
+\end{align*}
+Then, the \textbf{coordinate vector} of $v$ with respect to $B$ is
+\begin{align*}
+    [v]_{B} = \begin{pmatrix} x_1 \\ \dots \\ x_n \end{pmatrix} \in \mathbb{F}^n
+\end{align*}
+
+We want to convert between coordinates with respect to the standard basis, $[v]_{\mathcal{C}}$, to coordinates in another basis, $[v]_{B}$.
+\\ Recall the general formula, if $\mathcal{C} = (w_1, \dots, w_n)$ is another basis of $V$, $[v]_{\mathcal{C}} = \begin{pmatrix} x_1' \\ \dots \\ x_n' \end{pmatrix}$, then
+\begin{align*}
+    [f(v)]_{\mathcal{C}} = [f]_{\mathcal{C}}^B [v]_{B}
+\end{align*}
+Then,
+\begin{align*}
+    [v]_{\mathcal{C}} & = [id]_{\mathcal{C}}^B [v]_{B} \\
+    \begin{pmatrix} x_1' \\ \dots \\ x_n' \end{pmatrix} & = ([v_1]_{\mathcal{C}}, \dots, [v_n]_{\mathcal{C}}) \begin{pmatrix} x_1 \\ \dots \\ x_n \end{pmatrix}
+\end{align*}
+If we apply this to $\mathbb{F}^n$, we have $\mathcal{C} = (e_1, \dots, e_n)$ is the standard basis, $B = (v_1, \dots, v_n)$ is a different basis,
+\begin{align*}
+    [v]_{\mathcal{C}} & = \begin{pmatrix} x_1 \\ \dots \\ x_n \end{pmatrix} \\
+    [v]_{B} & = \begin{pmatrix} x_1' \\ \dots \\ x_n' \end{pmatrix}
+\end{align*}
+Thus,
+\begin{align*}
+    \boxed{[v]_{\mathcal{C}} = [id]_{\mathcal{C}}^B [v]_{B}}
+\end{align*}
+$[id]_{\mathcal{C}}^B = (v_1, \dots, v_n)$ is the \textbf{change of basis matrix}.
+
+\section*{Change of Basis matrices}
+
+
+\end{document}
+
+
+
+

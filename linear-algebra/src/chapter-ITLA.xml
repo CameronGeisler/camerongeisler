@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter>
+    <title>Introduction to Linear Algebra</title>
+    <introduction>
+        <p>
+            <term>Linear algebra</term> is a large branch of mathematics. It is arguably just as important and applicable as calculus, if not more applicable. From one perspective, it is the study of geometry from an algebraic perspective, and in particular only using algebra which is linear. The concepts in linear algebra are equal in importance to the computation.
+        </p>
+    </introduction>
+
+    <subsection xml:id="subsec-AOLA">
+        <title>Applications of Linear Algebra</title>
+        <p>
+            Linear algebra has a wide range of applications. The applications of linear algebra increase over time as computing power increases. Some applications of linear algebra include:
+            <ul>
+                <li>
+                    Applications to engineering, physics, biology, economics, and statistics.
+                </li>
+                <li>
+                    <emp>Computer science</emp>, including computer graphics.
+                </li>
+                <li>
+                    Oil exploration, ships searching for offshore oil deposits solve thousands of systems of linear equations every day. The seismic data for the equations are obtained from underwater shock waves created by explosions from air guns.
+                </li>
+                <li>
+                    Linear programming, airlines scheduling flight crews, monitoring the location of aircraft.
+                </li>
+                <li>
+                    Network flow (e.g. electrical networks, traffic flow, etc.), relies on linear algebra and linear systems of equations.
+                </li>
+                <li>
+                    Chemistry, the geometry of molecules such as methane, balancing chemical equations as a system of equations.
+                </li>
+                <li>
+                    Psychology, factor analysis.
+                </li>
+                <li>
+                    pg. 1 Leontief economic analysis, ch.1.6 and 2.6, applications of linear algebra (in particular, linear systems of equations), 
+                </li>
+                <li>
+                    Robotics.
+                </li>
+                <li>
+                    Applications to other fields of mathematics.
+                </li>
+            </ul>
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Misc Notes</title>
+        <ul>
+            <li>
+                Affine geometry is broadly, the geometry of parallels (but no notion of perpendicular).
+            </li>
+        </ul>
+    </subsection>
+
+</chapter>

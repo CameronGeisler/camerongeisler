@@ -1,0 +1,66 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{}
+
+\begin{document}
+
+\section*{Phong Reflection Model}
+Texture mapping, broadly, is the method of adding color and details to a graphical image.
+
+When light hits a physical material, it is scatted in various directions. Different materials have different properties which affects how the light is scattered. Some materials appear glossy, while others appear matte. There are different models of shading used for various situations.
+\\ \\ To simplify the model, we assume that light comes from a point light source. Then, Let $\vec{l}$ be the vector of incoming light (the \textbf{light vector}), $\vec{n}$ be the surface normal vector at the vertex where the light hits, and let $\vec{B}(\vec{l})$ be the \textbf{bounce vector} (or \textbf{reflection vector}), a vector representing the reflected light from $\vec{l}$, if it perfectly reflected off the surface. Using geometry, it can be seen that,
+\begin{equation*}
+    \vec{B}(\vec{l}) = 2(\vec{l} \bullet \vec{n}) \vec{n} - \vec{l}
+\end{equation*}
+Then, we want to model the light reflected towards the eye (or camera) along the view vector $\vec{v}$, a vector from the point $\hat{p}$ in the direction of the eye.
+\\ \\ The Phong reflection model incorporates some weighted combination of 3 different components of reflection:
+\begin{itemize}
+    \item \textbf{Ambient} component. A constant color value to form a crude overall measure of global illumination.
+    \item \textbf{Diffuse} component. This applies to surfaces which appear equally bright in all view directions, i.e. ``perfectly rough", such as rough wood. The light intensity $I_d$ is proportional to the dot product of light vector and normal vector $\vec{l} \bullet \vec{n} = \cos{\theta}$ (Lambert’s law), where $\theta$ is the angle between $\vec{l}$ and $\vec{n}$. Say with proportionality constant $k_d$ called “albedo”. In particular, it does not depend on the view direction $\vec{v}$.
+    \item \textbf{Specular} component. This is the shiny component, which captures ``highlights". This applies to surfaces which are not diffuse, in that they appear brighter when observed from some directions and dimmer when viewed from others. The light intensity $I_s$ is proportional to the dot product of $\vec{v}$ and $\vec{B}(\vec{l})$. However, this dot product (a number between 0 and 1) is raised to a (typically large) positive power, so that this effect only is strong for dot products very close to 1, and is negligible otherwise. In this way, the specular component is large when the view vector is aligned ``just right" with the perfect reflection of the bounce vector.
+\end{itemize}
+
+In summary,
+\begin{itemize}
+    \item $\hat{p}$ is the point the light is reflecting off of.
+    \item $\vec{l}$ is the \textbf{light vector}, from the point light source to the point $\hat{p}$.
+    \item $\vec{v}$ is the \textbf{view vector}, from the point $\hat{p}$ to the eye.
+    \item $\vec{n}$ is the surface \textbf{normal vector} at $\hat{p}$.
+    \item $\vec{B}(\vec{l})$ is the \textbf{bounce vector} representing perfect reflection of $\vec{l}$ off the surface, given by $\vec{B}(\vec{l}) = 2(\vec{l} \bullet \vec{n}) \vec{n} - \vec{l}$.
+    \item $\alpha$ is a measure of the shininess of the object, used for the specular component.
+    \item $k_a, k_d, k_s$ are the ambient, diffuse, and specular proportionality constants, respectively.
+    \item $c_a, c_d, c_s$ are the ambient, diffuse, and specular colors (say, in RGB).
+    \item $I$ is the final light intensity, $I_a, I_d, I_s$ represent the ambient, diffuse, and specular light components, respectively.
+\end{itemize}
+Note: all vectors here are normalized. Then,
+\begin{align*}
+    \boxed{\begin{array}{ll}
+        I = I_a c_a + I_d c_d + I_s c_s \\
+        I = k_a c_a + (k_d \vec{n} \bullet \vec{l}) c_d + k_s (\vec{B}(\vec{l}) \bullet \vec{v})^{\alpha} c_s
+    \end{array}}
+\end{align*}
+\textbf{Bling-Phong reflection} is a variation of Phong reflection. It is nearly identical to Phong reflection, except it computes the specular component differently. It first computes a \textbf{halfway vector}, the sum of $\vec{v}$ and $\vec{l}$ (normalized),
+\begin{equation*}
+    \vec{h} = \frac{\vec{v} + \vec{l}}{\abs{\vec{v} + \vec{l}}}
+\end{equation*}
+Then, the dot product used in the specular component is $\vec{B}(\vec{l}) \bullet \vec{h}$ (rather than $\vec{B}(\vec{l}) \bullet \vec{v})$.
+
+\section*{Toon Shading}
+Toon shading is a form of \textbf{non-realistic rendering} (\textbf{NPR}) designed for cartoon-like shading. The output color is determined from a fixed set of discrete colors. The color of a vertex depends on the intensity of the vertex. Silhouette edges can also be added to give a more definitive outline. This is accomplished by setting color to black if $\vec{n} \bullet \vec{v} \approx 0$ (say $\abs{\vec{n} \bullet \vec{v}} < 0.5$.
+
+\section*{Gooch Shading}
+Gooch shading is another example of non-realistic rendering. It is designed to make shapes easier to see for technical applications. Shading happens at midtones. Also to add silhouette edges.
+\\ \\ Reflection models with large diffuse components tend to hide the highlights, and black shaded regions can hide details. Instead, use only highlights (specular component) and silhouette edges.
+\\ \\ The diffuse component is the same as the Phong model. Then, determine the cool and warm Gooch colors with parameters $\alpha, \beta$,
+\begin{align*}
+    k_{cool} & = cool_{color} + \alpha k_d \\
+    k_{warm} & = warm_{color} + \beta k_d
+\end{align*}
+Then, use diffuse as the weighting to linearly mix the two colors,
+\begin{equation*}
+    gooch_{out} = mix(k_{cool}, k_{warm}, diffuse)
+\end{equation*}
+Apply specular highlighting as per normal lighting equation. Highlight edges by testing the angle.
+
+\end{document}

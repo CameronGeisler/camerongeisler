@@ -1,0 +1,120 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{graphicx}
+\pagestyle{fancy}
+\usepackage{tkz-euclide} \usetkzobj{all} %% figures
+\usepackage{exsheets} %% for tasks
+
+\lhead{Math 223} \chead{} \rhead{\myname \\ \mynumber}
+\lfoot{\myname} \cfoot{Page \thepage} \rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\usepackage{enumerate}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{result}{Result}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+%% Vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+%% Linear algebra
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+%% Statistics
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\usepackage{kbordermatrix}
+
+\begin{document}
+
+\textbf{Input-output analysis} is an application of matrices and their inverses. The theory was mainly developed by Wassily Leontif, who won the Nobel Prize in economics in 1973. Of course, the models presented here will be very simplified.
+
+\section*{Input-Output Analysis}
+Input-output analysis attempts to determine equilibrium conditions under which industries in an economy have just enough output to satisfy each other's demands in addition to final (outside) demands.
+\\ \\ We will first consider only two industries, for simplicity. Consider an economy made up of two industries $A$ and $B$ which are interconnected in that industry $A$ requires output from industry $A$ and $B$ (called \textbf{internal demand}), and similarly for industry $B$. Let $x_1, x_2$ be the total output from industry $A$ and $B$, respectively, and let the outside demand (called \textbf{final demand}) for these industries be $d_1$ and $d_2$, respectively. Then, suppose that for each dollar of output, industry $A$ requires $a_{11}$ dollars worth of output $A$ and $a_{21}$ worth of output $B$, and that similarly for industry $B$, that it requires $a_{12}$ worth of output $A$ and $a_{22}$ worth of output $B$. Then, relating the total output with the internal demand and the final demand, we get
+\begin{equation*}
+    \begin{array}{c}
+        \begin{array}{ccccc}
+            \text{total} & & \text{internal} & & \text{final} \\
+            \text{output} & & \text{demand} & & \text{demand}
+        \end{array} \\
+        \begin{cases} x_1 = a_{11} x_1 + a_{21} x_2 + d_1 \\ x_2 = a_{12} x_1 + a_{22} x_2 + d_2 \end{cases}
+    \end{array}
+\end{equation*}
+In matrix form,
+\begin{equation*}
+    \vec{x} = M\vec{x} + \vec{d}
+\end{equation*}
+where
+\begin{equation*}
+    \vec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \qquad M = \begin{bmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{bmatrix} \qquad \vec{d} = \begin{bmatrix} d_1 \\ d_2 \end{bmatrix}
+\end{equation*}
+Here, $\vec{x}$ is called the \textbf{output vector}, $\vec{d}$ is called the \textbf{final demand vector}, and $M$ is called the \textbf{technology matrix}. Then, given the technology matrix, and the final demand required, we can solve for the total output required,
+\begin{align*}
+    \vec{x} & = M\vec{x} + \vec{d} \\
+    \vec{x} - M\vec{x} & = \vec{d} \\
+    I_2 \vec{x} - M\vec{x} & = \vec{d} \\
+    (I_2 - M)\vec{x} & = \vec{d} \\
+    \vec{x} & = (I_2 - M)^{-1} \vec{d}
+\end{align*}
+
+\section*{Summary}
+Given two industries $C_1, C_2$, with
+\begin{equation*}
+    X = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \qquad M = \kbordermatrix{& C_1 & C_2 \\ C_1 & a_{11} & a_{21} \\ C_2 & a_{12} & a_{22}} \qquad D = \begin{bmatrix} d_1 \\ d_2 \end{bmatrix}
+\end{equation*}
+where $a_{ij}$ is the input required from industry $C_i$ to produce a dollar's worth of output for $C_j$. Then, the solution to the matrix equation
+\begin{equation*}
+    X = MX + D
+\end{equation*}
+is
+\begin{equation*}
+    \boxed{X = (I_2 - M)^{-1} D}
+\end{equation*}
+assuming $I_2 - M$ has an inverse.
+
+\section*{Generalization}
+
+
+
+
+
+
+\end{document}

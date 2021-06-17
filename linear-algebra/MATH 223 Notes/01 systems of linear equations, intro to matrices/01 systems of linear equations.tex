@@ -1,0 +1,99 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Systems of Linear Equations}
+
+\begin{document}
+
+In high-school algebra, we consider systems of \textit{two} linear equations in \textit{two} unknowns. For example,
+\begin{equation*}
+    \systeme{x + 2y = 5, 2x + 3y = 8}
+\end{equation*}
+These systems can be solved graphically, using substitution, or using elimination.
+\begin{equation*}
+    \boxed{\text{Solving systems of linear equations is the foundational problem of linear algebra.}}
+\end{equation*}
+In linear algebra, we develop more advanced and general techniques to solve larger systems of equations.
+
+\section*{Systems of Linear Equations}
+
+Recall that in algebra, the degree of a term is the sum of the powers of the variables it contains. For example, $5x^2$ has degree 2, $4xyz$ has degree 3, and $x$ has degree 1. A linear equation, broadly, is an equation where every term has degree at most 1. Here, we define a general linear equation in $n$ variables.
+
+\begin{definition}
+A \textbf{linear equation} in the variables $x_1, \dots, x_n$ is an equation which can be written in the form,
+\begin{equation*}
+    a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b
+\end{equation*}
+where $a_1, \dots, a_n, b \in \mathbb{R}$ are called the \textbf{coefficients} of the equation.
+\end{definition}
+
+Most considered examples will contain from 2-5 variables (i.e. $n = 2, \dots, 5$). Most applications of linear algebra have $n$ much larger, containing hundreds or thousands of variables. Notice that the variables are denoted by $x_1, \dots, x_n$ rather than the more familiar $x, y, z$, etc. because we want to conveniently represent a large number of equations. If there are only two or three equations, then $x, y$ and $z$ are sometimes used.
+
+\begin{definition}
+A \textbf{system of linear equations}, broadly, is a collection of one or more linear equations involving the same variables. More precisely, a system of $m$ linear equations in $n$ unknowns is of the form
+\begin{align*}
+    a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n & = b_1 \\
+    a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n & = b_2 \\
+    \vdots \qquad \qquad \qquad \qquad \qquad & \vdots \\
+    a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n & = b_n
+\end{align*}
+where $a_{ij}, b_i \in \mathbb{R}$ are the \textbf{coefficients} of the system. Notice that the coefficients $a_{ij}$ use \textit{double subscript} notation. Here, $a_{ij}$ represents the coefficients of $x_j$ in the $i$th equation.
+\begin{itemize}
+    \item A system of linear equations is also sometimes called \textbf{simultaneous linear equations}, or simply a \textbf{linear system}, or sometimes simply a \textbf{system}.
+    \item The variables $x_1, \dots, x_n$ are sometimes called \textbf{unknowns}.
+    \item A \textbf{solution} of a linear system is an ordered tuple $(s_1, \dots, s_n)$ which, when substituted for $(x_1, \dots, x_n)$, respectively, makes each equation a true statement.
+    \item The set of all possible solutions of a linear system is called its \textbf{solution set}.
+    \item Two linear systems are \textbf{equivalent} if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.
+\end{itemize}
+\end{definition}
+
+
+
+\section*{Systems of Linear Equations in Two Variables}
+A system of two linear equations in two variables is of the form,
+\begin{equation*}
+    \begin{cases} a_{11} x_1 + a_{12} x_2 = b_1 \\ a_{21} x_1 + a_{22} x_2 = b_2 \end{cases}
+\end{equation*}
+These two linear equations are lines, say $L_1, L_2$, in the plane. An ordered pair $(s_1, s_2)$ is a solution to the system if and only if it satisfies both equations in the system, which occurs if and only if $(s_1, s_2)$ lies on both lines $L_1, L_2$. In other words,
+\begin{equation*}
+    \boxed{\text{The solutions to the linear system are precisely the intersection points of the lines}}
+\end{equation*}
+Two lines can
+\begin{itemize}
+    \item Intersect at a single point, and have a single solution.
+    \item Be parallel, and never intersect, and have no solution
+    \item Coincide, and ``intersect" at every point on the line, and have infinitely many solution.
+\end{itemize}
+In general, systems of linear equations can have
+\begin{itemize}
+    \item No solution.
+    \item Exactly one solution.
+    \item Infinitely many solutions.
+\end{itemize}
+
+\begin{definition}
+A system of linear equations is \textbf{consistent} if it has at least one solution (i.e. exactly one or infinitely many). Otherwise, it is \textbf{inconsistent}, i.e. if it has no solution.
+\end{definition}
+
+\section*{Misc}
+
+\begin{definition}
+Let $A$ be a $m \times n$ matrix, $\vec{b} = \begin{bmatrix} b_1 \\ \vdots \\ b_m \end{bmatrix} \in \mathbb{R}^m$ be a column vector. Then, a \textbf{system of linear equations} for $(x_1, \dots, x_n)$ is of the form
+\begin{align*}
+    a_{11}x_1 + \dots + a_{1n}x_n & = b_1 \\
+    \dots \qquad \qquad \dots \quad & \quad \dots \\
+    a_{m1}x_1 + \dots + a_{mn}x_1 & = b_m
+\end{align*}
+where $x_1, \dots, x_n$ are the \textbf{unknowns} of the system.
+\\ \\ Alternatively, the system can be represented as $Ax = b$.
+\end{definition}
+
+\section*{Solving Using Inverses}
+Let $A\vec{x} = \vec{b}$ be a system of linear equations. If the coefficient matrix $A$ is invertible, then by multiplying both sides by $A^{-1}$, we can solve for $\vec{x}$,
+\begin{align*}
+    A^{-1}(A \vec{x}) & = A^{-1} \vec{b} \\
+    \vec{x} & = A^{-1} \vec{b}
+\end{align*}
+This provides an explicit expression for the solution $\vec{x}$. However, computing inverses of a matrix requires a lot of computation (WHY?), so this is not a useful method in practice.
+
+\end{document}

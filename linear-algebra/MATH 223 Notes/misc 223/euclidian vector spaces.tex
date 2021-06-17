@@ -1,0 +1,229 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Math 223}
+\chead{Euclidian Vector Spaces}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}} %vector
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value / magnitude of vector
+\renewcommand{\neg}{\sim}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+
+\begin{document}
+In order to study geometry with lengths and angles, vector spaces require additional "structure". For \textbf{Euclidian geometry} in a real vector space, it requires the \textbf{inner product}.
+
+\section*{Inner Product}
+\begin{definition}
+Let $V$ be a real vector space. The \textbf{inner product} (or \textbf{scalar product}, or \textbf{dot product}) on $V$ is a map
+\begin{align*}
+    \inp{\cdot}{\cdot} : V \times V & \longrightarrow \mathbb{R} \\
+    (x,y) & \longmapsto \inp{x}{y}
+\end{align*}
+with the following properties:
+\begin{enumerate}
+    \item \textbf{Bilinearity}: $\forall x \in V$, the maps
+    \begin{align*}
+    \begin{aligned}
+        \inp{\cdot}{x} : V & \longrightarrow \mathbb{R} \\
+        v & \longmapsto \inp{v}{x}
+    \end{aligned} &&
+    \begin{aligned}
+        \inp{x}{\cdot} : V & \longrightarrow \mathbb{R} \\
+        v & \longmapsto \inp{x}{v}
+    \end{aligned}
+    \end{align*}
+    are linear.
+    \item \textbf{Symmetric}: $\forall x, y \in V$, $\inp{x}{y} = \inp{y}{x}$
+    \item \textbf{Positive definiteness}: $\forall x \neq 0$, $\inp{x}{x} > 0$
+\end{enumerate}
+The inner product is a positive definite symmetric bilinear \textbf{form} (map from vector space to scalar) on $V$.
+\end{definition}
+
+\begin{theorem}
+The inner product has the following property:
+\begin{align*}
+    \inp{\sum_{i=1}^n a_i v_i}{y} = \sum_{i=1}^n a_i \inp{v_i}{y}
+\end{align*}
+\end{theorem}
+
+\section*{Euclidian Vector Spaces}
+\begin{definition}
+A \textbf{Euclidian vector space} is a pair $(V, \inp{}{})$, where $V$ is a real vector space, and $\inp{}{}$ is the inner product on $V$.
+\end{definition}
+
+\begin{definition}
+The \textbf{standard inner product} on $\mathbb{R}^n$ is the map
+\begin{align*}
+    \inp{\cdot}{\cdot}: \mathbb{R}^n \times \mathbb{R}^n & \longrightarrow \mathbb{R} \\
+    (x,y) & \longmapsto x \bullet y = x^ty = x_1y_1 + \dots + x_ny_n
+\end{align*}
+\end{definition}
+
+\begin{example}[Functional Analysis]
+Let $V$ be the set of continuous functions $f$ such that $f: [0,1] \rightarrow \mathbb{R}$. Then, $\forall f$, $g \in V$, we can define the inner product as
+\begin{align*}
+    \inp{f}{g} = \int_0^1 f(t)g(t)dt
+\end{align*}
+\begin{itemize}
+    \item Symmetric
+    \begin{align*}
+        \inp{f}{g} = \int_0^1 f(t)g(t)dt = \int_0^1 g(t)f(t)dt = \inp{g}{f}
+    \end{align*}
+    \item Linearity, $\forall f$, $g$, $h \in V$,
+    \begin{align*}
+        \inp{f+h}{g} = \int_0^1 (f(t) + h(t))g(t)dt = \int_0^1 f(t)g(t)dt + \int_0^1 h(t)g(t)dt = \inp{f}{g} + \inp{h}{g}
+    \end{align*}
+    \item Positive definiteness, if $\exists t \in [0,1]$ such that $f(t) \neq 0$, then
+    \begin{align*}
+        \inp{f}{f} & = \int_0^1 f(x)^2 dt > 0
+    \end{align*}
+\end{itemize}
+\end{example}
+
+\section*{Inner Product with Respect to a Basis}
+\begin{definition}
+Let $V$ be an $n$-dimensional real vector space with inner product $\inp{\cdot}{\cdot}$, $A \in M(n \times n, \mathbb{R})$ be the matrix of $\inp{\cdot}{\cdot}$ with respect to a basis. Then, $\forall x$, $y \in \mathbb{R}^n$, we can define the \textbf{inner product with respect to a basis} as
+\begin{equation*}
+    \inp{x}{y}_{A} = x^t A y
+\end{equation*}
+\end{definition}
+\begin{itemize}
+    \item Let $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, then
+    \begin{align*}
+        \inp{\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}}{\begin{pmatrix} y_1 \\ y_2 \end{pmatrix}}_{A} & = \begin{pmatrix} x_1 & x_2 \end{pmatrix} \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} \\
+        & = \begin{pmatrix} x_1 & x_2 \end{pmatrix} \begin{pmatrix} y_1 + 2y_2 \\ 3y_1 + 4y_2 \end{pmatrix} \\
+        & = x_1 y_1 + 2x_1 y_2 + 3x_2 y_1 + 4x_2 y_2
+    \end{align*}
+    \item If $A = I_n$, we get the \textbf{standard inner product} $\inp{x}{y} = x^t y$.
+\end{itemize}
+
+\section*{Norm of a Vector}
+\begin{definition}
+Let $V$ be a Euclidian vector space, $x \in V$. The \textbf{norm} (or \textbf{length}) of $x$, $\norm{x}$, is the square root of the inner product of $x$ with itself.
+\begin{equation*}
+    \norm{x} = \sqrt{\inp{x}{x}}
+\end{equation*}
+\begin{itemize}
+    \item The norm can be represented as the map
+    \begin{align*}
+        V & \longrightarrow \mathbb{R} \\
+        x & \longmapsto \norm{x}
+    \end{align*}
+    \item $\forall x \in V$, $\norm{x} \geq 0$
+    \item In $\mathbb{R}^n$, $\norm{x} = \sqrt{x_1^2 + \dots + x_n^2}$
+    
+    \item $\forall x \in V$, $\norm{x} = 0$ if and only if $x = 0$
+    \begin{proof}
+    \begin{itemize}
+        \item[]
+        \item If $x = 0$, then $\norm{x} = \sqrt{0^2 + \dots + 0^2} = 0$.
+        \item If $\norm{x} = 0$, then $0 = \sqrt{x_1^2 + \dots x_n^2}$, so $0 = x_1^2 + \dots + x_n^2$. Thus, $x_1 = \dots = x_n = 0$.
+    \end{itemize}
+    \end{proof}
+    \item $\forall x \in V$, $\lambda \in \mathbb{R}$, $\norm{\lambda x} = \abs{\lambda} \norm{x}$
+    \begin{proof}
+    \begin{align*}
+        \norm{\lambda x} = \sqrt{(\lambda x_1)^2 + \dots + (\lambda x_n)^2} = \sqrt{\lambda^2(x_1^2 + \dots + x_n^2)} = \lambda \sqrt{x_1^2 + \dots + x_n^2} = \lambda \norm{x}
+    \end{align*}
+    \end{proof}
+\end{itemize}
+\end{definition}
+
+\section*{Cauchy-Schwarz Inequality}
+\begin{theorem}
+Let $V$ be a Euclidian vector space. Then, $\forall x$, $y \in V$,
+\begin{equation*}
+    \boxed{\abs{\inp{x}{y}} \leq \norm{x} \norm{y}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item If $y = 0$, then $\abs{\inp{x}{0}} = 0 \leq 0 = \norm{x} \norm{0}$
+    \item If $y \neq 0$, let $\lambda = \frac{\inp{x}{y}}{\norm{y}^2}$. Then,
+    \begin{align*}
+        0 & \leq \inp{x - \lambda y}{x - \lambda y} \\
+        & = \inp{x}{x} + \inp{x}{-\lambda y} + \inp{-\lambda y}{x} + \inp{-\lambda y}{-\lambda y} && \text{by linearity} \\
+        & = \inp{x}{x} - 2 \lambda \inp{x}{y} + \lambda^2 \inp{y}{y} && \text{by linearity} \\
+        & = \norm{x}^2 - 2\left(\dfrac{\inp{x}{y}}{\norm{y}^2} \right) \inp{x}{y} + \left(\dfrac{\inp{x}{y}}{\norm{y}^2} \right)^2 \norm{y}^2 \\
+        & = \norm{x}^2 - 2 \dfrac{\inp{x}{y}}{\norm{y}^2} + \dfrac{\inp{x}{y}}{\norm{y}^2} \\
+        & = \norm{x}^2 - \dfrac{\inp{x}{y}}{\norm{y}^2}
+    \end{align*}
+    Thus, $0 \leq \norm{x}^2 - \dfrac{\inp{x}{y}^2}{\norm{y}^2}$, and so $\abs{\inp{x}{y}} \leq \norm{x} \norm{y}$.
+\end{itemize}
+\end{proof}
+
+\section*{Triangle Inequality}
+\begin{theorem}
+Let $x$, $y \in V$. Then, the length of the sum of the vectors is less than or equal to the sum of the lengths of the vectors. In other words,
+\begin{equation*}
+    \boxed{\norm{x + y} \leq \norm{x} + \norm{y}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\begin{align*}
+    (\norm{x} + \norm{y})^2 & = \norm{x}^2 + 2 \|x\| \|y\| + \norm{y}^2 \\
+    & \geq \norm{x}^2 + 2 \inp{x}{y} + \norm{y}^2 && \text{by the Cauchy-Schwartz inequality} \\
+    & = \inp{x}{x} + 2 \inp{x}{y} + \inp{y}{y} \\
+    & = \inp{x}{x} + \inp{x}{y} + \inp{x}{y} + \inp{y}{y} \\
+    & = \inp{x}{x+y} + \inp{x+y}{y} && \text{by linearity} \\
+    & = \inp{x}{x+y} + \inp{y}{x+y} && \text{by symmetry} \\
+    & = \inp{x+y}{x+y} && \text{by linearity} \\
+    & = \norm{x+y}^2
+\end{align*}
+Thus, $(\norm{x} + \norm{y})^2 \geq \norm{x+y}^2$, and so $\norm{x} + \norm{y} \geq \norm{x+y}$
+\end{proof}
+Graphical proof.
+
+\section*{Angle Between Vectors}
+\begin{definition}
+Let $V$ be a Euclidian vector space, $x$, $y \in V$. The \textbf{angle} $\alpha$ between $x$ and $y$ is the unique $\alpha \in [0, \pi]$ such that
+\begin{equation*}
+    \cos{\alpha} = \dfrac{\inp{x}{y}}{\norm{x} \norm{y}}
+\end{equation*}
+In other words,
+\begin{equation*}
+    \alpha = \arccos{\left(\dfrac{\inp{x}{y}}{\norm{x} \norm{y}} \right)}
+\end{equation*}
+\begin{itemize}
+    \item $\alpha$ is defined $\forall x$, $y \in V$, since by the Cauchy-Schwarz inequality,
+    \begin{equation*}
+        -1 \leq \dfrac{\inp{x}{y}}{\norm{x} \norm{y}} \leq 1
+    \end{equation*}
+    \item $\alpha$ is well-defined, as cosine defines a bijective map $\cos{}: [0, \pi] \rightarrow [-1,1]$
+\end{itemize}
+\end{definition}
+
+
+\section*{Coordinate Vector with respect to a Basis}
+If $B = (v_1, \dots, v_n)$ is a basis, then $[x]_B = \begin{pmatrix} \inp{x}{v_1} \\ \vdots \\ \inp{x}{v_n} \end{pmatrix}$
+
+\end{document}

@@ -1,0 +1,175 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Matrix Multiplication}
+
+\begin{document}
+
+\section*{Product of Matrix with a Vector}
+\begin{definition}
+Let $A$ be an $m \times n$ matrix, $x = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \in \mathbb{F}^n$ be a column vector ($n \times 1$ matrix). Then, the \textbf{matrix vector product}, $Ax$, is the $m \times 1$ matrix given by
+\begin{equation*}
+    Ax = \begin{bmatrix} \sum_{k=1}^n A_{1k} x_k \\ \vdots \\ \sum_{k=1}^n A_{mk} x_k \end{bmatrix}
+\end{equation*}
+\begin{equation*}
+    (Ax)_i = \sum_{k=1}^n A_{ik} x_{k}
+\end{equation*}
+Equivalently, $Ax$ can be thought of as the linear combination of the columns of $A$, with coefficients $x_1, \dots, x_n$. In other words,
+\begin{equation*}
+    Ax = x_1 \begin{bmatrix} A_{11} \\ \vdots \\ A_{m1} \end{bmatrix} + \dots + x_n \begin{bmatrix} A_{1n} \\  \vdots \\ A_{mn} \end{bmatrix}
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Let $A$ be a $m \times n$ matrix, $x$, $y \in \mathbb{F}^n$, $a \in \mathbb{F}$. Then,
+\begin{enumerate}
+    \item $A(x + y) = Ax + Ay$
+    \item $A(ax) = a(Ax)$
+\end{enumerate}
+\end{theorem}
+
+\section*{Matrix Multiplication (Products of Matrices)}
+\begin{definition}
+Let $A$ be a $m \times n$ matrix, $B$ be a $n \times p$. The \textbf{product} of $A$ and $B$, $AB$, is the $m \times p$ matrix such that
+\begin{equation*}
+    (AB)_{ij} = \sum_{k=1}^n A_{ik} B_{kj}
+\end{equation*}
+\begin{itemize}
+    \item In other words, the entry in the $i$th row and $j$th column is the sum of products of the $i$th row of $A$ and $j$th column of $B$.
+    \item In order for the product $AB$ to be defined, the number of columns of $A$ must be equal to the number of rows of $B$.
+    \item ``$(m \times n) \cdot (n \times p) = (m \times p)$" In other words, the two ``inner" dimensions must be equal, and the two ``outer" dimensions are the dimensions of the product.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+If $A$ has size $3 \times 1$, $B$ has size $1 \times 4$, then the product $AB$ will have size $3 \times 4$, but the product $BA$ does not exist.
+\end{example}
+
+\begin{example}
+Determine the product if possible
+\begin{equation*}
+    \begin{bmatrix} 2 & -2 & 2 \\ 4 & 0 & 2 \end{bmatrix} \begin{bmatrix} -2 \\ 2 \\ 2 \end{bmatrix}
+\end{equation*}
+The first matrix has dimensions $2 \times 3$, the second has dimensions $3 \times 1$, so the product exists and has dimensions $2 \times 1$.
+\begin{align*}
+    \begin{bmatrix} 2 & -2 & 2 \\ 4 & 0 & 2 \end{bmatrix} \begin{bmatrix} -2 \\ 2 \\ 2 \end{bmatrix} & = \begin{bmatrix} 2(-2) + (-2)(2) + 2(2) \\ 4(-2) + 0(2) + 2(2) \end{bmatrix} \\
+    & = \begin{bmatrix} -4 \\ -4 \end{bmatrix}
+\end{align*}
+\end{example}
+
+\begin{example}
+Determine the product if possible
+\begin{equation*}
+    \begin{bmatrix} -1 & -3 & -3 \\ 2 & -1 & 5 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ -5 & 0 \\ -4 & 2 \end{bmatrix}
+\end{equation*}
+The first matrix has dimension $2 \times 3$, the second has dimension $3 \times 2$, so the product exists and has dimensions $2 \times 2$.
+\begin{align*}
+    \begin{bmatrix} -1 & -3 & -3 \\ 2 & -1 & 5 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ -5 & 0 \\ -4 & 2 \end{bmatrix} & = \begin{bmatrix} -1(2) - 3(-5) - 3(-4) & -1(0) - 3(0) - 3(2) \\ 2(2) - 1(-5) + 5(-4) & 2(0) - 1(0) + 5(2) \end{bmatrix} \\
+    & = \begin{bmatrix} 25 & -6 \\ -11 & 10 \end{bmatrix}
+\end{align*}
+\end{example}
+
+\section*{Properties of Matrix Multiplication}
+Matrix multiplication shares many properties of real number multiplication, assuming the matrices have the appropriate dimensions.
+
+\begin{theorem}
+Let $A$ be an $m \times n$ matrix, $B$ and $C$ be $n \times p$ matrices, $D$ and $E$ be $q \times m$ matrices, $a \in \mathbb{R}$. Then,
+\begin{enumerate}[(a)]
+    \item \textbf{Distributive over addition}.
+    \begin{equation*}
+        A(B + C) = AB + AC \qquad \text{and} \qquad (D + E)A = DA + EA
+    \end{equation*}
+    \item \textbf{Associative with a scalar}.
+    \begin{equation*}
+        a(AB) = (aA)B = A(aB)
+    \end{equation*}
+    \item \textbf{Associative with matrices}.
+    \begin{equation*}
+        A(BC) = (AB)C
+    \end{equation*}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{align*}
+    (A(B + C))_{ij} & = \sum_{k=1}^n A_{ik}(B + C)_{kj} && \text{definition of matrix multiplication} \\
+    & = \sum_{k=1}^n A_{ik}(B_{kj} + C_{kj}) && \text{definition of matrix addition} \\
+    & = \sum_{k=1}^n (A_{ik} B_{kj} + A_{ik} C_{kj}) \\
+    & = \sum_{k=1}^n A_{ik}B_{kj} + \sum_{k=1}^n A_{ik}C_{kj} \\
+    & = (AB)_{ij} + (AC)_{ij} && \text{definition of matrix multiplication} \\
+    & = (AB + AC)_{ij} && \text{definition of matrix addition}
+\end{align*}
+\end{proof}
+
+\section*{Matrix Multiplication is not Commutative}
+Matrix multiplication, unlike multiplication of real numbers, is not commutative, in that in general, $AB \neq BA$.
+\\ \\ In fact, for a $m \times n$ matrix $A$ and $n \times p$ matrix $B$, while $AB$ is defined like above, $BA$ is not defined, unless $m = p$. If $m = p$, then while $AB$ has dimensions $m \times m$ like above, $BA$ will have dimensions $n \times n$, and so clearly $AB$ cannot be equal to $BA$, unless $m = n$, or both matrices are square.
+\\ \\ In this special case, matrix multiplication is still not commutative in general.
+
+\section*{Identity Matrix}
+Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. In other words, 1 is the \textit{multiplicative identity} for multiplication of real numbers, $a \cdot 1 = a$ for all $a \in \mathbb{R}$. Similarly, we can define a matrix which, when multiplied by a matrix, leaves it unchanged, called an \textit{identity matrix}.
+
+\begin{definition}
+The $n \times n$ \textbf{identity matrix}, $I_n$, is the matrix with $1$'s along the main diagonal (from top left to bottom right), and $0$'s everywhere else. In other words,
+\begin{equation*}
+    I_n = \begin{bmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & 1 \end{bmatrix}
+\end{equation*}
+\end{definition}
+
+For example, the $2 \times 2$ identity matrix $I_2$, and the $3 \times 3$ identity matrix $I_3$ are given by
+\begin{equation*}
+    I_2 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \qquad I_3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+\end{equation*}
+
+The definition of an identity matrix can be simplified by defining a symbol called the Kronecker delta. 
+
+\begin{definition}
+The \textbf{Kronecker delta}, $\delta_{ij}$, is defined to be
+\begin{align*}
+    \delta_{ij} = \begin{cases} 1 & \text{if $i = j$} \\ 0 & \text{if $i \neq j$} \end{cases}
+\end{align*}
+\end{definition}
+
+For example, $\delta_{12} = 0$, and $\delta_{55} = 1$. Then, the $(i,j)$-th entry of the identity matrix is given by
+\begin{equation*}
+    (I_n)_{ij} = \delta_{ij}
+\end{equation*}
+
+Then, the identity matrix has the property that if $A$ is an $n \times n$ matrix, then
+\begin{equation*}
+    AI_n = I_n A = A
+\end{equation*}
+
+\section*{Product of Matrix and Identity Matrix}
+The identity matrix is the multiplicative identity for matrices, in that the product of any matrix and the appropriate identity matrix is simply the matrix itself.
+\begin{theorem}
+Let $A$ be an $m \times n$ matrix. Then,
+\begin{equation*}
+    I_m A = A = AI_n
+\end{equation*}
+\begin{itemize}
+    \item The identity matrix functions as the multiplicative identity, like 1 in arithmetic.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\begin{align*}
+    (I_m A)_{ij} & = \sum_{k=1}^n (I_m)_{ik} A_{kj} && \text{definition of matrix multiplication} \\
+    & = \sum_{k=1}^n \delta_{ik} A_{kj} && \text{definition of identity matrix} \\
+    & = \delta_{ii} A_{ij} \\
+    & = A_{ij}
+\end{align*}
+\begin{align*}
+    (A I_n)_{ij} & = \sum_{k=1}^n A_{ik} (I_n)_{kj} && \text{definition of matrix multiplication} \\
+    & = \sum_{k=1}^n A_{ik} \delta_{kj} && \text{definition of identity matrix} \\
+    & = A_{ij} \delta_{jj} \\
+    & = A_{ij}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Let $V$ be an $n$-dimensional vector space, $B \subseteq V$ be an ordered basis of $V$. Then,
+\begin{equation*}
+    [\operatorname{Id}_{V}]_{B} = I_n
+\end{equation*}
+\end{theorem}
+
+\end{document}

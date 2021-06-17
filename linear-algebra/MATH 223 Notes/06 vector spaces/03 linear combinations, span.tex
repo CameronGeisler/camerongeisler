@@ -1,0 +1,79 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Linear Combinations}
+
+\begin{document}
+
+\section*{Family of Vectors}
+\begin{definition}
+A \textbf{family} (or \textbf{indexed family}, or \textbf{indexed set}) is an $n$-tuple of elements, with an index mapped to each element.
+\begin{itemize}
+    \item A family of vectors $v_1, \dots, v_n \in V$ is $(v_1, \dots, v_n)$
+    \item A family of scalars $a_1, \dots, a_n \in \mathbb{F}$
+\end{itemize}
+\end{definition}
+
+\section*{Linear Combinations}
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$. A vector $v \in V$ is a \textbf{linear combination} of vectors $v_1, \dots, v_n \in V$ if there exists $a_1, \dots, a_n \in \mathbb{F}$ such that
+\begin{equation*}
+    v = a_1 v_1 + \dots + a_n v_n = \sum_{i=1}^n a_i v_i
+\end{equation*}
+\begin{itemize}
+    \item $a_1, \dots, a_n$ are the called the \textbf{coefficients} of the linear combination
+    \item By convention, the zero vector $0$ is a linear combination of the empty family of vectors.
+\end{itemize}
+\end{definition}
+
+\section*{Span of a Set of Vectors}
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$, $S = \set{v_1, \dots, v_n} \subseteq V$. The \textbf{span} of $S$, $\Span{S}$, is the set of all linear combinations of the vectors in $S$,
+\begin{equation*}
+    \boxed{\Span{S} = \Span{v_1, \dots, v_n} = \set{a_1 v_1 + \dots a_n v_n \mid a_i \in \mathbb{F}}}
+\end{equation*}
+\begin{itemize}
+    \item By convention, $\Span{\emptyset} = \set{0}$
+\end{itemize}
+\end{definition}
+
+\section*{Span is a Vector Subspace}
+\begin{theorem}
+The span $\Span{S}$ is a subspace of $V$. In particular, the sum of linear combinations of vectors in $V$ is a linear combination of the same vectors in $V$.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item If $S = \emptyset$, then $\Span{S} = \set{0}$, which is a subspace of any vector space $V$.
+    \item If $S \neq \emptyset$, let $x$, $y \in \Span{S}$. Then, there exists unique $a_1, \dots, a_n, b_1, \dots, b_n \in \mathbb{F}$ such that
+    \begin{align*}
+        x & = a_1 v_1 + \dots + a_n v_n = \sum_{i=1}^n a_i v_i \\
+        y & = b_1 v_1 + \dots + b_n v_n = \sum_{i=1}^n b_i v_i
+    \end{align*}
+    Then,
+    \begin{align*}
+        x + y & = \sum_{i=1}^n a_i v_i + \sum_{i=1}^n b_i v_i = \sum_{i=1}^n (a_i + b_i) v_i
+    \end{align*}
+    which is a linear combination of $v_1, \dots, v_n$, so $x + y \in \Span{S}$. Then, let $\lambda \in \mathbb{F}$. Then,
+    \begin{align*}
+        \lambda x = \lambda \sum_{i=1}^n a_i v_i = \sum_{i=1}^n (\lambda a_i) v_i
+    \end{align*}
+    which is a linear combination of $v_1, \dots, v_n$, so $\lambda x \in \Span{S}$.
+\end{itemize}
+\end{proof}
+
+\begin{theorem}
+Further, $\Span{S}$ is the smallest subspace of $V$ which contains $S$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+Let $V$ be a vector space, $S \subseteq V$. $S$ \textbf{spans} (or \textbf{generates}) $V$ if $V = \Span{S}$.
+\begin{itemize}
+    \item Alternatively, the vectors of $S$ spans $V$
+\end{itemize}
+\end{definition}
+
+\end{document}

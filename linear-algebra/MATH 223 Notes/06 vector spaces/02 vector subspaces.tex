@@ -1,0 +1,138 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Vector Subspaces}
+
+\begin{document}
+
+\section*{Vector Subspaces}
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$, $U \subseteq V$ be a subset. Then, $U$ is a \textbf{vector subspace} (or simply \textbf{subspace}) of $V$ if $U$ is a vector space over $\mathbb{F}$ under the operations $+$ and $\cdot$ inherited from $V$.
+\end{definition}
+
+\begin{theorem}
+Let $V$ be a vector space, $U \subseteq V$. Then, $U$ is a subspace of $V$ if and only if,
+\begin{enumerate}[(a)]
+    \item \textbf{$U$ is non-empty, or $U$ contains the zero vector in $V$}: $0 \in U$. Since all vector spaces contain the zero vector, $U$ is non-empty if and only if $U$ contains the zero vector.
+    \item \textbf{Closed under addition}. If $x, y \in U$, then $x + y \in U$.
+    \item \textbf{Closed under scalar multiplication}. If $x \in U, \lambda \in \mathbb{F}$, then $\lambda x \in U$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+EXERCISE.
+\end{proof}
+
+\begin{example}
+For every vector space $V$, $V$ has two \textbf{trivial subspaces}. First, $V$ itself is a subspace of itself, and $V$ contains the \textbf{zero subspace} $U = \set{0}$.
+\end{example}
+
+\begin{theorem}
+Let $x \in U$, $\lambda \in \mathbb{F}$. Then,
+\begin{itemize}
+    \item $-x \in U$
+\end{itemize}
+\end{theorem}
+
+\begin{example}
+The set of all $n \times n$ symmetric matrices is a subspace of the set of all $n \times n$ matrices, $M(n \times n, \mathbb{F})$.
+\end{example}
+
+\begin{example}
+Let $n \in \mathbb{N} \cup \set{0}$. The set of all polynomials with degree less than or equal to $n$, $P_{n}(\mathbb{F})$, is a subspace of the set of all polynomials, $P(\mathbb{F})$.
+\end{example}
+
+\begin{example}
+\textbf{Calculus}. Let
+\begin{align*}
+    V & = \text{set of all functions on $[a,b]$} \\
+    V_1 & = \text{set of all integrable functions on $[a,b]$} \\
+    V_2 & = \text{set of all continuous functions on $[a,b]$} \\
+    V_3 & = \text{set of all differentiable functions on $[a,b]$} \\
+    V_4 & = \text{set of all polynomial functions on $[a,b]$}
+\end{align*}
+Recall that all polynomials are differentiable, differentiable functions are continuous, continuous functions are integrable. Also, recall that $V$ is a vector space, and $V_1, V_2, V_3, V_4$ are vector subspaces of $V$. This forms a chain of subspaces,
+\begin{equation*}
+    V_4 \subseteq V_3 \subseteq V_2 \subseteq V_1 \subseteq V
+\end{equation*}
+\end{example}
+
+
+\section*{Intersection of Subspaces is a Subspace}
+\begin{theorem}
+Let $V$ be a vector space over $\mathbb{F}$, $U_1$, $U_2 \subseteq V$ be subspaces. Then, $U_1 \cap U_2$ is a subspace of $V$.
+\end{theorem}
+\begin{proof}
+First, since $U_1$ and $U_2$ are subspaces, $0 \in U_1$ and $0 \in U_2$, and so $0 \in U_1 \cap U_2$. Let $x$, $y \in U_1 \cap U_2$. Then, $x \in U_1$, $x \in U_2$, $y \in U_1$, and $y \in U_2$. Then, since $U_1$ and $U_2$ are subspaces, $x + y \in U_1$ and $x + y \in U_2$, and so $x + y \in U_1 \cap U_2$. Then, let $\lambda \in \mathbb{F}$. Then, $x \in U_1$ and $x \in U_2$. Since $U_1$ and $U_2$ are subspaces, $\lambda x \in U_1$ and $\lambda x \in U_2$, so $\lambda x \in U_1 \cap U_2$.
+\end{proof}
+
+\section*{Subspaces of $\mathbb{R}^n$}
+\begin{example}
+\textbf{Subspaces of $\mathbb{R}^2$}. Subspaces $U \subseteq \mathbb{R}^2$ are of one of the following forms,
+\begin{enumerate}[(a)]
+    \item \textbf{Trivial}, either $U = \set{(0,0)}$ is the single point (the origin) or $U = \mathbb{R}^2$ the entire plane.
+    \item \textbf{Line through the origin}, $U$ consists of the set of all points on a line which passes through the origin.
+\end{enumerate}
+\end{example}
+
+\begin{example}
+\textbf{Subspaces of $\mathbb{R}^3$}. Subspaces $U \subseteq \mathbb{R}^3$ are of one of the following forms,
+\begin{enumerate}[(a)]
+    \item \textbf{Trivial}, either $U = \set{(0,0,0)}$ or $U = \mathbb{R}^3$.
+    \item \textbf{Line through the origin}, $U$ consists of the set of all points on a line which passes through the origin.
+    \item \textbf{Plane through the origin}, $U$ consists of the set of all points on a plane which passes through the origin.
+\end{enumerate}
+\end{example}
+
+\section*{Sum of Subspaces is a Subspace}
+The union of two subspace is, in general, not a subspace. Instead, we define the sum of subspaces.
+\begin{definition}
+Let $V$ be a vector space, $U_1$, $U_2 \subseteq V$ be subspaces. Then, the \textbf{sum} of $U_1$ and $U_2$ is the set
+\begin{equation*}
+    U_1 + U_2 = \set{x + y \mid x \in U_1, y \in U_2}
+\end{equation*}
+In other words, it is the set of all possible sums of elements, where one is from $U_1$ and the other from $U_2$.
+\end{definition}
+
+\begin{theorem}
+Let $V$ be a vector space over $\mathbb{F}$, $U_1$, $U_2 \subseteq V$ be subspaces. Then, $U_2 + U_2$ is a subspace of $V$.
+\end{theorem}
+\begin{proof}
+Let $U_1$, $U_2$ be subspaces of $V$. First, $0 \in U_1$ and $0 \in U_2$, so $0 + 0 = 0 \in U_1 + U_2$.
+\\ \\ Let $x$, $y \in U_1 + U_2$. Then, for some $x_1, y_1 \in U_1$, $x_2, y_2 \in U_2$, we have $x = x_1 + x_2$ and $y = y_1 + y_2$. Thus,
+\begin{equation*}
+    x + y = (x_1 + y_1) + (x_2 + y_2)
+\end{equation*}
+Since $x_1 + y_1 \in U_1$ and $x_2 + y_2 \in U_2$, their sum $(x_1 + y_1) + (x_2 + y_2) \in U_1 + U_2$.
+\\ \\ Let $\lambda \in \mathbb{F}$. Then,
+\begin{equation*}
+    \lambda x = \lambda (x_1 + y_1) = \lambda x_1 + \lambda y_1
+\end{equation*}
+Since $\lambda x_1 \in U_1$ and $\lambda y_2 \in U_2$, $\lambda x_1 + \lambda y_1 \in U_1 + U_2$.
+\end{proof}
+
+\section*{Union of Strict Subspaces is a Strict Subspace}
+\begin{theorem}
+Let $V$ be a vector space over $\mathbb{F}$, $U_1$, $U_2 \subseteq V$ be subspaces of $V$. Then, if $U_1 \cup U_2 = V$, then $U_1 = V$, $U_2 = V$, or both.
+\begin{itemize}
+    \item For example, for $V = \mathbb{R}^2$, the union of two lines through the origin cannot be $\mathbb{R}^2$. In order for the union of two subspaces of $\mathbb{R}^2$ to be equal to $\mathbb{R}^2$, at least one of them must be the entire plane $\mathbb{R}^2$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+By contradiction, suppose $U_1 \cup U_2 = V$ but $U_1 \neq V$ and $U_2 \neq V$. Then, there exists $x \in V \setminus U_1$, $y \in V \setminus U_2$. Since $U_1 \cup U_2 = V$, $x \in U_2$ and $y \in U_1$. Also, $x + y \in V$, so either $x + y \in U_1$ or $x + y \in U_2$.
+\begin{itemize}
+    \item If $x + y \in U_1$, then $x = (x + y) - y \in U_1$, which contradicts our assumption that $x \in V \setminus U_1$.
+    \item If $x + y \in U_2$, then $y = (x + y) - x \in U_2$, which contradicts our assumption that $y \in V \setminus U_2$.
+\end{itemize}
+In either case, we get a contradiction.
+\end{proof}
+
+\section*{Direct Sum and Complementary Subspaces}
+\begin{definition}
+Let $V$ be a vector space, $U_1$, $U_2 \subseteq V$ be subspaces. $V$ is the \textbf{direct sum} of $U_1$ and $U_2$, $V = U_1 \oplus U_2$, if $U_1 + U_2 = V$ and $U_1 \cap U_2 = \set{0}$.
+\begin{itemize}
+    \item $U_1$ and $U_2$ are \textbf{complementary subspaces}.
+\end{itemize}
+\end{definition}
+
+\end{document}

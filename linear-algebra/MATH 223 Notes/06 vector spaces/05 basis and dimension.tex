@@ -1,0 +1,160 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Basis and Dimension}
+
+%% Statistics
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\begin{document}
+
+A basis is intuitively analogous to units of measurement.
+
+\section*{Basis of a Vector Space}
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$, $B = \set{v_1, \dots, v_n} \subseteq V$. Then, $B$ is a \textbf{basis} of $V$ if
+\begin{enumerate}[(a)]
+    \item $B$ is linearly independent.
+    \item $B$ spans $V$.
+\end{enumerate}
+\begin{itemize}
+    \item The plural of basis is \textbf{bases}.
+\end{itemize}
+\end{definition}
+A basis is a \textbf{maximal, linearly independent set}, in that adding any other vector in $V$ to the basis would make it linearly dependent, i.e. it is the largest possible linearly independent set, in that any other linearly independent set has a size less than or equal to the size of the basis. A basis is also a \textbf{minimally spanning set}, in that while a basis spans $V$, any strict subset of a basis does not span $V$, i.e. it is the smallest possible spanning set.
+\\ \\ Intuitively, a basis has enough vectors to span $V$, but not so many that one vector can be written as a linear combination of the others.
+\\ \\ In fact, every vector space has a basis. However, some vector spaces have bases which are infinite, i.e. they are made up of infinitely many elements.
+\begin{itemize}
+    \item If a basis $B$ of $V$ has a finite number of vectors, it is a \textbf{finite} basis.
+\end{itemize}
+
+\begin{definition}
+In $\mathbb{F}^n$, the \textbf{standard basis} is the set $\set{e_1, \dots, e_n}$, where $e_1 = (1, 0, \dots, 0), e_2 = (0, 1, 0, \dots, 0), \dots, e_n = (0, 0, \dots, 0, 1)$.
+\end{definition}
+
+\begin{definition}
+In $P_{n}(\mathbb{F})$, the \textbf{standard basis} is the set $\set{1, x, x^2, \dots, x^n}$.
+\end{definition}
+
+\section*{Vector Uniquely Expressed in Terms of Basis}
+\begin{theorem}
+Let $V$ be a vector space over $\mathbb{F}$, $B = \set{v_1, \dots, v_n} \subseteq V$. Then, $B$ is a basis of $V$ if and only if for all $v \in V$, there exists unique $a_1, \dots, a_n \in \mathbb{F}$ such that
+\begin{equation*}
+    v = a_1 v_1 + \dots + a_n v_n
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Let $B$ be a basis of $V$. To prove existence, since $B$ is a basis, by definition, there exists $a_1, \dots, a_n \in \mathbb{F}$ such that $v = a_1 v_1 + \dots + a_n v_n$. To prove uniqueness, by contradiction, suppose there exists $a_1, \dots, a_n, b_1, \dots, b_n$ such that $v = a_1 v_1 + \dots + a_n v_n$ and $v = b_1 v_1 + \dots + b_n v_n$. Then,
+\begin{align*}
+    0 & = v - v \\
+    & = (a_1 v_1 + \dots + a_n v_n) - (b_1 v_1 + \dots + b_n v_n) \\
+    & = (a_1 - b_1) v_1 + \dots + (a_n - b_n) v_n
+\end{align*}
+Since $\set{v_1, \dots, v_n}$ is a basis of $V$, it is linearly independent, so this linear combination is a trivial combination, and so $a_1 - b_1 = \dots = a_n - b_n = 0$. Thus, $a_1 = b_1, \dots, a_n = b_n$.
+\end{proof}
+
+\section*{Spanning Set Can be Reduced to Basis}
+\begin{theorem}
+Let $V$ be a vector space, $S \subseteq V$ be finite. If $S$ spans $V$, then there exists a (finite) subset of $S$, $B \subseteq S$, such that $B$ is a basis of $V$.
+\begin{itemize}
+    \item Intuitively, a spanning set for $V$ can be reduced to a basis of $V$
+\end{itemize}
+\end{theorem}
+
+\section*{Steinitz Exchange Lemma}
+\begin{theorem}
+Let $V$ be a vector space, $B = \set{v_1, \dots, v_n} \subseteq V$ be a spanning set for $V$, $S = \set{w_1, \dots, w_m} \subseteq V$ be linearly independent. Then, $m \leq n$, and there exists a subset $B' \subseteq B$ of $n - m$ vectors such that $S \cup B'$ spans $V$.
+\begin{itemize}
+    \item In other words, we can suitably add $n - m$ vectors from $B$ to $S$ to form a basis $\set{w_1, \dots, w_m, v_{m+1}, \dots, v_n}$ of $V$.
+\end{itemize}
+\end{theorem}
+
+\section*{Replacement Theorem (Exchange Theorem)}
+\begin{theorem}
+
+\end{theorem}
+
+\section*{All Bases Have Equal Length}
+\begin{theorem}
+Let $V$ be a vector space, $B_1 = \set{v_1, \dots, v_n}$, $B_2 = \set{w_1, \dots, w_m}$ be bases of $V$. Then, $n = m$.
+\begin{itemize}
+    \item In other words, every basis for $V$ has the same number of elements
+\end{itemize}
+\end{theorem}
+\begin{proof}
+By contradiction, suppose $m > n$. Then, let $S = \set{w_1, \dots, w_n, w_{n+1}} \subseteq B_2$. Since $B_2$ is a basis, it is linearly independent, and since $S \subseteq B_2$, $S$ is linearly independent. Then, since $B_1$ spans $V$ and $S$ is a linearly independent subset of $V$, by the (exchange lemma), $n + 1 \leq n$, which is a contradiction. Thus, $m \leq n$.
+\\ \\ Then, by contradiction, suppose $n < m$. Then, let $S = \set{v_1, \dots, v_m, v_{m+1}} \subseteq B_1$. Since $B_1$ is a basis, it is linearly independent, and since $S \subseteq B_1$, $S$ is linearly independent. Then, since $B_2$ spans $V$ and $S$ is a linearly independent subset of $V$, by the (exchange lemma), $m + 1 \leq m$, which is a contradiction. Thus, $n \geq m$.
+\\ \\ Thus, $m \leq n$ and $m \geq n$, so $m = n$.
+\end{proof}
+
+\section*{Dimension}
+\begin{definition}
+Let $V$ be a vector space. $V$ is \textbf{finite-dimensional} if and only if it has a finite basis.
+\begin{itemize}
+    \item Otherwise, $V$ is \textbf{infinite-dimensional}, $\dim{V} = \infty$
+\end{itemize}
+\end{definition}
+
+Infinite-dimensional vector spaces are much more complicated, and are beyond the scope.
+
+\begin{definition}
+Let $V$ be a vector space with a finite basis. The \textbf{dimension} of $V$, $\dim{V}$, is the unique length of a basis of $V$.
+\end{definition}
+
+
+\begin{example}
+The vector space $\set{0}$ has dimension $0$, $\dim{\set{0}} = 0$.
+\end{example}
+
+\begin{example}
+The vector space $\mathbb{F}^n$ has dimension $n$, $\dim{\mathbb{F}^n} = n$, as the standard basis of $\mathbb{F}^n$ has $n$ elements.
+\end{example}
+
+\begin{example}
+The vector space $P_{n}(\mathbb{F})$ has dimension $n+1$.
+\end{example}
+
+\begin{example}
+$\dim{(M_{m \times n}(\mathbb{F}))} = mn$.
+\end{example}
+
+\begin{example}
+The vector space of all polynomials $P(\mathbb{F})$ is an infinite-dimensional vector space.
+\end{example}
+
+\begin{theorem}
+Let $V$ be a vector space with dimension $n$, $S \subseteq V$. Then,
+\begin{enumerate}[(a)]
+    \item If $S$ is linearly independent, then $S$ has at most $n$ elements. Equivalently, if $S$ has more than $n$ elements, then $S$ is linearly dependent.
+    \item If $S$ spans $V$, then $S$ has at least $n$ elements.
+    \item $S$ is a basis of $V$ if and only if $S$ is linearly independent and contains exactly $n$ elements.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item 
+    \item Let $S$ span $V$. Then, there exists a subset $B \subseteq S$ such that $B$ is a basis of $V$. Since $\dim{V} = n$, $B$ contains $n$ vectors. Thus, $S$ contains at least $n$ vectors.
+\end{enumerate}
+\end{proof}
+
+\section*{Basis Extension Theorem}
+\begin{theorem}
+Let $V$ be a vector space with dimension $n$, $B = \set{w_1, \dots, w_n}$ be a basis of $V$, $S = \set{v_1, \dots, v_k} \subseteq V$ be linearly independent. Then, $S$ can be extended to a basis of $V$, by adding $n-k$ vectors to $S$.
+\end{theorem}
+
+\section*{Basis Test}
+\begin{theorem}
+Let $V$ be a vector space with dimension $n$. Then,
+\begin{enumerate}
+    \item If $S = \set{v_1, \dots, v_n}$ is linearly independent, then $S$ is a basis for $V$.
+    \item If $S = \set{v_1, \dots, v_n}$ spans $V$, then $S$ is a basis for $V$.
+\end{enumerate}
+\begin{proof}
+EXERCISE.
+\end{proof}
+
+\end{theorem}
+
+
+\end{document}

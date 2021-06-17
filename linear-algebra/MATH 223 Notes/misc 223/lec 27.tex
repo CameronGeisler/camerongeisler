@@ -1,0 +1,129 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Course}
+\chead{Title}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}} %vector
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value / magnitude of vector
+\renewcommand{\neg}{\sim}
+
+%% Linear algebra
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{null}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+
+\begin{document}
+
+\begin{theorem}
+Let $V$ be a finite dimensional vector space, $f: V \rightarrow V$ be an endomorphism, $B = (v_1, \dots, v_n)$ be a basis for $V$ made up of eigenvectors of $f$, where the eigenvalue of $v_i$ is $\lambda_i$.
+\\ \\ Then, $f(v_i) = \lambda_i v_i$, $v_i \neq 0$.
+\\ \\ See OneNote
+\end{theorem}
+
+Conversely, if $f: V \rightarrow V$ is an endomorphism, there exists a basis $B$ such that $[f]_B = A$ is diagonal (say with $\lambda_i$s on the diagonal), then
+\begin{align*}
+    A(e_i) & = \lambda_i e_i \\
+    \Phi^{-1} f \Phi (e_i) & = \lambda_i e_i \\
+    f(\Phi(e_i)) & = \lambda_i \Phi(e_i)
+\end{align*}
+so $B = (\Phi(e_1), \dots, \Phi(e_n))$ is a basis consisting of eigenvectors of $f$.
+
+\section*{Diagonalization}
+Let $V$ be a vector space over $\mathbb{F}$, $f: V \rightarrow V$ be an endomorphism. $\lambda \in \mathbb{F}$ is an eigenvalue of $f$ if $\exists v \in V$, $v \neq 0$, such that $f(v) = \lambda v$.
+\\ $\iff \ker{(\lambda Id_{V} - f)} \neq \set{0}$
+\\ $\iff \det{(\lambda Id_{V} - f)} = 0$ (the characteristic equation)
+\\ the eigenspace of the eigenvalue $\lambda$ is $E_{\lambda} = \ker{(\lambda Id_{V} - f)} = \set{0} \cup \set{\text{eigenvalues corresponding to $\lambda$}}$
+\\ $\dim{E_{\lambda}}$ is the geometric multiplicity of $\lambda$
+
+
+
+To determine if $f$ is diagonalizable,
+\begin{enumerate}
+    \item Find all eigenvalues, i.e. roots of $\lambda \longmapsto \det{(\lambda Id_{V} - f)}$
+    \item For each eigenvalue, find a basis for $E_{\lambda}$ using the row reduction algorithm.
+    \item Put them all together and see if you have $\dim{V}$ eigenvectors
+\end{enumerate}
+
+Assume $f$ is infinite, then for $P_n \longrightarrow Map(\mathbb{F}, \mathbb{F})$, the union of images is the space of polynomials.
+
+\begin{lemma}
+Let $p(t)$ be a polynomial of degree $n$, with root $\lambda \in \mathbb{F}$, i.e. $p(\lambda) = 0$. Then, $p(t) = (t - \lambda)q(t)$ for a unique polynomial $t$ of degree $n-1$.
+\end{lemma}
+\begin{proof}
+$p(t+\lambda)$ is another polynomial of degree $n$ without constant term, because $0$ is a root. Thus, $p(t + \lambda) = tq(t)$, and so $p(t - \lambda + \lambda) = (t - \lambda) q(t - \lambda)$.
+\end{proof}
+
+
+If $p_f(t)$ is the characteristic polynomial of $f: V \rightarrow V$, with $\lambda$ eigenvalue. Then we can factor out the linear factors of $\lambda$, $p_f(t) = (t- \lambda)^k q(t)$, where $q(\lambda) \neq 0$. Here, $k$ is the algebraic multiplicity of $\lambda$.
+
+\begin{corollary}
+If $\lambda$ is an eigenvalue of $f: V \rightarrow V$, then the geometric multiplicity of $\lambda$ is less than or equal to the algebraic multiplicity of $\lambda$.
+\end{corollary}
+
+An eigenvalue is deficient if geometric mult. less than algebraic mult.
+\\ Diagonalizability can go wrong in two ways:
+\begin{enumerate}
+    \item The characteristic polynomial may not have enough roots.
+    \item Any of the eigenvalues may be deficient.
+\end{enumerate}
+
+\begin{theorem}
+Every polynomial with complex coefficients has a root.
+\end{theorem}
+
+\begin{corollary}
+Let $f: V \rightarrow V$ over $\mathbb{C}$, $\lambda_i, dots, \lambda_k$ be eigenvalues of $f$. Then,
+\begin{align*}
+    P_f(t) & = \Pi_{i=1}^k (t - t_i)^{m_i}
+\end{align*}
+where $m_i$ is the algebraic multiplicity of $\lambda_i$.
+\\ Also, $\sum m_i = \sum \text{alg. mult.} = \dim{V}$
+\\ Also, $f$ is diagonalizable if and only if none of the eigenvalues are deficient.
+Thus, #1 is not a problem over $\mathbb{C}$, and for #2, 
+\end{corollary}
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,236 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Determinants}
+
+\begin{document}
+
+
+
+\section*{Determinant of Upper Triangular Matrix}
+\begin{theorem}
+If $A \in M(n \times n, \mathbb{F})$ in an upper triangular matrix, then $\det{A}$ is given by the product of the diagonal elements.
+\begin{equation*}
+    \det{A} = a_{11} \cdot \dots \cdot a_{nn}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+By induction, let $n = 1$. Then, if $A \in M(1 \times 1, \mathbb{F})$, $A = \begin{pmatrix} a_{11} \end{pmatrix}$ is upper triangular, and $\det{A} = a_{11}$.
+\\ \\ Then, assume that for $A \in M((n-1) \times (n-1), \mathbb{F})$, if $A$ is upper triangular, then $\det{A} = a_{11} \cdot \dots \cdot a_{(n-1)(n-1)}$. Then, for $A \in M(n \times n, \mathbb{F})$,
+\begin{align*}
+    \det{A} & = \sum_{i=1}^n (-1)^{i+1} a_{i 1} A_{i 1} \\
+    & = a_{11} \det{A_{11}} && \text{as $a_{i1} = 0$ for $i \neq 1$} \\
+    & = a_{11} (a_{22} \cdot \dots \cdot a_{nn}) && \text{by the induction hypothesis for an $(n-1)\times(n-1)$ matrix} \\
+    \det{A} & = a_{11} \cdot \dots \cdot a_{nn}
+\end{align*}
+Thus, by induction, the result is true for all $n \in \mathbb{N}$.
+\end{proof}
+
+\begin{corollary}
+Especially for matrices $4 \times 4$ or larger, to determine $\det{A}$, use row operations R1 and R3 to convert $A$ into row echelon form, $A'$ (since $A$ is square, this will make $A$ upper triangular). Then, if $r$ row swaps were used,
+\begin{equation*}
+    \det{A} = (-1)^r a'_{11} \cdot \dots \cdot a'_{nn}
+\end{equation*}
+\end{corollary}
+
+\begin{corollary}
+$A$ is invertible (i.e. $\rank{A} = n$) if and only if $\det{A} \neq 0$.
+\end{corollary}
+\begin{proof}
+The product of the diagonal entries of a matrix in upper triangular form is equal to zero if and only if at least one of them is zero.
+\begin{itemize}
+    \item If $\rank{A} < n$, then by property $2$, $\det{A} = 0$.
+    \item If $\rank{A} = n$, then row operations can convert $A$ into an upper triangular matrix which has a pivot in every row and column. Thus, all of the diagonal entries are non-zero, so $\det{A} \neq 0$.
+\end{itemize}
+\end{proof}
+
+Strictly speaking, the $\det$ we have discussed is the "row determinant", as we required that $\det$ is linear for each row. We can define, similarly, a "column determinant", which requires $\operatorname{coldet}{A}$ to be linear in each column (along with properties $2$ and $3$).
+\\ \\ Since $\colrk{A} = \rank{A}$, $\colrk{A} < n$ if and only if $\rank{A} < n$ (property 2). Also, the identity matrix is symmetric as $(I_n)^t = I_n$, so $\operatorname{coldet}{I_n} = \det{I_n} = 1$ (property 3). Finally, we need to show that $\operatorname{coldet}{A}$ is linear in each row.
+
+\begin{theorem}
+The determinant, $\det: M(n \times n, \mathbb{F}) \rightarrow \mathbb{F}$, is linear in the each column.
+\end{theorem}
+\begin{proof}
+Consider the column expansion formula for the $j$th column,
+\begin{align*}
+    \det{A} = \sum_{i=1}^n (-1)^{i+j} a_{ij} A_{ij}
+\end{align*}
+$A_{ij}$ is independent of the $j$th column (as the $j$th column has been removed). Thus, $A$ is linear in row $j$.
+\end{proof}
+
+Therefore, similarly to the equality of $\rowrk$ and $\colrk$, "row determinant" and "column determinant" are equivalent. In other words, \textbf{the determinant is linear in each row and each column}.
+
+\section*{Determinant of a Transpose}
+\begin{theorem}
+Let $A \in M(n \times n, \mathbb{F})$. Then,
+\begin{equation*}
+    \boxed{\det{A^t} = \det{A}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Let $A \in M(n \times n, \mathbb{F})$. Then,
+\begin{align*}
+    \det{A^t} & = \operatorname{rowdet}{A^t} && \text{definition of determinant} \\
+    & = \operatorname{coldet}{A^t} && \text{equality of $\operatorname{rowdet}$ and $\operatorname{coldet}$} \\
+    & = \operatorname{rowdet}{A} && \text{definition of transpose} \\
+    \det{A^t} & = \det{A} && \text{definition of determinant}
+\end{align*}
+\end{proof}
+
+\section*{Laplace Expansion along a Row}
+\begin{corollary}
+Let $A \in M(n \times n, \mathbb{F})$, $j \in \set{1, \dots, n}$. Then,
+\begin{equation*}
+    \boxed{\det{A} = \sum_{i=1}^n (-1)^{i+j} a_{ij} \det{A_{ij}}}
+\end{equation*}
+\end{corollary}
+
+\section*{Adjugate of a Matrix}
+\begin{definition}
+Let $A \in M(n \times n, \mathbb{F})$. The \textbf{adjugate} of $A$, $\operatorname{adj}{A} \in M(n \times n, \mathbb{F})$ is the transpose of its cofactor matrix.
+\begin{equation*}
+    \operatorname{adj}{A} = (-1)^{i+j} \det{A_{ji}}
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+Let $A \in M(n \times n, \mathbb{F})$. If $\det{A} \neq 0$, then,
+\begin{equation*}
+    A^{-1} = \dfrac{1}{\det{A}} \adj{A}
+\end{equation*}
+\end{theorem}
+
+\begin{corollary}
+Let $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$. Then,
+\begin{equation*}
+    \boxed{A^{-1} = \dfrac{1}{\det{A}} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}}
+\end{equation*}
+\end{corollary}
+
+\section*{Determinant of a Product}
+\begin{theorem}[Determinant of a product]
+Let $A$, $B \in M(n \times n, \mathbb{F})$. Then,
+\begin{equation*}
+    \boxed{\det{AB} = \det{A} \cdot \det{B}}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Let $B \in M(n \times n, \mathbb{F})$. Consider the map
+\begin{align*}
+    f: M(n \times n, \mathbb{F}) & \longrightarrow \mathbb{F} \\
+    A & \longmapsto \dfrac{1}{\det{B}} \det{AB}
+\end{align*}
+$f$ is linear in each row, as changing the $i$th row of $A$ only affects the $i$th row of $AB$. In other words, the following map is linear:
+\begin{align*}
+    \mathbb{F}^n & \longrightarrow \mathbb{F}^n \\
+    A^i & \longmapsto (AB)^i
+\end{align*}
+Thus, $f$ satisfies property $1$.
+\\ \\ Also, if $\rank{A} < n$, then since $\Image{AB} \subset \Image{A}$, we have $\rank{AB} \leq \rank{A} < n$. Thus,
+\begin{equation*}
+    f(A) = \dfrac{1}{\det{B}} \det{AB} = \dfrac{1}{\det{B}} \cdot 0 = 0
+\end{equation*}
+Thus, $f$ satisfies property $2$.
+\\ \\ Finally,
+\begin{equation*}
+    f(I_n) = \dfrac{1}{\det{B}} \det(I_n B) = \dfrac{1}{\det{B}} \det{B} = 1
+\end{equation*}
+Thus, $f$ satisfies property $3$, and so $f$ is the determinant map. In other words, $f(A) = \det{A}$. Thus,
+\begin{itemize}
+    \item If $\det{B} \neq 0$, then we have
+    \begin{align*}
+        \det{A} & = \dfrac{1}{\det{B}} \det{AB} \\
+        \det{AB} & = \det{A} \cdot \det{B}
+    \end{align*}
+    \item If $\det{B} = 0$, then $\rank{B} < n$. Then, since $\Image{AB} \subset \Image{A}$, we have $\rank{AB} < n$, and so $\det{AB} = 0$.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+Let $A \in M(n \times n, \mathbb{F})$. If $A$ is invertible, then
+\begin{equation*}
+    \boxed{\det{(A^{-1})} = \dfrac{1}{\det{A}}}
+\end{equation*}
+\end{corollary}
+\begin{proof}
+\begin{equation*}
+    1 = \det{I_n} = \det{(AA^{-1})} = \det{A} \cdot \det{A^{-1}}
+\end{equation*}
+Thus, $\det{A^{-1}} = \dfrac{1}{\det{A}}$.
+\end{proof}
+
+\begin{definition}
+Let $f: V \rightarrow V$ be an endomorphism, $[f]$ be the matrix corresponding to $f$, $B = (v_1, \dots, v_n)$ be a basis of $V$.
+\\ Then, the \textbf{determinant of $f$ with respect to $B$} is $\det{f} = \det{[f]_B^B}$
+\end{definition}
+
+\section*{Determinant of an Endomorphism}
+\begin{corollary}
+We can define $\det{F}$ for any endomorphism $F: V \longrightarrow V$, where $V$ is a finite dimensional vector space over $\mathbb{F}$.
+\end{corollary}
+\begin{proof}
+Let $B$ be a basis of $V$. Define $\det{F} = \det{[f]_B^B}$. If $C$ is another basis, then since $[f]_C^B [g]_B^C = [f \circ g]_C^A$ and $[id]_C^B [id]_B^C = I_n$
+\begin{equation*}
+    [id]_C^B [F]_B^B [id]_B^C = [F]_C^C
+\end{equation*}
+Then,
+\begin{equation*}
+    \det{[id]_C^B [F]_B^B [id]_B^C} = \det{[id]_C^B} + \det{[F]_B^B} + \det{[id]_B^C} = \det{[F]_C^C}
+\end{equation*}
+\end{proof}
+
+
+
+
+\section*{Examples}
+\begin{example}
+Let $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ be a linear transformation such that
+\begin{align*}
+    T\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix} \right) & = \begin{bmatrix} 1 \\ 2 \end{bmatrix} && T\left(\begin{bmatrix} 1 \\ 2 \end{bmatrix} \right) = \begin{bmatrix} 1 \\ 3 \end{bmatrix}
+\end{align*}
+Determine the determinant of $T$.
+\\ \\ Let $[T] = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$. Then,
+\begin{align*}
+    \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} & = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \\
+    \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} 1 \\ 2 \end{bmatrix} & = \begin{bmatrix} 1 \\ 3 \end{bmatrix}
+\end{align*}
+This forms the system of equations
+\begin{align*}
+    a + b & = 1 \\
+    c + d & = 2 \\
+    a + 2b & = 1 \\
+    c + 2d & = 3
+\end{align*}
+Forming the augmented matrix, we get
+\begin{equation*}
+    \begin{bmatrix}
+    1 & 1 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 1 & 2 \\
+    1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 2 & 3
+    \end{bmatrix}
+\end{equation*}
+Converting to reduced row echelon form, we get
+\begin{equation*}
+    \begin{bmatrix}
+    1 & 0 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 1 \\
+    0 & 0 & 0 & 1 & 1
+    \end{bmatrix}
+\end{equation*}
+Thus, $[T] = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}$
+\\ \\ Therefore, $\det{[T]} = \det{\begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}} = 1$
+\end{example}
+
+\section*{Area of a Triangle Using Determinants}
+\begin{theorem}
+A triangle in the plane with vertices $(a,b), (c,d), (e,f)$ has area
+\begin{equation*}
+    A = \frac{1}{2} \begin{vmatrix} a & b & 1 \\ c & d & 1 \\ e & f & 1 \end{vmatrix}
+\end{equation*}
+\end{theorem}
+
+\section*{Evaluating Determinants Using a Graphing Calculator}
+
+\end{document}

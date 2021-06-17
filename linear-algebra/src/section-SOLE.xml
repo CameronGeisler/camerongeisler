@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-SOLE">
+    <title>Systems of Linear Equations</title>
+    
+    <introduction>
+        <p>
+            In high-school algebra, we consider systems of <em>two</em> linear equations in <em>two</em> unknowns. For example,
+            <md>
+                <mrow>x + 2y \amp = 5</mrow>
+                <mrow>2x + 3y \amp = 8</mrow>
+            </md> These systems can be solved graphically, using substitution, or using elimination.
+        </p>
+            <assemblage>
+                <p>
+                    Solving systems of linear equations is the foundational problem of linear algebra.
+                </p>
+            </assemblage>
+        <p>
+            In linear algebra, we develop more advanced and general techniques to solve larger systems of equations.
+        </p>
+    </introduction>
+
+    <subsection xml:id="subsection-intro-to-systems-of-linear-equations">
+        <title>Introduction to Systems of Linear Equations</title>
+        <p>
+            Recall that in algebra, the degree of a term is the sum of the powers of the variables it contains. For example, <m>5x^2</m> has degree 2, <m>4xyz</m> has degree 3, and <m>x</m> has degree 1. A linear equation, broadly, is an equation where every term has degree at most 1. Here, we define a general linear equation in <m>n</m> variables.
+        </p>
+    
+    <definition>
+        <p>
+			A <term>linear equation</term> in the variables <m>x_1, \dots, x_n</m> is an equation which can be written in the form, <me>a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b</me> where <m>a_1, \dots, a_n, b \in \mathbb{R}</m> are called the <term>coefficients</term> of the equation.
+		</p>
+    </definition>
+
+    <p>
+        Most considered examples will contain somewhere from 2-5 variables (i.e. <m>n = 2, \dots, 5</m>). However, most real-life applications of linear algebra contain hundreds or thousands of variables.
+    </p>
+
+    <note>
+        The variables are denoted by <m>x_1, \dots, x_n</m> rather than <m>x, y, z</m> etc. in order to conveniently represent a large number of equations. If there are only two or three equations, then <m>x, y</m>, and <m>z</m> are sometimes used.
+    </note>
+
+    <definition>
+        <p>
+            A <term>system of linear equations</term>, broadly, is a collection of one or more linear equations involving the same variables. More precisely, a system of <m>m</m> linear equations in <m>n</m> unknowns is of the form
+            <md alignment="alignat">
+                <mrow>a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1</mrow>
+                <mrow>a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2</mrow>
+                <mrow>\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots</mrow>
+                <mrow>a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_n</mrow>
+            </md>
+            where <m>a_{ij}, b_i \in \mathbb{R}</m> are the <term>coefficients</term> of the system. Notice that the coefficients <m>a_{ij}</m> use <em>double subscript</em> notation. Here, <m>a_{ij}</m> represents the coefficients of <m>x_j</m> in the <m>i</m>th equation.
+        </p>
+        <p><ul>
+            <li>
+                <p>
+                    A system of linear equations is also sometimes called <term>simultaneous linear equations</term>, or simply a <term>linear system</term>, or sometimes simply a <term>system</term>.
+                </p>
+            </li>
+            <li>
+                <p>The variables <m>x_1, \dots, x_n</m> are sometimes called <term>unknowns</term>.</p>
+            </li>
+            <li>
+                <p>A <term>solution</term> of a linear system is an ordered tuple <m>(s_1, \dots, s_n)</m> which, when substituted for <m>(x_1, \dots, x_n)</m>, respectively, makes each equation a true statement.</p>
+            </li>
+            <li>
+                <p>The set of all possible solutions of a linear system is called its <term>solution set</term>.</p>
+            </li>
+            <li>
+                <p>Two linear systems are <term>equivalent</term> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</p>
+            </li>
+        </ul></p>
+    </definition>
+    </subsection>
+
+    <subsection xml:id="systems-of-two-linear-equations-in-two-variables">
+        <title>Systems of Two Linear Equations In Two Variables</title>
+        <p>
+            A system of two linear equations in two variables is of the form,
+            <md>
+                <mrow> a_{11} x_1 + a_{12} x_2 \amp = b_1 </mrow>
+                <mrow> a_{21} x_1 + a_{22} x_2 \amp = b_2 </mrow>
+            </md>
+            Graphically, these two linear equations represent lines in the plane, say denoted by <m>L_1</m> and <m>L_2</m>, respectively. Then, an ordered pair <m>(s_1,s_2)</m> is a solution to the system if it satisfies both equations in the system. Graphically, this means that the point <m>(s_1,s_2)</m> lies on both lines <m>L_1</m> and <m>L_2</m>.
+        </p>
+
+        To <term>solve</term> a system is to determine all of its soltions. The set of all solutions of a system is called its <term>solution set</term>.
+
+        <p>
+            In general, two lines in the plane can,
+            <ul>
+                <li>
+                    Intersect at a single point.
+                </li>
+                <li>
+                    Be parallel to each other, and so never intersect.
+                </li>
+                <li>
+                    Coincide (overlap each other), and so intersect infinitely many times.
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            In the language of solutions of linear systems, these correspond to the possibilities of the system having,
+            <ul>
+                <li>
+                    Exactly one solution.
+                </li>
+                <li>
+                    No solution.
+                </li>
+                <li>
+                    Infinitely many solutions.
+                </li>
+            </ul>
+        </p>
+
+        <definition>
+            A system of linear equations is <term>consistent</term> if it has at least one solution. Otherwise, it is <term>inconsistent</term>, i.e. if it has no solution.
+        </definition>
+    </subsection>
+
+    <subsection>
+        <title>Misc</title>
+
+        <definition>
+            Two linear systems are called <term>equivalent</term> if they have the same solution set. That is, every solution of the first system is a solution of the second system, and vise versa.
+        </definition>
+    </subsection>
+    
+</section>

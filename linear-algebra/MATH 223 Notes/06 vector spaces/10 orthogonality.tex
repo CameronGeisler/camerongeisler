@@ -1,0 +1,374 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Orthogonality}
+
+\DeclareMathOperator{\proj}{proj}
+
+\begin{document}
+
+\section*{Orthogonal}
+\begin{definition}
+Let $V$ be a Euclidian vector space, $x$, $y \in V$. The elements $x$ and $y$ are \textbf{orthogonal} (or \textbf{perpendicular}), $x \perp y$, if and only if $\inp{x}{y} = 0$
+
+\begin{itemize}
+    \item If $\inp{x}{y} = 0$, then $\alpha = \arccos{\dfrac{\inp{x}{y}}{\norm{x} \norm{y}}} = \arccos{0} = \ang{90}$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $V$ be a Euclidian vector space, $S \subseteq V$. $S$ is \textbf{orthogonal} if and only if any distinct pair of vectors in $S$ are orthogonal. In other words, $\forall x$, $y \in S$, $\inp{x}{y} = 0$.
+\begin{itemize}
+    \item Equivalently, $\forall i$, $j$, $\inp{v_i}{v_j} = \delta_{ij}$
+\end{itemize}
+\end{definition}
+
+\section*{Orthogonal Complement}
+\begin{definition}
+Let $V$ be a Euclidian vector space, $S \subseteq V$. The \textbf{orthogonal complement} of $S$, $S^{\perp}$, is the set of all vectors in $V$ are that are orthogonal to all vectors in $S$.
+\begin{equation*}
+    S^{\perp} = \set{v \in V: \forall x \in S, \inp{v}{x} = 0}
+\end{equation*}
+\end{definition}
+
+\begin{corollary}
+Let $V$ be a Euclidian vector space. Then,
+\begin{enumerate}
+    \item $\set{0}^{\perp} = V$
+    \item $V^{\perp} = \set{0}$
+    \item If $U \subset V$ is a subspace, then $U \cap U^{\perp} = \set{0}$
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+\begin{enumerate}
+    \item[]
+    \item Since $\forall v \in V$, $\inp{v}{0} = 0$, we have $\set{0}^{\perp} = \set{v \in V: \inp{v}{0} = 0} = V$
+    \item $V^{\perp} = \set{v \in V: \forall w \in V, \inp{v}{w} = 0} = \set{0}$
+    \item Let $x \in U \cap U^{\perp}$. Then, $x \in U$ and $x \in U^{\perp}$. Since $x \in U^{\perp}$, $\forall w \in U$, $\inp{x}{w} = 0$. Since $x \in U$, $\inp{x}{x} = 0$, and so $x = 0$.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+
+\end{corollary}
+
+\begin{corollary}
+$M^{\perp}$ is a subspace of $V$.
+\end{corollary}
+\begin{proof}
+We want to show that $M^{\perp}$ is non-empty, and is closed under addition and scalar multiplication.
+\begin{itemize}
+    \item $\forall u \in M$, $0 \perp M$, thus $0 \in M^{\perp}$, so $M^{\perp} \neq \emptyset$.
+    \item Let $u \in M$, $x$, $y \in M^{\perp}$. Then, $\inp{x}{u} = 0$ and $\inp{y}{u} = 0$. Then,
+    \begin{align*}
+        \inp{x+y}{u} & = \inp{x}{u} + \inp{y}{u} = 0
+    \end{align*}
+    Thus, $x + y \in M^{\perp}$.
+    \item Let $\lambda \in \mathbb{R}$. Then,
+    \begin{align*}
+        \inp{\lambda x}{u} & = \lambda \inp{x}{u} = \lambda (0) = 0
+    \end{align*}
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+If $M = \Span{(v_1, \dots, v_r)}$, then $M^{\perp} = \set{v_1, \dots, v_r}^{\perp}$.
+\end{corollary}
+
+\section*{Orthonormal Systems}
+\begin{definition}
+Let $V$ be a Euclidian vector space, $S \subseteq V$. $S$ is \textbf{orthonormal} if and only if $S$ is orthogonal and consists only of unit vectors.
+\end{definition}
+
+\begin{definition}
+Let $V$ be a Euclidian vector space, $v_1, \dots, v_r \in V$. $(v_1, \dots, v_r)$ is an \textbf{orthonormal system} (or \textbf{orthonormal family}) if
+\begin{enumerate}
+    \item All vectors have length $1$. $\forall i = \set{1, \dots, r}$, $\norm{v_i} = 1$
+    \item Each vector is orthogonal to all other vectors. In other words, $\forall i$, $j \in \set{1, \dots, r}$, $\inp{v_i}{v_j} = \delta_{ij}$
+\end{enumerate}
+\begin{itemize}
+    \item Vectors in an orthonormal system are pairwise mutually perpendicular vectors of length $1$.
+    \item A single vector is also an orthonormal system.
+\end{itemize}
+\end{definition}
+
+\begin{lemma}
+All orthonormal systems are linearly independent.
+\end{lemma}
+\begin{proof}
+Let $(v_1, \dots, v_r)$ be an orthonormal system, $\lambda_1 v_1 + \dots + \lambda_r v_r = 0$. Then, for $i = \set{1, \dots, r}$, consider the inner product
+\begin{align*}
+    0 & = \inp{0}{v_i} \\
+    & = \inp{\lambda_1 v_1 + \dots + \lambda_r v_r}{v_i} \\
+    & = \lambda_1 \inp{v_1}{v_i} + \dots + \lambda_i \inp{v_i}{v_i} + \dots + \lambda_4 \inp{v_r}{v_i} \\
+    & = \lambda_i
+\end{align*}
+Thus, $\lambda_i = 0$ for all $i = 1, \dots, r$
+\end{proof}
+
+\begin{definition}
+Let $V$ be a Euclidian vector space. An \textbf{orthonormal basis} of $V$ is an orthonormal system that is a basis of $V$.
+\end{definition}
+
+\section*{Expansion with Respect to an Orthonormal Basis}
+\begin{theorem}
+Let $(v_1, \dots, v_n)$ be an orthonormal basis for $V$. Then, $\forall x \in V$,
+\begin{align*}
+    x = \sum_{i=1}^n \inp{x}{v_i} v_i
+\end{align*}
+\end{theorem}
+\begin{proof}
+Since $\Span{(v_1, \dots, v_n)} = V$, $\exists \lambda_1, \dots, \lambda_n \in \mathbb{R}$ such that
+\begin{equation*}
+    x = \lambda_1 v_1 + \dots + \lambda_n v_n
+\end{equation*}
+Mapping both sides of the equation with $\inp{\cdot}{v_i}$,
+\begin{align*}
+    \inp{x}{v_i} & = \inp{\lambda_1 v_1 + \dots + \lambda_n v_n}{v_i} \\
+    & = \lambda_1 \inp{v_1}{v_i} + \dots + \lambda_i \inp{v_i}{v_i} + \dots + \lambda_n \inp{v_n}{v_i} \\
+    & = \lambda_i \inp{v_i}{v_i} && \text{as $\inp{v_i}{v_j} = 0$ for $i \neq j$} \\
+    & = \lambda_i && \text{as $\inp{v_i}{v_i} = 1$}
+\end{align*}
+Thus, $x = \sum_{i=1}^n \lambda_i v_i = \sum_{i=1}^n \inp{x}{v_i} v_i$, as desired.
+\end{proof}
+
+\section*{Orthogonal Projection}
+\begin{definition}
+Let $V$ be a Euclidian vector space, $U \subset V$ be a finite-dimensional subspace, $(v_1, \dots, v_r)$ be an orthonormal basis for $U$. The \textbf{orthogonal projection} of $v$ onto $U$, $\proj_{U}(v)$, is
+\begin{equation*}
+    \proj_{U}(v) = \sum_{i=1}^r \inp{v}{v_i} v_i
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+There exists a unique linear map $\proj_{U}: V \rightarrow U$ such that
+\begin{itemize}
+    \item $\forall u \in U$, $\proj_{U}(u) = u$
+    \item $\ker{(\proj_{U})} = U^{\perp}$
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+Let $V$ be a Euclidian vector space, $U \subset V$ be a finite-dimensional subspace, $(v_1, \dots, v_r)$ be an orthonormal basis for $U$. Then, $V = U \oplus U^{\perp}$. In other words, $\forall v \in V$, there exists a unique $u \in U$ and $w \in U^{\perp}$ such that $v = u + w$.
+\begin{itemize}
+    \item In particular,
+    \begin{align*}
+        u & = \proj_{U}(v) && w = v - \proj_{U}(v)
+    \end{align*}
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item To show uniqueness, let $v \in V$, $u$, $u' \in U$, $w$, $w' \in U^{\perp}$ with $v = u + w$ and $v = u' + w'$. Then, $u - u' = w' - w$, with $u - u' \in U$ and $w' - w' \in U^{\perp}$. Thus, $u - u'$, $w' - w \in U \cap U^{\perp} = \set{0}$. Thus, $u - u' = w' - w = 0$, and so $u = u'$ and $w = w'$.
+    \item To show existence, let $v \in V$, $u = \proj_{U}(v) \in U$, $w = v - u$, so that $v = u + w$. Then, let $j \in \set{1, \dots, r}$, and
+    \begin{align*}
+        \inp{w}{v_j} & = \inp{v - u}{v_j} \\
+        & = \inp{v}{v_j} - \inp{u}{v_j} && \text{by linearity} \\
+        & = \inp{v}{v_j} - \inp{\sum_{i=1}^r \inp{v}{v_i} v_i}{v_j} \\
+        & = \inp{v}{v_j} - \inp{v}{v_j} \\
+        & = 0
+    \end{align*}
+    Thus, $\inp{w}{v_j} = 0$, so $w \in U^{\perp}$.
+\end{itemize}
+\end{proof}
+
+
+
+
+
+
+
+
+\section*{Gram-Schmidt Orthonormalization}
+\begin{theorem}
+Let $V$ be a Euclidian vector space, $v_1, \dots, v_n \in V$ be a linearly independent family, $U_r \subset V$ be a $r$-dimensional subspace. Then, there exists an orthonormal basis for $U_r$, $(v_1', \dots, v_r')$.
+
+\begin{proof}
+By induction, let $r = 0$, then $U_0 = \set{0}$, so the orthonormal basis contains only the zero vector.
+\\ \\ Then, assume that an orthonormal system exists $(v_1', \dots, v_{r-1}')$ for an $(r-1)$-dimensional subspace $U_{r-1}$. We want to show that an orthonormal system $(v_1', \dots, v_r')$ exists for an $r$-dimensional subspace $U_r$.
+\end{proof}
+
+
+\begin{align*}
+    v_1' & = \dfrac{v_1}{\norm{v_1}} \\
+    v_{k+1} & = \dfrac{v_{k+1} - \sum_{i=1}^k \inp{v_{k+1}}{v_i'} v_i'}{\norm{v_{k+1} - \sum_{i=1}^k \inp{v_{k+1}}{v_i'} v_i'}}
+\end{align*}
+\end{theorem}
+
+\begin{theorem}
+Let $V$ be a Euclidian vector space, $v_1, \dots, v_n \in V$ be a linearly independent family. Let $U_k = \Span{v_1, \dots, v_k}$ ($U_0 = \set{0}$). Thus $\dim{U_k} = k$. $k = 0, \dots, n$. $\set{0} = U_0 \subset U_1 \subset \dots \subset U_n \subset V$.
+\\ \\ Then, there exists a unique orthonormal system $(v_1', \dots, v_k')$ such that
+\begin{itemize}
+    \item $\Span{(v'_1, \dots, v'_k)} = U_k$
+    \item $\inp{v_k'}{v_k'} = 1$
+\end{itemize}
+\end{theorem}
+\begin{proof}
+
+Note: $U_{k-1} \subset U_k$.
+\\ \\ $U_{k-1}^{\perp} \cap U_k$ is the orthogonal complement of $U_{k-1}$ in $U_k$. By the above lemma,
+\begin{align*}
+    U_k = U_{k-1} \oplus U_{k-1}^{\perp} \cap U_k
+\end{align*}
+By the dimension formula for a sum of subspaces, $\dim{U_k} = \dim{U_{k-1}} + \dim{(U^{\perp}_{k-1} \cap U_k)}$. Since $\dim{U_k} = k$ and $\dim{U_{k-1}} = k-1$, we have $\dim{(U^{\perp}_{k-1} \cap U_k)} = 1$.
+\\ \\ Write $p = \proj_{u_{k-1}}(v_k)$. Then, $0 \neq v_k - p \in U_{k-1}^{\perp} \cap U_k$. Then, $v_k = p + (v_k - p)$, with $p \in U_{k-1}$ and $v_k - p \in U_{k-1}^{\perp} \cap U_k$. Since $v_k - p$ is a non-zero vector in a $1$-dimensional vector space, $v_k - p$ is a basis of $U_{k-1}^{\perp} \cap U_k$.
+\\ \\ We need $v_k' \perp U_{k-1} = \Span{(v'_1, \dots, v'_{k-1})}$, induction, Also, we need $v'_k \in U_{k-1}^{\perp} \cap U_k$. So we need $v'_k = \alpha (v_k - p)$ for some $\alpha \in \mathbb{R}$.
+\\ \\ We also need
+\begin{align*}
+    0 & < \left< v_k', v_k \right> \\
+    & = \left< \alpha(v_k - p), v_k \right> \\
+    & = \alpha \left< v_k - p, v_k \right> \\
+    & = \alpha \left< v_k - p, v_k - p \right> && \text{as since $v_k-p \in U_{k-1}^{\perp}$ and $p \in U_{k-1}$, we have $\left<v_k - p, p \right> = 0$} \\
+    & = \alpha \| v_k - p \|^2
+\end{align*}
+Since $\| v_k - p \|^2 > 0$, $\alpha > 0$.
+\\ \\ We also need $\left<v_k', v_k' \right> = 1$.
+\begin{align*}
+    1 & = \left< v_k', v_k' \right> \\
+    & = \left< \alpha(v_k - p), \alpha(v_k - p) \right> \\
+    & = \alpha^2 \| v_k - p \|^2
+\end{align*}
+Thus, $\alpha = \dfrac{1}{\| v_k - p \|}$ (as $\alpha > 0)$. Thus,
+\begin{align*}
+    v_k' & = \dfrac{v_k-p}{\| v_k - p \|}
+\end{align*}
+This satisfies all the requirements.
+\end{proof}
+
+\section*{Orthogonal Maps}
+\begin{definition}
+Let $V$, $V'$ be Euclidian vector spaces. A linear map $f: V \rightarrow V'$ is an \textbf{orthogonal map} (or an \textbf{isometry}) if $\forall x$, $y \in V$,
+\begin{equation*}
+    \inp{f(x)}{f(y)} = \inp{x}{y}
+\end{equation*}
+\end{definition}
+
+\begin{corollary}
+Every orthogonal map is injective.
+\end{corollary}
+\begin{proof}
+Let $x \in \ker{f}$. Then,
+\begin{align*}
+    \inp{x}{x} = \inp{f(x)}{f(x)} & = \inp{0}{0} = 0
+\end{align*}
+Thus, $\inp{x}{x} = 0$, so $x = 0$. Therefore, $\ker{f} = 0$, so $f$ is injective.
+\end{proof}
+
+\begin{theorem}
+Let $V$ be a finite-dimensional vector space. If $f: V \rightarrow V$ is an orthogonal endomorphism, then $f$ is an isomorphism, and $f^{-1}$ is orthogonal.
+\end{theorem}
+
+\begin{theorem}
+Let $B = (v_1, \dots, v_n)$ be an orthogonal basis of $V$. Then, $f: V \rightarrow V'$ is orthogonal if and only if $(f(v_1), \dots, f(v_n))$ is an orthonormal system in $V'$.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item Let $f: V \rightarrow V'$ be orthogonal. Then for $i$, $j \in \set{1, \dots, n}$, $i \neq j$, we have $\inp{f(v_i)}{f(v_j)} = \inp{v_i}{v_j} = 0$. Thus, $f(v_i) \perp f(v_j)$, so $(f(v_1), \dots, f(v_n))$ is an orthonormal system for $V'$.
+    \item Let $(f(v_1), \dots, f(v_n))$ be an orthonormal system for $V'$. Then, let $x = \sum_{i=1}^n \lambda_i v_i$, $y = \sum_{j=1}^n \mu_j v_j \in V$. Then,
+    \begin{align*}
+        \inp{f(x)}{f(y)} & = \inp{f \left(\sum_{i=1}^n \lambda_i v_i \right)}{f \left(\sum_{j=1}^n \mu_j v_j \right)} \\
+        & = \inp{\sum_{i=1}^n \lambda_i f(v_i)}{\sum_{j=1}^n \mu_j f(v_j)} \\
+        & = \sum_{i=1}^n \sum_{j=1}^n \lambda_i \mu_j \inp{f(v_i)}{f(v_j)} \\
+        & = \sum_{i=1}^n \sum_{j=1}^n \lambda_i \mu_j \inp{v_i}{v_j} && \text{as $f$ is orthogonal} \\
+        & = \inp{\sum_{i=1}^n \lambda_i v_i}{\sum_{j=1}^n \mu_j v_j} \\
+        & = \inp{x}{y}
+    \end{align*}
+    Thus, $\inp{f(x)}{f(y)} = \inp{x}{y}$, so $f$ is orthonormal.
+\end{itemize}
+\end{proof}
+
+\begin{definition}
+Let $V$ be a finite-dimensional Euclidian vector space. Then, the \textbf{orthogonal group} of $V$, $O(V)$, is the set of orthogonal isomorphisms $f: V \rightarrow V$. In other words,
+\begin{align*}
+    O(V) = \set{f: V \rightarrow V \mid \text{ $f$ is orthogonal }}
+\end{align*}
+\end{definition}
+
+
+
+
+$\iff$ $A$ is invertible and $A^t = A^{-1}$, $\iff A A^t = I_n$, $\iff$ the rows of $A$ form an orthonormal basis of $\mathbb{R}^n$.
+
+\begin{corollary}
+$A$ is orthonormal if and only if $A^{-1} = A^t$.
+\end{corollary}
+
+\begin{example}
+The rotation matrix $R_{\theta} = \begin{pmatrix} \cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta} \end{pmatrix}$ is an orthogonal map.
+\end{example}
+
+\section*{Orthogonal Matrices}
+\begin{definition}
+Let $A \in M(n \times n, \mathbb{R})$. $A$ is \textbf{orthogonal} if and only if its columns form an orthonormal system, with respect to the standard inner product on $\mathbb{R}^n$.
+\begin{itemize}
+    \item In other words, $(A_1, \dots, A_n) = (Ae_1, \dots, Ae_n)$, the images of the unit vectors, forms an orthonormal system of $\mathbb{R}^n$
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+The \textbf{orthogonal group} of degree $n$, $O(n)$, is the set of all orthogonal $n \times n$ matrices, with matrix multiplication as the group operation.
+\end{definition}
+
+\begin{corollary}
+$A \in O(n)$ if and only if the rows form an orthonormal basis.
+\end{corollary}
+
+\begin{corollary}
+$A \in O(n)$ is orthogonal if and only if $A^t A = AA^t = I_n$.
+\begin{proof}
+The entry in the $i$th row and $j$th column of $AA^t$ is
+\begin{align*}
+    (A^t A)_{ij} & = \sum_{k=1}^n (a^t)_{ik} a_{kj} && \text{definition of matrix multiplication} \\
+    & = \sum_{k=1}^n a_{ki} a_{kj} && \text{definition of transpose} \\
+    & = \inp{A_i}{A_j} \\
+    & = \delta_{ij} && \text{as the columns of $A$ are orthonormal}
+\end{align*}
+Thus, $(A^t A)_{ij} = \delta_{ij}$, so $A^t A = I_n$.
+\end{proof}
+\end{corollary}
+
+\begin{corollary}
+If $A \in O(n)$, then $\det{A} = \pm 1$
+\end{corollary}
+\begin{proof}
+\begin{equation*}
+    1 = \det{I_n} = \det{AA^t} = \det{A} \cdot \det{A^t} = (\det{A})^2
+\end{equation*}
+Thus, $(\det{A})^2 = 1$, so $\det{A} = \pm 1$.
+\end{proof}
+
+\begin{definition}
+Let $A \in O(n)$. $A$ is a \textbf{special orthogonal matrix} if and only if $\det{A} = 1$.
+\end{definition}
+
+\begin{definition}
+The \textbf{special orthogonal group} of degree $n$, $SO(n)$, is the set of special orthogonal $n \times n$ matrices.
+\begin{itemize}
+    \item The special orthogonal group is the intersection of the special linear group (all matrices with determinant $1$) and the orthogonal group (all orthogonal matrices) $SO(n) = SL(n) \cap O(n)$
+\end{itemize}
+\end{definition}
+
+\begin{corollary}
+$O(V) \subset GL(V)$ is a subgroup, as
+\begin{enumerate}
+    \item The composition of orthogonal maps are orthogonal.
+    \item The identity map $Id_{V}$ is orthogonal.
+    \item If $f$ is orthogonal, then $f^{-1}$ is orthogonal.
+\end{enumerate}
+\end{corollary}
+
+Concretely, consider $(\mathbb{R}^2, \text{std})$, then
+\begin{align*}
+    O(2) & = \set{\text{orthogonal $2x2$ real matrices}} \\
+    & = \set{\begin{pmatrix} \cos{\alpha} & -\sin{\alpha} \\ \sin{\alpha} & \cos{\alpha} \end{pmatrix} \mid \alpha \in \mathbb{R}} \cup \set{\begin{pmatrix} \cos{\alpha} & \sin{\alpha} \\ \sin{\alpha} & -\cos{\alpha} \end{pmatrix} \mid \alpha \in \mathbb{R}} \\
+    & = SO(2) \cup (O(2) \setminus SO(2))
+\end{align*}
+$SO(2)$ is all the rotations about $O$ in $\mathbb{R}^2$. $O(2) \setminus SO(2)$ is all the reflections across lines through $O$ in $\mathbb{R}^2$.
+
+
+\end{document}
+
+
+

@@ -1,0 +1,119 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Advanced Determinants, Linear Maps}
+
+\begin{document}
+
+\begin{definition}
+The \textbf{determinant} is the unique map
+\begin{equation*}
+    \det: M(n \times n, \mathbb{F}) \longrightarrow \mathbb{F}
+\end{equation*}
+with the following properties:
+\begin{enumerate}
+    \item The map $\det$ is linear in each row.
+    \begin{itemize}
+        \item Let $A$ be a matrix with all rows, $A^1, \dots, A^{k-1}, A^{k+1}, \dots, A^n \in \mathbb{F}$, held constant except the $k$th row, $x$. Then, $A$ is linear in row $k$.
+        \\ \\ In other words, the following map is linear:
+        \begin{align*}
+            \mathbb{F}^n & \longrightarrow \mathbb{F} \\
+            x = (x_1, \dots, x_n) & \longmapsto \det{(A^1, \dots, A^{k-1}, x, A^{k+1}, \dots, A^n)}
+        \end{align*}
+    \end{itemize}
+    \item If $\rank{A} < n$, then $\det{A} = 0$.
+    \begin{corollary}
+    If $A$ has two equal rows, then $\det{A} = 0$.
+    \end{corollary}
+    \item $\det{I_n} = 1$
+\end{enumerate}
+\end{definition}
+Note that the determinant takes in a square matrix, and returns a number.
+
+\begin{theorem}
+Let $\det: M(n \times n, \mathbb{F}) \rightarrow \mathbb{F}$ be a map, such that $\det$ is linear in each row, and if $\rank{A} < n$, then $\det{A} = 0$. Then,
+\begin{enumerate}
+    \item If $A'$ is a matrix obtained from $A$ by interchanging two rows, then $\det{A'} = - \det{A}$.
+    \item If $A'$ is a matrix obtained from $A$ by multiplying a row by $\lambda \in \mathbb{F}$, then $\det{A'} = \lambda \det{A}$.
+    \item If $A'$ is a matrix obtained from $A$ by adding a multiple of a row to another row, then $\det{A'} = \det{A}$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item Let $A = \begin{pmatrix} \dots \\ A^i \\ \dots \\ A^j \\ \dots \end{pmatrix}$, such that $A^i$ and $A^j$ are rows to be exchanged. Then, consider
+    \begin{align*}
+        0 & = \det{\begin{pmatrix} A^i + A^j \\ \dots \\ A^i + A^j \end{pmatrix}} && \text{two equal rows} \\
+        & = \det{\begin{pmatrix} A^i \\ \dots \\ A^i + A^j \end{pmatrix}} + \det{\begin{pmatrix} A^j \\ \dots \\ A^i + A^j \end{pmatrix}} && \text{linear in top row} \\
+        & = \det{\begin{pmatrix} A^i \\ \dots \\ A^i \end{pmatrix}} + \det{\begin{pmatrix} A^i \\ \dots \\ A^j \end{pmatrix}} + \det{\begin{pmatrix} A^j \\ \dots \\ A^i \end{pmatrix}} + \det{\begin{pmatrix} A^j \\ \dots \\ A^j \end{pmatrix}} && \text{linear in bottom row} \\
+        & = \det{\begin{pmatrix} A^i \\ \dots \\ A^j \end{pmatrix}} + \det{\begin{pmatrix} A^j \\ \dots \\ A^i \end{pmatrix}} \\
+        & = \det{A} + \det{A'}
+    \end{align*}
+    Thus,
+    \begin{equation*}
+        \det{A'} = -\det{A}
+    \end{equation*}
+    
+    \item Let $A = \begin{pmatrix} \dots \\ A^i \\ \dots \end{pmatrix}$, $A' = \begin{pmatrix} \dots \\ \lambda A^i \\ \dots \end{pmatrix}$. Then, since $\det{A'}$ is linear in each row,
+    \begin{equation*}
+        \det{A'} = \det{\begin{pmatrix} \dots \\ \lambda A^i \\ \dots \end{pmatrix}} = \lambda \det{\begin{pmatrix} \dots \\ A^i \\ \dots \end{pmatrix}} = \lambda \det{A}
+    \end{equation*}
+    
+    \item Let $A = \begin{pmatrix} A^i \\ \dots \\ A^j \end{pmatrix}$, $A' = \begin{pmatrix} A^i + \lambda A^j \\ \dots \\ A^j \end{pmatrix}$. Then,
+    \begin{align*}
+        \det{A'} & = \begin{pmatrix} A^i + \lambda A^j \\ \dots \\ A^j \end{pmatrix} \\
+        & = \det{\begin{pmatrix} A^i \\ \dots \\ A^j \end{pmatrix}} + \lambda \det{\begin{pmatrix} A^j \\ \dots \\ A^j \end{pmatrix}} && \text{linearity in row $i$} \\
+        & = \det{\begin{pmatrix} A^i \\ \dots \\ A^j \end{pmatrix}} && \text{two equal rows} \\
+        \det{A'} & = \det{A}
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+There exists a unique map $\det$ with above properties $1$, $2$, and $3$.
+\end{theorem}
+\begin{proof}
+\textbf{Uniqueness}. Let $\det$ and $\det'$ be two maps that both satisfy properties $1$, $2$, and $3$. Let $A \in M(n \times n, \mathbb{F})$. We want to show that $\det{A} = \det'{A}$.
+    \\ \\ First, note that if we let $A'$ be a matrix obtained from $A$ after elementary row operations, then since elementary row operations are reversible, $\det{A} = \det'{A}$ if and only if $\det{A'} = \det'{A'}$.
+    \begin{itemize}
+        \item If $\rank{A} < n$, then $0 = \det{A} = \det{A'}$.
+        \item If $\rank{A} = n$, then $A$ can be converted into the identity matrix $I_n$, by a sequence of row operations. Since $1 = \det{I_n} = \det'{I_n}$, it follows that $\det{A} = \det{A'}$, as desired.
+    \end{itemize}
+\textbf{Existance}. By induction, let $n = 1$. Then, the map $\det: M(1 \times 1, \mathbb{F}) \rightarrow \mathbb{F}, \begin{pmatrix} a \end{pmatrix} \mapsto a$ satisfies properties $1$, $2$, and $3$.
+\\ \\ Then, assume that $\det$ exists for all $A \in M((n-1) \times (n-1), \mathbb{F})$, with properties $1$, $2$, and $3$. Let $A_{ij}$ represent the matrix obtained from $A$ by removing the $i$th row and $j$th column. Then, let $k \in \set{1, \dots, n}$, and define $\det$ as,
+\begin{align*}
+    \det{A} & = \sum_{i=1}^n (-1)^{i+k} a_{ik} \det{A_{ik}}
+\end{align*}
+We want to show that $\det$ satisfies properties 1, 2, and 3, for $A \in M(n \times n, \mathbb{F})$.
+\begin{enumerate}
+    \item We want to show that $\det{A}$ is linear in the $j$th row of $A$, for all $j \in \set{1, \dots, n}$. We can show this by showing that each summand of $\det{A}$, $(-1)^{i+k} a_{ik} \det{A_{ik}}$, is linear.
+    \begin{itemize}
+        \item For $j \neq i$, $a_{ik}$ is independent of the $j$th row, so it can be treated as a constant. And, since $\det: M((n-1) \times (n-1), \mathbb{F}) \rightarrow \mathbb{F}$ has property $1$, $\det{A_{ik}}$ has property $1$.
+        \item For $j = i$ (i.e. the term with the $j$th row removed), note that the map $M(n \times n, \mathbb{F}) \rightarrow \mathbb{F}$, $A \mapsto a_{ik}$ is linear, so $a_{ik}$ is linear. Also, $A_{ik}$ is independent of the $j$th row of $A$, (as it was omitted), so it can be treated as a constant.
+    \end{itemize}
+    \item We want to show that if $\rank{A} < n$, then $\det{A} = 0$.
+    \\ \\ Let $\rank{A} < n$. Then, there exists a row $A^k$ that can be written as a linear combination of the other rows. In other words, $\exists \lambda_1, \dots, \lambda_n \in \mathbb{F}$ such that
+    \begin{equation*}
+        A^k = \sum_{i \neq k} \lambda_i A^i = \lambda_1 A^1 + \dots + \lambda_{k-1} A^{k-1} + \lambda_{k+1} + \dots + \lambda_n A^n
+    \end{equation*}
+    Then,
+    \begin{align*}
+        \det{A} & = \det{\begin{pmatrix} \dots \\ A^k \\ \dots \end{pmatrix}} \\
+        & = \det{\begin{pmatrix} \dots \\ \lambda_1 A^1 + \dots + \lambda_{k-1} A^{k-1} + \lambda_{k+1} A^{k+1} + \dots + \lambda_n A^n \\ \dots \end{pmatrix}} \\
+        & = \lambda_1 \det{\begin{pmatrix} \dots \\ A^1 \\ \dots \end{pmatrix}} + \dots + \lambda_{k-1} \det{\begin{pmatrix} \dots \\ A^{k-1} \\ \dots \end{pmatrix}} + \lambda_{k+1} \det{\begin{pmatrix} \dots \\ A^{k+1} \\ \dots \end{pmatrix}} + \dots + \lambda_n \det{\begin{pmatrix} \dots \\ A^n \\ \dots \end{pmatrix}} \\
+        & \text{linear in row $k$} \\
+        & = 0 \\
+        & \text{as each determinant has two repeated rows}
+    \end{align*}
+    \item First, $\det{I_1} = \det{1} = 1$. Then, assume that $\det{I_{n-1}} = 1$, and we want to show that $\det{I_n} = 1$. We write the identity matrix as $(I_n)_{ij} = \delta_{ij} = \begin{cases} 0 & i \neq j \\ 1 & i = j \end{cases}$. Thus,
+    \begin{align*}
+        \det{I_n} & = \sum_{i = 1}^n (-1)^{i+k} \delta_{ik} \det{((I_n)_{kk})} \\
+        & = (-1)^{k + k} \delta_{kk} \det{((I_n)_{kk})} && \text{as $\delta_{ij} = 0$ for $i \neq j$} \\
+        & = \det{((I_n)_{kk})} \\
+        & = \det{I_{n-1}} \\
+        & = 1
+    \end{align*}
+\end{enumerate}
+Thus, the formula for $\det{A}$ satisfies all three properties.
+\end{proof}
+
+\end{document}

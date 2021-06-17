@@ -1,0 +1,187 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Linear Independence}
+
+\begin{document}
+
+The concept of linear independence is crucial to linear algebra.
+
+\section*{Linear Independence}
+\begin{definition}
+An indexed set of vectors $\set{\vec{v}_1, \dots, \vec{v}_n}$ in $\mathbb{R}^n$ is \textbf{linearly independent} if the vector equation,
+\begin{equation*}
+    a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \vec{0}
+\end{equation*}
+has only the trivial solution.
+\end{definition}
+
+\begin{definition}
+Otherwise, $\set{\vec{v}_1, \dots, \vec{v}_n}$ is \textbf{linearly dependent}. In other words, $\set{\vec{v}_1, \dots, \vec{v}_n}$ is linearly dependent if there exists $a_1, \dots, a_n$, not all zero, such that
+\begin{equation*}
+    a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \vec{0}
+\end{equation*}
+\end{definition}
+
+The ``zero" linear combination $a_1 \vec{v}_1 + \dots + a_n \vec{v}_n$ where $a_1 = \cdots = a_n = 0$ is called the \textbf{trivial} linear combination. Any other linear combination is called \textbf{non-trivial}.
+
+\begin{example}
+A set containing a single vector $\set{\vec{v}}$ is linearly independent if and only if $\vec{v}$ is non-zero. This is because $a\vec{v} = \vec{0}$ has only the trivial solution for $a$ if $\vec{v} \neq \vec{0}$. If $\vec{v} = 0$, then $a\vec{0} = \vec{0}$ has non-trivial solutions (any non-zero value for $a$).
+\end{example}
+
+\begin{example}
+\textbf{Set with two vectors}. Consider a set with two vectors $\set{\vec{v}_1, \vec{v}_2}$, and consider
+\begin{equation*}
+    a \vec{v}_1 + b\vec{v}_2 = \vec{0}
+\end{equation*}
+If $\vec{v}_1, \vec{v}_2$ are linearly dependent, then at least one of $a, b$ is non-zero. If say $a \neq 0$, then by solving for $\vec{v}_1$, $\vec{v}_1 = -\frac{b}{a} \vec{v}_2$, i.e. $\vec{v}_1$ is a scalar multiple of $\vec{v}_2$. Conversely, if one vector is a scalar multiple of the other, say $\vec{v}_1 = k \vec{v}_2$, then $\vec{v}_1 - k \vec{v}_2 = \vec{0}$, which is a non-trivial linear dependence relation, so $\vec{v}_1, \vec{v}_2$ are linearly dependent.
+\end{example}
+
+In summary,
+
+\begin{theorem}
+A set of two vectors $\set{\vec{v}_1, \vec{v}_2}$ is linearly dependent if at least one vector is a scalar multiple of the other. Otherwise, if neither vector is a scalar multiple of the other, then the set is linearly independent.
+\end{theorem}
+
+\section*{Linear Dependence and Linear Independence}
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$, $S = \set{v_1, \dots, v_k} \subseteq V$ be a set of vectors. $S$ is \textbf{linearly dependent} (or the vectors in $S$ are linearly dependent) if there exists $a_1, \dots, a_k \in \mathbb{F}$, not all zero, such that
+\begin{equation*}
+    a_1 v_1 + \dots + a_k v_k = 0
+\end{equation*}
+\begin{itemize}
+    \item For $a_1 = \dots = a_k = 0$, the ``zero" linear combination $a_1 v_1 + \dots + a_k v_k = 0$ is called the \textbf{trivial} linear combination. Any other linear combination is called \textbf{non-trivial}.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+$S$ is linearly dependent if and only if there exists a vector $v_i \in S$ that can be written as a linear combination of the other vectors in $S$. In other words,
+\begin{equation*}
+    v_i \in \Span{v_1, \dots, v_{i-1}, v_{i+1}, \dots, v_k}
+\end{equation*}
+\end{theorem}
+
+\begin{definition}
+$S$ is \textbf{linearly independent} (or the vectors in $S$ are linearly independent) if $S$ is not linearly dependent. In other words, the equation
+\begin{equation*}
+    a_1 v_1 + \dots + a_k v_k = 0
+\end{equation*}
+only has solution $a_1 = \dots = a_k = 0$. In other words, there does not exist non-trivial linear combinations of vectors in $S$.
+\end{definition}
+
+In other words, the only representations of $0$ as linear combinations of the vectors of $S$ are trivial.
+
+\begin{example}
+By convention, $\emptyset$ is linearly independent. Also, a set consisting of a single non-zero vector is linearly independent.
+\end{example}
+
+\section*{Linearly Dependence Condition}
+\begin{theorem}
+A set $S = \set{v_1, \dots, v_n}$, where $n \geq 2$, is linearly dependent if and only if at least one vector $v_i$ can be written as a linear combination of the other vectors in $S$. In other words,
+\begin{equation*}
+    v_i \in \Span{v_1, \dots, v_{i-1}, v_{i+1}, \dots, v_k}
+\end{equation*}
+for some $i$. Equivalently, $S$ is linearly independent if no vector $v_i$ can be written as a linear combination of the others.
+\end{theorem}
+
+\begin{proof}
+Let $\set{v_1, \dots, v_k}$ be linearly dependent. Then, there exists $a_1, \dots, a_k \in \mathbb{F}$, not all zero, such that,
+\begin{equation*}
+    a_1 v_1 + \dots + a_k v_k = 0
+\end{equation*}
+Then, for some $i$ with $a_i \neq 0$, solve for the corresponding vector $v_i$,
+\begin{equation*}
+    v_i = \frac{1}{a_i}\brac{-a_1 v_1 - \dots - a_{i-1} v_{i-1} - a_{i+1} v_{i+1} - \dots - a_k v_k}
+\end{equation*}
+Thus, $v_i$ can be writen as a linear combination of $\set{v_1, \dots, v_{i-1}, v_{i+1}, \dots, v_k}$, or
+\begin{equation*}
+    v_i \in \Span{v_1, \dots, v_{i-1}, v_{i+1}, \dots, v_k}
+\end{equation*}
+Conversely, let $v_i \in \Span{v_1, \dots, v_{i-1}, v_{i+1}, \dots, v_k}$ be written as a linear combination,
+\begin{equation*}
+    v_i = a_1 v_1 + \dots + a_{i-1} v_{i-1} + a_{i+1} v_{i+1} + \dots + a_k v_k
+\end{equation*}
+where $a_1, \dots, a_k$ are not all zero. Then, rearranging,
+\begin{equation*}
+    a_1 v_1 + \dots + a_{i-1} v_{i-1} - v_i a_{i+1} v_{i+1} + \dots + a_k v_k = 0
+\end{equation*}
+which is a non-trivial linear combination of $\set{v_1, \dots, v_k}$ which sums to 0. Thus, $S$ is linearly dependent.
+\end{proof}
+
+The preceding proof can be notationally simplified somewhat by assuming, without loss of generality, that $v_1$ is the vector which has non-zero coefficient $a_1$ and that can be written as a linear combination of the others.
+
+\begin{corollary}
+Two vectors $v, u \in V$ are linearly dependent if and only if one vector is a scalar multiple of the other.
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+\section*{Properties}
+\begin{example}
+If $0 \in \set{v_1, \dots, v_k}$, then $\set{v_1, \dots, v_k}$ is linearly dependent.
+\begin{proof}
+If say $v_i = 0$, then,
+\begin{equation*}
+    0 v_1 + \dots + 0v_{i-1} + 1 v_i + 0 v_{i+1} + \dots + 0 v_k = 1v_i = 0
+\end{equation*}
+which is a non-trivial linear combination which sums to 0.
+\end{proof}
+\end{example}
+
+\section*{Determining Linear Independence/Dependence}
+
+Let $S = \set{\vec{v}_1, \dots, \vec{v}_k}$ be a set of vectors in $V$. To determine whether $S$ is linearly independent,
+\begin{enumerate}[(a)]
+    \item Form the vector equation $a_1 \vec{v}_1 + \dots + a_k \vec{v}_k = \vec{0}$, form a system of equations in $a_1, \dots, a_k$,
+    \begin{equation*}
+        \begin{bmatrix} \mid & \dots & \mid \\
+        \vec{v}_1 & \dots & \vec{v}_k \\
+        \mid & \dots & \mid \end{bmatrix} \begin{bmatrix} a_1 \\ \vdots \\ a_k \end{bmatrix} = \begin{bmatrix} 0 \\ \vdots \\ 0 \end{bmatrix}
+    \end{equation*}
+    This is a homogeneous system of equations $A\vec{x} = \vec{0}$, where the columns of $A$ are the vectors $\vec{v}_1, \dots, \vec{v}_k$.
+    \item If the system has only the trivial solution $a_1 = \dots = a_k = 0$, then the $S$ is linearly independent. If the system has non-trivial solutions, then $S$ is linearly independent.
+    \\ \\ In other words, if $\det{A} \neq 0$, then the system is linearly independent, and if $\det{A} = 0$, then the system is linearly dependent.
+\end{enumerate}
+
+In summary, a set of vectors $S = \set{\vec{v}_1, \dots, \vec{v}_k}$ is linearly independent if and only if
+\begin{equation*}
+    \det{\begin{bmatrix} \mid & \dots & \mid \\
+    \vec{v}_1 & \dots & \vec{v}_k \\
+    \mid & \dots & \mid \end{bmatrix}} \neq 0
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Linear Dependence/Independence of Subsets}
+\begin{theorem}
+Let $V$ be a vector space, $S_2 \subseteq S_1 \subseteq V$. If $S_2$ is linearly dependent, then $S_1$ is linearly dependent. Equivalently, if $S_1$ is linearly independent, then $S_2$ is linearly independent.
+\begin{itemize}
+    \item Intuitively, removing vectors from a linearly independent set preserves linear independence, and adding vectors to an already linearly dependent set preserves linear dependence.
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+Let $V$ be a vector space, $S \subseteq V$ be linearly independent, $v \in V \setminus S$. Then, $S \cup \set{v}$ if linearly dependent if and only if $v \in \Span{v}$
+\begin{itemize}
+    \item In other words, if $S$ is linearly dependent, we can remove vectors from $S$ until we get a linearly independent set, forming the subset $S' \subseteq S$, such that $\Span{S'} = \Span{S}$.
+\end{itemize}
+\end{theorem}
+
+\end{document}

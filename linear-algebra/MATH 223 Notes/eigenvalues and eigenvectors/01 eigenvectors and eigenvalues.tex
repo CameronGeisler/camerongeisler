@@ -1,0 +1,333 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Eigenvalues and Eigenvectors}
+
+\begin{document}
+
+The \textit{eigenvalue problem} is one of the most important problems in linear algebra. Consider an $n \times n$ matrix $A$. The question is, does there exist a vector $\vec{x} \in \mathbb{R}^n$ such that $A\vec{x}$ is a scalar multiple of $\vec{x}$? More precisely, does there exists a vector $\vec{x}$, and a number $\lambda$, such that $A\vec{x} = \lambda \vec{x}$? The vector $\vec{x}$ is called an \textit{eigenvector}, and the scalar $\lambda$ is called an \textit{eigenvalue}.
+
+\section*{Eigenvectors and Eigenvalues}
+\begin{definition}
+Let $A$ be an $n \times n$ matrix. Then, a non-zero vector $\vec{x} \in \mathbb{R}^n$ is an \textbf{eigenvector}, associated with \textbf{eigenvalue} $\lambda$, if
+\begin{equation*}
+    A\vec{x} = \lambda \vec{x}
+\end{equation*}
+\begin{itemize}
+    \item The symbol $\lambda$ is the Greek letter lambda.
+\end{itemize}
+\end{definition}
+
+The term eigenvalue and eigenvector come from the German word Eigenwert, meaning ``proper value". Note than an eigenvector must be non-zero, as for $\vec{x} = \vec{0}$, the equation $A\vec{0} = \lambda \vec{0}$ is true for all values of $\lambda$.
+
+\section*{Geometric Interpretation}
+In $\mathbb{R}^2$, eigenvalues have a intuitive geometric interpretation. Recall that a scalar multiple of a vector is parallel to the original vector. Then, an eigenvector is a vector which is parallel to itself after transformation by $A$. More precisely, if $\lambda > 0$, then $A\vec{x}$ is parallel to $\vec{x}$, and if $\lambda < 0$, then $A\vec{x}$ is anti-paralel to $\vec{x}$. A similar interpretation can be made in $\mathbb{R}^3$.
+
+
+\begin{definition}
+Let $V$ be a vector space over $\mathbb{F}$, $f: V \rightarrow V$ be an endomorphism, $v \in V$, $v \neq 0$. $v$ is an \textbf{eigenvector} of $f$, associated with \textbf{eigenvalue} $\lambda \in \mathbb{F}$, if and only if $f(v) = \lambda v$.
+\end{definition}
+
+\begin{definition}
+Let $A \in M(n \times n, \mathbb{F})$, $v \in \mathbb{F}^n$ be a column vector, $v \neq 0$. $v$ is an \textbf{eigenvector} of $A$, associated with \textbf{eigenvalue} $\lambda \in \mathbb{F}$, if and only if $v$ is an eigenvector of $L_{A}$. In other words, $Av = \lambda v$.
+\end{definition}
+
+\section*{Eigenspaces}
+If $A$ is an $n \times n$ matrix, and $\vec{x}$ is an eigenvector with associated eigenvalue $\lambda$, then consider a scalar multiple $c\vec{x}$ of $\vec{x}$,
+\begin{align*}
+    A(c\vec{x}) = c(A\vec{x}) & = c(\lambda \vec{x}) && \text{as $A\vec{x} = \lambda \vec{x}$} \\
+    & = \lambda (c\vec{x})
+\end{align*}
+Thus, $A(c\vec{x}) = \lambda (c\vec{x})$. In other words, any scalar multiple of $\vec{x}$ is also an eigenvector, with the same eigenvalue. In addition, if $\vec{x}_1, \vec{x}_2$ are two eigenvectors associated with the same eigenvalue $\lambda$, then consider their sum,
+\begin{align*}
+    A(\vec{x}_1 + \vec{x}_2) = A\vec{x}_1 + A\vec{x}_2 = \lambda \vec{x}_1 + \lambda \vec{x}_2 = \lambda(\vec{x}_1 + \vec{x}_2)
+\end{align*}
+Thus, the sum $\vec{x}_1 + \vec{x}_2$ is also an eigenvector with eigenvalue $\lambda$. Putting this together, the set of all eigenvectors associated with an eigenvalue $\lambda$, along with the zero vector, is a subspace of $\mathbb{R}^n$, called the \textit{eigenspace} of $\lambda$.
+
+\begin{definition}
+Let $A$ be an $n \times n$ matrix, with eigenvalue $\lambda$. Then, the \textbf{eigenspace} of $\lambda$, $E_{\lambda}$, is the subspace of all eigenvectors of $\lambda$, together with the zero vector,
+\begin{equation*}
+    E_{\lambda} = \set{\vec{x}: \vec{x} \text{ is an eigenvector of $\lambda$}} \cup \set{\vec{0}}
+\end{equation*}
+\end{definition}
+
+\section*{Determining Eigenvalues and Eigenvectors}
+Let $A$ be an $n \times n$ matrix, $\vec{x}$ be an eigenvector with eigenvalue $\lambda$. Then, $A\vec{x} = \lambda \vec{x}$. Rearranging this equation,
+\begin{align*}
+    A\vec{x} - \lambda \vec{x} & = \vec{0}
+\end{align*}
+The two terms on the left can be combined by writing $\lambda \vec{x}$ as $\lambda I_n \vec{x}$, where $I_n$ is the $n \times n$ identity matrix. This ``factors out" $\vec{x}$,
+\begin{align*}
+    (A - \lambda I_n) \vec{x} & = \vec{0}
+\end{align*}
+This is a homogeneous system of linear equations in $\vec{x}$. Recall that a homogeneous system has a non-zero solution (here, for $\vec{x}$) if and only if the coefficient matrix is not invertible. In this case, there exists an eigenvector $\vec{x}$ if and only if $A - \lambda I_n$ is not invertible, or,
+\begin{equation*}
+    \det(A - \lambda I_n) = 0
+\end{equation*}
+
+\begin{theorem}
+\textbf{Finding eigenvalues and eigenvectors}. Let $A$ be an $n \times n$ matrix. Then, $\lambda \in \mathbb{R}$ is an eigenvalue of $A$ if
+\begin{equation*}
+    \det(A - \lambda I_n) = 0
+\end{equation*}
+and, the eigenvectors associated with $\lambda$ are the non-zero solutions for $\vec{x}$ of the equation,
+\begin{equation*}
+    (A - \lambda I_n) \vec{x} = \vec{0}
+\end{equation*}
+\end{theorem}
+
+The matrix $A - \lambda I_n$ is just $A$ with $\lambda$ subtracted from the entries on the main diagonal.
+
+\section*{The Characteristic Polynomial}
+The equation $\det(A - \lambda I_n) = 0$ is called the \textbf{characteristic equation} of $A$. The matrix $A - \lambda I_n$ is a matrix with numbers and the variable $\lambda$, so evaluating the determinant $\det(A - \lambda I_n)$ simply involves sums and products of numbers and expressions in $\lambda$. The result is a polynomial in $\lambda$, called the \textbf{characteristic polynomial} of $A$,
+\begin{equation*}
+    p_A(\lambda) = \det{(A - \lambda I_n)} = c_n \lambda^n + c_{n-1} \lambda^{n-1} + \dots + c_2 \lambda^2 + c_1 \lambda + c_0
+\end{equation*}
+
+Then, the eigenvalues of $A$ are precisely the roots of the characteristic polynomial $p_A$. In this way, determining eigenvalues ultimately depends on determining roots of a polynomial. For an arbitrary matrix with $n$ even somewhat large (say, $n = 5$), determining the roots of a degree 5 polynomial is difficult or impossible to do analytically. In applications, eigenvalues are approximated using numerical methods.
+
+\section*{Eigenvalues of $2 \times 2$ Matrices}
+
+Conisder the $2 \times 2$ case. Let,
+\begin{equation*}
+    A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}
+\end{equation*}
+Then,
+\begin{align*}
+    \det{\brac{\begin{bmatrix} a & b \\ c & d \end{bmatrix}} - \lambda \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}} & = \det{\begin{bmatrix} a - \lambda & b \\ c & d - \lambda \end{bmatrix}} \\
+    & = (a - \lambda)(d - \lambda) - bc \\
+    & = ad - a\lambda - d\lambda + \lambda^2 - bc \\
+    & = \lambda^2 - (a + d) \lambda + ad - bc
+\end{align*}
+
+In summary,
+
+\begin{theorem}
+Let $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$ be a $2 \times 2$ matrix. Then, the characteristic polynomial of $A$ is given by,
+\begin{equation*}
+    \boxed{p_A(\lambda) = \lambda^2 - (a + d) \lambda + ad - bc}
+\end{equation*}
+\end{theorem}
+
+\section*{Multiplicity}
+Recall that a root $\lambda_i$ of a polynomial $p(\lambda)$ has \textbf{multiplicity} $k$ if $(\lambda - \lambda_i)^k$ is a factor of $p(\lambda)$ but $(\lambda - \lambda_i)^{k+1}$ is not a factor. 
+
+\begin{definition}
+An eigenvalue $\lambda_i$ of $A$ has \textbf{multiplicity} $k$ if $\lambda_i$ has multiplicity $k$ as a root of the characteristic polynomial $p_A$ of $A$.
+\end{definition}
+
+If $\lambda$ is a double repeated root, and $\vec{v}$ is an eigenvector associated with $\lambda$, a second eigenvector can be found by solving the equation,
+\begin{equation*}
+    (A - \lambda I_n) \vec{x} = \vec{v}
+\end{equation*}
+
+
+\section*{Eigenvalues of Diagonal Matrices}
+\begin{theorem}
+\textbf{Eigenvalues of a diagonal matrix}. Let $A$ be an $n \times n$ matrix. If $A$ is a diagonal matrix, then its eigenvalues are precisely the entries on its main diagonal.
+\end{theorem}
+
+This follows from the fact that the determinant of a diagonal matrix is the product of its diagonal entries.
+
+\begin{proof}
+Consider,
+\begin{align*}
+    A - \lambda I_n & = \begin{bmatrix} a_{11} - \lambda & & & \\
+    & a_{22} - \lambda & & \\
+    & & \ddots & \\
+    & & & a_{nn} - \lambda \end{bmatrix}
+\end{align*}
+Then, the charactersitic polynomial is given by,
+\begin{align*}
+    \det(A - \lambda I_n) = (a_{11} - \lambda)(a_{22} - \lambda) \cdots (a_{nn} - \lambda)
+\end{align*}
+of which the roots are clearly $a_{11}, a_{22}, \dots, a_{nn}$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Eigenvalue if and only if Trivial Kernel/Zero Determinant}
+\begin{theorem}
+Let $V$ be a vector space over $\mathbb{F}$, $f: V \rightarrow V$ be an endomorphism. Then, $\lambda \in \mathbb{F}$ is an eigenvalue of $f$ if and only if $\det{(f - \lambda Id_{V})} = 0$.
+\end{theorem}
+
+\begin{theorem}
+Let $A \in M(n \times n, \mathbb{F})$. Then, $\lambda \in \mathbb{F}$ is an eigenvalue of $A$ if and only if $\det{(A - \lambda I_n)} = 0$
+\end{theorem}
+
+\begin{corollary}
+A vector $v$ is an eigenvector of $f: V \rightarrow V$ associated with eigenvalue $\lambda \in \mathbb{F}$ if and only if $v \in \ker{(f - \lambda \operatorname{Id}_{V})}$.
+\end{corollary}
+\begin{proof}
+$v \in \ker{(f - \lambda \operatorname{Id}_{V})}$ if and only if $0 = (f - \lambda \operatorname{Id}_{V})(v) = f(v) - \lambda v$, so $f(v) = \lambda v$.
+\end{proof}
+
+\begin{corollary}
+$\lambda \in \mathbb{F}$ is an eigenvalue if and only if $\ker{(f - \lambda \operatorname{Id}_{V})} \neq \set{0}$, i.e. $(f - \lambda \operatorname{Id}_{V})$ is not injective.
+\end{corollary}
+
+\begin{corollary}
+$\lambda \in \mathbb{F}$ is an eigenvalue of $f$ if and only if $\det{(f - \lambda \operatorname{Id}_{V})} = 0$.
+\begin{itemize}
+    \item $\det{(f - \lambda \operatorname{Id}_{V})} = 0$ is the \textbf{characteristic equation}
+\end{itemize}
+\end{corollary}
+
+\begin{definition}
+Let $\lambda$ be an eigenvalue of $f$. The \textbf{eigenspace} of $f$ for $\lambda$, $E_{\lambda}$, is a subspace of $V$ such that
+\begin{equation*}
+    E_{\lambda} = \ker{(f - \lambda \operatorname{Id}_V)}
+\end{equation*}
+\begin{itemize}
+    \item The dimension of an eigenspace, $\dim{E_{\lambda}}$, is the \textbf{geometric multiplicity} of the eigenvalue.
+    \item The geometric multiplicity of an eigenvalue is at least $1$, since $v \in E_{\lambda}$ and $v \neq 0$.
+\end{itemize}
+\end{definition}
+
+\section*{Eigenvectors for Distinct Eigenvalues are Linearly Independent}
+\begin{theorem}
+Let $v_1, \dots, v_r$ be eigenvectors of $f$ with eigenvalues $\lambda_1, \dots, \lambda_r$, where $\lambda_i \neq \lambda_j$ for $i \neq j$. Then, $(v_1, \dots, v_r)$ is linearly independant.
+\end{theorem}
+\begin{proof}
+By induction, let $r = 1$, then since $v_1 \neq 0$, the $1$-tuple $(v_1)$ is linearly independent.
+\\ \\ Then, assume that the result is true for $r = k$, that a $k$-tuple of eigenvectors $(v_1, \dots, v_k)$ is linearly independent. Then, let $(v_1, \dots, v_{k+1})$ be $(k+1)$-tuple of eigenvectors with eigenvalues $\lambda_1, \dots, \lambda_{k+1}$, where $\lambda_i \neq \lambda_j$ for $i \neq j$, and let $\alpha_1 v_1 + \dots \alpha_{k+1} v_{k+1} = 0$. Then, mapping both sides of the equation with $f$, we get
+\begin{align*}
+    f(\alpha_1 v_1 + \dots \alpha_{k+1} v_{k+1}) & = f(0) \\
+    \alpha_1 f(v_1) + \dots + \alpha_{k+1} f(v_{k+1}) & = 0 \\
+    \alpha_1 \lambda_1 v_1 + \dots + \alpha_{k+1} \lambda_{k+1} v_{k+1} & = 0
+\end{align*}
+By multiplying both sides of the original equation we also get
+\begin{equation*}
+    \alpha_1 \lambda_{k+1} v_1 + \dots \alpha_{k+1} \lambda_{k+1} v_{k+1} = 0
+\end{equation*}
+Subtracting the two equations, we get
+\begin{equation*}
+    \alpha_1(\lambda_1 - \lambda_{k+1}) v_1 + \dots + \alpha_k (\lambda_k - \lambda_{k+1}) v_k = 0
+\end{equation*}
+This equation has $k$ vectors, and so by the inductive hypothesis, $\alpha_1(\lambda_1 - \lambda_{k+1}) = \dots = \alpha_k (\lambda_k - \lambda_{k+1}) = 0$. Then, since $\lambda_i \neq \lambda_j$ for $i \neq j$, we have $\alpha_1 = \dots = \alpha_k = 0$. Thus, $\alpha_{k+1} v_{k+1} = 0$, and since $v_{k+1} \neq 0$, $\alpha_{k+1} = 0$.
+\end{proof}
+
+\section*{Union of Bases for Eigenspaces is Linearly Indepedent}
+\begin{lemma}
+Let $V$ be a $n$-dimensional vector space, $f: V \rightarrow V$ be an endomorphism, $\lambda_1, \dots, \lambda_r$ be distinct eigenvalues with geometric multiplicities $n_1, \dots, n_r$.
+\\ \\ Let $B_{\lambda_i} = (v_{1}^{(i)}, \dots, v_{n_r}^{(i)})$ be a basis of the eigenspace $E_{\lambda_i}$. Then, the $(n_1 + \dots + n_r)$-tuple consisting of all the bases of each eigenspace,
+\begin{equation*}
+    (B_{\lambda_1}, \dots, B_{\lambda_k}) = (v_{1}^{(1)}, \dots, v_{n_1}^{(1)}, \dots, v_{1}^{(r)}, \dots, v_{n_r}^{(r)})
+\end{equation*}
+is linearly independent.
+\end{lemma}
+
+
+\begin{proof}
+Let
+\begin{equation*}
+    \sum_{i=1}^{r} \left( \sum_{k=1}^{n_{i}} \alpha_{k}^{(i)} v_{k}^{(i)} \right) = (\alpha_{1}^{(1)} v_{1}^{(1)} + \dots + \alpha_{n_1}^{(1)} v_{n_1}^{(1)}) + \dots + (\alpha_{1}^{(r)} v_{1}^{(r)} + \dots + \alpha_{n_r}^{(r)} v_{n_r}^{(r)}) = 0
+\end{equation*}
+Each vector $\sum_{k=1}^{n_i} \alpha_{k}^{(i)} v_{k}^{(i)} \in E_{\lambda_{i}}$. Since a family of eigenvectors for distinct eigenvalues is linearly independent, for all $i = 1, \dots, r$,
+\begin{equation*}
+    \sum_{k=1}^{n_i} \alpha_{k}^{(i)} v_{k}^{(i)} = 0
+\end{equation*}
+Then, since $(v_{1}^{(i)}, \dots, v_{n_r}^{(i)})$ is a basis for $E_{\lambda_{i}}$, the vectors are linearly independent, and so for all $k = 1, \dots, n_{i}$, we have $\alpha_{k}^{(i)} = 0$. Therefore, the family is linearly independent.
+\end{proof}
+
+\begin{corollary}
+If $n_1 + \dots + n_r = n$, then $(B_{\lambda_1}, \dots, B_{\lambda_k})$ is a basis of $V$.
+\end{corollary}
+
+\section*{Sum of Geometric Multiplicities at Most $\dim{V}$}
+\begin{theorem}
+The sum of the geometric multiplicities of the eigenvalues of $f$ is less than or equal to the dimension of $V$. In other words,
+\begin{equation*}
+    n_1 + \dots + n_{r} \leq \dim{V}
+\end{equation*}
+\end{theorem}
+
+
+\section*{Polynomials}
+\begin{definition}
+A \textbf{polynomial} is an expression $a_0 + a_1 t + a_2 t^2 + \dots + a_n t^n$, where $a_0, \dots, a_n \in \mathbb{F}$, and $t$ is a ``formal symbol".
+\begin{itemize}
+    \item Polynomials are uniquely determined by their coefficients. In other words, $a_0 + \dots + a_n t^n$ can be represented as the $n$-tuple $(a_0, \dots, a_n)$.
+    \item The set of polynomials of degree less than or equal to $n$, with coefficients in $\mathbb{F}$, is $P_{n, \mathbb{F}} = \mathbb{F}^{n+1}$, a vector space over $\mathbb{F}$ with dimension $n+1$. 
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $p \in P_{n, \mathbb{F}}$ be a polynomial. $\lambda \in \mathbb{F}$ is a \textbf{root} of $p \in P_{n, \mathbb{F}}$ if and only if for the associated polynomial function, $p(\lambda) = 0$. 
+\begin{itemize}
+    \item $\lambda \in \mathbb{F}$ is a root of $p_A$ if and only if $\det{(\lambda I_n - A)} = 0$, i.e. $\lambda$ is an eigenvalue of $A$.
+\end{itemize}
+\end{definition}
+
+Polynomials can be related to their associated polynomial function.
+\begin{align*}
+    P_{n, \mathbb{F}} & \longrightarrow \operatorname{Map}(\mathbb{F}, \mathbb{F}) \\
+    \sum_{i=0}^n a_i t^i & \longmapsto \begin{cases} \mathbb{F} \rightarrow \mathbb{F} \\ \lambda \longmapsto \sum_{i=0}^n a_i \lambda^i \end{cases}
+\end{align*}
+\begin{itemize}
+    \item This is a linear map of dimension $\dim{(P_{n, \mathbb{F}})} = n+1$.
+    \item If $\mathbb{F}$ is finite, then $\dim{\operatorname{Map}(\mathbb{F}, \mathbb{F})}$ is the number of elements in $\mathbb{F}$. If $\mathbb{F}$ is infinite, then the vector space is infinite-dimensional.
+\end{itemize}
+
+If the map is injective, we can uniquely represent $P_{n, \mathbb{F}}$ with its image in $\operatorname{Map}(\mathbb{F}, \mathbb{F})$. This map is injective if and only if the number of elements in $\mathbb{F}$ is greater than or equal to $n+1$. If $\mathbb{F}$ is infinite (e.g. $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$), then the map from polynomial to polynomial function is injective.
+
+\begin{proof}
+We will show that $\ker{f}$ is trivial. Let $\sum_{i=0}^n a_i t^i$ be a polynomial, such that $\forall \lambda \in \mathbb{F}$, $\sum_{i=0}^n a_i \lambda^i = 0$. We will show that this implies $a_i = 0$ for all $i$.
+\\ \\ Let $\lambda_1, \dots, \lambda_{n+1} \in \mathbb{F}$ be distinct. Then, we can form the system of equations
+\begin{align*}
+    \begin{pmatrix}
+    1 & \lambda_1 & \dots & \lambda_1^n \\
+    \vdots & & & \\
+    1 & \lambda_{n+1} & \dots & \lambda_n^n 
+    \end{pmatrix}
+    \begin{pmatrix}
+    a_0 \\ \vdots \\ a_n
+    \end{pmatrix}
+    & = \begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}
+\end{align*}
+However, the determinant of the left matrix is given by the Van der Monde determinant as $\pm \Pi_{i<j} (\lambda_i - \lambda_j) \neq 0$ as all $\lambda$ are distinct. This is a contradiction.
+\end{proof}
+
+\section*{The Characteristic Polynomial}
+\begin{definition}
+Let $V$ be a $n$-dimensional vector space over $\mathbb{F}$, $f: V \rightarrow V$ be an endomorphism. The \textbf{characteristic polynomial} of $f$, $P_{f}$, is
+\begin{align*}
+    P_{f}(\lambda) & = \det{(f - \lambda \operatorname{Id}_{V})} \\
+    & = (-1)^n \lambda^n + a_{n-1} \lambda_{n-1} + \dots + a_1 \lambda + a_0
+\end{align*}
+\end{definition}
+
+\begin{definition}
+Let $A \in M(n \times n, \mathbb{F})$. Then, the \textbf{characteristic polynomial} of $A$, $P_{A}(\lambda)$, is
+\begin{align*}
+    P_{A}(\lambda) & = \det{(A - \lambda I_n)} \\
+    & = (-1)^n \lambda^n + a_{n-1} \lambda_{n-1} + \dots + a_1 \lambda + a_0
+\end{align*}
+\begin{itemize}
+    \item The characteristic polynomial is associated to the polynomial function $\lambda \longmapsto \det{(f - \lambda \operatorname{Id_{V}})}$.
+\end{itemize}
+\end{definition}
+
+\begin{corollary}
+$\lambda \in \mathbb{F}$ is an eigenvalue of $f$ if and only if $\lambda$ is a root of the characteristic polynomial.
+\begin{itemize}
+    \item Eigenvalues $\lambda$ are independent of choice of basis, so the roots of the characteristic polynomial are independent of the choice of basis.
+    \item The characteristic polynomial is associated to the polynomial function $\lambda \longmapsto \det{(A - \lambda I_n)}$.
+\end{itemize}
+\end{corollary}
+
+Characteristic polynomial of $2 \times 2$ matrix.
+
+
+
+
+\end{document}

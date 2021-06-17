@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chapter-SOLEAITM" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Systems of Linear Equations and Introduction to Matrices</title>
+        <introduction>
+            <p>
+                This is an introduction to linear algebra.
+            </p>
+        </introduction>
+
+        <xi:include href="./section-SOLE.xml"/>
+        <xi:include href="./section-ITSSGE.xml"/>
+        <xi:include href="./section-ITMAMOAS.xml"/>
+        <xi:include href="./section-RRAM.xml"/>
+</chapter>

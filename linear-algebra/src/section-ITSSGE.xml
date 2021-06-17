@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-ITSSGE">
+    <title>Intro to Solving Systems, Gaussian Elimination</title>
+    
+    <subsection>
+        <title>Existence and Uniqueness</title>
+        <p>
+            When solving a system, we have two main questions:
+            <ol>
+                <li>
+                    <emp>Existence</emp>. Does the system have at least one solution?
+                </li>
+                <li>
+                    <emp>Uniqueness</emp>. If the system has a solution, is it unique? Or, is there more than one solution?
+                </li>
+            </ol>
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Triangular Systems, Back-Substitution</title>
+        <p>
+            Some systems are particularly simple to solve.
+        </p>
+
+        <example>
+            Consider the system,
+            <md alignment="alignat">
+                <mrow>2x \amp + y \amp - z \amp = -2</mrow>
+                <mrow>\amp 3y \amp + z \amp = 10</mrow>
+                <mrow>\amp \amp 3z \amp = 3</mrow>
+            </md>
+            Notice that the last equation has only one variable, and so can be solved to determine the value of <m>z</m>. In this case, <m>3z = 3</m> implies that <m>z = 1</m>. In other words, if <m>(x,y,z)</m> is a solution to this system, it must have <m>z=1</m> in order to satisfy the 3rd equation. Then, we can <quote>work backwards</quote> and determine the remaining values. First, this value of <m>z</m> can be used to solve for <m>y</m> in the second equation. If <m>z = 1</m>, then <m>3y + 1 = 10</m>, so <m>y = 3</m>. Finally, the values of <m>y</m> and <m>z</m> can be used to solve for <m>x</m>, using the first equation. If <m>z = 1</m> and <m>y = 3</m>, then <m>2x + 3 - 1 = -2</m>, so <m>x = -2</m>. Thus, this system has a single unique solution, <m>(-2,3,1)</m>.
+        </example>
+
+        <p>
+            Systems with this staircase-like form are called <quote>triangular</quote>. More precisely,
+        </p>
+
+        <definition>
+            A linear system is <term>triangular</term> if the last equation has at most 1 variable, the 2nd-last has at most 2 variables, the 3rd-last has at most 3 variables, etc.
+        </definition>
+
+        <p>
+            Triangular systems can be solved using this simple technique, called <term>back-substitution</term>. This technique can be used for any triangular system to solve for the value of each variable.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Gaussian Elimination, Elementary Operations</title>
+
+        <p>
+            <term>Gaussian elimination</term> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another equivalent system, which is somewhat easier to solve. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.
+        </p>
+
+        <definition>
+            <title>Elementary operations</title> Denote equation <m>i</m> by <m>E_i</m>. Then, the elementary operations are,
+            <ul>
+                <li>
+                    <term>Interchange</term>. Interchange the order of two equations in the system, <m>E_1 \leftrightarrow E_j</m>.
+                </li>
+                <li>
+                    <term>Scaling</term>. Multiply (or divide) an equation by a non-zero real number, <m>kE_i \rightarrow E_i</m>.
+                </li>
+                <li>
+                    <term>Replacement</term>. Add to one equation a multiple of another equation, <m>E_i + kE_j \rightarrow E_i</m>.
+                </li>
+            </ul>
+        </definition>
+
+        <p>
+            The fact that these elementary operations do not change the solution set of the system is crucial, and it somewhat subtle, and will be explained after an example.
+        </p>
+
+        <example>
+            Consider the system,
+            <md alignment="alignat">
+                <mrow>2x \amp + y \amp + z \amp = 1</mrow>
+                <mrow>4x \amp + y \amp \amp = -2</mrow>
+                <mrow>-2x \amp + 2y \amp + z \amp = 7</mrow>
+            </md>
+            We want to convert this system into triangular form, from which it will be easy to solve. To do this, we need to <em>eliminate</em> the variables below the main diagonal, i.e. eliminate <m>x</m> from the 2nd and 3rd equation and <m>y</m> from the 3rd equation. To do this, first, add <m>-2</m> times the 1st equation to the 2nd equation, and add the 1st equation to the 3rd equation. This results in the equivalent system,
+            <md alignment="alignat">
+                <mrow>2x \amp + y \amp + z \amp = 1</mrow>
+                <mrow>\amp - y \amp -2z \amp = -4</mrow>
+                <mrow>\amp 3y \amp + 2z \amp = 8</mrow>
+            </md>
+            Notice that this involved choosing appropriate multiples of the 1st equation to add to the other equations. Next, we use the 2nd equation to eliminate <m>y</m> in the 3rd equation, by adding 3 times the 2nd equation to the 3rd equation. This is results in the system,
+            <md alignment="alignat">
+                <mrow>2x \amp + y \amp + z \amp = 1</mrow>
+                <mrow>\amp - y \amp -2z \amp = -4</mrow>
+                <mrow>\amp \amp - 4z \amp = -4</mrow>
+            </md>
+            This system is in triangular form, so we can use back substitution. Solving for <m>z</m>, we get <m>z = 1</m>. Then, solving for <m>y</m> gives <m>y = 2</m>, and finally <m>x = -1</m>.
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Remark on Elementary Operations</title>
+        <p>
+        A crucial property of elementary operations is that applying them does not change the solution set of the system. More precisely, if an elementary operation transforms system 1 into system 2, then system 1 and system 2 have the same solution set.
+        </p>
+        <ul>
+            <li>
+                First, interchanging two equations <m>E_i \leftrightarrow E_j</m>, i.e. rearranging the order of the equations, clearly does not affect the solutions of those two equations, and so doesn't affect the solution set of the system.
+            </li>
+            <li>
+                Also, multiplying an equation <m>E_i</m> by a non-zero constant $k$ does not change the solutions of that equation, as any solution of <m>E_i</m> is also a solution of <m>kE_i</m>, and vise versa.
+            </li>
+            <li>
+                Finally, consider adding a multiple of an equation to another equation, $E_i + kE_j \rightarrow E_i$. Let $(x_1, \dots, x_n)$ be a solution to the original system. Then, it is a solution of $E_i$ and $E_j$. From before, it is also a solution to $kE_j$. This implies that $(x_1, \dots, x_n)$ is a solution to the sum $E_i + kE_j$.
+            </li>
+        </ul>
+        Then, it follows that any sequence of these operations will not change the solution set of the system.
+    </subsection>
+
+    <subsection>
+        <title>Solving Systems of Two Equations in Two Variables</title>
+        <p>
+            Consider a system of two equations in two unknowns,
+            <md>
+                <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
+                <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
+            </md>
+            Here, we have relabelled variables for simplicity. The variables here are <m>x_1</m> and <m>x_2</m>, and the coefficients are <m>a, b, c, d, y_1, y_2</m>. Using elimination, we can solve this system. For example, to eliminate <m>x_1</m> in the second equation, subtract <m>c</m> times the first equation to <m>a</m> times the second equation. The resulting equation is,
+            <me>
+                (ad - bc) x_2 = a y_2 - c y_1
+            </me>
+            Then, we can solve for <m>x_2</m> by dividing both sides by <m>ad - bc</m>,
+            <me>
+                x_2 = \frac{a}{ad - bc} y_2 - \frac{c}{ad - bc} y_1
+            </me>
+            Similarly, starting from the original system,
+            <md>
+                <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
+                <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
+            </md>
+            We can eliminate <m>x_2</m> in the second equation by subtracting <m>d</m> times the first equation from <m>b</m> times the second equation. The resulting equation is,
+            <me>
+                (ad - bc) x_1 = d y_1 - b y_2
+            </me>
+            Then, similarly, solving for <m>x_1</m>,
+            <me>
+                x_1 = \frac{d}{ad - bc} y_1 - \frac{b}{ad - bc} y_2
+            </me>
+            Thus, the solution is,
+            <me>
+                (x,y) = \brac{\frac{d}{ad - bc} y_1 - \frac{b}{ad - bc} y_2, \frac{a}{ad - bc} y_2 - \frac{c}{ad - bc} y_1}
+            </me>
+            For simplicity, we can let <m>\Delta = ad - bc</m>, and then the solution becomes,
+            <me>
+                (x,y) = \brac{\frac{d}{\Delta} y_1 - \frac{b}{\Delta} y_2, \frac{a}{\Delta} y_2 - \frac{c}{\Delta} y_1}
+            </me>
+            Note that this solution only exists if <m>\Delta \neq 0</m>. Otherwise, we are dividing by 0.
+        </p>
+    </subsection>
+    
+    <subsection>
+        <title>Number of Operations</title>
+    </subsection>
+    
+</section>

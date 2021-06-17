@@ -1,0 +1,60 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Geometry Using Matrices}
+
+\begin{document}
+
+Points $(x,y)$ in the plane can be represented as a column matrix. A polygon can be represented by putting all of the column matrices for its vertices into a single matrix, called the \textbf{vertex matrix} or \textbf{coordinate matrix}.
+
+\section*{Contraction/Expansion}
+\begin{itemize}
+    \item Horizontal contraction/expansion $\begin{bmatrix} k & 0 \\ 0 & 1 \end{bmatrix}$, contraction if $0 < k < 1$, expansion if $k > 1$.
+    \item Vertical contraction/expansion, $\begin{bmatrix} 1 & 0 \\ 0 & k \end{bmatrix}$, contraction if $0 < k < 1$, expansion if $k > 1$.
+\end{itemize}
+
+\section*{Contraction/Dilation as Scalar Multiplication}
+\begin{definition}
+Let $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ be a linear transformation defined by $T(\vec{x}) = r\vec{x}$ for $r > 0$. Then $T$ is a \textbf{contraction} if $0 \leq r \leq 1$ and a \textbf{dilation} if $r > 1$.
+\end{definition}
+
+\section*{Projection Transformations}
+
+
+\section*{Reflection as Matrix Multiplication}
+\begin{itemize}
+    \item Reflection over the $x$-axis $\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$.
+    \item Reflection over $y$-axis $\begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix}$.
+    \item Reflection over the line $y = x$, $\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$.
+    \item Reflection over $y = -x$, $\begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}$.
+\end{itemize}
+Rotation matrices,
+\begin{itemize}
+    \item $\ang{90}$ ccw $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$
+    \item $\ang{180}$ ccw $\begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix}$
+    \item $\ang{270}$ ccw $\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$
+\end{itemize}
+Glide reflection is a reflection and a translation.
+
+\section*{Rotation Transformations}
+
+Let $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ be a transformation which rotates each point in $\mathbb{R}^2$ about the origin by an angle $\theta$, where counterclockwise rotation is considered positive. Then, consider the images of the columns of $I_2$ under $T$. First, $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ represents the point $(1,0)$, and so rotates to $(\cos{\theta}, \sin{\theta})$ or $\begin{bmatrix} \cos{\theta} \\ \sin{\theta} \end{bmatrix}$. Also, $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ represents $(0,1)$ and becomes $(\cos(\theta + \pi/2), \sin(\theta + \pi/2)$, which is equivalent to $(-\sin{\theta}, \cos{\theta})$, or $\begin{bmatrix} -\sin{\theta} \\ \cos{\theta} \end{bmatrix}$. In summary,
+
+\begin{definition}
+The \textbf{rotation transformation} $T_{\theta}: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ given by rotation by $\theta$ counterclockwise, has matrix
+\begin{equation*}
+    A = \begin{bmatrix} \cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta} \end{bmatrix}
+\end{equation*}
+\end{definition}
+
+\section*{Shear Transformations}
+Shear transformations. Applications to physics, geology, and crystallography.
+
+\begin{itemize}
+    \item Horizontal shear, $\begin{bmatrix} 1 & k \\ 0 & 1 \end{bmatrix}$, right if $k > 0$ and left if $k < 0$.
+\end{itemize}
+
+
+
+
+\end{document}

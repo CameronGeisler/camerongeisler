@@ -1,0 +1,27 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{QR Factorization}
+
+\begin{document}
+
+
+\section*{Gram-Schmidt (QR Factorization)}
+Apply this to $V = \mathbb{R}^m$, $m \geq n$.
+\\ $A = (v_1, \dots, v_n) \in M(m \times n, \mathbb{R})$ matrix with column vectors $v_i$s. Where $(v_1, \dots, v_n)$ is linearly independent.
+\\ Then, there exists unique matrices $Q \in M(m \times n, \mathbb{R})$, $R \in M(n \times n, \mathbb{R})$ such that
+\begin{itemize}
+    \item the columns of $Q$ are an orthonormal system of $\mathbb{R}^m$
+    \item $R$ is upper triangular, with all diagonal elements being positive
+\end{itemize}
+\begin{proof}
+Let $Q = (v_1', \dots, v_n')$ from Gram-Schmidt. Then $\exists R$ such that $Q = AR'$, as each column in $Q$ is a linear combination of columns on $A$. Thus, $A = QR'^{-1}$, and so $R = R'^{-1}$.
+\\ \\ This is because
+\begin{align*}
+    v_1' & = \alpha v_1 \\
+    v_2' & = \alpha v_1 + \gamma v_2 && \text{$\alpha > 0$, $\gamma > 0$} \\
+    \begin{pmatrix} v_1' & v_2' \end{pmatrix} & = \begin{pmatrix} v_1 & v_2 \end{pmatrix} \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix}
+\end{align*}
+\end{proof}
+
+\end{document}

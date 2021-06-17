@@ -1,0 +1,41 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{}
+
+\begin{document}
+
+
+\section*{Projection}
+We need to convert the description of the various objects in 3D coordinates into a 2D image to be viewed by the eye (the camera). In computer graphics, a camera is modelled by a simple \textbf{pinhole camera}, a simplified camera model which has a single point of light capture (called the \textbf{focus}). With a pinhole camera, light coming into the focus hits a plane inside the camera, resulting in an upside down image. In computer graphics, instead we bring the plane to the front of the camera. Incoming light is mapped to the \textbf{film plane}, a plane that is placed at $z = -1$ in the camera frame (recall that the $z$-axis points in the opposite direction as the camera). This mapping is called \textbf{perspective projection}.
+\\ \\ Let $\tilde{p}$ be a point with homogeneous coordinates $\overline{\vec{p}} = \begin{bmatrix} y & z & 1 \end{bmatrix}^T$ in the camera frame. Here, we ignore the $x$-coordinate, as the $x$-axis comes out of the page (so it remains constant). Then, if this point is projected onto the film plane, say it has coordinates $\begin{bmatrix} y_p & -1 & 1 \end{bmatrix}^T$. By similar triangles, it can be shown that $y_p = -\frac{y}{z}$. Thus, the projection transformation is given by,
+\begin{equation*}
+    \begin{bmatrix} y \\ z \\ 1 \end{bmatrix} \longmapsto \begin{bmatrix} -\frac{y}{z} \\ -1 \\ 1 \end{bmatrix}
+\end{equation*}
+This is called a \textbf{perspective transformation}, and is a non-linear, and non-affine transformation. To model this by incorporating a matrix transformation, we utilize the homogeneous coordinate 1. First, for this point, we treat the following coordinates as equivalent,
+\begin{equation*}
+    \begin{bmatrix} y \\ z \\ 1 \end{bmatrix} \Longleftrightarrow \begin{bmatrix} yw \\ zw \\ w \end{bmatrix} \qquad \text{for any $w \in \mathbb{R}$}
+\end{equation*}
+Then, in particular, by multiplying by $-z$, there is the equivalence,
+\begin{equation*}
+    \begin{bmatrix} -\frac{y}{z} \\ -1 \\ 1 \end{bmatrix} \longleftrightarrow \begin{bmatrix} y \\ z \\ -z \end{bmatrix}
+\end{equation*}
+Then, the perspective transformation can be described by,
+\begin{equation*}
+    \underbrace{\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -1 & 0 \end{bmatrix}}_P \begin{bmatrix} y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} y \\ z \\ -z \end{bmatrix}
+\end{equation*}
+The matrix $P$ is called the \textbf{projection matrix}, and the raw output resulting coordinates are called \textbf{clip coordinates}. Finally, we have to divide by $-z$ to get the ``actual" coordinates. The resulting coordinates $\begin{bmatrix} -\frac{y}{z} & -1 & 1 \end{bmatrix}$ are called \textbf{normalized device coordinates}. The image coordinates are always mapped to the canonical square $[-1,1] \times [-1,1]$.
+\\ \\ However, one flaw with this projection matrix is that it is not invertible, because one of its columns is the zero vector. Instead, we use the transformation,
+\begin{equation*}
+    \underbrace{\begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0 \end{bmatrix}}_P \begin{bmatrix} y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} y \\ 1 \\ -z \end{bmatrix}
+\end{equation*}
+Then, after dividing the output by $-z$, we get
+\begin{equation*}
+    \begin{bmatrix} -\frac{y}{z} \\ -\frac{1}{z} \\ 1 \end{bmatrix}
+\end{equation*}
+The coordinate $-\frac{1}{z}$ is used to measure the depth of the coordinate. This works because the function $f(x) = -\frac{1}{x}$ is a monotone function for $x > 0$, so it maintains the ordering of the depth values.
+
+\section*{Perspective}
+
+
+\end{document}

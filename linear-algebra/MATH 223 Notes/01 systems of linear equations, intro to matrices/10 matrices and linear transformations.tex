@@ -1,0 +1,56 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Matrices and Linear Transformations}
+
+\begin{document}
+
+Recall that every matrix transformation $\vec{x} \mapsto A\vec{x}$
+Every linear transformation $T$ from $\mathbb{R}^n$ to $\mathbb{R}^m$ can be written as a matrix transformation. In other words, every linear transformation $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$ can be written in the form $T(\vec{x}) = A\vec{x}$ for some $m \times n$ matrix $A$. Intuitively, the matrix $A$ is the ``formula" which allows for concrete computation of the images $T(\vec{x})$.
+\\ \\ First, consider a linear transformation in the plane, $T: \mathbb{R}^2 \rightarrow \mathbb{R}^2$. Notice that any vector $\vec{x} \in \mathbb{R}^2$, say
+\begin{equation*}
+    \vec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+\end{equation*}
+can be written in terms of the columns of the identity matrix $I_2$, which are $\vec{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \vec{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$,
+\begin{equation*}
+    \vec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = x_1 \vec{e}_1 + x_2 \vec{e}_2
+\end{equation*}
+Then, consider the image of $\vec{x}$,
+\begin{align*}
+    T(\vec{x}) = T(x_1 \vec{e}_1 + x_2 \vec{e}_2) & = x_1 T(\vec{e}_1) + x_2 T(\vec{e}_2)
+\end{align*}
+In this way, $T(\vec{x})$ is completely determined by $T(\vec{e}_1)$ and $T(\vec{e}_2)$. Further,
+\begin{equation*}
+    T(\vec{x}) = \begin{bmatrix} T(\vec{e}_1) & T(\vec{e}_2) \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+\end{equation*}
+
+This can be generalized for a linear transformation $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$.
+
+\begin{theorem}
+\textbf{Matrix representation of a linear transformation}. Let $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$ be a linear transformation. Then, there exists a unique matrix $A$ such that
+\begin{equation*}
+    T(\vec{x}) = A\vec{x} \qquad \text{for all $\vec{x} \in \mathbb{R}^n$}
+\end{equation*}
+In particular, $A$ is precisely the $m \times n$ matrix whose $j$th column is given by $T(\vec{e}_j)$, where $\vec{e}_j$ is the $j$th column of the $n \times n$ identity matrix, i.e.
+\begin{equation*}
+    A = \begin{bmatrix} T(\vec{e}_1) & \cdots & T(\vec{e}_n) \end{bmatrix}
+\end{equation*}
+The matrix $A$ is called the \textbf{standard matrix} for the linear transformation $T$.
+\end{theorem}
+
+\begin{proof}
+For $\vec{x} \in \mathbb{R}^n$,
+\begin{equation*}
+    \vec{x} = x_1 \vec{e}_1 + \dots + x_n \vec{e}_n
+\end{equation*}
+Then,
+\begin{align*}
+    T(\vec{x}) = T(x_1 \vec{e}_1 + \dots + x_n \vec{e}_n) & = x_1 T(\vec{e}_1) + \dots + x_n T(\vec{e}_n) \\
+    & = \begin{bmatrix} T(\vec{e}_1) & \cdots & T(\vec{e}_n) \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\
+    & = A\vec{x}
+\end{align*}
+\end{proof}
+
+Intuitively, the term \textit{linear transformation} focusses on the properties of the mapping, whereas \textit{matrix transformation} describes how the mapping is implemented.
+
+\end{document}

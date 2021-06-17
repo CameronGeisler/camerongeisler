@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
+    
+    <docinfo>
+        <xi:include href="./latex-preamble.xml"/>
+        <xi:include href="./latex-macros.xml"/>
+    </docinfo>
+
+    <book xml:id="book-linear-algebra" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <title>Linear Algebra</title>
+        <subtitle>My First PreTeXt Experiment</subtitle>
+
+        <introduction>
+            This is an introduction to this book.
+        </introduction>
+        
+        <xi:include href="./chapter-ITLA.xml"/>
+        <xi:include href="./chapter-SOLEAITM.xml"/>
+
+    </book>
+</pretext>

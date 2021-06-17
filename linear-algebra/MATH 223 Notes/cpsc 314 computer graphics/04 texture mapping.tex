@@ -1,0 +1,102 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Texture Mapping}
+
+\begin{document}
+
+\section*{Texture Mapping}
+Texture mapping is an efficient method to model surface detail using discrete (sampled) data (i.e. an image).
+
+\begin{itemize}
+    \item \textbf{Normal mapping}. The data from a texture can also be interpreted in more interesting ways. In normal mapping, the r,g,b values from a texture are interpreted as the three coordinates of the normal at the point. This normal data can then be used as part of some material simulation.
+    \item \textbf{Environment cube maps}. Textures can also be used to model the environment in the distance around the object being rendered. Typically, 6 square textures are used to represent the faces of a large cube surrounding the scene.
+    \item \textbf{Projector texture mapping}. Sometimes, we want to glue our texture onto our triangles using a \textbf{projector} model, instead of the affine gluing model. For example, to simulate a slide projector illuminating some triangles in space.
+    \item \textbf{Shadow mapping}. Create and store a $z$-buffered image from the point of view of the light, and then compare what we see in our view to what the light saw in its view.
+\end{itemize}
+
+Call them \textbf{texels}, texture elements. Two subtle concepts:
+\begin{itemize}
+    \item \textbf{Coordinates} $(x,y,z)$ are Cartesian coordinates, assigning a set of numbers to a point in space. Also, we can consider parameterizing surfaces in space.
+    \item \textbf{Images}, as a sampled representation of an underlying continuous function (see ch.16-18). In this way, images can be resampled from this function.
+\end{itemize}
+
+Consider the question: how to give coordinates of a point on the Earth? Maybe, latitutde and longitude. The surface of the Earth is 2-dimensional, so it intuitively should only require 2 parameters (not 3). Also, an atlas (or chart) is a 2D representation of a globe. Then, texture mapping involves mapping this 2D representation onto a 3D sphere. More precisely, a point $\tilde{p}$ in space is a function of a point $t = (u,v)$ on the 2D parameterized space,
+\begin{equation*}
+    \tilde{p} = f(u,v)
+\end{equation*}
+for some function $f$. How do we represent this function $f$? A simple idea would be a linear function, $\tilde{p} = At$ for some matrix $A$. However, this is limited. Instead, consider a more general function, sample a few vertex points, and linearly interpolate between these values (piecewise linear). With more vertices, the approximation of the function $f$ is more accurate. In fact, this is what is already being done with rasterization, which linearly interpolates vertex attributes. In this way, we can also interpolate texture coordinates. Then, if we know the texture coordinates of each vertex, we can determine the texture coordinates of each fragement. Look up the color/normal/etc. of the fragment in the texture image.
+\\ \\ Steps for texture mapping:
+\begin{enumerate}
+    \item Create a \textbf{texture object} and load texels into it. Typically, this is done by loading a jpg or png image into the texture object.
+    \item Include \textbf{texture coordinates} with your vertices.
+    \item Associate a \textbf{texture sampler} with each texture map used in the shader.
+    \item Retrieve texel values.
+\end{enumerate}
+In Three.js, we use a \textbf{Texture} object. Note OpenGL uses parameters $(s,t)$ whereas VFX uses $(u,v)$. By default, an image is mapped to the unit square (spanning from $(0,0)$ to $(1,1)$). One method is \textbf{repeat wrapping}, where this image is repeated, tiling the plane. This is useful for tiling a large area with texture, e.g. a floor.
+
+
+
+
+
+\section*{Sampling and Aliasing}
+When forming a digital image, there are a fixed number of pixels, and each pixel is assigned a color. However, images of objects in theory have ``infinite" resolution, in that the color is ``continuous". When compressing this continuous information into a single value, the result can be jagged edges on objects, or pixels flipping colors in a random or strange pattern. These effects are called \textbf{aliasing}. \textbf{Anti-aliasing} is the various methods used to smooth out these images.
+\\ \\ A \textbf{continuous image} can be thought of as a function $I(x,y)$ whose inputs are coordinates and outputs a color value. A \textbf{discrete image} is an 2D array of color values, where the $(i,j)$-th entry denoted by $I[i][j]$. We need to convert a continuous image into a discrete one, for displaying.
+\\ \\ The simplest and most obvious method is to sample points from the continuous image. That is,
+\begin{equation*}
+    I[i][j] = I(x_i,y_j)
+\end{equation*}
+However, sampling just a single point over a region may poorly represent the summation of the color information over that region. In an ideal world, we want the color of the discrete pixel to be a form of average of the coloring information over the region. Since the region is a 2D region, this results in a expression involving a double integral over the region $\Omega$,
+\begin{equation*}
+    I[i][j] = \iint_{\Omega} I(x,y) F_{i,j}(x,y) \,dx \,dy
+\end{equation*}
+where $F_{i,j}(x,y)$ is a function that represents the ``weight" that the color information at $(x,y)$ should have on the final result, called a \textbf{filter}. Notice that here, $\Omega$ is the entire region of the image, i.e. in general, the color value does not need to only depend on the small box region the pixel is trying to represent. The simplest choice is to use a \textbf{box filter}, where the discrete image only depends on a square $\Omega_{i,j}$ centered at the pixel location, and is uniform on that square. In other words,
+\begin{equation*}
+    F_{i,j}(x,y) = \begin{cases} 1 & \text{if $(x,y) \in \Omega_{i,j}$} \\ 0 & \text{otherwise} \end{cases}
+\end{equation*}
+Then, the discrete image value is given by,
+\begin{equation*}
+    I[i][j] = \iint_{\Omega_{i,j}} I(x,y) \,dx \,dy
+\end{equation*}
+Since the area of $\Omega_{i,j}$ is 1, the integral $\iint_{\Omega_{i,j}} I(x,y) \,dx \,dy$ represents the average value of the function $I(x,y)$ over the region $\Omega_{i,j}$. In practice, this integral is too difficult to compute exactly. Instead, this average value integral is approximated numerically by sampling points in the region $\Omega_{i,j}$. More precisely, if we choose $n$ \textbf{sample locations} $(x_k, y_k)$ (for $k = 1, \dots, n$), then the discrete image value is given by,
+\begin{equation*}
+    I[i][j] = \frac{1}{n} \sum_{k=1}^n I(x_k,y_k)
+\end{equation*}
+This technique of sampling more than one point is called \textbf{oversampling}. A basic method is to choose a regular grid as the sample points. However, this can lead to systematic errors, such as a vertical line going undetected. Instead, there are methods based on randomness, i.e. using a probability distribution to select the sample points. For example, \textbf{Monte Carlo integration}.
+
+\section*{Depth Discontinuities and Alpha Blending}
+In many cases, we want to render multiple objects overlapping each other. For example, an image of a foreground on top of an image of a background. In this case, often the foreground image is ``cut out" and ``pasted" onto the background image. More precisely, use foreground pixels where they are defined, and use background pixels otherwise. However, the boundary of the foreground image, where the foreground transitions to the background, becomes jagged. This transition is a \textbf{depth discontinuity}. To rectify this, we can use a technique called \textbf{alpha blending}. Each (discrete) pixel $[i][j]$ is associated with an \textbf{alpha value} $\alpha[i][j]$, a number in $[0,1]$ which represents the opacity or \textbf{coverage} of the image at that pixel. A value of $\alpha = 1$ represents full opacity, and $\alpha = 0$ represents full transparency. More precisely, let $I(x,y)$ be a continuous image, $C(x,y)$ be the \textbf{coverage function}, an indicator function defined by,
+\begin{equation*}
+    C(x,y) = \begin{cases} 1 & \text{if $(x,y)$ is occupied by the image} \\ 0 & \text{otherwise} \end{cases}
+\end{equation*}
+Then, the discrete image value is given by,
+\begin{equation*}
+    I(x,y) = \iint_{\Omega_{i,j}} I(x,y) C(x,y) \,dx \,dy
+\end{equation*}
+and the alpha value is given by,
+\begin{equation*}
+    \alpha[i][j] = \iint_{\Omega_{i,j}} C(x,y) \,dx \,dy
+\end{equation*}
+Note that this method is called \textbf{pre-multiplied alpha}, as opposed to \textbf{non-premultiplied alpha}.
+
+\section*{Compositing}
+\textbf{Compositing} is the technique of combining multiple visual elements into a single image. It is in some sense a generalization of coverage. To composite a foreground image $I^f[i][j]$ in front of a background image $I^b[i][j]$, we use the so-called \textbf{over operation}, given by,
+\begin{equation*}
+    I^c[i][j] \longleftarrow I^f[i][j] + I^b[i][j](1 - \alpha^f[i][j])
+\end{equation*}
+Intuitively, the amount of background image is proportional to the transparency of the foreground. This operation is not commutative (placing A over B is not the same as placing B over A), but it is associative (placing A over B and then over C is the same as placing A over the result of B over C). The composite alpha is given by,
+\begin{equation*}
+    \alpha^c[i][j] \longleftarrow \alpha^f[i][j] + \alpha^b[i][j](1 - \alpha^f[i][j])
+\end{equation*}
+
+\section*{Texture Filtering}
+
+\textbf{Image reconstruction} is the process of converting a discrete image $I[i][j]$ into a continuous image $I(x,y)$. This is important for image resizing, and texture mapping.
+\\ \\ Consider a discrete image $I[i][j]$. Given a point $(x,y)$, how should the value $I(x,y)$ be assigned? The most simple method would be to assign $(x,y)$ the color of the nearest discrete pixel. This is called \textbf{constant interpolation}, or the \textbf{nearest neighbor} method. In this case, the color is piecewise constant. However, this method leads to color discontinuities, as the color jumps from one pixel to another.
+\\ \\ A more sophisticated and natural-looking method involves using four pixels $[i][j], [i+1][j], [i][j+1], [i+1][j+1]$ which surround a square region, and use these four ``corner points" to interpolate a color function over the square region. This is called \textbf{bilinear interpolation}. This is done by first linearly interpolating over $x$, and then over $y$, or vise versa (both orders produce the same result). This results in a color function $I(x,y)$ which is continuous. Note that this bilinear color function is not a plane (recall a plane cannot pass through 4 general points, only at most 3). Instead, it is a function such that every horizontal and vertical cross-section is a straight line.
+\\ \\ Then, at integer coordinates, $I(x,y)$ matches the discrete image. In between integer coordinates, the color is blended continuously.
+
+\section*{Texture Minification}
+Consider a situation where a texture has to be shrunk down when displayed on-screen. For example, a point far in the distance on the horizon. Here, a single fragment can correspond to a much larger trapezoid-shaped region on the texture. Taking an average of this large number of texels requires a lot of computation. Instead, we can try to blur the region and then sample a single point. This is called \textbf{mip mapping} (here, mip stands for the latin \textit{multum in parvo}, meaning ``much in little"). First, start with the original texture $T^0$. Then, form a sequence of textures $T^i$ of decreasing resolution (more and more blurry). One simple method of doign this involves sampling half of the pixels each time, and so each successive texture is twice as blurry. Then, we can select a texture in this sequence to sample from. In general, the larger the texture region that is being mapping onto a single pixel, the blurrier we need. Mip mapping works well, however it does have some limitations which are addressed by more advanced methods, such as \textbf{anisotropic mip mapping}.
+
+\end{document}

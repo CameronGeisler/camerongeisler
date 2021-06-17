@@ -1,0 +1,126 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Math 223}
+\chead{Lecture 28}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}} %vector
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value / magnitude of vector
+\renewcommand{\neg}{\sim}
+
+%% Linear algebra
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{null}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+\newenvironment{amatrix}[1]{\left(\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right)} %% augmented matrix
+
+\begin{document}
+
+\section*{Self-Adjoint Linear Operators}
+\begin{definition}
+Let $V$ be Euclidian vector space, $f: V \rightarrow V$ be an endomorphism. $f$ is \textbf{self-adjoint} if and only if $\forall x$, $y \in V$,
+\begin{equation*}
+    \inp{f(x)}{y} = \inp{x}{f(y)}
+\end{equation*}
+\end{definition}
+
+\begin{corollary}
+Let $V$ be finite-dimensional Euclidian vector space, then if $f$ is orthogonal, $f$ is invertible.
+\end{corollary}
+
+\begin{corollary}
+If $B$ is an orthonormal basis of $V$, then $f$ is orthogonal if and only if $[f]_{B}$ is orthogonal.
+\end{corollary}
+\begin{proof}
+\begin{itemize}
+    \item If $V = (\mathbb{R}, std)$, $f = A$ orthogonal iff $(Ae_1, \dots, Ae_n)$ orthonormal basis iff $A$ is orthogonal.
+    \item General case. See OneNote. If $\Phi_{B}$ is orthogonal, $f$ is orthogonal. iff $[f]_{B}$ is an orthogonal linear map iff $[f]_{B}$ orthogonal matrix.
+    \\ \\ Also, $f$ is self-adjoint iff $\inp{u_i}{f(u_j)} = \inp{f(u_i)}{u_j}$ for all $i,j$, $B = (u_1, \dots, u_n)$ iff $([f]_{B})_{ij} = ([f]_{B})_{ji}$ iff $[f]_{B} = [f]_{B}^{t}$ iff $[f]_{B}$ symmetric. Done.
+\end{itemize}
+\end{proof}
+
+\begin{theorem}
+Let $V$ be a finite-dimensional Euclidian vector space, $f: V \rightarrow V$ be a self-adjoint endomorphism. Then, there exists an orthonormal basis of $V$ for $f$.
+\end{theorem}
+\begin{proof}
+See OneNote. Then, by the theorem, there exists an eigenbasis $C$ of $\mathbb{R}^n$ of eigenvectors for $[f]_{B}$. Then, $[f]_{D}$ is diagonal and $D$ is an orthonormal basis.
+\end{proof}
+
+
+\begin{corollary}
+Let $\lambda_1, \dots, \lambda_k \in \mathbb{R}$ be eigenvalues of $f$, $E_1, \dots, E_k$ be the corresponding eigenspaces, $P_1, \dots, P_k$ be the orthgonal projections onto each eigenspace. Then, $f = \lambda_1 P_1 + \dots + \lambda_k P_k$
+\end{corollary}
+\begin{proof}
+Suffices to show equality with eigenvectors of $f$.
+\\ \\ Let $v \in E_{i}$. Then $f(v) = \lambda_i v$. Also,
+\begin{align*}
+    (\lambda_1 P_1 + \dots + \lambda_k P_k)(v) & = \lambda_1 P_1(v) + \dots + \lambda_i P_i(v) + \dots + \lambda_k P_k(v) \\
+    & = \lambda_i P_i(v) \\
+    & = \lambda_i v \\
+    & = f(v)
+\end{align*}
+Since $\ker{P_j} = E_{j}^{\perp}$ and $v \in E_{j}^{\perp}$ because the eigenvectors corresponding to different eigenvalues are orthogonal to each other. Thus, $P_{j}(v) = 0$ for all $j \neq i$
+\end{proof}
+
+
+\begin{corollary}
+If $v$, $w \in V$ are eigenvectors of $f$, with distinct eigenvalues $\lambda$, $\mu$, then $v$ and $w$ are orthogonal to each other.
+\end{corollary}
+\begin{proof}
+\begin{align*}
+    \inp{f(v)}{w} & = \inp{v}{f(w)} \\
+    \inp{\lambda v}{w} & = \inp{v}{\mu w} \\
+    \lambda \inp{v}{w} & = \mu \inp{v}{w} \\
+    (\lambda - \mu) \inp{v}{w} & = 0
+\end{align*}
+Since $\lambda - \mu \neq 0$, we have $\inp{v}{w} = 0$, and so $v$ and $w$ are orthogonal.
+\end{proof}
+
+\begin{corollary}
+Let $f: V \rightarrow V$ be a self-adjoint operator. If $v$ is an eigenvector of $f$, then the subspace $v^{\perp} = \set{w \in V: v \perp w}$ is invariant under $f$ i.e. $f(v^{\perp}) \subseteq v^{\perp}$.
+\end{corollary}
+
+
+
+
+
+
+\end{document}

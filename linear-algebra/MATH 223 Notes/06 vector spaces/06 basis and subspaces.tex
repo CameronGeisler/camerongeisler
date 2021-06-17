@@ -1,0 +1,99 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Basis and Subspaces}
+
+\begin{document}
+
+
+\section*{Dimension of Subspaces}
+\begin{theorem}
+Let $V$ be a finite-dimensional vector space, $U \subseteq V$ be a subspace. Then, $W$ is finite dimensional and $\dim{U} \leq \dim{V}$.
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item[]
+    \item If $U = \set{0}$, then $U$ is finite dimensional, and $\dim{U} = 0 \leq \dim{V}$
+    \item If $U \neq \set{0}$, then $U$ contains at least one non-zero vector $v_1$. Then, continue to choose vectors $v_2, \dots, v_k \in U$ such that $\set{v_1, v_2, \dots, v_k}$ is linearly independent, and adding any other vector would make the set linearly dependent. Since any linearly independent subset of $V$ contains at most $n$ vectors, $\set{v_1, v_2, \dots, v_k} \subseteq V$ contains at most $n$ vectors, and so $k \leq \dim{V}$.
+    \\ \\ Also, since for any additional vector $x \in U$, $\set{v_1, \dots, v_k, x}$ is linearly dependent, so $x \in \Span{v_1, \dots, v_k}$. Thus, $\set{v_1, \dots, v_k}$ is a basis of $U$, so $\dim{U} = k \leq \dim{V}$.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}
+If $\dim{U} = \dim{V}$, then $U = V$
+\end{corollary}
+\begin{proof}
+Let $\dim{U} = \dim{V}$. Then, a basis of $U$ is a linearly independent subset of $V$ containing $n$ vectors, and so it is also a basis for $V$.
+\end{proof}
+
+\begin{corollary}
+If $U \subseteq V$ is a subspace, then any basis of $U$ can be extended to a basis of $V$.
+\end{corollary}
+\begin{proof}
+Let $B$ be a basis of $U$. Then, $B$ is a linearly independent subset of $V$, so it can be extended to a basis of $V$.
+\end{proof}
+
+\section*{Dimension Theorem for Subspaces}
+\begin{theorem}
+Let $V$ be a vector space, $U_1$, $U_2$ be finite-dimensional subspaces. Then,
+\begin{equation*}
+    \boxed{\dim{(U_1 \cap U_2)} + \dim{(U_1 + U_2)} = \dim{U_1} + \dim{U_2}}
+\end{equation*}
+\end{theorem}
+
+\begin{theorem}
+Let $V$ be a vector space over $\mathbb{F}$ with dimension $n$, $U_1 \subseteq V$ be a subspace with dimension $p$. Then, there exists a subspace $U_2$ complementary to $U_1$ with dimension $n - p$.
+\end{theorem}
+\begin{proof}
+$U_1$ is a subspace with dimension $p$, so there exists a basis $B_1 = \set{v_1, \dots, v_p}$ of $U_1$. Then, $B_1$ can be extended to a basis $B = \set{v_1, \dots, v_p, v_{p+1}, \dots, v_n}$ of $V$. Let $U_2 = \Span{v_{p+1}, \dots, v_n}$.
+\\ \\ Let $v \in V$. Then, there exists $a_1, \dots, a_n \in \mathbb{F}$ such that
+\begin{align*}
+    v & = a_1 v_1 + \dots + a_n v_n \\
+    & = a_1 v_1 + \dots + a_p v_p + a_{p+1} v_{p+1} + \dots + a_n v_n
+\end{align*}
+Since $a_1 v_1 + \dots + a_p v_p \in U_1$ and $a_{p+1} v_{p+1} + \dots + a_n v_n \in U_2$, $v \in U_1 + U_2$.
+\\ \\ Let $v \in U_1 + U_2$, there exists $u_1 \in U_1$ and $u_2 \in U_2$ such that $v = u_1 + u_2$. Also, there exists unique $a_1, \dots, a_p \in \mathbb{F}$, $a_{p+1}, \dots, a_n \in \mathbb{F}$ such that
+\begin{align*}
+    u_1 & = a_1 v_1 + \dots + a_p v_p \\
+    u_2 & = a_{p+1} v_{p+1} + \dots + a_n v_n
+\end{align*}
+Then,
+\begin{align*}
+    v & = u_1 + u_2 \\
+    & = a_1 v_1 + \dots + a_p v_p + a_{p+1} v_{p+1} + \dots + a_n v_n
+\end{align*}
+Thus, $v \in V$. Therefore, $V = U_1 + U_2$.
+\\ \\ Let $v \in U_1 \cap U_2$. Then, $v \in U_1$ and $v \in U_2$, so there exists unique $a_1, \dots, a_p \in \mathbb{F}$, $a_{p+1}, \dots, a_n \in \mathbb{F}$ such that
+\begin{align*}
+    v & = a_1 v_1 + \dots + a_p v_p \\
+    v & = a_{p+1} v_{p+1} + \dots + a_n v_n
+\end{align*}
+Then,
+\begin{align*}
+    0 & = v - v \\
+    & = a_1 v_1 + \dots + a_p v_p - a_{p+1} v_{p+1} - \dots - a_n v_n
+\end{align*}
+Since $\set{v_1, \dots, v_n}$ is a basis of $V$, it is linearly independent, and so $a_1 = \dots = a_n = 0$. Thus, $v = 0$. Therefore, $U_1 \cap U_2 = \set{0}$.
+\\ \\ Also, by the subspace dimension formula,
+\begin{align*}
+    \dim{U_2} & = \dim{U_1 \cap U_2} + \dim{U_1 + U_2} - \dim{U_1} \\
+    & = \dim{\set{0}} + \dim{V} - p \\
+    & = n - p
+\end{align*}
+\end{proof}
+
+\section*{Examples}
+\begin{example}
+Let $V$ be a real vector space, $a, b, c, d \in V$. Let
+\begin{align*}
+    v_1 & = a + b + c + d \\
+    v_2 & = 2a + 2b + c - d \\
+    v_3 & = a + b + 3c - d \\
+    v_4 & = a - c + d \\
+    v_5 & = -b + c - d
+\end{align*}
+Prove that $\set{v_1, \dots, v_5}$ is linearly dependent.
+\\ \\ Let $U = \Span{a, b, c, d} \subseteq V$ be a subspace. Then, $4 \geq \dim{U}$. Since $\set{v_1, \dots, v_5}$ has more than $4$ elements, it is linearly dependent.
+\end{example}
+
+\end{document}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<macros>
+    <!-- %% Math -->
+    \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+    \newcommand{\set}[1]{\left\{ #1 \right\}}
+    \renewcommand{\neg}{\sim}
+    \newcommand{\brac}[1]{\left( #1 \right)}
+    \newcommand{\eval}[1]{\left. #1 \right|}
+    \renewcommand{\vec}[1]{\mathbf{#1}}
+    \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} %% for augmented matrix
+    
+    \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+    \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+    
+    <!-- %% Linear algebra -->
+    \DeclareMathOperator{\Ker}{Ker}
+    \DeclareMathOperator{\nullity}{nullity}
+    \DeclareMathOperator{\Image}{Im}
+    \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+    \DeclareMathOperator{\rank}{rank}
+    \DeclareMathOperator{\colrk}{colrk}
+    \DeclareMathOperator{\rowrk}{rowrk}
+    \DeclareMathOperator{\Row}{Row}
+    \DeclareMathOperator{\Col}{Col}
+    \DeclareMathOperator{\Null}{N}
+    \newcommand{\tr}[1]{tr\left( #1 \right)}
+    \DeclareMathOperator{\matref}{ref}
+    \DeclareMathOperator{\matrref}{rref}
+    \DeclareMathOperator{\sol}{Sol}
+    \newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+    \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+    
+    <!-- %% Statistics -->
+    \newcommand{\prob}[1]{P\left( #1 \right)}
+    \newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+    
+    \renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+</macros>

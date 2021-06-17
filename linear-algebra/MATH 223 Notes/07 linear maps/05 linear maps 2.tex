@@ -1,0 +1,115 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Linear Maps 2}
+
+\begin{document}
+
+\section*{Ordered Basis}
+\begin{definition}
+Let $V$ be a finite-dimensional vector space, $B = \set{v_1, \dots, v_n} \subseteq V$. Then, the family of vectors $(v_1, \dots, v_n)$ is an \textbf{ordered basis} of $V$.
+\begin{itemize}
+    \item For $\mathbb{F}^n$, $(e_1, \dots, e_n)$ is the standard ordered basis
+    \item For $P_{n}(\mathbb{F})$, $(1, x, \dots, x^n)$ is the standard ordered basis
+\end{itemize}
+\end{definition}
+
+\section*{Coordinate Vector Relative to a Basis}
+\begin{definition}
+Let $V$ be a finite-dimensional vector space over $\mathbb{F}$, $B = (v_1, \dots, v_n)$ be an ordered basis of $V$. Let $v \in V$, with unique $a_1, \dots, a_n \in \mathbb{F}$ such that
+\begin{equation*}
+    v = \sum_{i=1}^n a_i v_i
+\end{equation*}
+Then, the \textbf{coordinate vector of $v$ relative to $B$}, $[v]_{B}$, is the column vector
+\begin{equation*}
+    [x]_{B} = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix} \in \mathbb{F}^n
+\end{equation*}
+\begin{itemize}
+    \item Then, $[v_i]_{B} = e_i$
+\end{itemize}
+\end{definition}
+
+\begin{corollary}
+The map $V \rightarrow \mathbb{F}^n$, $v \mapsto [v]_{B}$ is linear.
+\end{corollary}
+
+\section*{Matrix Representation of a Linear Map (with Respect to Bases)}
+\begin{definition}
+Let $V$, $W$ be finite-dimensional vector spaces, $B = (v_1, \dots, v_n)$, $C = (w_1, \dots, w_m)$ be ordered bases of $V$ and $W$, respectively. Let $f: V \rightarrow W$ be a linear map. Then, for each $j$, $1 \leq j \leq n$, there exists unique $a_{ij} \in \mathbb{F}$, $1 \leq i \leq m$, such that
+\begin{equation*}
+    f(v_j) = \sum_{i=1}^m a_{ij} w_i
+\end{equation*}
+The \textbf{matrix representation of $f$ with respect to bases $B$ and $C$}, $[f]_{B}^{C}$, is the matrix $A$ such that $A_{ij} = a_{ij}$
+\begin{itemize}
+    \item The $j$th column of $A$ is $[f(v_j)]_{C}$, the coordinate vector of the image of the $j$th basis vector
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+Let $V$, $W$ be finite-dimensional vector spaces over $\mathbb{F}$, $B$, $C$ be ordered bases of $V$ and $W$, respectively. Let $f: V \rightarrow W$, $g: V \rightarrow W$ be linear maps, $a \in \mathbb{F}$. Then,
+\begin{enumerate}
+    \item $[f + g]_{B}^{C} = [f]_{B}^{C} + [g]_{B}^{C}$
+    \item $[af]_{B}^{C} = a[f]_{B}^{C}$
+\end{enumerate}
+\end{theorem}
+
+\section*{Matrix of a Composition of Maps}
+\begin{theorem}
+Let $V$, $W$, $Y$ be finite-dimensional vector spaces, $B$, $C$, $D$ be ordered bases of $V$, $W$, $Y$, respectively. Let $f: V \rightarrow W$, $g: W \rightarrow Y$ be linear maps. Then,
+\begin{equation*}
+    [g \circ f]_{B}^{D} = [g]_{C}^{D} [f]_{B}^{C}
+\end{equation*}
+\end{theorem}
+
+\begin{corollary}
+Let $V$ be a finite-dimensional vector space, $B \subseteq V$ be an ordered basis of $V$, $f: V \rightarrow V$, $g: V \rightarrow V$. Then,
+\begin{equation*}
+    [g \circ f]_{B} = [g]_{B} [f]_{B}
+\end{equation*}
+\end{corollary}
+
+
+
+
+
+
+
+
+
+
+\section*{Examples}
+\begin{example}
+Let $f: P_2(\mathbb{R}) \rightarrow P_2(\mathbb{R})$, $f(p(t)) = p(t - 2)$, $B = (1, 1 + t, 1 + t + t^2)$ be a basis of $P_2(\mathbb{R})$. Determine $[f]_{B}$.
+\begin{align*}
+    f(1) & = 1 = 1 + 0(1 + t) + 0(1 + t + t^2) \\
+    f(1 + t) & = (1 + t) - 2 = -2 + 1 \cdot (1 + t) \\
+    f(1 + t + t^2) & = 1 + (t - 2) + (t - 2)^2 \\
+    & = 6 - 4(1 + t) + 1 \cdot (1 + t + t^2)
+\end{align*}
+Thus,
+\begin{equation*}
+    [f]_{B} = \begin{bmatrix} 1 & -2 & 1 \\ 0 & 1 & -4 \\ 0 & 0 & 6 \end{bmatrix}
+\end{equation*}
+\end{example}
+
+\begin{example}
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+

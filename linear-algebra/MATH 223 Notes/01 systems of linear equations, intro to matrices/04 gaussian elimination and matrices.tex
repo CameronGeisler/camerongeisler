@@ -1,0 +1,260 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Gaussian Elimination and Matrices}
+
+\begin{document}
+
+
+\section*{Augmented Matrix of a Linear System}
+Consider a linear system,
+\begin{equation*}
+    \systeme{x_1 - 3x_2 + 4x_3 = -4, 3x_1 + 7x_3 = -8, -4x_1 + 6x_2 - x_3 = 7}
+\end{equation*}
+Notice that this system is completely determined by its coefficients. In other words, the system is completely described by the $3 \times 3$ matrix which contain the coefficients of the variables, and the $3 \times 1$ matrix (the column vector) which contains the constants on the right-hand sides,
+\begin{equation*}
+    \begin{bmatrix} 1 & -3 & 4 \\ 3 & 0 & 7 \\ -4 & 6 & -1 \end{bmatrix} \qquad \begin{bmatrix} -4 \\ -8 \\ 7 \end{bmatrix}
+\end{equation*}
+More simply, it can be described by a single $3 \times 4$ matrix,
+\begin{equation*}
+    \begin{bmatrix} 1 & -3 & 4 & -4 \\ 3 & 0 & 7 & -8 \\ -4 & 6 & -1 & 7 \end{bmatrix}
+\end{equation*}
+This is called the augmented matrix of the system. Notice that the variables $x_1, x_2, x_3$ are simply placeholders which align and separate the coefficients. Often, augmented matrices are denoted with a vertical bar separating the coefficients of the variables, and the constant column,
+\begin{equation*}
+    \begin{amatrix}{3} 1 & -3 & 4 & -4 \\ 3 & 0 & 7 & -8 \\ -4 & 6 & -1 & 7 \end{amatrix}
+\end{equation*}
+
+\begin{definition}
+The \textbf{coefficient matrix} of a linear system is the matrix with entries given by the coefficients of the variables. The \textbf{augmented matrix} is the coefficient matrix with an additional column for the constant terms,
+\begin{equation*}
+    \begin{array}{cccc}
+    \begin{array}{r}
+        a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\
+        a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = b_2 \\
+        \vdots \qquad \qquad \qquad \qquad \qquad \vdots \\
+        a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_n
+    \end{array}
+    & \implies & 
+    \underbrace{\begin{bmatrix}
+        a_{11} & a_{12} & \dots & a_{1n} \\
+        a_{21} & a_{22} & & \vdots & \\
+        \vdots & & \ddots & \\
+        a_{m1} & \dots & & a_{mn}
+        \end{bmatrix}}_{\text{coefficient matrix}}
+    & 
+    \underbrace{\begin{amatrix}{4}
+        a_{11} & a_{12} & \dots & a_{1n} & b_1 \\
+        a_{21} & a_{22} & & \vdots & \vdots \\
+        \vdots & & \ddots & & \\
+        a_{m1} & \dots & & a_{mn} & b_n
+    \end{amatrix}}_{\text{augmented matrix}}
+    \end{array}
+\end{equation*}
+\end{definition}
+
+Quite literally, the augmented matrix results from ``augmenting" the constant terms onto the coefficient matrix.
+
+\section*{Gaussian Elimination and Matrices}
+Then, Gaussian elimination can be reframed in terms of modifying rows of a matrix.
+
+\begin{definition}
+\textbf{Elementary row operations}. Denote row $i$ by $R_i$.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|l}
+        Operation & Symbol \\ \hline
+        \textbf{Interchange}. Interchange the order of two equations in the system. & $R_i \leftrightarrow R_j$ \\
+        \textbf{Scaling}. Multiply (or divide) an equation by a non-zero real number. & $kR_i \rightarrow R_i$ \\
+        \textbf{Replacement}. Add to one equation a multiple of another equation. & $R_i + kR_j \rightarrow R_i$
+    \end{tabular}
+\end{table}
+\begin{itemize}
+    \item Two matrices are \textbf{row equivalent} if one can be obtained from the other by a (finite) sequence of row oeprations.
+\end{itemize}
+\end{definition}
+
+Performing Gaussian elimination with this matrix form removes the need of repeatedly writing the variables.
+
+\begin{definition}
+\begin{itemize}
+    \item[]
+    \item A \textbf{zero} row has only zeros. A \textbf{non-zero} row is a row with at least one non-zero entry. 
+    \item The \textbf{leading entry} of a non-zero row is the left-most non-zero entry. Also called the \textbf{leading coefficient}, or \textbf{pivot}.
+\end{itemize}
+\end{definition}
+
+\section*{Row Echelon Form}
+After Gaussian elimination is performed, the triangular form of the matrix is called \textit{row echelon form}.
+
+\begin{definition}
+A matrix is in \textbf{row echelon form} (or simply \textbf{echelon form}, or \textbf{REF}) if
+\begin{enumerate}[(a)]
+    \item Any zero rows are at the bottom of the matrix.
+    \item The leading entry of every non-zero row is always strictly to the right of any leading entry above it.
+\end{enumerate}
+\end{definition}
+
+Matrices in row echelon form have the broad form,
+\begin{equation*}
+    \begin{bmatrix} a & \cdots & \cdots & \cdots & \cdots & \cdots \\
+    0 & b & \cdots & \cdots & \cdots & \cdots \\
+    0 & 0 & 0 & c & \cdots & \cdots \\
+    0 & 0 & 0 & 0 & 0 & d \\
+    0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+\end{equation*}
+where the pivots $a, b, c, d$ are non-zero numbers. Notice that,
+\begin{itemize}
+    \item Every entry below a pivot is 0.
+\end{itemize}
+
+The terminology \textit{echelon} is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called \textbf{row reduction}. In summary,
+\begin{equation*}
+    \begin{pmatrix} \text{doing operations on a} \\ \text{system of equations} \\ \text{to convert it to triangular form} \end{pmatrix} \quad \iff \quad \begin{pmatrix} \text{doing row operations on a} \\ \text{augmented matrix} \\ \text{to convert it to row echelon form} \end{pmatrix}
+\end{equation*}
+
+\begin{definition}
+A \textbf{pivot position} in a matrix $A$ is a location which corresponds to a leading entry in the row echelon form of $A$. A \textbf{pivot column} is a column of $A$ which contains a pivot position.
+\end{definition}
+
+\section*{Summary of Gaussian Elimination}
+Consider a matrix $A$.
+\begin{enumerate}
+    \item In the left-most non-zero column (the first pivot column), choose a non-zero entry to be the pivot, and if necessary, use a row exchange to position the pivot at the top of the column.
+    \begin{equation*}
+        \begin{bmatrix} a & \cdots & \cdots & \cdots \\
+        \vdots & \ddots & \vdots & \vdots \\
+        \vdots & \vdots & \vdots & \vdots \end{bmatrix}
+    \end{equation*}
+    \item Use row replacement operations to create zeros in all positions below the pivot.
+    \begin{equation*}
+        \begin{bmatrix} a & \cdots & \cdots & \cdots \\
+        0 & \ddots & \vdots & \vdots \\
+        0 & \vdots & \vdots & \vdots \end{bmatrix}
+    \end{equation*}
+    \item Repeat the previous steps with the remaining submatrix, ignoring the row and column of the pivot,
+    \begin{equation*}
+        \begin{bmatrix}
+        a & \cdots & \cdots & \cdots \\
+        0 & b & \vdots & \vdots \\
+        0 & 0 & \vdots & \vdots
+        \end{bmatrix}    
+    \end{equation*}
+    Repeat this process until there are no more non-zero rows to modify.
+\end{enumerate}
+Finally, to convert the matrix to RREF,
+\begin{enumerate}
+    \item[4.] Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation. 
+\end{enumerate}
+Steps 1-3 to convert a matrix to REF is called the \textbf{forward phase} of Gaussian elimination. Step 5 to convert it to the unique RREF is called the \textbf{backwards phase}.
+
+\section*{Remark on Gaussian Elimination}
+Gaussian elimination is named after German mathematician Carl Friedrich Gauss (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer Wilhelm Jordan (1842-1899) helped popularize the method.
+
+\section*{Systems with Infinitely Many Solutions}
+If the REF of the augmented matrix of a system has a zero row, then the system has infinitely many solution.
+
+\begin{example}
+Consider the matrix in REF,
+\begin{equation*}
+    \begin{bmatrix}
+    1 & 0 & -5 & 1 \\
+    0 & 1 & 1 & 4 \\
+    0 & 0 & 0 & 0
+    \end{bmatrix}
+\end{equation*}
+which corresponds to the linear system,
+\begin{equation*}
+    \begin{array}{rrrrr}
+        x & & -5z & = & 1 \\
+        & y & + z & = & 4 \\
+        & & 0 & = & 0
+    \end{array}
+\end{equation*}
+Notice that if we choose an arbitrary value of $z$, then we can solve for $x$ and $y$ in equation 1 and 2, respectively, and get a solution of the system. Here, $z$ is called a \textit{free variable}, because it can take on any value to generate a solution of the system.
+\end{example}
+
+\begin{definition}
+Variables which correspond to pivot columns are called \textbf{basic variables}. The other variables are called \textbf{free variables}.
+\end{definition}
+
+In general, for the augmented matrix of a system in REF, any non-pivot column corresponds to a free variable  (besides the right-most constant column). Free variables can take on any value, and then we can solve for the basic variables in terms of the free variables.
+
+\section*{Systems with No Solution}
+If the REF of the augmented matrix of a system has a row which corresponds to a false statement, then the system has no solution.
+
+\begin{example}
+Consider the matrix in REF,
+\begin{equation*}
+    \begin{bmatrix}
+    1 & -3 & 1 & 4 \\
+    0 & -1 & -4 & 7 \\
+    0 & 0 & 0 & 2
+    \end{bmatrix}
+\end{equation*}
+which corresponds to the linear system,
+\begin{equation*}
+    \begin{array}{rrrrr}
+        x & -3y & + z & = & 1 \\
+        & -y & -4 z & = & 4 \\
+        & & 0 & = & 2
+    \end{array}
+\end{equation*}
+The 3rd equation is the false statement $0 = 2$, so the system has no solution. This is because, no matter what the values of $x, y, z$, the third equation will \textit{never} be satisfied. A solution of the system must make every equation true, so no such solution exists. Thus, the system is inconsistent.
+\end{example}
+
+\section*{Reduced Row Echelon Form}
+The row ecehlon form of a matrix is not unique, in that by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into \textit{reduced} row ecehlon form.
+
+\begin{definition}
+A matrix is in \textbf{reduced row ecehlon form} (\textbf{RREF}) if
+\begin{enumerate}
+    \item It is in REF.
+    \item Every pivot is 1.
+    \item Each pivot is the only non-zero entry in its column (i.e. there are 0's below \textit{and} above each pivot).
+\end{enumerate}
+\end{definition}
+
+The classic example of a matrix in RREF is of the form,
+\begin{equation*}
+    \begin{bmatrix} 1 & 0 & 0 & a \\ 0 & 1 & 0 & b \\ 0 & 0 & 1 & c \end{bmatrix}
+\end{equation*}
+This represents a system of 3 linear equations in 3 unknowns. In particular the system,
+\begin{equation*}
+    \systeme{1x + 0y + 0z = a, 0x + 1y + 0z = b, 0x + 0y + 1z = c}
+\end{equation*}
+In other words,
+\begin{equation*}
+    \begin{cases} x = a \\ y = b \\ z = c \end{cases}
+\end{equation*}
+from which the solution can be read right off as $(a,b,c)$.
+
+\begin{theorem}
+Every matrix is row equivalent to a unique matrix in RREF.
+\end{theorem}
+\begin{proof}
+\textbf{EXERCISE}.
+\end{proof}
+
+\section*{Existence and Uniqueness, Summary}
+\begin{theorem}
+A linear system is consistent if and only if the right-most column of its augmented matrix is not a pivot column. In other words, if and only if the REF of the augmented matrix has no row of the form,
+\begin{equation*}
+    \begin{bmatrix} 0 & \dots & 0 & b \end{bmatrix} \qquad \text{where $b \neq 0$}
+\end{equation*}
+If a linear system is consistent, then the solution set is either:
+\begin{enumerate}[(a)]
+    \item A unique solution, if there are no free variables.
+    \item Infinitely many solutions, if there is at least one free variable.
+\end{enumerate}
+\end{theorem}
+
+\section*{Summary of Solving Systems with Gaussian Elimination}
+\begin{enumerate}
+    \item Determine the augmented matrix of the system $\begin{bmatrix} A \mid b \end{bmatrix}$.
+    \item Convert the matrix into an equivalent matrix in REF, using row reduction. If the system is inconsistent, then we are done.
+    \item If the system is consistent, then convert the matrix into RREF.
+    \item Write the system of equations corresponding to the matrix in RREF.
+    \item Solve for each basic variable in terms of any free variables.
+\end{enumerate}
+
+\end{document}

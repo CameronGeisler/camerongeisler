@@ -1,0 +1,57 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741} \newcommand{\hw}{0} %% Homework number
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{Course}
+\chead{Title}
+\rhead{ \myname \\ \mynumber }
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{amsthm}
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}} %vector
+\newcommand{\abs}[1]{\lvert #1 \rvert} %absolute value / magnitude of vector
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+\renewcommand{\neg}{\sim}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{null}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+
+\begin{document}
+Recall: For a linear map $f$,
+\begin{equation*}
+    \dim{(\Ker{f})} + \dim{(\Image{f})} = \dim{V}
+\end{equation*}
+
+$\mathbb{R}$ and $\mathbb{C}$ are not the only scalar domain that can be used as the set for a vector space, it can be generalized to the concept of a field.
+
+
+
+\end{document}

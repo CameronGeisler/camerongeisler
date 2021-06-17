@@ -1,0 +1,37 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Characterizations of Invertible Matrices}
+
+\begin{document}
+
+
+\section*{Invertible Matrix Theorem}
+The previous results, along with the multiple characterizations of linear systems, form the \textit{invertible matrix theorem}, which provides a summary of many equivalent conditions for a square matrix being invertible.
+
+\begin{theorem}
+\textbf{Invertible matrix theorem}. Let $A$ be a square $n \times n$ matrix. Then, the following are equivalent:
+\begin{enumerate}[(a)]
+    \item $A$ is invertible.
+    \item $A$ is row equivalent to the $n \times n$ identity matrix $I_n$.
+    \item $A$ has $n$ pivot positions.
+    \item The equation $A\vec{x} = \vec{0}$ has only the trivial solution.
+    \item The columns of $A$ form a linearly independent set.
+    \item The linear transformation of $A$ ($\vec{x} \mapsto A\vec{x}$) is one-to-one.
+    \item The equation $A\vec{x} = \vec{b}$ has at least one solution for every $\vec{b} \in \mathbb{R}^n$.
+    \item The columns of $A$ span $\mathbb{R}^n$.
+    \item The linear transformation $\vec{x} \mapsto A\vec{x}$ maps $\mathbb{R}^n$ onto $\mathbb{R}^n$.
+    \item There exists an $n \times n$ matrix $C$ such that $CA = I$.
+    \item There exists an $n \times n$ matrix $D$ such that $AD = I$.
+    \item $A^T$ is invertible.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+Let $A, B$ be square matrices. If $AB = I$, then $A$ and $B$ are both invertible, and they are inverses of each other, $A = B^{-1}, B = A^{-1}$.
+\end{theorem}
+
+Recall that matrices $A, B$ are inverses if $AB = I$. The previous theorem means that the converse is also true: if $AB = I$, then $A, B$ are inverses. This implies that the set of all $n \times n$ matrices are divided into two disjoint classes: the invertible (non-singular) matrices, and the non-invertible (singular) matrices.
+
+
+\end{document}

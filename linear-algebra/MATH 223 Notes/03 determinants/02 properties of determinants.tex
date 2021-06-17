@@ -1,0 +1,90 @@
+\documentclass[letterpaper,12pt]{article}
+\input{preamble}
+
+\chead{Properties of Determinants}
+
+\begin{document}
+
+\section*{Determinants and Row Operations}
+Consider a $2 \times 2$ matrix $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$, with determinant $\det{A} = ad - bc$. Consider how the determinant is affected by the elementary row operations.
+
+\begin{enumerate}[(a)]
+    \item For replacement (say $R_2 + kR_1 \rightarrow R_2$),
+    \begin{align*}
+        \det{\begin{bmatrix} a & b \\ c + ka & d + kb \end{bmatrix}} & = a(d + kb) - b(c + ka) \\
+        & = ad - bc + abk - abk \\
+        & = ad - bc = \det{A}
+    \end{align*}
+    In other words, the determinant is unchanged.
+    \item For scaling, say row 1 is scaled by $k$,
+    \begin{align*}
+        \det{\begin{bmatrix} ka & kb \\ c & d \end{bmatrix}} & = ka(d) - kb(c) \\
+        & = k(ad - bc) = k \det{A}
+    \end{align*}
+    i.e. the determinant is also scaled by $k$.
+    \item For row interchange,
+    \begin{align*}
+        \det{\begin{bmatrix} c & d \\ a & b \end{bmatrix}} & = cb - ad \\
+        & = -(ad - bc) = -\det{A}
+    \end{align*}
+    i.e. it changes the sign of the determinant.
+\end{enumerate}
+
+These properties are true for determinants of any size matrix.
+
+\begin{theorem}
+Let $A$ be a square matrix, $B$ be the matrix $A$ after some row operation.
+\begin{enumerate}[(a)]
+    \item If a multiple of one row is added to another row, then $\det{B} = \det{A}$.
+    \item If two rows are interchanged, then $\det{B} = -\det{A}$.
+    \item If one row is scaled by $k$, then $\det{B} = k\det{A}$.
+\end{enumerate}
+\end{theorem}
+
+In particular, only row interchanges and scalings affect the value of a determinant.
+
+\section*{Evaluating Determinants of Higher Order}
+One strategy for evaluating higher-order determinants i.e. for a larger matrix $A$, is to use row reduction to convert them to REF, say $U$. Recall that matrices in REF are upper triangular. Then, the determinant of $U$ is the product of its diagonal entries. Then, the determinant of $A$ is given by,
+\begin{equation*}
+    \det{A} = c \det{U}
+\end{equation*}
+where $c$ is the product of all of the constant factors and sign changes accumulated by row interchanges and scalings. In particular, if no scalings are used (which is possible), then
+\begin{equation*}
+    \det{A} = (-1)^r \det{U}
+\end{equation*}
+where $r$ is the number of row interchanges.
+
+\section*{Invertible if and only if Non-zero Determinant}
+\begin{theorem}
+A square matrix $A$ is invertible if and only if $\det{A} \neq 0$.
+\end{theorem}
+
+
+
+\section*{Determinant of a Transpose}
+\begin{theorem}
+Let $A$ be a square matrix. Then,
+\begin{equation*}
+    \boxed{\det{A^T} = \det{A}}
+\end{equation*}
+\end{theorem}
+
+\section*{Determinant of a Product}
+
+\begin{theorem}
+\textbf{Multiplicative property}. Let $A, B$ be $n \times n$ matrices. Then,
+\begin{equation*}
+    \boxed{\det{(AB)} = \det{A} \cdot \det{B}}
+\end{equation*}
+More generally,
+\begin{equation*}
+    \boxed{\det{(A_1 \cdots A_k)} = \det{A_1} \cdots \det{A_k}}
+\end{equation*}
+\end{theorem}
+
+
+Note that the analogous statement does not apply for a sum of matrices, that is, the determinant of a sum of matrices is not in general equal to the sum of the determinants, or $\det{(A + B)} \neq \det{A} + \det{B}$.
+
+
+
+\end{document}

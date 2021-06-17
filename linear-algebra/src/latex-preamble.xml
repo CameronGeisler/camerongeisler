@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<latex-preamble>
+    <package>cancel</package>
+    <!-- <package>systeme</package> -->
+</latex-preamble>

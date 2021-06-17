@@ -1,0 +1,176 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{graphicx}
+\pagestyle{fancy}
+\usepackage{tkz-euclide} \usetkzobj{all} %% figures
+\usepackage{exsheets} %% for tasks
+
+\lhead{Math 223} \chead{} \rhead{\myname \\ \mynumber}
+\lfoot{\myname} \cfoot{Page \thepage} \rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\usepackage{enumerate}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{result}{Result}
+
+%% Math
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+%% Vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+%% Linear algebra
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+%% Statistics
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\begin{document}
+
+\section*{Solving Systems of Equations}
+Given $A\vec{x} = \vec{b}$, where $A$ is an $n \times n$ matrix, $\vec{x}, \vec{b}$ are $n \times 1$ column vectors.
+\begin{itemize}
+    \item The main method is Gaussian elimination. Perform row operations to reduce the augmented matrix to row echelon form (row reduction, upper triangular). Recall elementary row operations include switching rows, adding a multiple of a row to another, or multiplying a row by a constant.
+    \item An \textbf{elementary metrix} is a matrix $E$ which performs an elementary row operation on a matrix $A$ by matrix multiplication, i.e. $EA$ is the matrix $A$ with some row operation done. To determine an elementary matrix, simply perform the same operation onto the identity matrix.
+    \item This allows for writing a matrix $A$ as,
+    \begin{equation*}
+        E_n E_{n-1} \cdots E_2 E_1 A = U
+    \end{equation*}
+    where $U$ is an upper triangular matrix. Then, solving for $A$,
+    \begin{align*}
+        A & = E_1^{-1} E_2^{-1} \cdots E_n^{-1} U \\
+        A & = L U
+    \end{align*}
+    where $L = E_1^{-1} E_2^{-1} \cdots E_n^{-1}$, which can be obtained by performing the inverse of each row operation on the identity matrix (simply flip the signs), and will be lower triangular. This factors the matrix $A$ into two matrices, one of which is lower triangular and one is upper triangular.
+\end{itemize}
+
+Note that not all matrices have an $LU$ factorization, as $L$ being lower triangular requires that the only row operation used is adding a multiple of a row to another.
+
+\begin{theorem}
+If $A$ can be reduced to an upper triangular matrix $U$ by elementary row operations of type 1 (adding a multiple of a row $i$ to row $j$, where $i < j$), then $A = LU$ has an $LU$-factorization, where $L = E_1^{-1} \cdots E_n^{-1}$ and each $E_k$ is an elementary matrix of type 1.
+\end{theorem}
+
+\begin{definition}
+A matrix is \textbf{lower triangular} if all entries above the diagonal are 0. \textbf{Unit lower triangular} if is lower triangular and all entries on the diagonal are 1. \textbf{Atomic lower triangular} if all entries not on the diagonal are 0, except for one column.
+\end{definition}
+
+\begin{itemize}
+    \item The inverse of a atomic lower triangular is the same matrix with the negatives of the non-zero non-diagonal entries.
+    \item The product of two atomic lower triangular matrices with two different non-zero columns just adds the columns.
+\end{itemize}
+
+\section*{Determining LU Factorization}
+\begin{enumerate}
+    \item Perform row operations on $A$ to convert it into row echelon form (upper triangular).
+    \item Record the elementary matrices $E_1, \dots, E_n$.
+    \item Compute $L = E_1^{-1} \cdots E_n^{-1}$.
+\end{enumerate}
+
+Then, the system of equations becomes,
+\begin{equation*}
+    LU\vec{x} = \vec{b}
+\end{equation*}
+Linear systems with triangular matrices are much easier to solve for computers. A computer first solves $L\vec{y} = \vec{b}$ for $\vec{y}$, and then solves $U\vec{x} = \vec{y}$ for $\vec{x}$. Then, this $\vec{x}$ indeed satisfies the system,
+\begin{align*}
+    LU\vec{x} = L(U\vec{x}) = L\vec{y} = \vec{b}
+\end{align*}
+
+\section*{LU Factorization and Determinants}
+LU factorization can also be used to more easily compute determinants, as,
+\begin{align*}
+    \det{A} = \det{LU} = \det{L} \det{U} = \det{U}
+\end{align*}
+as the determinant of lower triangular matrices are 1.
+
+\begin{itemize}
+    \item Can also use to find $A^{-1}$. Say for a $3 \times 3$ matrix, use the LU factorization to solve $A\vec{x}_1 = e_1, A\vec{x}_2 = e_2, A\vec{x}_3 = e_3$. Then, the inverse is given by the columns $\vec{x}_1, \vec{x}_2, \vec{x}_3$,
+    \begin{equation*}
+        A^{-1} = \begin{bmatrix} \vec{x}_1 & \vec{x}_2 & \vec{x}_3 \end{bmatrix}
+    \end{equation*}
+\end{itemize}
+
+
+\section*{Polynomial Interpolation}
+Consider the $n+1$ data points, $(x_0,y_0), \dots, (x_n,y_n)$, with distinct input $x_k$ values. Then, there is a unique $n$th degree polynomial $p(x)$,
+\begin{equation*}
+    p(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n
+\end{equation*}
+which passes through all of the points i.e. $p(x_k) = y_k$ for every $k$. Each point gives a linear equation in $a_0, \dots, a_n$,
+\begin{align*}
+    a_0 + a_1 x_0 + a_2 x_0^2 + \dots + a_n x_0^n & = y_0 \\
+    a_0 + a_1 x_1 + a_2 x_1^2 + \dots + a_n x_1^n & = y_1 \\
+    \vdots & \\
+    a_0 + a_1 x_n + a_2 x_n^2 + \dots + a_n x_n^n & = y_n
+\end{align*}
+of the form $A\vec{a} = \vec{y}$, where $A$ is the Vandermonde matrix.
+
+\section*{Polynomial Regression}
+Consider the $n+1$ data points, $(x_0,y_0), \dots, (x_n,y_n)$, with distinct input $x_k$ values. Linear regression involves determining a linear equation $y = c_0 + c_1 x$ which is a best fit for the data, which minimizes the sum of squared error,
+\begin{equation*}
+    SSE = \sum_{k=0}^n (y_k - (c_0 + c_1 x_k))^2
+\end{equation*}
+In other words, minimize
+\begin{align*}
+    SSE & = \norm{\begin{bmatrix} y_0 \\ y_1 \\ \vdots \\ y_n \end{bmatrix} - \begin{bmatrix} 1 & x_0 \\ 1 & x_1 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix} \begin{bmatrix} c_0 \\ c_1 \end{bmatrix}}^2 \\
+    & = \norm{\vec{y} - A \vec{c}}^2
+\end{align*}
+This is the famous \textbf{least squares problem}. The solution $\vec{c}$ is the solution of the normal equation
+\begin{equation*}
+    A^T A \vec{c} = A^T \vec{y}
+\end{equation*}
+More generally, the polynomial $p(x) = c_0 + c_1 x + \dots + c_d x^d$ of degree $d$ which best fits the data (by minimizing the sum of squared error) has coefficients given by the solution of,
+\begin{equation*}
+    A^T A \vec{c} = A^T \vec{y}
+\end{equation*}
+where,
+\begin{align*}
+    A = \begin{bmatrix} 1 & x_0 & x_0^2 & \dots & x_0^d \\
+    1 & x_1 & x_1^2 & \dots & x_1^d \\
+    \vdots & & & \dots & \vdots \\
+    1 & x_n & x_n^d & \dots & x_n^d \end{bmatrix} \qquad \vec{c} = \begin{bmatrix} c_0 \\ c_1 \\ \vdots \\ c_d \end{bmatrix} \qquad \vec{y} = \begin{bmatrix} y_0 \\ y_1 \\ \vdots \\ y_n \end{bmatrix}
+\end{align*}
+Here, $A$ is the Vandermonde matrix.
+
+\section*{Eigenvalues and Eigenvectors}
+Let $A$ be an $n \times n$ matrix. Then $\lambda, \vec{v}$ are called an \textbf{eigenvalue} and \textbf{eigenvector}, respectively, if $A \vec{v} = \lambda \vec{v}$, or equivalently,
+\begin{equation*}
+    (A - \lambda I_n) \vec{v} = 0 \qquad \text{or} \qquad \det(A - \lambda I_n) = 0
+\end{equation*}
+In linear algebra, the eigenvalues are determined by determining the roots of the characteristic polynomial $p(\lambda) = \det(A - \lambda I_n)$. This is not the most efficient method to determine eigenvalues.
+
+\end{document}

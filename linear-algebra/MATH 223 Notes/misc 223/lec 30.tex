@@ -1,0 +1,154 @@
+\documentclass[letterpaper,12pt]{article}
+\newcommand{\myname}{Cameron Geisler}
+\newcommand{\mynumber}{90856741}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[paper=letterpaper,left=25mm,right=25mm,top=3cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\pagestyle{fancy}
+
+\lhead{Math 223}
+\chead{Lecture 30}
+\rhead{\myname \\ \mynumber}
+\lfoot{\myname}
+\cfoot{Page \thepage}
+\rfoot{\mynumber}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\labelitemii{\textbullet} %changes 2nd level bullet to bullet
+
+\setlength{\parindent}{0pt}
+\theoremstyle{definition}
+\newtheorem*{result}{Result}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{example}{Example}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\usepackage{enumerate}
+\newcommand{\ihat}{\hat{\imath}}
+\newcommand{\jhat}{\hat{\jmath}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\vec}[1]{\overrightarrow{#1}} %vector
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} %absolute value / magnitude of vector
+\renewcommand{\neg}{\sim}
+\newcommand{\vect}[2]{\left< #1, #2 \right>}
+
+%% Linear algebra
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{null}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left< #1, #2 \right>}
+\newcommand{\norm}[1]{\| #1 \|}
+
+\newenvironment{amatrix}[1]{\left(\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right)} %% augmented matrix
+
+\begin{document}
+
+\section*{Spectral Theorem (Principal Axes Theorem}
+Let $A \in M(n \times n, \mathbb{R})$, $A$ symmetric. Then, $\inp{Ax}{y} = \inp{x}{Ay}$.
+\begin{proof}
+\begin{align*}
+    \inp{Ax}{y} & = (Ax)^t y && \text{definition of inner product} \\
+    & = x^t A^t y && \text{transpose of product} \\
+    & = x^t Ay && \text{$A = A^t$} \\
+    & = \inp{x}{Ay} && \text{definition of inner product}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Let $A \in M(n \times n, \mathbb{R})$. If $A$ is symmetric, then $A$ is diagonalizable, and there exists an orthonormal basis $B$ of $\mathbb{R}^n$ consisting of eigenvectors of $A$.
+\end{theorem}
+\begin{proof}
+Let $B = (u_1, \dots, u_n)$ eigenbasis, $Au_i = \lambda_i u_i$, $P = (u_1, \dots, u_n)$ matrix with eigenbasis vectors as columns, $D$ diagonal matrix with eigenvectors along diagonal.
+\begin{align*}
+    A = PDP^{-1}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Let $A \in M(n \times n, \mathbb{R})$, $A = A^t$, then there exists an orthonormal basis (with respect to the standard inner product on $\mathbb{R}^n$) $B = (u_1, \dots, u_n)$ such that for all $\lambda_i \in \mathbb{R}$, $Av_i = \lambda_i v_i$ (i.e. $A$ is orthogonally diagonalizable)
+\end{theorem}
+
+
+\begin{lemma}
+Let $A \in M(n \times n, \mathbb{R})$ be symmetric. Then, $A$ has an eigenvalue $\lambda \in \mathbb{R}$, $v \in \mathbb{R}^n$, $v \neq 0$, with $Av = \lambda v$.
+\end{lemma}
+\begin{proof}
+We can think of $A$ as a complex matrix $A \in M(n \times n, \mathbb{C})$. Then, $A$ has an eigenvalue $\lambda = \gamma + i\omega \in \mathbb{C}$ by the fundamental theorem of algebra.
+\\ \\ Let $v + iw = \begin{pmatrix} v_1 + i w_1 \\ \vdots \\ v_n + i w_n \end{pmatrix}$ be a complex eigenvector. Then,
+\begin{align*}
+    A(v+iw) & = (\gamma + i\omega)(v + iw) \\
+    Av + iAw & = \gamma v - \omega w + i(\gamma w + \omega v)
+\end{align*}
+Thus, by equating the real and imaginary coefficients,
+\begin{align*}
+    Av & = \gamma v - \omega w \\
+    Aw = \gamma w + \omega v
+\end{align*}
+Then, consider
+\begin{align*}
+    \inp{Av}{w} & = v \inp{v}{Aw} \\
+    \inp{\gamma v - \omega w}{w} & = \inp{v}{\gamma w + \omega v} \\
+    \gamma \inp{v}{w} - \omega \norm{w}^2 & = \gamma \inp{v}{w} + \omega \norm{v}^2 \\
+    \omega(\norm{v}^2 + \norm{w}^2) & = 0 \\
+\end{align*}
+Since $v + iw \neq 0$ (as eigenvector), either $v \neq 0$ or $w \neq 0$, so either $norm{v} > 0$ or $\norm{w} > 0$, and so $\norm{v}^2 + \norm{w}^2 > 0$. Thus, $\omega = 0$. Therefore, $\lambda = \gamma \in \mathbb{R}$.
+\end{proof}
+
+
+\begin{lemma}
+Let $A \in M(n \times n, \mathbb{R})$, $A$ symmetric. If $v \in \mathbb{R}$ is a eigenvector of $A$ with eigenvalue $\lambda$, then $(\Span{v})^{\perp}$ is invariant under $A$.
+\end{lemma}
+\begin{proof}
+We want to show that $A(\Span{v}^{\perp}) \subset (\Span{v})^{\perp}$. In other words, $(\Span{v})^{\perp} = \set{v}^{\perp}$. Let $x \in \set{v}^{\perp}$. Then,
+\begin{align*}
+    \inp{Ax}{v} & = \inp{x}{Av} && \text{$A$ is symmetric so it is self-adjoint} \\
+    & = \inp{x}{\lambda v} \\
+    & = \lambda \inp{x}{v} \\
+    & = 0 && \text{$x \in \set{v}^{\perp}$ so $\inp{x}{v} = 0$}
+\end{align*}
+\end{proof}
+
+
+\subsection*{Proof of Spectral Theorem}
+BY induction, let $n = 1$. Then, for base case, empty family is an orthonormal basis.
+\\ \\ Let $v \in \mathbb{R}^n$ be an eigenvalue of $A$ with eigenvalue $\lambda$. Then, let $U = (\Span{v})^{\perp}$ be a subspace of $\mathbb{R}^n$. Note that $U = (\Span{v})^{\perp} = \set{x \in \mathbb{R}^n: \inp{v}{x} = v^t x = 0} = \ker{v^t}$. Since $v^t$ is a matrix with $1$ non-zero row in REF, $\rk{v^t} = 1$, and so $\dim{U} = \dim{\ker{v^t}} = n-1$.
+\\ \\ Let $A'$ be the restriction of $A$ to $U$, $A': U \rightarrow U$, $B = (u_1, \dots, u_n)$ be an orthonormal basia of $U$. First, we want to show that $[A']_{B}$ is symmetric.
+\begin{align*}
+    ([A']_{B})_{ij} & = \inp{u_i}{Au_j} && \text{by the definition of $[A']_{B}$, and $B$ is orthonormal} \\
+    & = \inp{Au_i}{u_j} \\
+    & = \inp{u_j}{Au_i} \\
+    & = ([A']_{B})_{ji} \\
+    ([A']_{B})_{ij} & = ([A']_{B}^{t})_{ij}
+\end{align*}
+Thus, $[A']_{B} = [A']_{B}^{t}$, so $[A']_{B}$ is symmetric.
+\\ \\ By the induction hypothesis, there exists an basis $C$ of $\mathbb{R}^{n-1}$ consisting of eigenvectors.
+\\ See OneNote. Since $B$, $C$ are orthogonal bases, $\Phi_{B}$, $\Phi_{C}$ are orthogonal maps, and so their composition $\Phi_{D} = \Phi_{B} \circ \Phi_{C}$ is orthogonal.
+\\ \\ Thus, $[A']_{D}$ is a diagonal matrix, so $D = (v_1, \dots, v_{n-1})$ consists of eigenvectors for $A'$. Then, $(\frac{v}{\norm{v}}, v_1, \dots, v_{n-1})$ is an orthonormal basis of $\mathbb{R}^n$ consisting of eigenvectors for $A$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
