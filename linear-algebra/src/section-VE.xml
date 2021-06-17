@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-VE">
+    <title>Vector Equations</title>
+
+    <introduction>
+        <definition>
+            A matrix <m>A</m> is <term>square</term> if it has the same number of rows as columns. In other words, <m>A</m> is an <m>n \times n</m> matrix, for some <m>n</m>.
+        </definition>
+    </introduction>
+
+    <subsection>
+        <title>Vectors</title>
+
+        <p>
+            The term <i>vector</i> is used widely in mathematics and physics. Here, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <term>column matrix</term>, a matrix with dimensions <m>1 \times n</m>, i.e. a matrix with 1 row and <m>n</m> <q>columns</q>. Similarly, a <term>row vector</term> is a <m>m \times 1</m> matrix, a matrix which has 1 columns and <m>m</m> <q>rows</q>.
+        </p>
+
+        <p>
+            First, we will consider vectors with two entries. The set of all vectors with two entries is denoted by <m>\mathbb{R}^2</m> (read <q>r-squared</q> or simply <q>r-two</q>).
+        </p>
+
+        <definition>
+            Two vectors in <m>\mathbb{R}^2</m> are <term>equal</term> if their corresponding entries are equal.
+        </definition>
+
+        <definition>
+            Let <m>\vec{u}, \vec{v}</m> be vectors. Their <term>sum</term> <m>\vec{u} + \vec{v}</m> is the vecotr obtained by adding the corresponding entries of <m>\vec{u}</m> and <m>\vec{v}</m>.
+        </definition>
+
+        <definition>
+            Let <m>\vec{u}</m> be a vector, <m>c \in \mathbb{R}</m>. Then, the <term>scalar multiple</term> of <m>\vec{u}</m> by <m>c</m>, <m>c\vec{u}</m>, is the vector obtained by multiply each entry of <m>\vec{u}</m> by <m>c</m>.
+        </definition>
+
+        <p>
+            The number <m>c \in \mathbb{R}</m> is called a <term>scalar</term>.
+        </p>
+
+        <p>
+            Often, it is simpler to write vectors horizontally rather than vertically, but it is necessary to keep the vertical convention. In this case, we <i>identify</i> a column vector with an ordered tuple of numbers. For example,
+        </p>
+
+        <me>
+            \begin{bmatrix} 1 \\ -3 \end{bmatrix} \quad \text{is equivalent to} \quad (1,-3)
+        </me>
+        
+        More generally,
+
+        <me>
+            (b_1, \dots, b_n) \quad \text{is equivalent to} \quad \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}
+        </me>
+
+        Note that <m>(b_1, \dots, b_n)</m> is not a row vector.
+    </subsection>
+    
+    <subsection>
+        <title>Geometry of Vectors in <m>\mathbb{R}^2</m></title>
+
+        <p>
+            Every point in the plane is completely determined by an ordered pair of numbers, so there is a one-to-one correspondence between points in the plane <m>(a,b)</m> and vectors <m>\begin{bmatrix} a \\ b \end{bmatrix}</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Vectors in <m>\mathbb{R}^3</m></title>
+
+        <p>
+            Vectors in <m>\mathbb{R}^3</m> are <m>3 \times 1</m> column matrices, and can be represented geometrically as points in space.
+        </p>
+    </subsection>
+</section>
