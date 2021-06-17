@@ -1,3 +1,3 @@
 # Welcome index.md
 
-[Textbook](linear-algebra/index.html)
+[Textbook](linear-algebra/book-linear-algebra.html)
