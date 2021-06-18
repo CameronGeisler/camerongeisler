@@ -15,7 +15,7 @@
             <ul>
                 <li>The set <m>\mathbb{R}^n</m> is called the domain of <m>T</m> (more generally, a subset of <m>\mathbb{R}^n</m>, denoted by <m>D(T)</m>), and <m>\mathbb{R}^m</m> is called the <term>codomain</term> of <m>T</m></li>
                 <li>For <m>\vec{x} \in \mathbb{R}^n</m>, the vector <m>T(\vec{x})</m> is called the <term>image</term> of <m>\vec{x}</m>.</li>
-                <li>The <term>range</term> of <m>T</m> is the set of all images <term>T(\vec{x})</term>.</li>
+                <li>The <term>range</term> of <m>T</m> is the set of all images <m>T(\vec{x})</m>.</li>
             </ul>
         </definition>
     </subsection>
