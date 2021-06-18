@@ -48,30 +48,24 @@
                 <mrow>a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1</mrow>
                 <mrow>a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2</mrow>
                 <mrow>\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots</mrow>
-                <mrow>a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_n</mrow>
+                <mrow>a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_m</mrow>
             </md>
-            where <m>a_{ij}, b_i \in \mathbb{R}</m> are the <term>coefficients</term> of the system. Notice that the coefficients <m>a_{ij}</m> use <em>double subscript</em> notation. Here, <m>a_{ij}</m> represents the coefficients of <m>x_j</m> in the <m>i</m>th equation.
+            where <m>a_{ij}, b_i \in \mathbb{R}</m> are the <term>coefficients</term> of the system.
         </p>
-        <p><ul>
-            <li>
-                <p>
-                    A system of linear equations is also sometimes called <term>simultaneous linear equations</term>, or simply a <term>linear system</term>, or sometimes simply a <term>system</term>.
-                </p>
-            </li>
-            <li>
-                <p>The variables <m>x_1, \dots, x_n</m> are sometimes called <term>unknowns</term>.</p>
-            </li>
-            <li>
-                <p>A <term>solution</term> of a linear system is an ordered tuple <m>(s_1, \dots, s_n)</m> which, when substituted for <m>(x_1, \dots, x_n)</m>, respectively, makes each equation a true statement.</p>
-            </li>
-            <li>
-                <p>The set of all possible solutions of a linear system is called its <term>solution set</term>.</p>
-            </li>
-            <li>
-                <p>Two linear systems are <term>equivalent</term> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</p>
-            </li>
-        </ul></p>
     </definition>
+
+    Here, the coefficients <m>a_{ij}</m> are written using <em>double subscript</em> notation. Here, <m>a_{ij}</m> represents the coefficients of <m>x_j</m> in the <m>i</m>th equation. The first subscript represents the equation number, and the second represents the number of the variable that it is a coefficient of.
+
+    <p>
+        <ul>
+            <li>A system of linear equations is also sometimes called <term>simultaneous linear equations</term>, or simply a <term>linear system</term>, or sometimes simply a <term>system</term>.</li>
+            <li>The variables <m>x_1, \dots, x_n</m> are sometimes called <term>unknowns</term>.</li>
+            <li>A <term>solution</term> of a linear system is an ordered tuple <m>(s_1, \dots, s_n)</m> which, when substituted for <m>(x_1, \dots, x_n)</m>, respectively, makes each equation a true statement.</li>
+            <li>The set of all possible solutions of a linear system is called its <term>solution set</term>.</li>
+            <li>Two linear systems are <term>equivalent</term> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</li>
+        </ul>
+    </p>
+
     </subsection>
 
     <subsection xml:id="systems-of-two-linear-equations-in-two-variables">

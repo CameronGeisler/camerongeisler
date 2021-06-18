@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-17T14:40:07-07:00       *-->
+<!--*       on 2021-06-17T19:56:17-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -90,7 +90,7 @@
 \)</div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra:</span> <span class="subtitle">My First PreTeXt Experiment</span></a></h1>
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes:</span> <span class="subtitle"></span></a></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -117,6 +117,10 @@
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-RRAM.html" data-scroll="section-RRAM" class="active">Gaussian Elimination and Matrices</a></li>
 <li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -131,33 +135,33 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Elementary Row Operation.</span>
 </h6>
 <ul class="disc">
-<li id="li-33">
+<li id="li-36">
 <dfn class="terminology">Interchange</dfn>. Interchange two rows in the matrix.</li>
-<li id="li-34">
+<li id="li-37">
 <dfn class="terminology">Scaling</dfn>. Multiply (or divide) an equation by a non-zero real number.</li>
-<li id="li-35">
+<li id="li-38">
 <dfn class="terminology">Replacement</dfn>. Add to one equation a multiple of another equation.</li>
 </ul>
-<p id="p-31">These row operations are denoted by,</p>
+<p id="p-26">These row operations are denoted by,</p>
 <ul class="disc">
-<li id="li-36">\(\displaystyle R_i \leftrightarrow R_j\)</li>
-<li id="li-37">\(\displaystyle kR_i \rightarrow R_i\)</li>
-<li id="li-38">\(\displaystyle R_i + k R_j \rightarrow R_i\)</li>
-</ul></article><p id="p-32">Performing Gaussian elimination with this matrix form removes the need of repeatedly writing the variables. This process on a matrix is also called <dfn class="terminology">row reduction</dfn>.</p>
+<li id="li-39">\(\displaystyle R_i \leftrightarrow R_j\)</li>
+<li id="li-40">\(\displaystyle kR_i \rightarrow R_i\)</li>
+<li id="li-41">\(\displaystyle R_i + k R_j \rightarrow R_i\)</li>
+</ul></article><p id="p-27">Performing Gaussian elimination with this matrix form removes the need of repeatedly writing the variables. This process on a matrix is also called <dfn class="terminology">row reduction</dfn>.</p>
 <ul class="disc">
-<li id="li-39">Two matrices are <dfn class="terminology">row equivalent</dfn> if one can be obtained from the other by a (finite) sequence of row oeprations.</li>
-<li id="li-40">A <dfn class="terminology">zero</dfn> row has only zeros. A <dfn class="terminology">non-zero</dfn> row is a row with at least one non-zero entry.</li>
-<li id="li-41">The <dfn class="terminology">leading entry</dfn> of a non-zero row is the left-most non-zero entry. It is also called the <dfn class="terminology">leading coefficient</dfn>, or <dfn class="terminology">pivot</dfn>.</li>
+<li id="li-42">Two matrices are <dfn class="terminology">row equivalent</dfn> if one can be obtained from the other by a (finite) sequence of row oeprations.</li>
+<li id="li-43">A <dfn class="terminology">zero</dfn> row has only zeros. A <dfn class="terminology">non-zero</dfn> row is a row with at least one non-zero entry.</li>
+<li id="li-44">The <dfn class="terminology">leading entry</dfn> of a non-zero row is the left-most non-zero entry. It is also called the <dfn class="terminology">leading coefficient</dfn>, or <dfn class="terminology">pivot</dfn>.</li>
 </ul></section><section class="subsection" id="subsection-15"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Row Echelon Form</span>
 </h3>
-<p id="p-33">After Gaussian elimination is performed on a matrix, the staircase or triangular form of the matrix is called row echelon form.</p>
+<p id="p-28">After Gaussian elimination is performed on a matrix, the staircase or triangular form of the matrix is called row echelon form.</p>
 <article class="definition definition-like" id="definition-10"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
 </h6>A matrix is in <dfn class="terminology">row echelon form</dfn> (or simply <dfn class="terminology">echelon form</dfn>, or <dfn class="terminology">REF</dfn>) if, <ol class="decimal">
-<li id="li-42">Any zero rows are the bottom of the matrix.</li>
-<li id="li-43">the leading entry of every non-zero row is always strictly to the right of any leading entry above it.</li>
-</ol></article><p id="p-34">Matrices in row echelon form have the broad form,</p>
+<li id="li-45">Any zero rows are the bottom of the matrix.</li>
+<li id="li-46">the leading entry of every non-zero row is always strictly to the right of any leading entry above it.</li>
+</ol></article><p id="p-29">Matrices in row echelon form have the broad form,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \amp \cdots \amp \cdots \\
@@ -166,8 +170,8 @@
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp d \\
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \end{bmatrix}
 \end{equation*}
-</div>where the pivots $a, b, c, d$ are non-zero numbers. Notice that, <ul class="disc"><li id="li-44">Every entry below a pivot is 0.</li></ul>
-<p id="p-35">The terminology echelon is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called <dfn class="terminology">row reduction</dfn>. In summary,</p>
+</div>where the pivots $a, b, c, d$ are non-zero numbers. Notice that, <ul class="disc"><li id="li-47">Every entry below a pivot is 0.</li></ul>
+<p id="p-30">The terminology echelon is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called <dfn class="terminology">row reduction</dfn>. In summary,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{pmatrix} \text{doing operations on a} \\ \text{system of equations} \\ \text{to convert it to triangular form} \end{pmatrix} \quad \iff \quad \begin{pmatrix} \text{doing row operations on a} \\ \text{augmented matrix} \\ \text{to convert it to row echelon form} \end{pmatrix}
@@ -178,7 +182,7 @@
 </h6>A <dfn class="terminology">pivot position</dfn> in a matrix \(A\) is a location which corresponds to a leading entry in the row echelon form of \(A\text{.}\) A <dfn class="terminology">pivot column</dfn> is a column of \(A\) which contains a pivot position.</article></section><section class="subsection" id="subsection-16"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.3</span> <span class="title">Summary of Row Reduction</span>
 </h3> Consider a matrix \(A\text{.}\) <ol class="decimal">
-<li id="li-45">In the left-most non-zero column (the first pivot column), choose a non-zero entry to be the pivot, and if necessary, use a row exchange to position the pivot at the top of the column.<div class="displaymath">
+<li id="li-48">In the left-most non-zero column (the first pivot column), choose a non-zero entry to be the pivot, and if necessary, use a row exchange to position the pivot at the top of the column.<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \\
 \vdots \amp \ddots \amp \vdots \amp \vdots \\
@@ -186,7 +190,7 @@
 \end{equation*}
 </div>
 </li>
-<li id="li-46">Use row replacement operations to create zeros in all positions below the pivot.<div class="displaymath">
+<li id="li-49">Use row replacement operations to create zeros in all positions below the pivot.<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \\
 0 \amp \ddots \amp \vdots \amp \vdots \\
@@ -194,7 +198,7 @@
 \end{equation*}
 </div>
 </li>
-<li id="li-47">Repeat the previous steps with the remaining submatrix, ignoring the row and column of the pivot,<div class="displaymath">
+<li id="li-50">Repeat the previous steps with the remaining submatrix, ignoring the row and column of the pivot,<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix}
 a \amp \cdots \amp \cdots \amp \cdots \\
@@ -204,18 +208,18 @@ a \amp \cdots \amp \cdots \amp \cdots \\
 \end{equation*}
 </div>Repeat this process until there are no more non-zero rows to modify.</li>
 </ol>
-<p id="p-36">Finally, to convert the matrix to RREF,</p>
-<ol class="decimal"><li id="li-48">Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation.</li></ol>
-<p id="p-37">Steps 1-3 to convert a matrix to REF is called the <dfn class="terminology">forward phase</dfn> of Gaussian elimination. Step 5 to convert it to the unique RREF is called the <dfn class="terminology">backwards phase</dfn>.</p></section><section class="subsection" id="subsection-17"><h3 class="heading hide-type">
+<p id="p-31">Finally, to convert the matrix to RREF,</p>
+<ol class="decimal"><li id="li-51">Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation.</li></ol>
+<p id="p-32">Steps 1-3 to convert a matrix to REF is called the <dfn class="terminology">forward phase</dfn> of Gaussian elimination. Step 5 to convert it to the unique RREF is called the <dfn class="terminology">backwards phase</dfn>.</p></section><section class="subsection" id="subsection-17"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.4</span> <span class="title">Remark on Gaussian Elimination</span>
 </h3>
-<p id="p-38">Gaussian elimination is named after German mathematician <dfn class="terminology">Carl Friedrich Gauss</dfn> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer <dfn class="terminology">Wilhelm Jordan</dfn> (1842-1899) helped popularize the method.</p></section><section class="subsection" id="subsection-18"><h3 class="heading hide-type">
+<p id="p-33">Gaussian elimination is named after German mathematician <dfn class="terminology">Carl Friedrich Gauss</dfn> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer <dfn class="terminology">Wilhelm Jordan</dfn> (1842-1899) helped popularize the method.</p></section><section class="subsection" id="subsection-18"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.5</span> <span class="title">Systems with Infinitely Many Solutions</span>
 </h3>
-<p id="p-39">If the REF of the augmented matrix of a system has a zero row, then the system has infinitely many solutions.</p>
+<p id="p-34">If the REF of the augmented matrix of a system has a zero row, then the system has infinitely many solutions.</p>
 <article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-40">Consider the matrix in REF,</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-35">Consider the matrix in REF,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix}
@@ -235,10 +239,10 @@ x \amp \amp -5z \amp = \amp 1 \\
 </div>Notice that if we choose an arbitrary value of \(z\text{,}\) then we can solve for \(x\) and \(y\) in equation 1 and 2, respectively, and get a solution of the system. Here, \(z\) is called a free variable, because it can take on any value to generate a solution of the system.</article></div>
 <article class="definition definition-like" id="definition-12"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span>
-</h6>Variables which correspond to pivot columns are called <dfn class="terminology">basic variables</dfn>. The other variables are called <dfn class="terminology">free variables</dfn>.</article><p id="p-41">In general, for the augmented matrix of a system in REF, any non-pivot column corresponds to a free variable (besides the right-most constant column). Free variables can take on any value, and then we can solve for the basic variables in terms of the free variables.</p></section><section class="subsection" id="subsection-19"><h3 class="heading hide-type">
+</h6>Variables which correspond to pivot columns are called <dfn class="terminology">basic variables</dfn>. The other variables are called <dfn class="terminology">free variables</dfn>.</article><p id="p-36">In general, for the augmented matrix of a system in REF, any non-pivot column corresponds to a free variable (besides the right-most constant column). Free variables can take on any value, and then we can solve for the basic variables in terms of the free variables.</p></section><section class="subsection" id="subsection-19"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.6</span> <span class="title">Systems with No Solution</span>
 </h3>
-<p id="p-42">If the REF of the augmented matrix of a system has a row which corresponds to a false statement, then the system has no solution.</p>
+<p id="p-37">If the REF of the augmented matrix of a system has a row which corresponds to a false statement, then the system has no solution.</p>
 <article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like">Consider the matrix in REF,<div class="displaymath">
@@ -260,20 +264,20 @@ x \amp -3y \amp + z \amp = \amp 1 \\
 </div>The 3rd equation is the false statement (or, contradiction) \(0 = 2\text{,}\) so the system has no solution. This is because, no matter what the values of \(x, y, z\text{,}\) it is not possible for the third equation to be satisfied. A solution of the system must make every equation true, so no such solution exists. Thus, the system is inconsistent.</article></div></section><section class="subsection" id="subsection-20"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.7</span> <span class="title">Reduced Row Echelon Form</span>
 </h3>
-<p id="p-43">The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into reduced row ecehlon form.</p>
+<p id="p-38">The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into reduced row ecehlon form.</p>
 <article class="definition definition-like" id="definition-13"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
 </h6>A matrix is in <dfn class="terminology">reduced row echelon form</dfn> (<dfn class="terminology">RREF</dfn>) if, <ol class="decimal">
-<li id="li-49">The matrix is in REF.</li>
-<li id="li-50">Every pivot is 1.</li>
-<li id="li-51">Every pivot is the only non-zero entry in its column. In other words, there are all 0's below and above each pivot.</li>
-</ol></article><p id="p-44">The classic example of a matrix in RREF is a matrix of the form,</p>
+<li id="li-52">The matrix is in REF.</li>
+<li id="li-53">Every pivot is 1.</li>
+<li id="li-54">Every pivot is the only non-zero entry in its column. In other words, there are all 0's below and above each pivot.</li>
+</ol></article><p id="p-39">The classic example of a matrix in RREF is a matrix of the form,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} 1 \amp 0 \amp 0 \amp a \\ 0 \amp 1 \amp 0 \amp b \\ 0 \amp 0 \amp 1 \amp c \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-45">This represents a system of 3 linear equations in 3 unknowns. In particular the system,</p>
+<p id="p-40">This represents a system of 3 linear equations in 3 unknowns. In particular the system,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrrr}
@@ -290,7 +294,7 @@ y \amp = \amp b \\
 z \amp = \amp c \end{array}
 \end{equation*}
 </div>
-<p id="p-46">from which the solution can be read right off as $(a,b,c)$.</p>
+<p id="p-41">from which the solution can be read right off as $(a,b,c)$.</p>
 <article class="theorem theorem-like" id="theorem-1"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.8</span><span class="period">.</span>
 </h6></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof">EXERCISE.</article></div></section><section class="subsection" id="subsection-21"><h3 class="heading hide-type">
@@ -305,17 +309,17 @@ z \amp = \amp c \end{array}
 \end{equation*}
 </div>
 <ol class="decimal">
-<li id="li-52">A unique solution, if there are no free variables.</li>
-<li id="li-53">Infinitely many solutions, if there are at least one free variable.</li>
+<li id="li-55">A unique solution, if there are no free variables.</li>
+<li id="li-56">Infinitely many solutions, if there are at least one free variable.</li>
 </ol></article></section><section class="subsection" id="subsection-22"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.9</span> <span class="title">Summary of Solving Systems with Gaussian Elimination</span>
 </h3>
 <ol class="decimal">
-<li id="li-54">Determine the augmented matrix of the system \(\begin{bmatrix} A \mid b \end{bmatrix}\text{.}\)</li>
-<li id="li-55">Convert the matrix into an equivalent matrix in REF, using row reduction. If the system is inconsistent, then we are done.</li>
-<li id="li-56">If the system is consistent, then convert the matrix into RREF.</li>
-<li id="li-57">Write the system of equations corresponding to the matrix in RREF.</li>
-<li id="li-58">Solve for each basic variable in terms of any free variables.</li>
+<li id="li-57">Determine the augmented matrix of the system \(\begin{bmatrix} A \mid b \end{bmatrix}\text{.}\)</li>
+<li id="li-58">Convert the matrix into an equivalent matrix in REF, using row reduction. If the system is inconsistent, then we are done.</li>
+<li id="li-59">If the system is consistent, then convert the matrix into RREF.</li>
+<li id="li-60">Write the system of equations corresponding to the matrix in RREF.</li>
+<li id="li-61">Solve for each basic variable in terms of any free variables.</li>
 </ol></section></section></div></main>
 </div>
 </body>

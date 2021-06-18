@@ -68,4 +68,176 @@
             Vectors in <m>\mathbb{R}^3</m> are <m>3 \times 1</m> column matrices, and can be represented geometrically as points in space.
         </p>
     </subsection>
+
+    <subsection>
+        <title>Vectors in <m>\mathbb{R}^n</m></title>
+
+        More generally, we can consider vectors with <m>n</m> elements.
+
+        <definition>
+            The set of all ordered <m>n</m>-tuples of <m>n</m> real numbers is denoted by <m>\mathbb{R}^n</m> (read as <q>r-n</q>).
+        </definition>
+
+        The definitions of equality, sum, and scalar multiple are analogous to that for <m>\mathbb{R}^2</m> and <m>\mathbb{R}^3</m>,
+
+        <ul>
+            <li>Vectors <m>\vec{u}, \vec{v}</m> in <m>\mathbb{R}^n</m> are <term>equal</term> if their corresponding entries are equal.</li>
+            <li>The <term>sum</term> <m>\vec{u} + \vec{v}</m> is obtained by adding entries componentwise.</li>
+            <li>The <term>scalar multiple</term> <m>c \vec{u}</m> is obtained by multiplying every entry of <m>\vec{u}</m> by <m>c</m>.</li>
+            <li>The <m>zero vector</m>, denoted by <m>\vec{0}</m>, is the unique vector with entries which are all zeros.</li>
+        </ul>
+
+        <p>
+            The arithmetic of vectors satisfies many of the familiar laws of arithmetic with numbers.
+        </p>
+
+        <theorem>
+            <title>Properties of vector arithmetic</title>
+            <p>
+                Let <m>\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^n</m> be vectors, <m>c, d \in \mathbb{R}</m>. Then,
+            </p>
+            <ol>
+                <li><term>Addition commutative</term>, <m>\vec{u} + \vec{v} = \vec{v} + \vec{u}</m>.</li>
+                <li><term>Addition associative</term>, <m>(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})</m>.</li>
+                <li><term>Additive identity</term>, <m>\vec{u} + \vec{0} = \vec{0} + \vec{u} = \vec{i}</m>.</li>
+                <li><term>Additive inverse</term>, <m>\vec{u} + (-1\vec{u}) = \vec{0}</m>.</li>
+                <li><term>Scalar multiplication associative</term>, <m>c(d\vec{u}) = (cd)\vec{u}</m>.</li>
+                <li><term>Scalar multiplication distributes over addition</term>, <m>c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}</m>.</li>
+                <li><term>Vectors distribute over addition</term>, <m>(c + d)\vec{u} + c\vec{u} + d\vec{u}</m>.</li>
+            </ol>
+        </theorem>
+
+        <p>
+            For simplicity, the scalar multiple <m>-1\vec{u}</m> is written as <m>-\vec{u}</m>, and is called the <i>additive inverse</i> of <m>\vec{u}</m>. These properties all essentially follow from the corresponding properties of real numbers.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Linear Combinations of Vectors</title>
+
+        <definition>
+            Let <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> be vectors, <m>a_1, a_2, \dots, a_n \in \mathbb{R}</m> be scalars. Then, the vector <m>\vec{v}</m> given by,
+            <me>
+                \vec{v} = a_1 \vec{v}_1 + a_2 \vec{v}_2 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
+            </me>
+            is called a <term>linear combination</term> of <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> with <term>weights</term> <m>a_1, a_2, \dots, a_n</m>.
+        </definition>
+
+        <example>
+            Given any collection of vectors, the <term>trivial</term> linear combination is that with all weights being 0, i.e.,
+            <me>
+                0 \vec{v}_1 + 0 \vec{v}_2 + \dots + 0 \vec{v}_n = \vec{0}
+            </me>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Vector Equations</title>
+        <p>
+            A <term>vector equation</term>, naturally, is an equation involving vectors.
+        </p>
+
+        <example>
+            Let,
+            <me>
+                \vec{a}_1 = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} \qquad \vec{a}_2 = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} \qquad \vec{b} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}
+            </me>
+            and consider the equation,
+            <me>
+                x_1 \vec{a}_1 + x_2 \vec{a}_2 = \vec{b}
+            </me>
+            Here, the unknowns are <m>x_1</m> and <m>x_2</m>. Intuitively, this represents the questions of whether <m>\vec{b}</m> can be written as a linear combination of <m>\vec{a}_1</m> and <m>\vec{a}_2</m>. In other words, if there exists weights <m>x_1, x_2</m> such that the linear combination <m>x_1 \vec{a}_1 + x_2 \vec{a}_2</m> is equal to <m>\vec{b}</m>. Using the properties of vectors, we can combine and simplify the left-hand side,
+            <md>
+                <mrow>x_1 \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + x_2 \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} \amp = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}</mrow>
+                <mrow>\begin{bmatrix} x_1 \\ -2x_1 \\ -5x_1 \end{bmatrix} + \begin{bmatrix} 2x_2 \\ 5x_2 \\ 6x_2 \end{bmatrix} \amp = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}</mrow>
+                <mrow>\begin{bmatrix} x_1 + 2x_2 \\ -2x_1 + 5x_2 \\ -5x_1 + 6x_2 \end{bmatrix} \amp = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}</mrow>
+            </md>
+            This vector equation is equivalent to the original equation, but it is in a more convenient form. By the definition of equality for vectors, we know that these two vectors are equal if and only if their corresponding entries are equal. In other words, if <m>x_1, x_2</m> is a solution to the linear system,
+            <me>
+                \begin{array}{rrrr}
+                x_1 \amp + 2x_2 \amp = \amp 7 \\
+                -2x_1 \amp + 5x_2 \amp = \amp 4 \\
+                -5x_1 \amp + 6x_2 \amp = -3
+                \end{array}
+            </me>
+            Using row reduction,
+            <me>
+                \left[\begin{array}{cc|c} 1 \amp 2 \amp 7 \\ -2 \amp 5 \amp 4 \\ -5 \amp 6 \amp -3 \end{array} \right]
+            </me>
+            This matrix has RREF,
+            <me>
+                \left[\begin{array}{cc|c} 1 \amp 0 \amp 3 \\ 0 \amp 1 \amp 2 \\ 0 \amp 0 \amp 0 \end{array} \right]
+            </me>
+            Thus, the system is consistent with <m>x_1 = 3, x_2 = 2</m>, and so,
+            <me>
+                3\vec{a}_1 + 2\vec{a}_2 = \vec{b}
+            </me>
+        </example>
+
+        <p>
+            More generally, to solve a vector equation,
+        </p>
+
+        <me>
+            x_1 \vec{a}_1 + \dots + x_n \vec{a}_n = \vec{b}
+        </me>
+
+        <p>
+            Form the associated system of linear equations in <m>x_1, \dots, x_n</m>, and form its augmented matrix, whose columns will be <m>\vec{a}_1, \dots, \vec{a}_n, \vec{b}</m>. This is denoted by,
+        </p>
+
+        <me>
+            \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+        </me>
+
+        <p>
+            Intuitively, this is a row vector with entries which are themselves column vectors, forming a matrix. Then, use row reduction to determine the solution. In summary,
+        </p>
+
+        <theorem>
+            <title>Vector equations as a linear system</title>
+            <p>
+                The vector equation,
+            </p>
+            <me>
+                x_1 \vec{a}_1 + \dots + x_n \vec{a}_n = \vec{b}
+            </me>
+            <p>
+                has the same solution set as the system of linear equations in <m>x_1, \dots, x_n</m> which has augmented matrix given by,
+            </p>
+            <me>
+                \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+            </me>
+        </theorem>
+    </subsection>
+
+    <subsection>
+        <title>Span of Vectors</title>
+
+        <definition>
+            Let <m>\vec{v}_1, \dots, \vec{v}_n \in \mathbb{R}^n</m> be vectors. The <term>span</term> of <m>\vec{v}_1, \dots, \vec{v}_n</m>, denoted by <m>\Span{\vec{v}_1, \dots, \vec{v}_n}</m>, is the set of all linear combinations of <m>\vec{v}_1, \dots, \vec{v}_n</m>. In other words,
+            <me>
+                \Span{\vec{v}_1, \dots, \vec{v}_n} = \set{a_1 \vec{v}_1 + \dots a_n \vec{v}_n : a_1, \dots, a_n \in \mathbb{R}}
+            </me>
+        </definition>
+
+        <p>
+            By definition, a vector <m>\vec{v}</m> is in <m>\Span{\vec{v}_1, \dots, \vec{v}_n}</m> if and only if <m>\vec{v}</m> can be written as a linear combination of <m>\vec{v}_1, \dots, \vec{v}_n</m>. From the previous result, this is true if and only if the linear system with augmented matrix,
+        </p>
+        <me>
+            \begin{bmatrix} \vec{v}_1 \amp \dots \amp \vec{v}_n \amp \vec{v} \end{bmatrix}
+        </me>
+        has a solution.
+    </subsection>
+
+    <subsection>
+        <title>Geometric Interpretation of Span</title>
+        <p>
+            If <m>\vec{v} \in \mathbb{R}^2</m>. Then, <m>\Span{\vec{v}}</m> is precisely the set of all scalar multiple of <m>\vec{v}</m>. Equivalently, the set of points on the line in <m>\mathbb{R}^2</m> through <m>\vec{v}</m> and <m>\vec{0}</m>.
+        </p>
+        
+        <p>
+            If <m>\vec{u}, \vec{v} \in \mathbb{R}^2</m> are non-zero vector, and <m>\vec{v}</m> is not a multiple of <m>\vec{v}</m>, then <m>\Span{\vec{u}, \vec{v}}</m> makes up the entire plane <m>\mathbb{R}^2</m>. In <m>\mathbb{R}^3</m>, <m>\Span{\vec{u}, \vec{v}}</m> consists of the plane in <m>\mathbb{R}^3</m> which contains <m>\vec{u}, \vec{v}</m> and <m>\vec{0}</m>.
+        </p>
+    </subsection>
 </section>

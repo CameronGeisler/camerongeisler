@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-ITLT">
+    <title>Intro to Linear Transformations</title>
+
+    <introduction>
+        Another benefit of the matrix form <m>A\vec{x} = \vec{b}</m> of a linear system is that it allows us to view a matrix <m>A</m> as an object that <q>acts</q> on a vector <m>\vec{x}</m> to produce a new vector <m>A\vec{x}</m>.
+    </introduction>
+
+    <subsection>
+        <title>Linear Transformations</title>
+
+        <definition>
+            A <term>transformation</term> (or <term>mapping</term>) <m>T</m> form <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m> is a rule which assigns to each vector <m>\vec{x} \in \mathbb{R}^n</m> a vector <m>T(\vec{x})</m> in <m>\mathbb{R}^m</m>.
+            <ul>
+                <li>The set <m>\mathbb{R}^n</m> is called the domain of <m>T</m> (more generally, a subset of <m>\mathbb{R}^n</m>, denoted by <m>D(T)</m>), and <m>\mathbb{R}^m</m> is called the <term>codomain</term> of <m>T</m></li>
+                <li>For <m>\vec{x} \in \mathbb{R}^n</m>, the vector <m>T(\vec{x})</m> is called the <term>image</term> of <m>\vec{x}</m>.</li>
+                <li>The <term>range</term> of <m>T</m> is the set of all images <term>T(\vec{x})</term>.</li>
+            </ul>
+        </definition>
+    </subsection>
+</section>

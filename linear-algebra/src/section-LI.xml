@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-LI">
+    <title>Linear Independence</title>
+
+    <introduction>
+        The concept of linear independence is crucial to linear algebra.
+    </introduction> 
+
+    <subsection>
+        <title>Linear Independence</title>
+
+        <definition>
+            An indexed set of vectors <m>\set{\vec{v}_1, \dots, \vec{v}_n}</m> in <m>\mathbb{R}^n</m> is <term>linearly independent</term> if the vector equation,
+            <me>
+                a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \vec{0}
+            </me>
+            has only the trivial solution <m>a_1 = \dots = a_n = 0</m>.
+        </definition>
+
+        <definition>
+            Otherwise, <m>\set{\vec{v}_1, \dots, \vec{v}_n}</m> is <term>linearly dependent</term>. In other words, <m>\set{\vec{v}_1, \dots, \vec{v}_n}</m> is linearly dependent if there exists <m>a_1, \dots, a_n</m>, not all zero, such that,
+            <me>
+                a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \vec{0}
+            </me>
+        </definition>
+
+        <p>
+            The <q>zero</q> linear combination <m>a_1 \vec{v}_1 + \dots + a_n \vec{v}_n</m> where <m>a_1 = \dots = a_n = 0</m> is called the <term>trivial</term> linear combination. Any other linear combination is called <term>non-trivial</term>.
+        </p>
+
+        <example>
+            A set containing a single vector <m>\set{\vec{v}}</m> is linearly independent if and only if <m>\vec{v}</m> is non-zero. This is because the equation <m>a\vec{v} = \vec{0}</m> has only the trivial solution <m>a = 0</m> if <m>\vec{v} \neq \vec{0}</m>. If <m>\vec{v} = \vec{0}</m>, then <m>a\vec{0} = \vec{0}</m> has non-trivial solutions (any non-zero value for <m>a</m>).
+        </example>
+
+        <example>
+            <title>Set with two vectors</title>
+            <p>
+                Consider a set with two vectors <m>\set{\vec{v}_1, \vec{v}_2}</m>, and consider the equation,
+            </p>
+            <me>
+                a \vec{v}_1 + b\vec{v}_2 = \vec{0}
+            </me>
+            If <m>\vec{v}_1, \vec{v}_2</m> are linearly dependent, then at least one of <m>a, b</m> are non-zero. If say <m>a \neq 0</m>, then by solving for <m>\vec{v}_1</m>,
+            <me>
+                \vec{v}_1 = -\frac{b}{a} \vec{v}_2
+            </me>
+            In other words, <m>\vec{v}_1</m> is a scalar multiple of <m>\vec{v}_2</m>. Conversely, if one vector is a scalar multiple of the other, say <m>\vec{v}_1 = k \vec{v}_2</m>, then <m>\vec{v}_1 - k \vec{v}_2 = \vec{0}</m>. This is a non-trivial linear combination of <m>\set{\vec{v}_1, \vec{v}_2}</m>, and so <m>\set{\vec{v}_1, \vec{v}_2}</m> is a linearly independent set.
+        </example>
+    </subsection>
+</section>

@@ -8,11 +8,16 @@
     </docinfo>
 
     <book xml:id="book-linear-algebra" xmlns:xi="http://www.w3.org/2001/XInclude">
-        <title>Linear Algebra</title>
-        <subtitle>My First PreTeXt Experiment</subtitle>
+        <title>Linear Algebra Notes</title>
+        <subtitle></subtitle>
 
         <introduction>
-            This is an introduction to this book.
+            These notes are based on,
+            <ul>
+                <li>Linear Algebra and Its Applications (Lay).</li>
+                <li>MATH 223 Linear Algbra (University of British Columbia)</li>
+                <li>CPSC 314 Computer Graphics (University of British Columbia)</li>
+            </ul>
         </introduction>
         
         <xi:include href="./chapter-ITLA.xml"/>
