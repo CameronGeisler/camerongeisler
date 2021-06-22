@@ -27,10 +27,15 @@
                 <mrow>T(\vec{x}) \amp = T(x_1 \vec{e}_1 + x_2 \vec{e}_2)</mrow>
                 <mrow>\amp = x_1 T(\vec{e}_1) + x_2 T(\vec{e}_2)</mrow>
             </md>
-            Thus, if we know the images <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>, we can determine <m>T(\vec{x})</m>. In this way, <m>T(\vec{x})</m> is completely determined by <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>. Further, we can write this as a matrix-vector product,
-            <me>
-                T(\vec{x}) = \begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
-            </me>
+            Thus, if we know the images <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>, we can determine <m>T(\vec{x})</m>. In this way, the transformation <m>T</m> is <q>completely determined</q> by the two images <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>. Intuitively, if you know <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>, then you know <m>T</m>.
+            
+            <p>
+                Further, the transformation <m>T</m> can also be written as a matrix-vector product,
+            </p>
+            <md>
+                <mrow>T(\vec{x}) \amp = x_1 T(\vec{e}_1) + x_2 T(\vec{e}_2)</mrow>
+                <mrow>T(\vec{x}) \amp = \begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}</mrow>
+            </md>
             Here, the matrix <m>\begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix}</m> has two columns, given by the images of the vectors <m>\vec{e}_1</m> and <m>\vec{e}_2</m>. If we denote this matrix by <m>A</m>, then the equation becomes,
             <me>
                 T(\vec{x}) = A\vec{x}

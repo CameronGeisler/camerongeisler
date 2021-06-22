@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-19T17:54:30-07:00       *-->
+<!--*       on 2021-06-21T17:29:59-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,44 +15,7 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Consider a linear transformation in the plane, \(T: \mathbb{R}^2 \rightarrow \mathbb{R}^2\text{.}\) Notice that for any vector \(\vec{x} \in \mathbb{R}^2, \vec{x} = (x_1, x_2)\text{,}\) it can be written as a linear combination of the columns of the identity matrix \(I_2\text{,}\) which we will denote by \(\vec{e}_1\) and \(\vec{e}_2\text{.}\) That is,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\vec{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \vec{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
-\end{equation*}
-</div>
-<p class="continuation">Then,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\vec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = x_1 \vec{e}_1 + x_2 \vec{e}_2
-\end{equation*}
-</div>
-<p class="continuation">Then, consider the image of \(\vec{x}\) under \(T\text{,}\)</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-T(\vec{x}) = T(x_1 \vec{e}_1 + x_2 \vec{e}_2)
-\end{equation*}
-</div>
-<p class="continuation">By linearity, this is equivalent to,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{align*}
-T(\vec{x}) \amp = T(x_1 \vec{e}_1 + x_2 \vec{e}_2)\\
-\amp = x_1 T(\vec{e}_1) + x_2 T(\vec{e}_2)
-\end{align*}
-</div>
-<p class="continuation">Thus, if we know the images \(T(\vec{e}_1)\) and \(T(\vec{e}_2)\text{,}\) we can determine \(T(\vec{x})\text{.}\) In this way, \(T(\vec{x})\) is completely determined by \(T(\vec{e}_1)\) and \(T(\vec{e}_2)\text{.}\) Further, we can write this as a matrix-vector product,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-T(\vec{x}) = \begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
-\end{equation*}
-</div>
-<p class="continuation">Here, the matrix \(\begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix}\) has two columns, given by the images of the vectors \(\vec{e}_1\) and \(\vec{e}_2\text{.}\) If we denote this matrix by \(A\text{,}\) then the equation becomes,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-T(\vec{x}) = A\vec{x}
-\end{equation*}
-</div>
-<p class="continuation">That is, we have written \(T(\vec{x})\) as a matrix transformation. Notice that the matrix \(A\) only depends on the transformation \(T\text{,}\) and not on the input vector \(\vec{x}\text{.}\) This can be generalized to a linear transformation \(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\text{.}\)</p>
-<span class="incontext"><a href="section-MALT.html#p-92">in-context</a></span>
+<p xmlns:svg="http://www.w3.org/2000/svg">Let \(T\) be a linear transformation, \(\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}\text{.}\) Then,</p>
+<span class="incontext"><a href="section-ITLT.html#p-92">in-context</a></span>
 </body>
 </html>

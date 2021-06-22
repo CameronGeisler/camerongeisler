@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter>
+    <title>Matrix Operations</title>
+
+    <introduction>
+        Recall that an <m>m \times n</m> matrix <m>A</m> is a rectangular array of real numbers with <m>m</m> rows and <m>n</m> columns,
+        <me>
+            A = \begin{bmatrix}
+            a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
+            a_{21} \amp a_{22} \amp \dots \amp a_{2n} \\
+            \vdots \amp \vdots \amp \ddots \amp \vdots \\
+            a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
+            \end{bmatrix}
+        </me>
+        The <m>j</m>th column of <m>A</m> is the column vector <m>\vec{a}_j</m>. Then, the matrix can be written as,
+        <me>
+            A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
+        </me>
+        Next, we will introduce basic definitions and operations related to matrices. Almost all of these are simply an extension of the corresponding definitions for vectors. After all, matrices are in some sense a generalization of a vector.
+    </introduction>
+
+    <subsection>
+        <title>Matrix Equality, Addition, Subtraction, and Scalar Multiplication</title>
+
+        <definition>
+            Two matrices <m>A</m> and <m>B</m> are <term>equal</term> if they have equal dimensions <m>m \times n</m>, and each corresponding entries are equal, i.e. <m>a_{ij} = b_{ij}</m> for all <m>i, j</m>.
+        </definition>
+
+        <definition>
+            <title>Matrix addition</title>
+            <p>
+                Let <m>A, B</m> be <m>m \times n</m> matrices (of the same dimension). Then, the <term>sum</term> of <m>A</m> and <m>B</m>, is the matrix formed by adding the corresponding entries of <m>A</m> and <m>B</m>. In other words,
+                <me>
+                    \boxed{(A + B)_{ij} = \begin{bmatrix} a_{ij} + b_{ij} \end{bmatrix}}
+                </me>
+            </p>
+        </definition>
+
+        <p>
+            Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.
+        </p>
+
+        <definition>
+            <title>Scalar multiplication</title>
+            Let <m>A</m> be an <m>m \times n</m> matrix, <m>k \in \mathbb{R}</m> be a scalar. Then, <m>kA</m> is the matrix formed by multiplying each of the entries of <m>A</m> by <m>k</m>, or,
+            <me>
+                \boxed{(kA)_{ij} = kA_{ij}}
+            </me>
+        </definition>
+
+        <p>
+            The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of vectors.
+        </p>
+
+        <ul>
+            <li>The sum <m>A + B</m> is the matrix whose columns are the sums of the corresponding columns of <m>A</m> and <m>B</m>, or,
+                <me>
+                    A + B = \begin{bmatrix} \vec{a}_1 + \vec{b}_1 \amp \vec{a}_2 + \vec{b}_2 \amp \cdots \amp \vec{a}_n + \vec{b}_n \end{bmatrix}
+                </me></li>
+
+            <li>The scalar multiple <m>kA</m> is the matrix whose columns are the scalar multiples of vectors <m>k \vec{a}_j</m>, or,
+            <me>
+                kA = \begin{bmatrix} k \vec{a}_1 \amp k \vec{a}_2 \amp \cdots \amp k \vec{a}_n \end{bmatrix}
+            </me></li>
+        </ul>
+
+        <p>
+            In a similar way as vectors, <m>(-1)A</m> is denoted by <m>-A</m>, and also subtraction of matrices <m>A - B</m> is just <m>A + (-1)B</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Properties of Matrix Addition</title>
+        <definition>
+            An <m>m \times n</m> matrix whose entries are all zero is called a <term>zero matrix</term>, and is typically denoted by 0.
+        </definition>
+        
+    </subsection>
+</chapter>

@@ -4,7 +4,7 @@
     <title>Intro to Linear Transformations</title>
 
     <introduction>
-        Another benefit of the matrix form <m>A\vec{x} = \vec{b}</m> of a linear system is that it allows us to view a matrix <m>A</m> as an object that <q>acts</q> on a vector <m>\vec{x}</m> to produce a new vector <m>A\vec{x}</m>.
+        Another benefit of the matrix form <m>A\vec{x} = \vec{b}</m> of a linear system is that it allows us to view a matrix <m>A</m> as an object that <q>acts</q> on a vector <m>\vec{x}</m> to produce a new vector <m>A\vec{x}</m>. This is analogous to how a function <m>f(x)</m> <q>acts</q> on the number <m>x</m> to produce the output <m>f(x)</m>. This new perspective on a matrix is called a <i>transformation</i>, and it is a generalization of a real-valued function <m>f(x)</m>, developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an <m>n</m> real number inputs (a vector in <m>\mathbb{R}^n</m>), and an <m>m</m> real number output (a vector in <m>\mathbb{R}^m</m>).
     </introduction>
 
     <subsection>
@@ -20,20 +20,13 @@
         </definition>
 
         <p>
-            A transformation is a generalization of a real-valued function <m>f(x)</m>, developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an <m>n</m> real number input, and an <m>m</m> real number output.
+            The term <q>transformation</q> or <q>mapping</q> is used, however the concept is basically the same as the familiar function.
         </p>
-    </subsection>
-
-    <subsection>
-        <title>Matrix Transformations</title>
 
         <p>
-            If <m>A</m> is an <m>m \times n</m> matrix, then matrix multipleication by <m>A</m> is a transformation. In particular, the map <m>T(\vec{x}) = A\vec{x}</m> is a transformation from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m>.
+            If <m>A</m> is an <m>m \times n</m> matrix, then matrix multiplication by <m>A</m> is a transformation. In particular, the map <m>T(\vec{x}) = A\vec{x}</m> is a transformation from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m>.
         </p>
-    </subsection>
 
-    <subsection>
-        <title>Linear Transformations</title>
         <p>
             Recall that if <m>A</m> is an <m>m \times n</m> matrix, and <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, then,
         </p>
@@ -54,7 +47,11 @@
         </definition>
 
         <p>
-            With this definition, every matrix transformation is a linear transformation. Linear transformations are said to be <term>operation preserving</term>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding <m>\vec{x} + \vec{y}</m> in <m>\mathbb{R}^n</m> and then applying <m>T</m> is equivalent to applying <m>T</m> to <m>\vec{x}</m> and <m>\vec{y}</m> and then adding their result in <m>\mathbb{R}^m</m>.
+            Intuitively, property 2 means that if you scale the input by a factor of <m>c</m>, then the output will be correspondingly scaled by <m>c</m>. Linear transformations are said to be <term>operation preserving</term>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding <m>\vec{x} + \vec{y}</m> in <m>\mathbb{R}^n</m> and then applying <m>T</m> is equivalent to applying <m>T</m> to <m>\vec{x}</m> and <m>\vec{y}</m> and then adding their result in <m>\mathbb{R}^m</m>.
+        </p>
+
+        <p>
+            With this definition, every matrix transformation is a linear transformation. 
         </p>
 
         <theorem>

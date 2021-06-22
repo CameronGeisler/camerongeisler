@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-19T17:54:30-07:00       *-->
+<!--*       on 2021-06-21T17:29:59-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,18 +15,17 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.10.2</span><span class="period">.</span>
-</h6>Consider the linear system,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8.4</span><span class="period">.</span><span class="space"> </span><span class="title">Set with two vectors.</span>
+</h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Consider a set with two vectors \(\set{\vec{v}_1, \vec{v}_2}\text{,}\) and consider the equation,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\begin{array}{rrrr}
-x \amp + 5y \amp = \amp 7 \\
--2x \amp -7y \amp = \amp -5
-\end{array}
+a \vec{v}_1 + b\vec{v}_2 = \vec{0}
 \end{equation*}
-</div>In matrix form, this is,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+</div>If \(\vec{v}_1, \vec{v}_2\) are linearly dependent, then at least one of \(a, b\) are non-zero. If say \(a \neq 0\text{,}\) then by solving for \(\vec{v}_1\text{,}\)<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\underbrace{\begin{bmatrix} 1 \amp 5 \\ -2 \amp -7 \end{bmatrix}}_{A} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 7 \\ -5 \end{bmatrix}
+\vec{v}_1 = -\frac{b}{a} \vec{v}_2
 \end{equation*}
-</div>Then, viewing \(A\) as a linear transformation (from \(\mathbb{R}^2\) to \(\mathbb{R}^2\)), the problem of solving this linear system is equivalent to asking which vector \((x,y)\) does the transformation \(A\)<em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">map</em> to the vector \((7,-5)\text{.}\) In this case, solving the system gives the unique solution of \((-8,3)\text{,}\) which means that the single vector \((-8,3)\) is mapped to \((7,-5)\text{.}\)</article><span class="incontext"><a href="section-MALT.html#example-10">in-context</a></span>
+</div>In other words, \(\vec{v}_1\) is a scalar multiple of \(\vec{v}_2\text{.}\) Conversely, if one vector is a scalar multiple of the other, say \(\vec{v}_1 = k \vec{v}_2\text{,}\) then \(\vec{v}_1 - k \vec{v}_2 = \vec{0}\text{.}\) This is a non-trivial linear combination of \(\set{\vec{v}_1, \vec{v}_2}\text{,}\) and so \(\set{\vec{v}_1, \vec{v}_2}\) is a linearly independent set.</article><span class="incontext"><a href="section-LI.html#example-10">in-context</a></span>
 </body>
 </html>

@@ -9,7 +9,6 @@
 
     <book xml:id="book-linear-algebra" xmlns:xi="http://www.w3.org/2001/XInclude">
         <title>Linear Algebra Notes</title>
-        <subtitle></subtitle>
 
         <introduction>
             These notes are based on,
@@ -23,6 +22,7 @@
         
         <xi:include href="./chapter-ITLA.xml"/>
         <xi:include href="./chapter-SOLEAITM.xml"/>
+        
 
     </book>
 </pretext>

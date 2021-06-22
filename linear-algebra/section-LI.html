@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-19T17:54:30-07:00       *-->
+<!--*       on 2021-06-21T17:29:59-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -90,7 +90,7 @@
 \)</div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes:</span> <span class="subtitle"></span></a></h1>
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes</span></a></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -122,6 +122,7 @@
 <li><a href="section-LI.html" data-scroll="section-LI" class="active">Linear Independence</a></li>
 <li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
 <li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -144,13 +145,13 @@ a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \vec{0}
 \begin{equation*}
 a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \vec{0}
 \end{equation*}
-</div></article><p id="p-81">The “zero” linear combination \(a_1 \vec{v}_1 + \dots + a_n \vec{v}_n\) where \(a_1 = \dots = a_n = 0\) is called the <dfn class="terminology">trivial</dfn> linear combination. Any other linear combination is called <dfn class="terminology">non-trivial</dfn>.</p>
-<article class="example example-like" id="example-8"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like">A set containing a single vector \(\set{\vec{v}}\) is linearly independent if and only if \(\vec{v}\) is non-zero. This is because the equation \(a\vec{v} = \vec{0}\) has only the trivial solution \(a = 0\) if \(\vec{v} \neq \vec{0}\text{.}\) If \(\vec{v} = \vec{0}\text{,}\) then \(a\vec{0} = \vec{0}\) has non-trivial solutions (any non-zero value for \(a\)).</article></div>
+</div></article><p id="p-82">The “zero” linear combination \(a_1 \vec{v}_1 + \dots + a_n \vec{v}_n\) where \(a_1 = \dots = a_n = 0\) is called the <dfn class="terminology">trivial</dfn> linear combination. Any other linear combination is called <dfn class="terminology">non-trivial</dfn>.</p>
 <article class="example example-like" id="example-9"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like">A set containing a single vector \(\set{\vec{v}}\) is linearly independent if and only if \(\vec{v}\) is non-zero. This is because the equation \(a\vec{v} = \vec{0}\) has only the trivial solution \(a = 0\) if \(\vec{v} \neq \vec{0}\text{.}\) If \(\vec{v} = \vec{0}\text{,}\) then \(a\vec{0} = \vec{0}\) has non-trivial solutions (any non-zero value for \(a\)).</article></div>
+<article class="example example-like" id="example-10"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8.4</span><span class="period">.</span><span class="space"> </span><span class="title">Set with two vectors.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-82">Consider a set with two vectors \(\set{\vec{v}_1, \vec{v}_2}\text{,}\) and consider the equation,</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-83">Consider a set with two vectors \(\set{\vec{v}_1, \vec{v}_2}\text{,}\) and consider the equation,</p>
 <div class="displaymath">
 \begin{equation*}
 a \vec{v}_1 + b\vec{v}_2 = \vec{0}
@@ -160,7 +161,7 @@ a \vec{v}_1 + b\vec{v}_2 = \vec{0}
 \vec{v}_1 = -\frac{b}{a} \vec{v}_2
 \end{equation*}
 </div>In other words, \(\vec{v}_1\) is a scalar multiple of \(\vec{v}_2\text{.}\) Conversely, if one vector is a scalar multiple of the other, say \(\vec{v}_1 = k \vec{v}_2\text{,}\) then \(\vec{v}_1 - k \vec{v}_2 = \vec{0}\text{.}\) This is a non-trivial linear combination of \(\set{\vec{v}_1, \vec{v}_2}\text{,}\) and so \(\set{\vec{v}_1, \vec{v}_2}\) is a linearly independent set.</article></div>
-<p id="p-83">In summary,</p>
+<p id="p-84">In summary,</p>
 <article class="theorem theorem-like" id="theorem-10"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.8.5</span><span class="period">.</span>
 </h6>\(\set{\vec{v}_1, \vec{v}_2}\)</article></section></section></div></main>

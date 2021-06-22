@@ -4,19 +4,19 @@
     <title>Systems of Linear Equations and Introduction to Matrices</title>
         <introduction>
             <p>
-                This is an introduction to linear algebra.
+                Systems of linear equations, an introduction to matrices, and other foundational concepts in linear algebra.
             </p>
         </introduction>
 
-        <xi:include href="./section-SOLE.xml"/>
-        <xi:include href="./section-ITSSGE.xml"/>
-        <xi:include href="./section-ITMAMOAS.xml"/>
-        <xi:include href="./section-GEAM.xml"/>
-        <xi:include href="./section-VE.xml"/>
-        <xi:include href="./section-MEMVP.xml"/>
-        <xi:include href="./section-SSOLE.xml"/>
-        <xi:include href="./section-LI.xml"/>
-        <xi:include href="./section-ITLT.xml"/>
-        <xi:include href="./section-MALT.xml"/>
-        <xi:include href="./section-LTAG.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-SOLE.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-ITSSGE.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-ITMAMOAS.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-GEAM.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-VE.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-MEMVP.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-SSOLE.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-LI.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-ITLT.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-MALT.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-LTAG.xml"/>
 </chapter>
