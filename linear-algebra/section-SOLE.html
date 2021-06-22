@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-17T19:56:16-07:00       *-->
+<!--*       on 2021-06-19T17:54:29-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -115,12 +115,13 @@
 <li><a href="section-SOLE.html" data-scroll="section-SOLE" class="active">Systems of Linear Equations</a></li>
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
-<li><a href="section-RRAM.html" data-scroll="section-RRAM">Gaussian Elimination and Matrices</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
 <li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -165,11 +166,11 @@ a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_m
 \end{alignat*}
 </div>
 <p class="continuation">where \(a_{ij}, b_i \in \mathbb{R}\) are the <dfn class="terminology">coefficients</dfn> of the system.</p></article> Here, the coefficients \(a_{ij}\) are written using <em class="emphasis">double subscript</em> notation. Here, \(a_{ij}\) represents the coefficients of \(x_j\) in the \(i\)th equation. The first subscript represents the equation number, and the second represents the number of the variable that it is a coefficient of. <ul id="p-11" class="disc">
-<li id="li-15">A system of linear equations is also sometimes called <dfn class="terminology">simultaneous linear equations</dfn>, or simply a <dfn class="terminology">linear system</dfn>, or sometimes simply a <dfn class="terminology">system</dfn>.</li>
-<li id="li-16">The variables \(x_1, \dots, x_n\) are sometimes called <dfn class="terminology">unknowns</dfn>.</li>
-<li id="li-17">A <dfn class="terminology">solution</dfn> of a linear system is an ordered tuple \((s_1, \dots, s_n)\) which, when substituted for \((x_1, \dots, x_n)\text{,}\) respectively, makes each equation a true statement.</li>
-<li id="li-18">The set of all possible solutions of a linear system is called its <dfn class="terminology">solution set</dfn>.</li>
-<li id="li-19">Two linear systems are <dfn class="terminology">equivalent</dfn> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</li>
+<li id="li-16">A system of linear equations is also sometimes called <dfn class="terminology">simultaneous linear equations</dfn>, or simply a <dfn class="terminology">linear system</dfn>, or sometimes simply a <dfn class="terminology">system</dfn>.</li>
+<li id="li-17">The variables \(x_1, \dots, x_n\) are sometimes called <dfn class="terminology">unknowns</dfn>.</li>
+<li id="li-18">A <dfn class="terminology">solution</dfn> of a linear system is an ordered tuple \((s_1, \dots, s_n)\) which, when substituted for \((x_1, \dots, x_n)\text{,}\) respectively, makes each equation a true statement.</li>
+<li id="li-19">The set of all possible solutions of a linear system is called its <dfn class="terminology">solution set</dfn>.</li>
+<li id="li-20">Two linear systems are <dfn class="terminology">equivalent</dfn> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</li>
 </ul></section><section class="subsection" id="systems-of-two-linear-equations-in-two-variables"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.2</span> <span class="title">Systems of Two Linear Equations In Two Variables</span>
 </h3>
@@ -182,15 +183,15 @@ a_{21} x_1 + a_{22} x_2 \amp = b_2
 </div>
 <p class="continuation">Graphically, these two linear equations represent lines in the plane, say denoted by \(L_1\) and \(L_2\text{,}\) respectively. Then, an ordered pair \((s_1,s_2)\) is a solution to the system if it satisfies both equations in the system. Graphically, this means that the point \((s_1,s_2)\) lies on both lines \(L_1\) and \(L_2\text{.}\)</p> To <dfn class="terminology">solve</dfn> a system is to determine all of its soltions. The set of all solutions of a system is called its <dfn class="terminology">solution set</dfn>. <p id="p-13">In general, two lines in the plane can,</p>
 <ul class="disc">
-<li id="li-20">Intersect at a single point.</li>
-<li id="li-21">Be parallel to each other, and so never intersect.</li>
-<li id="li-22">Coincide (overlap each other), and so intersect infinitely many times.</li>
+<li id="li-21">Intersect at a single point.</li>
+<li id="li-22">Be parallel to each other, and so never intersect.</li>
+<li id="li-23">Coincide (overlap each other), and so intersect infinitely many times.</li>
 </ul>
 <p id="p-14">In the language of solutions of linear systems, these correspond to the possibilities of the system having,</p>
 <ul class="disc">
-<li id="li-23">Exactly one solution.</li>
-<li id="li-24">No solution.</li>
-<li id="li-25">Infinitely many solutions.</li>
+<li id="li-24">Exactly one solution.</li>
+<li id="li-25">No solution.</li>
+<li id="li-26">Infinitely many solutions.</li>
 </ul>
 <article class="definition definition-like" id="definition-3"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>

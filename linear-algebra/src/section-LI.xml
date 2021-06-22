@@ -47,5 +47,14 @@
             </me>
             In other words, <m>\vec{v}_1</m> is a scalar multiple of <m>\vec{v}_2</m>. Conversely, if one vector is a scalar multiple of the other, say <m>\vec{v}_1 = k \vec{v}_2</m>, then <m>\vec{v}_1 - k \vec{v}_2 = \vec{0}</m>. This is a non-trivial linear combination of <m>\set{\vec{v}_1, \vec{v}_2}</m>, and so <m>\set{\vec{v}_1, \vec{v}_2}</m> is a linearly independent set.
         </example>
+
+        <p>
+            In summary,
+        </p>
+
+        <theorem>
+            A set of two vectors <m>\set{\vec{v}_1, \vec{v}_2}</m> is linearly dependent if at least one vector is a scalar multiple of the other. Otherwise, if neither vector is a scalar multiple of the other, then the set is linearly independent.
+        </theorem>
     </subsection>
+
 </section>

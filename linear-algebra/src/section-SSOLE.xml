@@ -30,15 +30,19 @@
         <title>Non-homogeneous Systems</title>
         
         <theorem>
-            Let <m>A\vec{x} = \vec{b}</m> be a linear system, which is consistent with solution <m>\vec{v}_p</m>. Then, the solution set of <m>A\vec{x} = \vec{b}</m> is the set of all vectors of the form <m>\vec{v} = \vec{v}_p + \vec{v}_h</m>, where <m>\vec{v}_h</m> is any solution of the associated homogeneous system.
+            <p>
+                Let <m>A\vec{x} = \vec{b}</m> be a linear system, which is consistent with solution <m>\vec{v}_p</m>. Then, the solution set of <m>A\vec{x} = \vec{b}</m> is the set of all vectors of the form <m>\vec{v} = \vec{v}_p + \vec{v}_h</m>, where <m>\vec{v}_h</m> is any solution of the associated homogeneous system.
+            </p>
         </theorem>
         <proof>
-            If <m>\vec{v}_p</m> is a solution of <m>A\vec{x} = \vec{b}</m>, and <m>\vec{v}_h</m> is a solution of the associated homogeneous system, then <m>A\vec{v}_p = \vec{b}</m> and <m>A\vec{v}_h = \vec{0}</m>. Then,
-            <me>
+            <p>
+                If <m>\vec{v}_p</m> is a solution of <m>A\vec{x} = \vec{b}</m>, and <m>\vec{v}_h</m> is a solution of the associated homogeneous system, then <m>A\vec{v}_p = \vec{b}</m> and <m>A\vec{v}_h = \vec{0}</m>. Then,
+            </p>
+            <md>
                 <mrow>A(\vec{v}_p + \vec{v}_h) \amp = \underbrace{A\vec{v}_p}_{=\vec{b}} + \underbrace{A\vec{v}_h}_{=\vec{0}}</mrow>
                 <mrow>\amp = \vec{b} + \vec{0}</mrow>
                 <mrow>\amp = \vec{b}</mrow>
-            </me>
+            </md>
         </proof>
     </subsection>
 

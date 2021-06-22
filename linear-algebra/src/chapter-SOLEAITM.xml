@@ -11,10 +11,12 @@
         <xi:include href="./section-SOLE.xml"/>
         <xi:include href="./section-ITSSGE.xml"/>
         <xi:include href="./section-ITMAMOAS.xml"/>
-        <xi:include href="./section-RRAM.xml"/>
+        <xi:include href="./section-GEAM.xml"/>
         <xi:include href="./section-VE.xml"/>
         <xi:include href="./section-MEMVP.xml"/>
         <xi:include href="./section-SSOLE.xml"/>
         <xi:include href="./section-LI.xml"/>
         <xi:include href="./section-ITLT.xml"/>
+        <xi:include href="./section-MALT.xml"/>
+        <xi:include href="./section-LTAG.xml"/>
 </chapter>

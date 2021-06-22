@@ -51,9 +51,13 @@
         <p>
             Consider the linear system,
         </p>
-        <md alignment="alignat">
-            <mrow>x_1 \amp - 3x_2 \amp + 4x_3 \amp = -4, 3x_1 \amp \amp + 7x_3 \amp = -8, -4x_1 \amp + 6x_2 \amp - x_3 \amp = 7</mrow>
-        </md>
+        <me>
+            \begin{array}{rrrrr}
+            x_1 \amp - 3x_2 \amp + 4x_3 \amp = \amp -4 \\
+            3x_1 \amp \amp + 7x_3 \amp = \amp -8 \\
+            -4x_1 \amp + 6x_2 \amp - x_3 \amp = \amp 7
+            \end{array}
+        </me>
         Recall that a linear system is, in some sense, completely determined by its coefficients. Here, this system is completely determined by the <m>3 \times 3</m> matrix which contains the coefficients of the variables, and the <m>3 \times 1</m> matrix containing the coefficients on the right-hand sides,
         <me>
             \begin{bmatrix} 1 \amp -3 \amp 4 \\ 3 \amp 0 \amp 7 \\ -4 \amp 6 \amp -1 \end{bmatrix} \qquad \begin{bmatrix} -4 \\ -8 \\ 7 \end{bmatrix}
@@ -96,7 +100,7 @@
         </definition>
 
         <p>
-            Quite literally, the augmented matrix results from ``augmenting" the constant terms onto the coefficient matrix.
+            Quite literally, the augmented matrix results from <q>augmenting</q> the constant terms onto the coefficient matrix.
         </p>
     </subsection>
     

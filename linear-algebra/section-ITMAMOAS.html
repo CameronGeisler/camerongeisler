@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-17T19:56:17-07:00       *-->
+<!--*       on 2021-06-19T17:54:29-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -96,10 +96,10 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-ITSSGE.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-RRAM.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-ITSSGE.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-GEAM.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-ITSSGE.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-RRAM.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-ITSSGE.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-GEAM.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -115,12 +115,13 @@
 <li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS" class="active">Introduction to Matrices, Augmented Matrix of a System</a></li>
-<li><a href="section-RRAM.html" data-scroll="section-RRAM">Gaussian Elimination and Matrices</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
 <li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -137,7 +138,7 @@ x \amp + 2y \amp = 5\\
 \begin{equation*}
 \begin{bmatrix} 1 \amp 2 \amp 5 \\ 2 \amp 3 \amp 8 \end{bmatrix}
 \end{equation*}
-</div>This array captures the essential information of the system. That is, the variables in the original system simply act as “placeholders”. As long as we keep track of which columns correspond to which variables, the array contains precisely the same information about the system as its “equation form”. Systems of linear equations can be conveniently and efficiently represented in this way. This kind of rectangular array of numbers is called a <dfn class="terminology">matrix</dfn>.</section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
+</div>This array captures the essential information of the system. That is, the variables in the original system simply act as “placeholders”. As long as we keep track of which columns correspond to which variables, the array contains precisely the same information about the system as its “equation form”. Systems of linear equations can be conveniently and efficiently represented in this way. This kind of rectangular array of numbers is called a <dfn class="terminology">matrix</dfn>.</section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.3.1</span> <span class="title">Matrices</span>
 </h3>
 <p id="p-23">Broadly, a matrix is a rectangular array of numbers, arranged in (horizontal) rows and (vertical) columns, and within brackets.</p>
@@ -153,19 +154,23 @@ a_{m1} \amp a_{m2} \amp \dots \amp a_{mn}
 \end{bmatrix}
 \end{equation*}
 </div>Each number \(a_{ij}\) is called an <dfn class="terminology">entry</dfn> (or <dfn class="terminology">coefficient</dfn>, or <dfn class="terminology">element</dfn>) of the matrix. Then, \(a_{ij}\) represents the entry in row \(i\) and column \(j\text{.}\) <ul class="disc">
-<li id="li-34">The plural of matrix is <dfn class="terminology">matrices</dfn>
+<li id="li-35">The plural of matrix is <dfn class="terminology">matrices</dfn>
 </li>
-<li id="li-35">Matrices are typically denoted by capital letters, like \(A, B, C\text{,}\) etc.</li>
+<li id="li-36">Matrices are typically denoted by capital letters, like \(A, B, C\text{,}\) etc.</li>
 </ul></article><article class="note remark-like" id="note-2"><h6 class="heading">
 <span class="type">Note</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
-</h6>In \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</article></section><section class="subsection" id="subsection-13"><h3 class="heading hide-type">
+</h6>In \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</article></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.3.2</span> <span class="title">Augmented Matrix of a System</span>
 </h3>
 <p id="p-24">Consider the linear system,</p>
 <div class="displaymath">
-\begin{alignat*}{5}
-x_1 \amp - 3x_2 \amp + 4x_3 \amp = -4, 3x_1 \amp \amp + 7x_3 \amp = -8, -4x_1 \amp + 6x_2 \amp - x_3 \amp = 7
-\end{alignat*}
+\begin{equation*}
+\begin{array}{rrrrr}
+x_1 \amp - 3x_2 \amp + 4x_3 \amp = \amp -4 \\
+3x_1 \amp \amp + 7x_3 \amp = \amp -8 \\
+-4x_1 \amp + 6x_2 \amp - x_3 \amp = \amp 7
+\end{array}
+\end{equation*}
 </div>Recall that a linear system is, in some sense, completely determined by its coefficients. Here, this system is completely determined by the \(3 \times 3\) matrix which contains the coefficients of the variables, and the \(3 \times 1\) matrix containing the coefficients on the right-hand sides,<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} 1 \amp -3 \amp 4 \\ 3 \amp 0 \amp 7 \\ -4 \amp 6 \amp -1 \end{bmatrix} \qquad \begin{bmatrix} -4 \\ -8 \\ 7 \end{bmatrix}
@@ -206,7 +211,7 @@ a_{m1} \amp a_{m2} \amp \dots \amp a_{mn} \amp b_n
 \end{array}\right]}_{\text{augmented matrix}}
 \end{array}
 \end{equation*}
-</div></article><p id="p-25">Quite literally, the augmented matrix results from ``augmenting" the constant terms onto the coefficient matrix.</p></section></section></div></main>
+</div></article><p id="p-25">Quite literally, the augmented matrix results from “augmenting” the constant terms onto the coefficient matrix.</p></section></section></div></main>
 </div>
 </body>
 </html>

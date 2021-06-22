@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-MALT">
+    <title>Matrices and Linear Transformations</title>
+
+    <introduction>
+        Recall that every matrix transformation <m>\vec{x} \mapsto A\vec{x}</m> is a linear transformation. It turns out that also, every linear transformation <m>T</m> from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m> can be written as a matrix transformation. In other words, every linear transformation <m>T: \mathbb{R}^n \rightarrow \mathbb{R}^m</m> can be written in the form <m>T(\vec{x}) = A\vec{x}</m> for some <m>m \times n</m> matrix <m>A</m>. Intuitively, the matrix <m>A</m> is the numerical <q>formula</q> which allows for concrete computation of the images <m>T(\vec{x})</m>.
+    </introduction>
+
+    <subsection>
+        <title>Linear Transformations and Matrices</title>
+        <p>
+            Consider a linear transformation in the plane, <m>T: \mathbb{R}^2 \rightarrow \mathbb{R}^2</m>. Notice that for any vector <m>\vec{x} \in \mathbb{R}^2, \vec{x} = (x_1, x_2)</m>, it can be written as a linear combination of the columns of the identity matrix <m>I_2</m>, which we will denote by <m>\vec{e}_1</m> and <m>\vec{e}_2</m>. That is,
+            <me>
+                \vec{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \vec{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+            </me>
+            Then,
+            <me>
+                \vec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = x_1 \vec{e}_1 + x_2 \vec{e}_2
+            </me>
+            Then, consider the image of <m>\vec{x}</m> under <m>T</m>,
+            <me>
+                T(\vec{x}) = T(x_1 \vec{e}_1 + x_2 \vec{e}_2)
+            </me>
+            By linearity, this is equivalent to,
+            <md>
+                <mrow>T(\vec{x}) \amp = T(x_1 \vec{e}_1 + x_2 \vec{e}_2)</mrow>
+                <mrow>\amp = x_1 T(\vec{e}_1) + x_2 T(\vec{e}_2)</mrow>
+            </md>
+            Thus, if we know the images <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>, we can determine <m>T(\vec{x})</m>. In this way, <m>T(\vec{x})</m> is completely determined by <m>T(\vec{e}_1)</m> and <m>T(\vec{e}_2)</m>. Further, we can write this as a matrix-vector product,
+            <me>
+                T(\vec{x}) = \begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+            </me>
+            Here, the matrix <m>\begin{bmatrix} T(\vec{e}_1) \amp T(\vec{e}_2) \end{bmatrix}</m> has two columns, given by the images of the vectors <m>\vec{e}_1</m> and <m>\vec{e}_2</m>. If we denote this matrix by <m>A</m>, then the equation becomes,
+            <me>
+                T(\vec{x}) = A\vec{x}
+            </me>
+            That is, we have written <m>T(\vec{x})</m> as a matrix transformation. Notice that the matrix <m>A</m> only depends on the transformation <m>T</m>, and not on the input vector <m>\vec{x}</m>. This can be generalized to a linear transformation <m>T: \mathbb{R}^n \rightarrow \mathbb{R}^m</m>.
+        </p>
+    
+        <theorem>
+            <title>Matrix representation of a linear transformation</title>
+            <p>
+                Let <m>T: \mathbb{R}^n \rightarrow \mathbb{R}^m</m> be a linear transformation. Then, there exists a unique matrix <m>A</m> such that,
+            </p>
+            <me>
+                T(\vec{x}) = A\vec{x} \qquad \text{for all $\vec{x} \in \mathbb{R}^n$}
+            </me>
+            Further, <m>A</m> is precisely the <m>m \times n</m> matrix whose <m>j</m>th column is given by <m>T(\vec{e}_j)</m>, where <m>\vec{e}_j</m> is the <m>j</m>th column of the <m>n \times n</m> identity matrix. In other words,
+            <me>
+                A = \begin{bmatrix} T(\vec{e}_1) \amp \cdots \amp T(\vec{e}_n) \end{bmatrix}
+            </me>
+            The matrix <m>A</m> is called the <term>standard matrix</term> for the linear transformation <m>T</m>.
+        </theorem>
+    
+        <proof>
+            For <m>\vec{x} \in \mathbb{R}^n</m>,
+            <me>
+                \vec{x} = x_1 \vec{e}_1 + \dots + x_n \vec{e}_n
+            </me>
+            Then,
+            <md>
+                <mrow>T(\vec{x}) = T(x_1 \vec{e}_1 + \dots + x_n \vec{e}_n) \amp = x_1 T(\vec{e}_1) + \dots + x_n T(\vec{e}_n)</mrow>
+                <mrow>\amp = \begin{bmatrix} T(\vec{e}_1) \amp \cdots \amp T(\vec{e}_n) \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} </mrow>
+                <mrow>\amp = A\vec{x}</mrow>
+            </md>
+        </proof>
+    
+        <p>
+            Intuitively, the term <em>linear transformation</em> focusses on the properties of the mapping, whereas <em>matrix transformation</em> describes how the mapping is implemented.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Linear Transformations and Linear Systems</title>
+
+        <p>
+            The framework of linear transformation provides yet another perspective on linear systems.
+        </p>
+
+        <example>
+            Consider the linear system,
+            <me>
+                \begin{array}{rrrr}
+                x \amp + 5y \amp = \amp 7 \\
+                -2x \amp -7y \amp = \amp -5
+                \end{array}
+            </me>
+            In matrix form, this is,
+            <me>
+                \underbrace{\begin{bmatrix} 1 \amp 5 \\ -2 \amp -7 \end{bmatrix}}_{A} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 7 \\ -5 \end{bmatrix}
+            </me>
+            Then, viewing <m>A</m> as a linear transformation (from <m>\mathbb{R}^2</m> to <m>\mathbb{R}^2</m>), the problem of solving this linear system is equivalent to asking which vector <m>(x,y)</m> does the transformation <m>A</m> <em>map</em> to the vector <m>(7,-5)</m>. In this case, solving the system gives the unique solution of <m>(-8,3)</m>, which means that the single vector <m>(-8,3)</m> is mapped to <m>(7,-5)</m>.
+        </example>
+
+        <example>
+            Consider the system,
+            <me>
+                \begin{array}{rrrrr}
+                x \amp + 3y \amp + 4z \amp = \amp 7 \\
+                3x \amp + 9y \amp + 7z \amp = \amp 6
+                \end{array}
+            </me>
+            In matrix form,
+            <me>
+                \begin{bmatrix} 1 \amp 3 \amp 4 \\ 3 \amp 9 \amp 7 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 7 \\ 6 \end{bmatrix}
+            </me>
+            Then, the coefficient matrix is a linear transformation from <m>\mathbb{R}^3</m> to <m>\mathbb{R}^2</m>, and solving the system amounts to finding all vectors in <m>\mathbb{R}^3</m> which are mapped to <m>(7,6)</m>. The augmented matrix is,
+            <me>
+                \left[\begin{array}{cccc} 1 \amp 3 \amp 4 \amp 7 \\ 3 \amp 9 \amp 7 \amp 6 \end{array}\right]
+            </me>
+            which has RREF,
+            <me>
+                \left[\begin{array}{cccc} 1 \amp 3 \amp 0 \amp -5 \\ 0 \amp 0 \amp 1 \amp 3 \end{array}\right]
+            </me>
+            Thus, <m>z = 3</m>, <m>y = t</m> can be treated as a free variable, and then <m>x = -5 - 3t</m>. Thus, the solution in parametric form is,
+            <me>
+                \begin{cases} x = -5 -3t \\ y = t \\ z = 3 \end{cases} \qquad t \in \mathbb{R}
+            </me>
+            In vector form, this means that any vector of the form,
+            <me>
+                \begin{bmatrix} -5 -3t \\ t \\ 3 \end{bmatrix}
+            </me>
+            where <m>t \in \mathbb{R}</m>, is a solution of the system. A useful interpretation is to split this vector up into the parts which vary (depending on <m>t</m>) and that which is constant,
+            <me>
+                \begin{bmatrix} -5 -3t \\ t \\ 3 \end{bmatrix} = \begin{bmatrix} -5 \\ 0 \\ 3 \end{bmatrix} + t \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix}
+            </me>
+        </example>
+    </subsection>
+
+    
+
+
+</section>

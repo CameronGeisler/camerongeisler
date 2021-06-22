@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="section-RRAM">
+<section xml:id="section-GEAM">
     <title>Gaussian Elimination and Matrices</title>
 
     <introduction>
@@ -17,10 +17,10 @@
                 <li><term>Replacement</term>. Add to one equation a multiple of another equation.</li>
             </ul>
             <p>
-                These row operations are denoted by,
+                These row operations are denoted symbolically by,
             </p>
             <ul>
-                <li><m>R_i \leftrightarrow R_j</m></li>
+                <li><m>R_i \leftrightarrow R_j</m>, interchanging row <m>i</m> and row <m>j</m>.</li>
                 <li><m>kR_i \rightarrow R_i</m></li>
                 <li><m>R_i + k R_j \rightarrow R_i</m></li>
             </ul>
@@ -56,19 +56,21 @@
             Matrices in row echelon form have the broad form,
         </p>
         <me>
-            \begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \amp \cdots \amp \cdots \\
-            0 \amp b \amp \cdots \amp \cdots \amp \cdots \amp \cdots \\
-            0 \amp 0 \amp 0 \amp c \amp \cdots \amp \cdots \\
+            \begin{bmatrix} a \amp \ast \amp \ast \amp \ast \amp \ast \amp \ast \\
+            0 \amp b \amp \ast \amp \ast \amp \ast \amp \ast \\
+            0 \amp 0 \amp 0 \amp c \amp \ast \amp \ast \\
             0 \amp 0 \amp 0 \amp 0 \amp 0 \amp d \\
             0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \end{bmatrix}
         </me>
         where the pivots $a, b, c, d$ are non-zero numbers. Notice that,
         <ul>
             <li>Every entry below a pivot is 0.</li>
+            <li>The leading entries are <q>staggered to the right</q> as we go down.</li>
+            <li>All zero rows are at the bottom.</li>
         </ul>
 
         <p>
-            The terminology <i>echelon</i> is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called <term>row reduction</term>. In summary,
+            The terminology <em>echelon</em> is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called <term>row reduction</term>. In summary,
         </p>
 
         <me>
@@ -83,33 +85,36 @@
     <subsection>
         <title>Summary of Row Reduction</title>
 
-        Consider a matrix <m>A</m>.
+        <p>
+            Consider a matrix <m>A</m>. Broadly, row reduction involves going column by column, reducing the matrix to a simpler matrix at each step.
+        </p>
         <ol>
             <li>
-                In the left-most non-zero column (the first pivot column), choose a non-zero entry to be the pivot, and if necessary, use a row exchange to position the pivot at the top of the column.
+                First, determine the left-most non-zero column, which will be the first <em>pivot column</em>. In this column, choose a non-zero entry to be the <em>pivot entry</em>. If necessary, use a row exchange to positive the pivot at the top of the column.
                 <me>
-                    \begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \\
-                    \vdots \amp \ddots \amp \vdots \amp \vdots \\
-                    \vdots \amp \vdots \amp \vdots \amp \vdots \end{bmatrix}
+                    \begin{bmatrix} \mid \amp \mid \amp a \amp \ast \amp \ast \amp \ast \\
+                    0 \amp 0 \amp \ast \amp \ast \amp \ast \amp \ast \\
+                    \mid \amp \mid \amp \ast \amp \ast \amp \ast \amp \ast \end{bmatrix}
                 </me>
+                In terms of completing the algorithm, it doesn't matter which non-zero entry we select to be the pivot. For hand-computation, it is typically easier to select a 1 if that is available, as that will make the computations a bit more simple.
             </li>
 
             <li>
-                Use row replacement operations to create zeros in all positions below the pivot.
+                Use row replacement operations to create zeros in all positions below the pivot. That is, add multiples of the top row to rows below it as to remove all entries below the pivot entry.
                 <me>
-                    \begin{bmatrix} a \amp \cdots \amp \cdots \amp \cdots \\
-                    0 \amp \ddots \amp \vdots \amp \vdots \\
-                    0 \amp \vdots \amp \vdots \amp \vdots \end{bmatrix}
+                    \begin{bmatrix} \mid \amp \mid \amp a \amp \ast \amp \ast \amp \ast \\
+                    0 \amp 0 \amp 0 \amp \ast \amp \ast \amp \ast \\
+                    \mid \amp \mid \amp 0 \amp \ast \amp \ast \amp \ast \end{bmatrix}
                 </me>
             </li>
             <li>
-                Repeat the previous steps with the remaining submatrix, ignoring the row and column of the pivot,
+                Repeat the previous steps with the remaining submatrix below and to the right of the pivot,
                 <me>
                     \begin{bmatrix}
-                    a \amp \cdots \amp \cdots \amp \cdots \\
-                    0 \amp b \amp \vdots \amp \vdots \\
-                    0 \amp 0 \amp \vdots \amp \vdots
-                    \end{bmatrix}
+                    \mid \amp \mid \amp a \amp \ast \amp \ast \amp \ast \\
+                    0 \amp 0 \amp 0 \amp b \amp \ast \amp \ast \\
+                    \mid \amp \mid \amp 0 \amp 0 \amp \ast \amp \ast
+                    \end{bmatrix} \qquad \longrightarrow \qquad \underbrace{\begin{bmatrix} b \amp \ast \amp \ast \\ 0 \amp \ast \amp \ast \end{bmatrix}}_{\text{submatrix}}
                 </me>
                 Repeat this process until there are no more non-zero rows to modify.
             </li>
@@ -121,12 +126,16 @@
             <li>Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation. </li>
         </ol>
         <p>
-            Steps 1-3 to convert a matrix to REF is called the <term>forward phase</term> of Gaussian elimination. Step 5 to convert it to the unique RREF is called the <term>backwards phase</term>.
+            Steps 1-3 to convert a matrix to REF is called the <term>forward phase</term> of Gaussian elimination. Step 4 to convert it to the unique RREF is called the <term>backwards phase</term>.
         </p>
     </subsection>
 
     <subsection>
         <title>Remark on Gaussian Elimination</title>
+        <p>
+            Gaussian elimination, despite its simplicity, is one of the most important algorithms in linear algebra. Notice that Gaussian elimination is not really much more than high school algebra, but done in a systematic way.
+        </p>
+
         <p>
             Gaussian elimination is named after German mathematician <term>Carl Friedrich Gauss</term> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer <term>Wilhelm Jordan</term> (1842-1899) helped popularize the method.
         </p>
@@ -157,7 +166,15 @@
                 \amp \amp 0 \amp = \amp 0
                 \end{array}
             </me>
-            Notice that if we choose an arbitrary value of <m>z</m>, then we can solve for <m>x</m> and <m>y</m> in equation 1 and 2, respectively, and get a solution of the system. Here, <m>z</m> is called a <i>free variable</i>, because it can take on any value to generate a solution of the system.
+            At this point, notice that the third equation is the true statement (or tautology) <m>0 = 0</m>. Intuitively, this means that while there were originally 3 equations that constrained the possible solutions, one of those equations were superfluous. Then, any solution <m>(x,y,z)</m> only has to satisfy the remaining two equations. In short, there are 3 variables, but only 2 constraints. In this case, for example, if we choose an arbitrary value of <m>z</m>, say <m>z = t</m>, then we can solve for <m>x</m> and <m>y</m> in equation 1 and 2, respectively, and get a solution of the system. In particular,
+            <m>
+                \begin{cases}
+                x = 1 + 5t \\
+                y = 4 - t \\
+                z = t
+                \end{cases}
+            </m>
+            Then, any tuple of the form <m>(1+5t,4-t,t)</m> (where <m>t \in \mathbb{R}</m> is any number) will be a solution to the system. In particular, there are infinitely many solutions of the system. Here, <m>z</m> is called a <em>free variable</em>, because it can take on any value to generate a solution of the system.
         </example>
 
         <definition>
@@ -193,7 +210,7 @@
                     \amp \amp 0 \amp = \amp 2
                 \end{array}
             </me>
-            The 3rd equation is the false statement (or, <i>contradiction</i>) <m>0 = 2</m>, so the system has no solution. This is because, no matter what the values of <m>x, y, z</m>, it is not possible for the third equation to be satisfied. A solution of the system must make every equation true, so no such solution exists. Thus, the system is inconsistent.
+            The 3rd equation is the false statement (or, <em>contradiction</em>) <m>0 = 2</m>, so the system has no solution. This is because, no matter what the values of <m>x, y, z</m>, it is not possible for the third equation to be satisfied. A solution of the system must make every equation true, so no such solution exists. Thus, the system is inconsistent.
         </example>
     </subsection>
 
@@ -201,7 +218,7 @@
         <title>Reduced Row Echelon Form</title>
         
         <p>
-            The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into <i>reduced</i> row ecehlon form.
+            The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into <em>reduced</em> row ecehlon form.
         </p>
 
         <definition>
@@ -209,12 +226,12 @@
             <ol>
                 <li>The matrix is in REF.</li>
                 <li>Every pivot is 1.</li>
-                <li>Every pivot is the only non-zero entry in its column. In other words, there are all 0's below <i>and</i> above each pivot.</li>
+                <li>Every pivot is the only non-zero entry in its column.</li>
             </ol>
         </definition>
 
         <p>
-            The classic example of a matrix in RREF is a matrix of the form,
+            In short, RREF goes further than REF by requiring that every pivot is 1 (rather than just any number), and that there are all 0's below <em>and</em> above each pivot. A classic example of a matrix in RREF is a matrix of the form,
         </p>
         <me>
             \begin{bmatrix} 1 \amp 0 \amp 0 \amp a \\ 0 \amp 1 \amp 0 \amp b \\ 0 \amp 0 \amp 1 \amp c \end{bmatrix}
@@ -238,27 +255,66 @@
             z \amp = \amp c \end{array}
         </me>
         <p>
-            from which the solution can be read right off as $(a,b,c)$.
+            from which the unique solution can be read right off as <m>(a,b,c)</m>.
         </p>
 
+        <p>
+            Basically, RREF <q>builds in</q> the back substitution into the row reduction procedure. 
+        </p>
+
+        <example>
+            Consider the system,
+            <me>
+                \begin{array}{rrrrr}
+                2x \amp + y \amp + z \amp = \amp 1 \\
+                4x \amp + y \amp \amp = \amp -2 \\
+                -2x \amp + 2y \amp + z \amp = \amp 7
+                \end{array}
+            </me>
+            which has augmented matrix,
+            <me>
+                \left[\begin{array}{ccc|c} 2 \amp 1 \amp 1 \amp 1 \\ 4 \amp 1 \amp 0 \amp -2 \\ -2 \amp 2 \amp 1 \amp 7 \end{array}\right]
+            </me>
+            After reducing to REF, one possible form is,
+            <me>
+                \left[\begin{array}{ccc|c} 2 \amp 1 \amp 1 \amp 1 \\ 0 \amp -1 \amp -2 \amp -4 \\ 0 \amp 0 \amp -4 \amp -4 \end{array}\right]
+            </me>
+            We could perform back substitution as before, but we can also instead convert to RREF. Doing so gives,
+            <me>
+                \left[\begin{array}{ccc|c} 1 \amp 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp 1 \end{array}\right]
+            </me>
+            from which the unique solution <m>(-1,2,1)</m> can be read right off.
+        </example>
+
         <theorem>
-            Every matix is row equivalent to a unique matrix in RREF.
+            <title>Uniqueness of RREF</title>
+            <p>
+                Every matix is row equivalent to a unique matrix in RREF.
+            </p>
         </theorem>
 
         <proof>
-            <emp>EXERCISE</emp>.
+            <em>EXERCISE</em>.
         </proof>
     </subsection>
+
+    <p>
+        The process of converting a matrix into RREF is sometimes called <term>Gauss-Jordan elimination</term>, due to Gauss and also Wilhelm Jordan.
+    </p>
 
     <subsection>
         <title>Existence and Uniqueness, Summary</title>
 
         <theorem>
-            A linear system is consistent if and only if the right-most column of its augmented matrix is not a pivot column. In other words, if and only if the REF of the augmented matrix has no row of the form,
+            <p>
+                A linear system is consistent if and only if the right-most column of its augmented matrix is not a pivot column. In other words, if and only if the REF of the augmented matrix has no row of the form,
+            </p>
             <me>
                 \begin{bmatrix} 0 \amp \dots \amp 0 \amp b \end{bmatrix} \qquad \text{where <m>b \neq 0</m>}
             </me>
-            If a linear system in consistent, then the solution set is either:
+            <p>
+                If a linear system in consistent, then the solution set is either:
+            </p>
             <ol>
                 <li>A unique solution, if there are no free variables.</li>
                 <li>Infinitely many solutions, if there are at least one free variable.</li>
@@ -277,5 +333,13 @@
             <li>Solve for each basic variable in terms of any free variables.</li>
         </ol>
     </subsection>
+
+    <exercises>
+        <exercise>
+            <statement>
+                Implement a Gaussian elimination algorithm in Python, to be used on a matrix formed by a 2D array.
+            </statement>
+        </exercise>
+    </exercises>
 
 </section>

@@ -30,14 +30,14 @@
                 \begin{array}{rrrrr}
                 2x \amp + y \amp - z \amp = \amp -2 \\
                 \amp 3y \amp + z \amp = \amp 10 \\
-                \amp \amp 3z \amp = 3
+                \amp \amp 3z \amp = \amp 3
                 \end{array}
             </me>
-            Notice that the last equation has only one variable, and so can be solved to determine the value of <m>z</m>. In this case, <m>3z = 3</m> implies that <m>z = 1</m>. In other words, if <m>(x,y,z)</m> is a solution to this system, it must have <m>z=1</m> in order to satisfy the 3rd equation. Then, we can <quote>work backwards</quote> and determine the remaining values. First, this value of <m>z</m> can be used to solve for <m>y</m> in the second equation. If <m>z = 1</m>, then <m>3y + 1 = 10</m>, so <m>y = 3</m>. Finally, the values of <m>y</m> and <m>z</m> can be used to solve for <m>x</m>, using the first equation. If <m>z = 1</m> and <m>y = 3</m>, then <m>2x + 3 - 1 = -2</m>, so <m>x = -2</m>. Thus, this system has a single unique solution, <m>(-2,3,1)</m>.
+            Notice that the last equation has only one variable, and so can be solved to determine the value of <m>z</m>. In this case, <m>3z = 3</m> implies that <m>z = 1</m>. In other words, if <m>(x,y,z)</m> is a solution to this system, it must have <m>z=1</m> in order to satisfy the 3rd equation. Then, we can <quote>work backwards</quote> and determine the remaining values. First, this value of <m>z</m> can be used to solve for <m>y</m> in the second equation. If <m>z = 1</m>, then <m>3y + 1 = 10</m>, and solving for <m>y</m> gives <m>y = 3</m>. Finally, the values of <m>y</m> and <m>z</m> can be used to solve for <m>x</m>, using the first equation. If <m>z = 1</m> and <m>y = 3</m>, then <m>2x + 3 - 1 = -2</m>, and solving for <m>x</m> gives <m>x = -2</m>. Thus, this system has a single unique solution, <m>(-2,3,1)</m>.
         </example>
 
         <p>
-            Systems with this staircase-like form are called <quote>triangular</quote>. More precisely,
+            Systems with this <q>staircase</q> form are called <quote>triangular</quote>. More precisely,
         </p>
 
         <definition>
@@ -53,7 +53,7 @@
         <title>Gaussian Elimination, Elementary Operations</title>
 
         <p>
-            <term>Gaussian elimination</term> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another equivalent system, which is somewhat easier to solve. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.
+            <term>Gaussian elimination</term> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another somewhat simpler system, without changing the solution set. In other words, the simpler system is <i>equivalent</i> to the original system, in that the simpler system has the same solution set as the original system. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.
         </p>
 
         <definition>
@@ -114,10 +114,10 @@
                 First, interchanging two equations <m>E_i \leftrightarrow E_j</m>, i.e. rearranging the order of the equations, clearly does not affect the solutions of those two equations, and so doesn't affect the solution set of the system.
             </li>
             <li>
-                Also, multiplying an equation <m>E_i</m> by a non-zero constant $k$ does not change the solutions of that equation, as any solution of <m>E_i</m> is also a solution of <m>kE_i</m>, and vise versa.
+                Also, multiplying an equation <m>E_i</m> by a non-zero constant <m>k</m> does not change the solutions of that equation, as any solution of <m>E_i</m> is also a solution of <m>kE_i</m>, and vise versa. This is true as long as <m>k \neq 0</m>, as if <m>k = 0</m>, then <m>0 \cdot K_i</m> is just the equation <m>0 = 0</m> for which any tuple will be a solution.
             </li>
             <li>
-                Finally, consider adding a multiple of an equation to another equation, $E_i + kE_j \rightarrow E_i$. Let $(x_1, \dots, x_n)$ be a solution to the original system. Then, it is a solution of $E_i$ and $E_j$. From before, it is also a solution to $kE_j$. This implies that $(x_1, \dots, x_n)$ is a solution to the sum $E_i + kE_j$.
+                Finally, consider adding a multiple of an equation to another equation, <m>E_i + kE_j \rightarrow E_i</m>. Let <m>(x_1, \dots, x_n)</m> be a solution to the original system. Then, it is a solution of <m>E_i</m> and <m>E_j</m>. From before, it is also a solution to <m>kE_j</m>. This implies that <m>(x_1, \dots, x_n)</m> is a solution to the sum <m>E_i + kE_j</m>.
             </li>
         </ul>
         Then, it follows that any sequence of these operations will not change the solution set of the system.
@@ -164,8 +164,8 @@
         </p>
     </subsection>
     
-    <subsection>
+    <!-- <subsection>
         <title>Number of Operations</title>
-    </subsection>
+    </subsection> -->
     
 </section>

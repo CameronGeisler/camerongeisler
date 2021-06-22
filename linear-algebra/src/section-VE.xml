@@ -209,6 +209,23 @@
                 \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
             </me>
         </theorem>
+
+        This provides an alternate interpretation of a linear system, in terms of vectors.
+
+        <example>
+            Consider the linear system,
+            <me>
+                \begin{array}{rrrr}
+                x \amp + 3y \amp = -1 \\
+                -5x \amp + 2y \amp = 2
+                \end{array}
+            </me>
+            which has vector form,
+            <me>
+                x \begin{bmatrix} 1 \\ -5 \end{bmatrix} + y \begin{bmatrix} 3 \\ 2 \end{bmatrix} = \begin{bmatrix} -1 \\ 2 \end{bmatrix}
+            </me>
+            This equation can be thought of as trying to find a linear combination of the vectors <m>(1, -5)</m> and <m>(3, 2)</m> in the plane, that is equal to the vector <m>(-1, 2)</m>.
+        </example>
     </subsection>
 
     <subsection>

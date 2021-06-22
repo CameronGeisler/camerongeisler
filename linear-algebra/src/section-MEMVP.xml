@@ -98,7 +98,7 @@
             </p>
         </corollary>
 
-        <p>
+        <!-- <p>
             In summary,
         </p>
 
@@ -109,7 +109,7 @@
                 <li>Every <m>\vec{b} \in \mathbb{R}^m</m> can be written as a linear combination of the columns of <m>A</m></li>
                 <li>The matrix <m>A</m> has a pivot position in every row.</li>
             </ol>            
-        </theorem>
+        </theorem> -->
     </subsection>
 
     <subsection>
