@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-21T17:29:59-07:00       *-->
+<!--*       on 2021-06-22T18:43:34-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -125,12 +125,18 @@
 <li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<li><a href="chapter-4.html" data-scroll="chapter-4">Matrix Operations</a></li>
+<li><a href="chapter-5.html" data-scroll="chapter-5">Matrix Multiplication</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-ITLT"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.9</span> <span class="title">Intro to Linear Transformations</span>
 </h2>
-<section class="introduction" id="introduction-10">Another benefit of the matrix form \(A\vec{x} = \vec{b}\) of a linear system is that it allows us to view a matrix \(A\) as an object that “acts” on a vector \(\vec{x}\) to produce a new vector \(A\vec{x}\text{.}\) This is analogous to how a function \(f(x)\)“acts” on the number \(x\) to produce the output \(f(x)\text{.}\) This new perspective on a matrix is called a transformation, and it is a generalization of a real-valued function \(f(x)\text{,}\) developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an \(n\) real number inputs (a vector in \(\mathbb{R}^n\)), and an \(m\) real number output (a vector in \(\mathbb{R}^m\)).</section><section class="subsection" id="subsection-40"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-10">Another benefit of the matrix form \(A\vec{x} = \vec{b}\) of a linear system is that it allows us to view a matrix \(A\) as an object that “acts” on a vector \(\vec{x}\) to produce a new vector \(A\vec{x}\text{.}\) This is analogous to how a function \(f(x)\)“acts” on the number \(x\) to produce the output \(f(x)\text{.}\) This new perspective on a matrix is called a transformation, and it is a generalization of a real-valued function \(f(x)\text{,}\) developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an \(n\) real number inputs (a vector in \(\mathbb{R}^n\)), and an \(m\) real number output (a vector in \(\mathbb{R}^m\)).</section><section class="subsection" id="subsection-41"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.9.1</span> <span class="title">Linear Transformations</span>
 </h3>
 <article class="definition definition-like" id="definition-26"><h6 class="heading">
@@ -139,36 +145,36 @@
 <li id="li-82">The set \(\mathbb{R}^n\) is called the domain of \(T\) (more generally, a subset of \(\mathbb{R}^n\text{,}\) denoted by \(D(T)\)), and \(\mathbb{R}^m\) is called the <dfn class="terminology">codomain</dfn> of \(T\)</li>
 <li id="li-83">For \(\vec{x} \in \mathbb{R}^n\text{,}\) the vector \(T(\vec{x})\) is called the <dfn class="terminology">image</dfn> of \(\vec{x}\text{.}\)</li>
 <li id="li-84">The <dfn class="terminology">range</dfn> of \(T\) is the set of all images \(T(\vec{x})\text{.}\)</li>
-</ul></article><p id="p-85">The term “transformation” or “mapping” is used, however the concept is basically the same as the familiar function.</p>
-<p id="p-86">If \(A\) is an \(m \times n\) matrix, then matrix multiplication by \(A\) is a transformation. In particular, the map \(T(\vec{x}) = A\vec{x}\) is a transformation from \(\mathbb{R}^n\) to \(\mathbb{R}^m\text{.}\)</p>
-<p id="p-87">Recall that if \(A\) is an \(m \times n\) matrix, and \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) then,</p>
+</ul></article><p id="p-86">The term “transformation” or “mapping” is used, however the concept is basically the same as the familiar function.</p>
+<p id="p-87">If \(A\) is an \(m \times n\) matrix, then matrix multiplication by \(A\) is a transformation. In particular, the map \(T(\vec{x}) = A\vec{x}\) is a transformation from \(\mathbb{R}^n\) to \(\mathbb{R}^m\text{.}\)</p>
+<p id="p-88">Recall that if \(A\) is an \(m \times n\) matrix, and \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) then,</p>
 <div class="displaymath">
 \begin{equation*}
 A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} \quad \text{and} \quad A(c\vec{x}) = cA\vec{x}
 \end{equation*}
 </div>
-<p id="p-88">These properties together make matrix multiplication a “linear” transformation, and are one of the most important properties in linear algebra.</p>
+<p id="p-89">These properties together make matrix multiplication a “linear” transformation, and are one of the most important properties in linear algebra.</p>
 <article class="definition definition-like" id="definition-27"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.9.2</span><span class="period">.</span>
 </h6>A transformation \(T\) is <dfn class="terminology">linear</dfn> if, <ol class="decimal">
 <li id="li-85">\(T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})\) for all \(\vec{x}, \vec{y} \in D(T)\text{.}\)</li>
 <li id="li-86">\(T(c \vec{x}) = c T(\vec{x})\) for all \(c \in \mathbb{R}, \vec{x} \in D(T)\text{.}\)</li>
-</ol></article><p id="p-89">Intuitively, property 2 means that if you scale the input by a factor of \(c\text{,}\) then the output will be correspondingly scaled by \(c\text{.}\) Linear transformations are said to be <dfn class="terminology">operation preserving</dfn>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding \(\vec{x} + \vec{y}\) in \(\mathbb{R}^n\) and then applying \(T\) is equivalent to applying \(T\) to \(\vec{x}\) and \(\vec{y}\) and then adding their result in \(\mathbb{R}^m\text{.}\)</p>
-<p id="p-90">With this definition, every matrix transformation is a linear transformation.</p>
+</ol></article><p id="p-90">Intuitively, property 2 means that if you scale the input by a factor of \(c\text{,}\) then the output will be correspondingly scaled by \(c\text{.}\) Linear transformations are said to be <dfn class="terminology">operation preserving</dfn>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding \(\vec{x} + \vec{y}\) in \(\mathbb{R}^n\) and then applying \(T\) is equivalent to applying \(T\) to \(\vec{x}\) and \(\vec{y}\) and then adding their result in \(\mathbb{R}^m\text{.}\)</p>
+<p id="p-91">With this definition, every matrix transformation is a linear transformation.</p>
 <article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.9.3</span><span class="period">.</span><span class="space"> </span><span class="title">Maps 0 to 0.</span>
 </h6>
-<p id="p-91">If \(T\) is a linear transformation, then \(T(\vec{0}) = \vec{0}\text{.}\)</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof">By linearity, \(T(\vec{0}) = T(0\vec{x}) = 0 \cdot T(\vec{x}) = \vec{0}\text{.}\)</article></div>
+<p id="p-92">If \(T\) is a linear transformation, then \(T(\vec{0}) = \vec{0}\text{.}\)</p></article><article class="hiddenproof" id="proof-5"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof">By linearity, \(T(\vec{0}) = T(0\vec{x}) = 0 \cdot T(\vec{x}) = \vec{0}\text{.}\)</article></div>
 <article class="theorem theorem-like" id="theorem-12"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.9.4</span><span class="period">.</span><span class="space"> </span><span class="title">General linear property.</span>
 </h6>
-<p id="p-92">Let \(T\) be a linear transformation, \(\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}\text{.}\) Then,</p>
+<p id="p-93">Let \(T\) be a linear transformation, \(\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{T(a_1 \vec{v}_1 + \dots + a_n \vec{v}_n) = a_1 T(\vec{v}_1) + \dots + a_n T(\vec{v}_n)}
 \end{equation*}
 </div>
-<p id="p-93">More compactly,</p>
+<p id="p-94">More compactly,</p>
 <div class="displaymath">
 \begin{equation*}
 T\brac{\sum_{k=1}^n a_k \vec{v}_k} = \sum_{k=1}^n a_k T(\vec{v}_k)

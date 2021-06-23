@@ -17,7 +17,7 @@
         <me>
             A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
         </me>
-        Next, we will introduce basic definitions and operations related to matrices. Almost all of these are simply an extension of the corresponding definitions for vectors. After all, matrices are in some sense a generalization of a vector.
+        The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.
     </introduction>
 
     <subsection>
@@ -75,6 +75,74 @@
         <definition>
             An <m>m \times n</m> matrix whose entries are all zero is called a <term>zero matrix</term>, and is typically denoted by 0.
         </definition>
+
+        <p>
+            The size of a zero matrix is usually clear from the context. The zero matrix has the property that <m>A + 0 = A</m>, i.e. it is the <term>additive identity</term> for the set of all <m>n \times m</m> matrices. Note it is clear in this equation that 0 is a matrix, since a matrix <m>A</m> cannot be added to the number 0.
+        </p>
+
+        <theorem>
+            <p>
+                Let <m>A, B, C</m> be <m>m \times n</m> matrices, <m>0</m> be the <m>m \times n</m> zero matrix. Then, addition has the following properties:
+            </p>
+            <ol>
+                <li><em>Commutative property</em>.
+                <me>A + B = B + A</me></li>
+                <li><em>Associative property</em>.
+                <me>
+                    (A + B) + C = A + (B + C)
+                </me></li>
+                <li><em>Additive identity property</em>.
+                <me>
+                    A + 0 = A
+                </me></li>
+                <li><em>Additive inverse property</em>. For a matrix <m>A</m>, the matrix <m>-A = \begin{bmatrix} -a_{ij} \end{bmatrix}</m>, consisting of the additive inverses of the entires of <m>A</m>, is the <term>additive inverse</term> of <m>A</m>, as,
+                <me>
+                    A + (-A) = 0
+                </me></li>
+            </ol>
+        </theorem>
+
+        <p>
+            The associative property means that sums of three or more matrices can be written without brackets, for example <m>A + B + C</m>.
+        </p>
+
+        <p>
+            Matrix addition also follows the natural laws when combined with scalar multiplication.
+        </p>
+
+        <theorem>
+            <p>
+                Let <m>A, B</m> be <m>m \times n</m> matrices, <m>r, s \in \mathbb{R}</m> be scalars. Then,
+            </p>
+            <ol>
+                <li><em>Scalar distributes over matrix addition</em>.
+                <me>
+                    r(A + B) = rA + rB
+                </me></li>
+                <li><em>Matrix distributes over scalar addition</em>.
+                <me>
+                    (r + s)A = rA + sA
+                </me></li>
+                <li><em>Associativity of scalar multiplication</em>.
+                <me>
+                    r(sA) = (rs)A
+                </me></li>
+            </ol>
+        </theorem>
+
+        <proof>
+            <ul>
+                <li><em>Proof of 1. for <m>2 \times 2</m> matrices</em>. Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}</m>. Then,
+                <md>
+                    <mrow>r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix}</mrow>
+                    <mrow>\amp = \begin{bmatrix} r(a + e) \amp r(b + f) \\ r(c + g) \amp r(d + h) \end{bmatrix}</mrow>
+                    <mrow>\amp = \begin{bmatrix} ra + re \amp rb + rf \\ rc + rg \amp rd + rh \end{bmatrix}</mrow>
+                    <mrow>\amp = \begin{bmatrix} ra \amp rb \\ rc \amp rd \end{bmatrix} + \begin{bmatrix} re \amp rf \\ rg \amp rh</mrow>
+                    <mrow>\amp = r A + r B</mrow>
+                </md>
+                </li>
+            </ul>
+        </proof>
         
     </subsection>
 </chapter>

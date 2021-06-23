@@ -64,8 +64,8 @@
         <p>
             From the previous definition of a matrix-vector product, we can expand out the product as,
             <md>
-                A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + x_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} \amp = \begin{bmatrix} a_{11} x_1 \\ a_{21} x_1 \\ \vdots \\ a_{m1} x_1 \end{bmatrix} + \begin{bmatrix} a_{12} x_2 \\ a_{22} x_2 \\ \vdots \\ a_{m2} x_2 \end{bmatrix} + \dots + \begin{bmatrix} a_{1n} x_n \\ a_{2n} x_n \\ \vdots \\ a_{mn} x_n \end{bmatrix} \\
-                \amp = x_1 \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{bmatrix} + x_2 \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{bmatrix} + \dots + x_n \begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn} x_n \end{bmatrix}
+                <mrow>A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + x_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} \amp = \begin{bmatrix} a_{11} x_1 \\ a_{21} x_1 \\ \vdots \\ a_{m1} x_1 \end{bmatrix} + \begin{bmatrix} a_{12} x_2 \\ a_{22} x_2 \\ \vdots \\ a_{m2} x_2 \end{bmatrix} + \dots + \begin{bmatrix} a_{1n} x_n \\ a_{2n} x_n \\ \vdots \\ a_{mn} x_n \end{bmatrix}</mrow>
+                <mrow>\amp = x_1 \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{bmatrix} + x_2 \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{bmatrix} + \dots + x_n \begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn} x_n \end{bmatrix}</mrow>
             </md>
         </p>
         In this way, the product <m>A\vec{x}</m> is precisely a linear combination of the columns of <m>A</m>, with weights given by the entries of <m>\vec{x}</m>. In summary,
@@ -153,9 +153,29 @@
                 <li><m>A(c\vec{u}) = c(A\vec{u})</m></li>
             </ol>
         </theorem>
-        
+
         <proof>
-            Let <m>\vec{A} = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}, \vec{u} = (u_1, \dots, u_n), \vec{v} = (v_1, \dots, v_n)</m>. Then,
+            <title>Proof of <m>2 \times 2</m> case</title>
+            Let <m>A = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix}, \vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2)</m>. Then,
+            <md>
+                <mrow>A(\vec{u} + \vec{v}) \amp = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix} \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \end{bmatrix}</mrow>
+                <mrow>\amp = (u_1 + v_1) \vec{a}_1 + (u_2 + v_2) \vec{a}_2</mrow>
+                <mrow>\amp = u_1 \vec{a}_1 + v_1 \vec{a}_1 + u_2 \vec{a}_2 + v_2 \vec{a}_2</mrow>
+                <mrow>\amp = \brac{u_1 \vec{a}_1 + u_2 \vec{a}_2} + \brac{v_1 \vec{a}_1 + v_2 \vec{a}_2}</mrow>
+                <mrow>\amp = A\vec{u} + A\vec{v}</mrow>
+            </md>
+            Also,
+            <md>
+                <mrow>A(c\vec{u}) \amp = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix} \begin{bmatrix} cu_1 \\ cu_2 \end{bmatrix}</mrow>
+                <mrow>\amp = cu_1 \vec{a}_1 + cu_2 \vec{a}_2</mrow>
+                <mrow>\amp = c\brac{u_1 \vec{a}_1 + u_2 \vec{a}_2}</mrow>
+                <mrow>\amp = c (A\vec{u})</mrow>
+            </md>
+        </proof>
+
+        <proof>
+            <title>Proof of general case</title>
+            Let <m>A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}, \vec{u} = (u_1, \dots, u_n), \vec{v} = (v_1, \dots, v_n)</m>. Then,
             <md>
                 <mrow>A(\vec{u} + \vec{v}) \amp = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} u_1 + v_1 \\ \vdots \\ u_n + v_n \end{bmatrix}</mrow>
                 <mrow>\amp = (u_1 + v_1) \vec{a}_1 + \dots + (u_n + v_n) \vec{a}_n</mrow>

@@ -22,7 +22,7 @@
         
         <xi:include href="./chapter-ITLA.xml"/>
         <xi:include href="./chapter-SOLEAITM.xml"/>
-        
+        <xi:include href="./chapter-M.xml"/>
 
     </book>
 </pretext>

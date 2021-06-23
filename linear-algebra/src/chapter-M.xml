@@ -8,5 +8,6 @@
             </p>
         </introduction>
 
-        <xi:include href="./section-MO.xml"/>
+        <xi:include href="./chapter-M/section-MO.xml"/>
+        <xi:include href="./chapter-M/section-MM.xml"/>
 </chapter>

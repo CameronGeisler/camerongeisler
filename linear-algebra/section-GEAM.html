@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-21T17:29:59-07:00       *-->
+<!--*       on 2021-06-22T18:43:34-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -125,6 +125,12 @@
 <li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<li><a href="chapter-4.html" data-scroll="chapter-4">Matrix Operations</a></li>
+<li><a href="chapter-5.html" data-scroll="chapter-5">Matrix Multiplication</a></li>
+</ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-GEAM"><h2 class="heading hide-type">
@@ -220,14 +226,13 @@
 <p id="p-33">Steps 1-3 to convert a matrix to REF is called the <dfn class="terminology">forward phase</dfn> of Gaussian elimination. Step 4 to convert it to the unique RREF is called the <dfn class="terminology">backwards phase</dfn>.</p></section><section class="subsection" id="subsection-16"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.4</span> <span class="title">Remark on Gaussian Elimination</span>
 </h3>
-<p id="p-34">Gaussian elimination, despite its simplicity, is one of the most important algorithms in linear algebra. Notice that Gaussian elimination is not really much more than high school algebra, but done in a systematic way.</p>
-<p id="p-35">Gaussian elimination is named after German mathematician <dfn class="terminology">Carl Friedrich Gauss</dfn> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer <dfn class="terminology">Wilhelm Jordan</dfn> (1842-1899) helped popularize the method.</p></section><section class="subsection" id="subsection-17"><h3 class="heading hide-type">
+<p id="p-34">Gaussian elimination, despite its simplicity, is one of the most important algorithms in linear algebra. Notice that Gaussian elimination is not really much more than high school algebra, but done in a systematic way.</p></section><section class="subsection" id="subsection-17"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.5</span> <span class="title">Systems with Infinitely Many Solutions</span>
 </h3>
-<p id="p-36">If the REF of the augmented matrix of a system has a zero row, then the system has infinitely many solutions.</p>
+<p id="p-35">If the REF of the augmented matrix of a system has a zero row, then the system has infinitely many solutions.</p>
 <article class="example example-like" id="example-3"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-3"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-37">Consider the matrix in REF,</p>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-3"><article class="example example-like"><p id="p-36">Consider the matrix in REF,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix}
@@ -251,10 +256,10 @@ z = t
 \end{cases}\) Then, any tuple of the form \((1+5t,4-t,t)\) (where \(t \in \mathbb{R}\) is any number) will be a solution to the system. In particular, there are infinitely many solutions of the system. Here, \(z\) is called a <em class="emphasis">free variable</em>, because it can take on any value to generate a solution of the system.</article></div>
 <article class="definition definition-like" id="definition-12"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span>
-</h6>Variables which correspond to pivot columns are called <dfn class="terminology">basic variables</dfn>. The other variables are called <dfn class="terminology">free variables</dfn>.</article><p id="p-38">In general, for the augmented matrix of a system in REF, any non-pivot column corresponds to a free variable (besides the right-most constant column). Free variables can take on any value, and then we can solve for the basic variables in terms of the free variables.</p></section><section class="subsection" id="subsection-18"><h3 class="heading hide-type">
+</h6>Variables which correspond to pivot columns are called <dfn class="terminology">basic variables</dfn>. The other variables are called <dfn class="terminology">free variables</dfn>.</article><p id="p-37">In general, for the augmented matrix of a system in REF, any non-pivot column corresponds to a free variable (besides the right-most constant column). Free variables can take on any value, and then we can solve for the basic variables in terms of the free variables.</p></section><section class="subsection" id="subsection-18"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.6</span> <span class="title">Systems with No Solution</span>
 </h3>
-<p id="p-39">If the REF of the augmented matrix of a system has a row which corresponds to a false statement, then the system has no solution.</p>
+<p id="p-38">If the REF of the augmented matrix of a system has a row which corresponds to a false statement, then the system has no solution.</p>
 <article class="example example-like" id="example-4"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-4"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-4"><article class="example example-like">Consider the matrix in REF,<div class="displaymath">
@@ -276,20 +281,20 @@ x \amp -3y \amp + z \amp = \amp 1 \\
 </div>The 3rd equation is the false statement (or, <em class="emphasis">contradiction</em>) \(0 = 2\text{,}\) so the system has no solution. This is because, no matter what the values of \(x, y, z\text{,}\) it is not possible for the third equation to be satisfied. A solution of the system must make every equation true, so no such solution exists. Thus, the system is inconsistent.</article></div></section><section class="subsection" id="subsection-19"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.7</span> <span class="title">Reduced Row Echelon Form</span>
 </h3>
-<p id="p-40">The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into <em class="emphasis">reduced</em> row ecehlon form.</p>
+<p id="p-39">The row ecehlon form of a matrix is not unique, in that, by doing different sequences of row operations, the final row echelon forms can be different. However, we can continue to apply row operations in order to simplify the matrix further into <em class="emphasis">reduced</em> row ecehlon form.</p>
 <article class="definition definition-like" id="definition-13"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
 </h6>A matrix is in <dfn class="terminology">reduced row echelon form</dfn> (<dfn class="terminology">RREF</dfn>) if, <ol class="decimal">
 <li id="li-55">The matrix is in REF.</li>
 <li id="li-56">Every pivot is 1.</li>
 <li id="li-57">Every pivot is the only non-zero entry in its column.</li>
-</ol></article><p id="p-41">In short, RREF goes further than REF by requiring that every pivot is 1 (rather than just any number), and that there are all 0's below <em class="emphasis">and</em> above each pivot. A classic example of a matrix in RREF is a matrix of the form,</p>
+</ol></article><p id="p-40">In short, RREF goes further than REF by requiring that every pivot is 1 (rather than just any number), and that there are all 0's below <em class="emphasis">and</em> above each pivot. A classic example of a matrix in RREF is a matrix of the form,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} 1 \amp 0 \amp 0 \amp a \\ 0 \amp 1 \amp 0 \amp b \\ 0 \amp 0 \amp 1 \amp c \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-42">This represents a system of 3 linear equations in 3 unknowns. In particular the system,</p>
+<p id="p-41">This represents a system of 3 linear equations in 3 unknowns. In particular the system,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrrr}
@@ -306,8 +311,8 @@ y \amp = \amp b \\
 z \amp = \amp c \end{array}
 \end{equation*}
 </div>
-<p id="p-43">from which the unique solution can be read right off as \((a,b,c)\text{.}\)</p>
-<p id="p-44">Basically, RREF “builds in” the back substitution into the row reduction procedure.</p>
+<p id="p-42">from which the unique solution can be read right off as \((a,b,c)\text{.}\)</p>
+<p id="p-43">Basically, RREF “builds in” the back substitution into the row reduction procedure.</p>
 <article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.8</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like">Consider the system,<div class="displaymath">
@@ -334,20 +339,20 @@ z \amp = \amp c \end{array}
 <article class="theorem theorem-like" id="theorem-1"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Uniqueness of RREF.</span>
 </h6>
-<p id="p-45">Every matix is row equivalent to a unique matrix in RREF.</p></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><em class="emphasis">EXERCISE</em>.</article></div></section><p id="p-46">The process of converting a matrix into RREF is sometimes called <dfn class="terminology">Gauss-Jordan elimination</dfn>, due to Gauss and also Wilhelm Jordan.</p>
-<section class="subsection" id="subsection-20"><h3 class="heading hide-type">
+<p id="p-44">Every matix is row equivalent to a unique matrix in RREF.</p></article><article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><em class="emphasis">EXERCISE</em>.</article></div>
+<p id="p-45">The process of converting a matrix into RREF is sometimes called <dfn class="terminology">Gauss-Jordan elimination</dfn>, due to Gauss and also Wilhelm Jordan.</p></section><section class="subsection" id="subsection-20"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.8</span> <span class="title">Existence and Uniqueness, Summary</span>
 </h3>
 <article class="theorem theorem-like" id="theorem-2"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.10</span><span class="period">.</span>
 </h6>
-<p id="p-47">A linear system is consistent if and only if the right-most column of its augmented matrix is not a pivot column. In other words, if and only if the REF of the augmented matrix has no row of the form,</p>
+<p id="p-46">A linear system is consistent if and only if the right-most column of its augmented matrix is not a pivot column. In other words, if and only if the REF of the augmented matrix has no row of the form,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} 0 \amp \dots \amp 0 \amp b \end{bmatrix} \qquad \text{where }
 \end{equation*}
 </div>
-<p id="p-48">If a linear system in consistent, then the solution set is either:</p>
+<p id="p-47">If a linear system in consistent, then the solution set is either:</p>
 <ol class="decimal">
 <li id="li-58">A unique solution, if there are no free variables.</li>
 <li id="li-59">Infinitely many solutions, if there are at least one free variable.</li>
@@ -360,8 +365,12 @@ z \amp = \amp c \end{array}
 <li id="li-62">If the system is consistent, then convert the matrix into RREF.</li>
 <li id="li-63">Write the system of equations corresponding to the matrix in RREF.</li>
 <li id="li-64">Solve for each basic variable in terms of any free variables.</li>
-</ol></section><section class="exercises" id="exercises-1"><h3 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber">2.4.10</span> <span class="title">Exercises</span>
+</ol></section><section class="subsection" id="subsection-22"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.10</span> <span class="title">Historical Note</span>
+</h3>
+<p id="p-48">Gaussian elimination is named after German mathematician <dfn class="terminology">Carl Friedrich Gauss</dfn> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. German engineer <dfn class="terminology">Wilhelm Jordan</dfn> (1842-1899) helped popularize the method.</p>
+<p id="p-49">However, similar methods of elimination were developed by the ancient Chinese during the Han dynasty as early as around 250-100 BC by the ancient Chinese. The method is included in the book “The Nine Chapters on the Mathematical Art” (Jiuzhang suanshu), one of the earliest surviving mathematical texts from China. The ancient chinese also had a device called a counting board, which contained the array of coefficients, and allowed for calculations similar to that with matrices.</p></section><section class="exercises" id="exercises-1"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">2.4.11</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-1"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>Implement a Gaussian elimination algorithm in Python, to be used on a matrix formed by a 2D array.</article></section></section></div></main>
 </div>

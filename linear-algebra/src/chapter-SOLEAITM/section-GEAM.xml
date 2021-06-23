@@ -135,10 +135,6 @@
         <p>
             Gaussian elimination, despite its simplicity, is one of the most important algorithms in linear algebra. Notice that Gaussian elimination is not really much more than high school algebra, but done in a systematic way.
         </p>
-
-        <p>
-            Gaussian elimination is named after German mathematician <term>Carl Friedrich Gauss</term> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. However, similar methods of elimination were known as early as around 250-100 BC by the ancient Chinese. German engineer <term>Wilhelm Jordan</term> (1842-1899) helped popularize the method.
-        </p>
     </subsection>
 
     <subsection>
@@ -296,11 +292,11 @@
         <proof>
             <em>EXERCISE</em>.
         </proof>
-    </subsection>
-
+    
     <p>
         The process of converting a matrix into RREF is sometimes called <term>Gauss-Jordan elimination</term>, due to Gauss and also Wilhelm Jordan.
     </p>
+    </subsection>
 
     <subsection>
         <title>Existence and Uniqueness, Summary</title>
@@ -332,6 +328,17 @@
             <li>Write the system of equations corresponding to the matrix in RREF.</li>
             <li>Solve for each basic variable in terms of any free variables.</li>
         </ol>
+    </subsection>
+
+    <subsection>
+        <title>Historical Note</title>
+        <p>
+            Gaussian elimination is named after German mathematician <term>Carl Friedrich Gauss</term> (1777-1855), who developed the method in his work and helped develop the formal theory of matrices. German engineer <term>Wilhelm Jordan</term> (1842-1899) helped popularize the method.
+        </p>
+
+        <p>
+            However, similar methods of elimination were developed by the ancient Chinese during the Han dynasty as early as around 250-100 BC by the ancient Chinese. The method is included in the book <q>The Nine Chapters on the Mathematical Art</q> (Jiuzhang suanshu), one of the earliest surviving mathematical texts from China. The ancient chinese also had a device called a counting board, which contained the array of coefficients, and allowed for calculations similar to that with matrices.
+        </p>
     </subsection>
 
     <exercises>
