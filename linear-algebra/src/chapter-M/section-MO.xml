@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter>
+<section xml:id="section-MO">
     <title>Matrix Operations</title>
 
     <introduction>
@@ -145,4 +145,4 @@
         </proof>
         
     </subsection>
-</chapter>
+</section>

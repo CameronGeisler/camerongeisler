@@ -10,4 +10,5 @@
 
         <xi:include href="./chapter-M/section-MO.xml"/>
         <xi:include href="./chapter-M/section-MM.xml"/>
+        <xi:include href="./chapter-M/section-IOAM.xml"/>
 </chapter>

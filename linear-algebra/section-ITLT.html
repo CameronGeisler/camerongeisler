@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-22T18:43:34-07:00       *-->
+<!--*       on 2021-06-24T20:34:22-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -127,9 +127,13 @@
 </li>
 <li class="link">
 <a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
-<li><a href="chapter-4.html" data-scroll="chapter-4">Matrix Operations</a></li>
-<li><a href="chapter-5.html" data-scroll="chapter-5">Matrix Multiplication</a></li>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul><li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li></ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -142,9 +146,9 @@
 <article class="definition definition-like" id="definition-26"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.9.1</span><span class="period">.</span>
 </h6>A <dfn class="terminology">transformation</dfn> (or <dfn class="terminology">mapping</dfn>) \(T\) form \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is a rule which assigns to each vector \(\vec{x} \in \mathbb{R}^n\) a vector \(T(\vec{x})\) in \(\mathbb{R}^m\text{.}\) <ul class="disc">
-<li id="li-82">The set \(\mathbb{R}^n\) is called the domain of \(T\) (more generally, a subset of \(\mathbb{R}^n\text{,}\) denoted by \(D(T)\)), and \(\mathbb{R}^m\) is called the <dfn class="terminology">codomain</dfn> of \(T\)</li>
-<li id="li-83">For \(\vec{x} \in \mathbb{R}^n\text{,}\) the vector \(T(\vec{x})\) is called the <dfn class="terminology">image</dfn> of \(\vec{x}\text{.}\)</li>
-<li id="li-84">The <dfn class="terminology">range</dfn> of \(T\) is the set of all images \(T(\vec{x})\text{.}\)</li>
+<li id="li-83">The set \(\mathbb{R}^n\) is called the domain of \(T\) (more generally, a subset of \(\mathbb{R}^n\text{,}\) denoted by \(D(T)\)), and \(\mathbb{R}^m\) is called the <dfn class="terminology">codomain</dfn> of \(T\)</li>
+<li id="li-84">For \(\vec{x} \in \mathbb{R}^n\text{,}\) the vector \(T(\vec{x})\) is called the <dfn class="terminology">image</dfn> of \(\vec{x}\text{.}\)</li>
+<li id="li-85">The <dfn class="terminology">range</dfn> of \(T\) is the set of all images \(T(\vec{x})\text{.}\)</li>
 </ul></article><p id="p-86">The term “transformation” or “mapping” is used, however the concept is basically the same as the familiar function.</p>
 <p id="p-87">If \(A\) is an \(m \times n\) matrix, then matrix multiplication by \(A\) is a transformation. In particular, the map \(T(\vec{x}) = A\vec{x}\) is a transformation from \(\mathbb{R}^n\) to \(\mathbb{R}^m\text{.}\)</p>
 <p id="p-88">Recall that if \(A\) is an \(m \times n\) matrix, and \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) then,</p>
@@ -157,8 +161,8 @@ A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} \quad \text{and} \quad A(c\vec{x}) = 
 <article class="definition definition-like" id="definition-27"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.9.2</span><span class="period">.</span>
 </h6>A transformation \(T\) is <dfn class="terminology">linear</dfn> if, <ol class="decimal">
-<li id="li-85">\(T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})\) for all \(\vec{x}, \vec{y} \in D(T)\text{.}\)</li>
-<li id="li-86">\(T(c \vec{x}) = c T(\vec{x})\) for all \(c \in \mathbb{R}, \vec{x} \in D(T)\text{.}\)</li>
+<li id="li-86">\(T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})\) for all \(\vec{x}, \vec{y} \in D(T)\text{.}\)</li>
+<li id="li-87">\(T(c \vec{x}) = c T(\vec{x})\) for all \(c \in \mathbb{R}, \vec{x} \in D(T)\text{.}\)</li>
 </ol></article><p id="p-90">Intuitively, property 2 means that if you scale the input by a factor of \(c\text{,}\) then the output will be correspondingly scaled by \(c\text{.}\) Linear transformations are said to be <dfn class="terminology">operation preserving</dfn>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding \(\vec{x} + \vec{y}\) in \(\mathbb{R}^n\) and then applying \(T\) is equivalent to applying \(T\) to \(\vec{x}\) and \(\vec{y}\) and then adding their result in \(\mathbb{R}^m\text{.}\)</p>
 <p id="p-91">With this definition, every matrix transformation is a linear transformation.</p>
 <article class="theorem theorem-like" id="theorem-11"><h6 class="heading">

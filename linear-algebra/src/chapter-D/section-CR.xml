@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-CR">
+    <title>Cramer's Rule</title>
+
+    <introduction>
+    <p>
+        Recall that for a <m>2 \times 2</m> system of the form,
+    </p>
+    <md>
+        <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
+        <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
+    </md>
+    Its solution is given by,
+    <me>
+        (x,y) = \brac{\frac{d}{\Delta} y_1 - \frac{b}{\Delta} y_2, \frac{a}{\Delta} y_2 - \frac{c}{\Delta} y_1}
+    </me>
+    where <m>\Delta = ad - bc</m>, and provided that <m>\Delta \neq 0</m>.
+    <p>
+        More explicitly,
+    </p>
+    <me>
+        x = \frac{dy_1 - by_2}{ad - bc} \qquad y = \frac{ay_2 - cy_1}{ad - bc}
+    </me>
+    Notice that the numerator has the form of a <m>2 \times 2</m> determinant. For <m>x</m>, <m>dy_1 - by_2</m> has a similar form as <m>ad - bc</m>, except with <m>y_1</m> and <m>y_2</m> instead of <m>a</m> and <m>c</m>, respectively. Thus, the numerator is,
+    <me>
+        \det{\begin{bmatrix} y_1 \amp b \\ y_2 \amp d \end{bmatrix}}
+    </me>
+    Similarly, for <m>y</m>, here <m>y_2</m> and <m>y_1</m> replace <m>d</m> and <m>b</m>, respectively, and so the numerator is,
+    <me>
+        \det{\begin{bmatrix} a \amp y_1 \\ c \amp y_2 \end{bmatrix}}
+    </me>
+    Thus, the unique solution can be written as a ratio of two determinants,
+    <me>
+        x = \frac{\begin{vmatrix} y_1 \amp b \\ y_2 \amp d \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}} \qquad y = \frac{\begin{vmatrix} a \amp y_1 \\ c \amp y_2 \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}}
+    </me>
+    Consider the pattern in the numerator matrix we are taking the determinant of. If we consider <m>x</m> and <m>y</m> to be the 1st and 2nd variables, respectively, then for the <m>i</m>th variable, the matrix in the numerator is the coefficient matrix, with the <m>i</m>th column replaced by the constant vector <m>(y_1, y_2)</m>.
+    </introduction>
+
+    <subsection>
+        <title>The <m>3 \times 3</m> Case</title>
+
+        <p>
+            A similar pattern is true for a <m>3 \times 3</m> system,
+        </p>
+        <me>
+            \begin{array}{rrrrr}
+            a_{11} x \amp + a_{12} y \amp + a_{13} z \amp = \amp b_1 \\
+            a_{21} x \amp + a_{22} y \amp + a_{23} z \amp = \amp b_2 \\
+            a_{31} x \amp + a_{32} y \amp + a_{33} z \amp = \amp b_3
+            \end{array} 
+        </me>
+        It turns out that,
+        <me>
+            x = \frac{\begin{vmatrix} b_1 \amp a_{12} \amp a_{13} \\ b_2 \amp a_{22} \amp a_{23} \\ b_3 \amp a_{32} \amp a_{33} \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
+            \quad y = \frac{\begin{vmatrix} a_{11} \amp b_1 \amp a_{13} \\ a_{21} \amp b_2 \amp a_{23} \\ a_{31} \amp b_3 \amp a_{33} \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
+            \quad z = \frac{\begin{vmatrix} a_{11} \amp a_{12} \amp b_1 \\ a_{21} \amp a_{22} \amp b_2 \\ a_{31} \amp a_{32} \amp b_3 \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
+        </me>
+        Again, the denominator determinants are the determinant of the coefficient matrix, and the numerator determinant of the <m>i</m>th variable is the determinant of the coefficient matrix <i>with the <m>i</m>th column replaced by the constant vector</i>.
+    </subsection>
+
+
+</section>

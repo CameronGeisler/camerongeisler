@@ -152,7 +152,7 @@
             <me>
                 x_1 = \frac{d}{ad - bc} y_1 - \frac{b}{ad - bc} y_2
             </me>
-            Thus, the solution is,
+            Thus, the unique solution is,
             <me>
                 (x,y) = \brac{\frac{d}{ad - bc} y_1 - \frac{b}{ad - bc} y_2, \frac{a}{ad - bc} y_2 - \frac{c}{ad - bc} y_1}
             </me>

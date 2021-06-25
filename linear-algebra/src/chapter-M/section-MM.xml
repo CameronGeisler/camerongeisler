@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter>
+<section xml:id="section-MM">
     <title>Matrix Multiplication</title>
 
     <introduction>
@@ -146,4 +146,4 @@
     </subsection>
 
 
-</chapter>
+</section>

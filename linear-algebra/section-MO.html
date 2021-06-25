@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-22T18:43:35-07:00       *-->
+<!--*       on 2021-06-24T20:34:23-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -96,10 +96,10 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-M.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-5.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-M.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-MM.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-M.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-5.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-M.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-MM.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -127,14 +127,18 @@
 </li>
 <li class="link">
 <a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
-<li><a href="chapter-4.html" data-scroll="chapter-4" class="active">Matrix Operations</a></li>
-<li><a href="chapter-5.html" data-scroll="chapter-5">Matrix Multiplication</a></li>
+<li><a href="section-MO.html" data-scroll="section-MO" class="active">Matrix Operations</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul><li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li></ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="chapter" id="chapter-4"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">3.4</span> <span class="title">Matrix Operations</span>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-MO"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Matrix Operations</span>
 </h2>
 <section class="introduction" id="introduction-13">Recall that an \(m \times n\) matrix \(A\) is a rectangular array of real numbers with \(m\) rows and \(n\) columns,<div class="displaymath">
 \begin{equation*}
@@ -149,109 +153,109 @@ a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
 \begin{equation*}
 A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
 \end{equation*}
-</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-44"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.4.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span>
+</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span>
 </h3>
 <article class="definition definition-like" id="definition-28"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
 </h6>Two matrices \(A\) and \(B\) are <dfn class="terminology">equal</dfn> if they have equal dimensions \(m \times n\text{,}\) and each corresponding entries are equal, i.e. \(a_{ij} = b_{ij}\) for all \(i, j\text{.}\)</article><article class="definition definition-like" id="definition-29"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix addition.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix addition.</span>
 </h6>
-<p id="p-101">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
+<p id="p-122">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{(A + B)_{ij} = \begin{bmatrix} a_{ij} + b_{ij} \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-102">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
+</div></article><p id="p-123">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
 <article class="definition definition-like" id="definition-30"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar multiplication.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar multiplication.</span>
 </h6> Let \(A\) be an \(m \times n\) matrix, \(k \in \mathbb{R}\) be a scalar. Then, \(kA\) is the matrix formed by multiplying each of the entries of \(A\) by \(k\text{,}\) or,<div class="displaymath">
 \begin{equation*}
 \boxed{(kA)_{ij} = kA_{ij}}
 \end{equation*}
-</div></article><p id="p-103">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of vectors.</p>
+</div></article><p id="p-124">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of vectors.</p>
 <ul class="disc">
-<li id="li-87">The sum \(A + B\) is the matrix whose columns are the sums of the corresponding columns of \(A\) and \(B\text{,}\) or,<div class="displaymath">
+<li id="li-88">The sum \(A + B\) is the matrix whose columns are the sums of the corresponding columns of \(A\) and \(B\text{,}\) or,<div class="displaymath">
 \begin{equation*}
 A + B = \begin{bmatrix} \vec{a}_1 + \vec{b}_1 \amp \vec{a}_2 + \vec{b}_2 \amp \cdots \amp \vec{a}_n + \vec{b}_n \end{bmatrix}
 \end{equation*}
 </div>
 </li>
-<li id="li-88">The scalar multiple \(kA\) is the matrix whose columns are the scalar multiples of vectors \(k \vec{a}_j\text{,}\) or,<div class="displaymath">
+<li id="li-89">The scalar multiple \(kA\) is the matrix whose columns are the scalar multiples of vectors \(k \vec{a}_j\text{,}\) or,<div class="displaymath">
 \begin{equation*}
 kA = \begin{bmatrix} k \vec{a}_1 \amp k \vec{a}_2 \amp \cdots \amp k \vec{a}_n \end{bmatrix}
 \end{equation*}
 </div>
 </li>
 </ul>
-<p id="p-104">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-45"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.4.2</span> <span class="title">Properties of Matrix Addition</span>
+<p id="p-125">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-49"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Properties of Matrix Addition</span>
 </h3>
 <article class="definition definition-like" id="definition-31"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.4</span><span class="period">.</span>
-</h6>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by 0.</article><p id="p-105">The size of a zero matrix is usually clear from the context. The zero matrix has the property that \(A + 0 = A\text{,}\) i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. Note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p>
-<article class="theorem theorem-like" id="theorem-14"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h6>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by 0.</article><p id="p-126">The size of a zero matrix is usually clear from the context. The zero matrix has the property that \(A + 0 = A\text{,}\) i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. Note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p>
+<article class="theorem theorem-like" id="theorem-15"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
 </h6>
-<p id="p-106">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
+<p id="p-127">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
 <ol class="decimal">
-<li id="li-89">
+<li id="li-90">
 <em class="emphasis">Commutative property</em>.<div class="displaymath">
 \begin{equation*}
 A + B = B + A
 \end{equation*}
 </div>
 </li>
-<li id="li-90">
+<li id="li-91">
 <em class="emphasis">Associative property</em>.<div class="displaymath">
 \begin{equation*}
 (A + B) + C = A + (B + C)
 \end{equation*}
 </div>
 </li>
-<li id="li-91">
+<li id="li-92">
 <em class="emphasis">Additive identity property</em>.<div class="displaymath">
 \begin{equation*}
 A + 0 = A
 \end{equation*}
 </div>
 </li>
-<li id="li-92">
+<li id="li-93">
 <em class="emphasis">Additive inverse property</em>. For a matrix \(A\text{,}\) the matrix \(-A = \begin{bmatrix} -a_{ij} \end{bmatrix}\text{,}\) consisting of the additive inverses of the entires of \(A\text{,}\) is the <dfn class="terminology">additive inverse</dfn> of \(A\text{,}\) as,<div class="displaymath">
 \begin{equation*}
 A + (-A) = 0
 \end{equation*}
 </div>
 </li>
-</ol></article><p id="p-107">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
-<p id="p-108">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
-<article class="theorem theorem-like" id="theorem-15"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span>
+</ol></article><p id="p-128">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
+<p id="p-129">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
+<article class="theorem theorem-like" id="theorem-16"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
 </h6>
-<p id="p-109">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
+<p id="p-130">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
 <ol class="decimal">
-<li id="li-93">
+<li id="li-94">
 <em class="emphasis">Scalar distributes over matrix addition</em>.<div class="displaymath">
 \begin{equation*}
 r(A + B) = rA + rB
 \end{equation*}
 </div>
 </li>
-<li id="li-94">
+<li id="li-95">
 <em class="emphasis">Matrix distributes over scalar addition</em>.<div class="displaymath">
 \begin{equation*}
 (r + s)A = rA + sA
 \end{equation*}
 </div>
 </li>
-<li id="li-95">
+<li id="li-96">
 <em class="emphasis">Associativity of scalar multiplication</em>.<div class="displaymath">
 \begin{equation*}
 r(sA) = (rs)A
 \end{equation*}
 </div>
 </li>
-</ol></article><article class="hiddenproof" id="proof-7"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><ul class="disc"><li id="li-96">
+</ol></article><article class="hiddenproof" id="proof-7"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><ul class="disc"><li id="li-97">
 <em class="emphasis">Proof of 1. for \(2 \times 2\) matrices</em>. Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}\text{.}\) Then,<div class="displaymath">
 \begin{align*}
 r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix}\\

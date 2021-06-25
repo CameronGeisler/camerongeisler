@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-06-22T18:43:34-07:00       *-->
+<!--*       on 2021-06-24T20:34:22-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -127,9 +127,13 @@
 </li>
 <li class="link">
 <a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
-<li><a href="chapter-4.html" data-scroll="chapter-4">Matrix Operations</a></li>
-<li><a href="chapter-5.html" data-scroll="chapter-5">Matrix Multiplication</a></li>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul><li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li></ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
@@ -173,11 +177,11 @@ a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_m
 \end{alignat*}
 </div>
 <p class="continuation">where \(a_{ij}, b_i \in \mathbb{R}\) are the <dfn class="terminology">coefficients</dfn> of the system.</p></article> Here, the coefficients \(a_{ij}\) are written using <em class="emphasis">double subscript</em> notation. Here, \(a_{ij}\) represents the coefficients of \(x_j\) in the \(i\)th equation. The first subscript represents the equation number, and the second represents the number of the variable that it is a coefficient of. <ul id="p-11" class="disc">
-<li id="li-16">A system of linear equations is also sometimes called <dfn class="terminology">simultaneous linear equations</dfn>, or simply a <dfn class="terminology">linear system</dfn>, or sometimes simply a <dfn class="terminology">system</dfn>.</li>
-<li id="li-17">The variables \(x_1, \dots, x_n\) are sometimes called <dfn class="terminology">unknowns</dfn>.</li>
-<li id="li-18">A <dfn class="terminology">solution</dfn> of a linear system is an ordered tuple \((s_1, \dots, s_n)\) which, when substituted for \((x_1, \dots, x_n)\text{,}\) respectively, makes each equation a true statement.</li>
-<li id="li-19">The set of all possible solutions of a linear system is called its <dfn class="terminology">solution set</dfn>.</li>
-<li id="li-20">Two linear systems are <dfn class="terminology">equivalent</dfn> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</li>
+<li id="li-17">A system of linear equations is also sometimes called <dfn class="terminology">simultaneous linear equations</dfn>, or simply a <dfn class="terminology">linear system</dfn>, or sometimes simply a <dfn class="terminology">system</dfn>.</li>
+<li id="li-18">The variables \(x_1, \dots, x_n\) are sometimes called <dfn class="terminology">unknowns</dfn>.</li>
+<li id="li-19">A <dfn class="terminology">solution</dfn> of a linear system is an ordered tuple \((s_1, \dots, s_n)\) which, when substituted for \((x_1, \dots, x_n)\text{,}\) respectively, makes each equation a true statement.</li>
+<li id="li-20">The set of all possible solutions of a linear system is called its <dfn class="terminology">solution set</dfn>.</li>
+<li id="li-21">Two linear systems are <dfn class="terminology">equivalent</dfn> if they share the same solution set. In other words, every solution of the first system is also a solution of the second, and vise versa.</li>
 </ul></section><section class="subsection" id="systems-of-two-linear-equations-in-two-variables"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.2</span> <span class="title">Systems of Two Linear Equations In Two Variables</span>
 </h3>
@@ -190,15 +194,15 @@ a_{21} x_1 + a_{22} x_2 \amp = b_2
 </div>
 <p class="continuation">Graphically, these two linear equations represent lines in the plane, say denoted by \(L_1\) and \(L_2\text{,}\) respectively. Then, an ordered pair \((s_1,s_2)\) is a solution to the system if it satisfies both equations in the system. Graphically, this means that the point \((s_1,s_2)\) lies on both lines \(L_1\) and \(L_2\text{.}\)</p> To <dfn class="terminology">solve</dfn> a system is to determine all of its soltions. The set of all solutions of a system is called its <dfn class="terminology">solution set</dfn>. <p id="p-13">In general, two lines in the plane can,</p>
 <ul class="disc">
-<li id="li-21">Intersect at a single point.</li>
-<li id="li-22">Be parallel to each other, and so never intersect.</li>
-<li id="li-23">Coincide (overlap each other), and so intersect infinitely many times.</li>
+<li id="li-22">Intersect at a single point.</li>
+<li id="li-23">Be parallel to each other, and so never intersect.</li>
+<li id="li-24">Coincide (overlap each other), and so intersect infinitely many times.</li>
 </ul>
 <p id="p-14">In the language of solutions of linear systems, these correspond to the possibilities of the system having,</p>
 <ul class="disc">
-<li id="li-24">Exactly one solution.</li>
-<li id="li-25">No solution.</li>
-<li id="li-26">Infinitely many solutions.</li>
+<li id="li-25">Exactly one solution.</li>
+<li id="li-26">No solution.</li>
+<li id="li-27">Infinitely many solutions.</li>
 </ul>
 <article class="definition definition-like" id="definition-3"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
