@@ -5,14 +5,14 @@
 
     <introduction>
         <p>
-            Addition and scalar multiplication of matrices is defined in the intuitively natural way, entry-wise. However, there is another operation which is not defined in this natural way. That is, multiplying two matrices, or <i>matrix multiplication</i>, is not computed entry-wise. This will be a generalization of the matrix-vector product.
+            Addition and scalar multiplication of matrices is defined in the intuitively natural way, entry-wise. However, there is another operation which is not defined in this natural way. That is, multiplying two matrices, or <em>matrix multiplication</em>, is not computed entry-wise. This will be a generalization of the matrix-vector product.
         </p>
         <p>
             Consider a matrix <m>B</m>. If <m>B</m> is multipled to a vector <m>\vec{x}</m>, this transforms <m>\vec{x}</m> into the vector <m>B\vec{x}</m>. Then, if this vector is then multiplied by another matrix <m>A</m>, the resulting vector is <m>A(B\vec{x})</m>.
         </p>
     
         <p>
-            The vector <m>A(B\vec{x})</m> is produced from <m>\vec{x}</m> by a <i>composition</i> of transformations. Then, we define <m>AB</m> to be a matrix which represents this single composite transformation produced by applying <m>B</m> and then <m>A</m>.
+            The vector <m>A(B\vec{x})</m> is produced from <m>\vec{x}</m> by a <em>composition</em> of transformations. Then, we define <m>AB</m> to be a matrix which represents this single composite transformation produced by applying <m>B</m> and then <m>A</m>.
         </p>
         <p>
             Let <m>A</m> be an <m>m \times n</m> matrix, and <m>B</m> be an <m>n \times p</m> matrix. Let the columns of <m>B</m> be <m>\vec{b}_1, \dots, \vec{b}_p</m>, and let <m>\vec{x} = (x_1, \dots, x_p)</m> be a vector in <m>\mathbb{R}^p</m>. Then, first consider the matrix-vector product <m>B\vec{x}</m>,
@@ -43,7 +43,7 @@
         <title>Matrix Multiplication</title>
 
         <definition>
-            Let <m>A</m> be an <m>m \times n</m> matrix, <m>B</m> be an <m>n \times p</m> matrix with columns <m>\vec{b}_1, \dots, \vec{b}_p</m>. Then, the <term>product</term> <m>AB</m> is the <m>m \times p</m> matrix with columns <m>A\vec{b}_1, \dots, A\vec{b}_p</m>, or,
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix, <m>B</m> be an <m>n \times p</m> matrix with columns <m>\vec{b}_1, \dots, \vec{b}_p</m>. Then, the <term>product</term> <m>AB</m> is the <m>m \times p</m> matrix with columns <m>A\vec{b}_1, \dots, A\vec{b}_p</m>, or,</p>
             <me>
                 \boxed{AB = A \begin{bmatrix} \vec{b}_1 \amp \cdots \amp \vec{b}_p \end{bmatrix} = \begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix}}
             </me>
@@ -59,6 +59,16 @@
 
     <subsection>
         <title>Matrix Multiplication as a Dot Product</title>
+        <p>
+            Another perspective on matrix multiplication views it entry-by-entry, and involves a dot product of a column and a row.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Row Perspective of Matrix Multiplication</title>
+        <p>
+            The <m>i</m>th row of <m>AB</m> are a linear combination of <m>B</m> with weights given by the entries of the <m>i</m>th row of <m>A</m>.
+        </p>
     </subsection>
 
     <subsection>
@@ -141,7 +151,7 @@
         <title>The Identity Matrix</title>
 
         <p>
-            Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. In other words, 1 is the <i>multiplicative identity</i> for multiplication of real numbers, <m>a \cdot 1 = a</m> for all <m>a \in \mathbb{R}</m>. Similarly, we can define a matrix which, when multiplied by a matrix, leaves it unchanged, called an \textit{identity matrix}.
+            Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. In other words, 1 is the <em>multiplicative identity</em> for multiplication of real numbers, <m>a \cdot 1 = a</m> for all <m>a \in \mathbb{R}</m>. Similarly, we can define a matrix which, when multiplied by a matrix, leaves it unchanged, called an \textit{identity matrix}.
         </p>
     </subsection>
 

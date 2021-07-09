@@ -1,0 +1,269 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-07-08T16:54:50-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Elementary Matrices</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\require{cancel}\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-IOAM.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-D.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-IOAM.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-D.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
+<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
+<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM" class="active">Elementary Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-EM"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Elementary Matrices</span>
+</h2>
+<section class="introduction" id="introduction-16">There is an alternative characterization of row reduction, which provides helpful insights. In fact, performing row reduction on a matrix \(A\) is equivalent to multiplying \(A\) by particular matrices, called <em class="emphasis">elementary matrices</em>.</section><section class="subsection" id="subsection-66"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.1</span> <span class="title">Matrix-Vector Product and Matrix Multiplication from the Row Perspective</span>
+</h3>
+<p id="p-203">There is another characterization of the matrix-vector product, and matrix multiplication, from the perspective of the rows of the matrix, and in particular a linear combination of the rows. Let \(A\) be an \(m \times n\) matrix. Recall that \(A\vec{x}\) (where \(\vec{x} \in \mathbb{R}^n\)) can be thought of as a linear combination of the columns of \(A\) with weights given by the entries of \(\vec{x}\text{.}\) In a similar way, the product \(\vec{x}A\) (where \(\vec{x} \in \mathbb{R}^m\)) can be thought of as a linear combination of the rows of \(A\text{,}\) with weights given by the entries of \(\vec{x}\text{.}\)</p>
+<p id="p-204">More precisely, let \(\vec{x} = (x_1, \dots, x_m)\text{,}\) and let \(\vec{a}^i\) denote the \(i\)th row of \(A\text{,}\) so</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{bmatrix} \vec{a}^1 \\ \vdots \\ \vec{a}^m \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-205">Note that we haven't defined matrix powers, so this is not ambiguous. Then,</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{x} A = x_1 \vec{a}^1 + \dots + x_m \vec{a}^m
+\end{equation*}
+</div>
+<p id="p-206">for which the result is again a row vector.</p>
+<article class="example example-like" id="example-19"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><p id="p-207">For example,</p>
+<div class="displaymath">
+\begin{align*}
+\begin{bmatrix} 2 \amp -1 \end{bmatrix} \begin{bmatrix} 2 \amp 3 \\ -1 \amp 4 \end{bmatrix} \amp = 2 \begin{bmatrix} 2 \amp 3 \end{bmatrix} - 1 \begin{bmatrix} -1 \amp 4 \end{bmatrix}\\
+\amp = \begin{bmatrix} 4 \amp 6 \end{bmatrix} + \begin{bmatrix} 1 \amp -4 \end{bmatrix}\\
+\amp = \begin{bmatrix} 5 \amp 2 \end{bmatrix}
+\end{align*}
+</div></article></div>
+<p id="p-208">Then, this leads to a characterization of matrix multiplication. Let \(B\) be an \(n \times p\) matrix. Then,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{AB = \begin{bmatrix} \vec{a}^1 B \\ \vdots \\ \vec{a}^m B \end{bmatrix}}
+\end{equation*}
+</div>
+<p id="p-209">That is, each row of \(AB\) is a linear combination of the rows of \(B\text{,}\) with weights given by the correspondsing row of \(A\text{.}\)</p>
+<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><p id="p-210">For example,</p>
+<div class="displaymath">
+\begin{align*}
+\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix} \amp = \begin{bmatrix} 1 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 0 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \\ 0 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 1 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \end{bmatrix}\\
+\amp = \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix}
+\end{align*}
+</div></article></div></section><section class="subsection" id="subsection-67"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.2</span> <span class="title">Elementary Matrices</span>
+</h3>
+<p id="p-211">Using the row perspective on matrix multiplication, we can characterize the elementary row operation as multiplication by a matrix.</p>
+<p id="p-212">Consider the case of a \(2 \times 2\) matrix,</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-213">To multiply the top row by a scalar \(k\text{,}\) we can multiply by the matrix,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} k \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} ka \amp kb \\ c \amp d \end{bmatrix}
+\end{equation*}
+</div>From the row perspective, the first row \(\begin{bmatrix} k \amp 0 \end{bmatrix}\) means that the first row of the product involving taking \(k\) times the first row of \(A\text{,}\) and \(0\) times the second row of \(A\text{.}\) Similarly,<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 0 \\ 0 \amp k \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} a \amp b \\ kc \amp kd \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-214">To interchange the two rows, again consider the matrix,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} c \amp d \\ a \amp b \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-215">Again, from the row perspective, the first row \(\begin{bmatrix} 0 \amp 1 \end{bmatrix}\) means taking 0 of the first row and 1 of the second row, to get \(\begin{bmatrix} c \amp d \end{bmatrix}\text{.}\)</p>
+<p id="p-216">For row replacement, that is, adding to one row a multiple of another row, again we use a linear combination. Suppose we want to add \(k R_2\) to \(R_1\text{.}\) In other words, \(R_1 + kR_2 \rightarrow R_1\text{.}\) Then,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} 1 \amp k \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} a + kc \amp b + kd \\ c \amp d \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-217">These patterns and reasoning with row combinations generalize to arbitrary matrices. The idea is, the effect of a single row operation can be captured by left-multiplication by a matrix which is like the identity matrix, but slightly different.</p>
+<p id="p-218">In particular, the matrix that represents a particular elementary row operation is found by performing the same row operation on the identity matrix.</p>
+<article class="definition definition-like" id="definition-34"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.4.3</span><span class="period">.</span>
+</h6>An <dfn class="terminology">elementary matrix</dfn> is a matrix which is obtained by performing a single elementary row operation on an identity matrix.</article><article class="theorem theorem-like" id="theorem-26"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.4</span><span class="period">.</span>
+</h6>
+<p id="p-219">Let \(A\) be an \(m \times n\) matrix. If an elementary row operation is performed on \(A\text{,}\) the resulting matrix can be written as \(EA\) for an \(m \times n\) elementary matrix \(E\) formed by performing the same row operation on \(I_m\text{.}\)</p></article><p id="p-220">In other words, every elementary row operation corresponds to left-multiplication by some elementary matrix.</p>
+<p id="p-221">In addition, every elementary matrix is invertible, intuitively because row operations are reversable. If \(E\) corresponds to some row operation, then the reverse operation has a corresponding elementary matrix \(F\) such that \(EF = FE = I\text{.}\)</p>
+<p id="p-222">In summary,</p>
+<article class="theorem theorem-like" id="theorem-27"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span>
+</h6>
+<p id="p-223">Every elementary matrix \(E\) is invertible, and the inverse of \(E\) is the elementary matrix of the same type as \(E\) which transforms \(E\) back into \(I\text{.}\)</p></article></section><section class="subsection" id="subsection-68"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.3</span> <span class="title">Elementary Matrices and Matrix Inverses</span>
+</h3>
+<p id="p-224">Elementary matrices provide insight into finding inverses of matrices.</p>
+<article class="theorem theorem-like" id="theorem-28"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span>
+</h6>
+<p id="p-225">An \(n \times n\) matrix \(A\) is invertible if and only if \(A\) is row equivalent to \(I_n\text{,}\) and in this case, any sequence of row operations that reduces \(A\) to \(I_n\) also transforms \(I_n\) into \(A^{-1}\text{.}\)</p></article><article class="hiddenproof" id="proof-15"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><p id="p-226">If \(A\) is invertible, then the equation \(A\vec{x} = \vec{b}\) has a solution for every \(\vec{b}\text{,}\) and \(A\) has a pivot position in every row (\(n\) rows). Since \(A\) is square (in particular has \(n\) columns), this implies that the pivor positions are on the main diagonal. Thus, the RREF of \(A\) is \(I_n\text{,}\) or \(A \sim I_n\text{.}\)</p>
+<p id="p-227">Conversely, suppose that \(A \sim I_n\text{.}\) Then, each step in the row reduction of \(A\) correspond to left-multiplication by some elementary matrix. Say there are <p id="p-228">p</p> steps to reduce \(A\) to \(I_n\text{,}\) with corresponding elementary matrices \(E_1, \dots, E_p\) such that,</p>
+<div class="displaymath">
+\begin{equation*}
+A \sim E_1 A \sim E_2 (E_1 A) \sim \cdots \sim E_p(E_{p-1} \cdots E_1 A) = I_n
+\end{equation*}
+</div>In other words,<div class="displaymath">
+\begin{equation*}
+E_p \cdots E_1 A = I_n
+\end{equation*}
+</div>In other words, the matrix \(E_p \cdots E_1\) multiplies with \(A\) to produce the identity $matrix. Thus, \(A^{-1} = E_p \cdots E_1\text{.}\) Equvialently, \(A^{-1} = E_p \cdots E_1 I_n\text{,}\) i.e. \(A^{-1}\) is obtained by applying \(E_1, \dots, E_p\) successively to \(I_n\text{,}\) in the same sequence requried to transform \(A\) to \(I_n\text{.}\)</article></div>
+<p id="p-229">The previous theorem leads to an algorithm for determining matrix inverses,</p>
+<article class="theorem theorem-like" id="theorem-29"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.7</span><span class="period">.</span>
+</h6>
+<p id="p-230">To determine the inverse of a square matrix \(A\text{,}\)</p>
+<ol class="decimal">
+<li id="li-103">Form the augmented matrix \(\begin{bmatrix} A \mid I \end{bmatrix}\text{.}\)</li>
+<li id="li-104">Perform row reduction on the augmented matrix \(\begin{bmatrix} A \mid I \end{bmatrix}\)</li>
+<li id="li-105">If \(A\) is row equivalent to \(I\text{,}\) then the augmented matrix in RREF will be of the form \(\begin{bmatrix} I \mid B \end{bmatrix}\text{.}\) Then, \(B = A^{-1}\text{.}\)</li>
+<li id="li-106">Otherwise, if \(A\) is not row equivalent to \(A\text{,}\) then \(A\) does not have an inverse.</li>
+</ol></article><p id="p-231">After using this procedure, the result can be verified by checking that \(AA^{-1} = I\text{.}\)</p></section><section class="exercises" id="exercises-2"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">3.4.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-3"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>In Python, implement a program to compute the inverse of an arbitrary square matrix (this will use the RREF program).</article></section></section></div></main>
+</div>
+</body>
+</html>

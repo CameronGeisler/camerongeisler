@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-07-08T16:54:51-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="hiddenproof"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Proof</span></h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">If \(A\) is invertible, then the equation \(A\vec{x} = \vec{b}\) has a solution for every \(\vec{b}\text{,}\) and \(A\) has a pivot position in every row (\(n\) rows). Since \(A\) is square (in particular has \(n\) columns), this implies that the pivor positions are on the main diagonal. Thus, the RREF of \(A\) is \(I_n\text{,}\) or \(A \sim I_n\text{.}\)</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Conversely, suppose that \(A \sim I_n\text{.}\) Then, each step in the row reduction of \(A\) correspond to left-multiplication by some elementary matrix. Say there are <p>p</p> steps to reduce \(A\) to \(I_n\text{,}\) with corresponding elementary matrices \(E_1, \dots, E_p\) such that,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+A \sim E_1 A \sim E_2 (E_1 A) \sim \cdots \sim E_p(E_{p-1} \cdots E_1 A) = I_n
+\end{equation*}
+</div>In other words,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+E_p \cdots E_1 A = I_n
+\end{equation*}
+</div>In other words, the matrix \(E_p \cdots E_1\) multiplies with \(A\) to produce the identity $matrix. Thus, \(A^{-1} = E_p \cdots E_1\text{.}\) Equvialently, \(A^{-1} = E_p \cdots E_1 I_n\text{,}\) i.e. \(A^{-1}\) is obtained by applying \(E_1, \dots, E_p\) successively to \(I_n\text{,}\) in the same sequence requried to transform \(A\) to \(I_n\text{.}\)</article><span class="incontext"><a href="section-EM.html#proof-15">in-context</a></span>
+</body>
+</html>

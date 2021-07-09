@@ -24,7 +24,7 @@
         </p>
 
         <definition>
-            Let <m>m, n \in \mathbb{N}</m>. Then, an <m>m \times n</m> <term>matrix</term> (read as <q><m>m</m> by <m>n</m> matrix</q>) is a rectangular array of <m>m</m> rows and <m>n</m> columns of real numbers,
+            <p>Let <m>m, n \in \mathbb{N}</m>. Then, an <m>m \times n</m> <term>matrix</term> (read as <q><m>m</m> by <m>n</m> matrix</q>) is a rectangular array of <m>m</m> rows and <m>n</m> columns of real numbers,</p>
             <me>
                 \begin{bmatrix}
                     a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
@@ -33,16 +33,16 @@
                     a_{m1} \amp a_{m2} \amp \dots \amp a_{mn}
                 \end{bmatrix}
             </me>
-            Each number <m>a_{ij}</m> is called an <term>entry</term> (or <term>coefficient</term>, or <term>element</term>) of the matrix. Then, <m>a_{ij}</m> represents the entry in row <m>i</m> and column <m>j</m>.
+            <p>Each number <m>a_{ij}</m> is called an <term>entry</term> (or <term>coefficient</term>, or <term>element</term>) of the matrix. Then, <m>a_{ij}</m> represents the entry in row <m>i</m> and column <m>j</m>.</p>
             <ul>
                 <li>The plural of matrix is <term>matrices</term></li>
                 <li>Matrices are typically denoted by capital letters, like <m>A, B, C</m>, etc.</li>
             </ul>
         </definition>
 
-        <note>
-            In <m>m \times n</m>, the number of rows is specified first, then the number of columns.
-        </note>
+        <p>
+            Note that in <m>m \times n</m>, the number of rows is specified first, then the number of columns.
+        </p>
     </subsection>
 
     <subsection>

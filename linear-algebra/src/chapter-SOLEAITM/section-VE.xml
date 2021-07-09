@@ -13,7 +13,7 @@
         <title>Vectors</title>
 
         <p>
-            The term <i>vector</i> is used widely in mathematics and physics. Here, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <term>column matrix</term>, a matrix with dimensions <m>1 \times n</m>, i.e. a matrix with 1 row and <m>n</m> <q>columns</q>. Similarly, a <term>row vector</term> is a <m>m \times 1</m> matrix, a matrix which has 1 columns and <m>m</m> <q>rows</q>.
+            The term <em>vector</em> is used widely in mathematics, physics, and computer science. For now, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <term>column matrix</term>, a matrix with dimensions <m>1 \times n</m>, i.e. a matrix with 1 row and <m>n</m> <q>columns</q>. Similarly, a <term>row vector</term> is a <m>m \times 1</m> matrix, a matrix which has 1 columns and <m>m</m> <q>rows</q>.
         </p>
 
         <p>
@@ -21,23 +21,35 @@
         </p>
 
         <definition>
-            Two vectors in <m>\mathbb{R}^2</m> are <term>equal</term> if their corresponding entries are equal.
+            <p>Two vectors in <m>\mathbb{R}^2</m> are <term>equal</term> if their corresponding entries are equal.</p>
         </definition>
 
         <definition>
-            Let <m>\vec{u}, \vec{v}</m> be vectors. Their <term>sum</term> <m>\vec{u} + \vec{v}</m> is the vecotr obtained by adding the corresponding entries of <m>\vec{u}</m> and <m>\vec{v}</m>.
+            <p>Let <m>\vec{u}, \vec{v}</m> be vectors. Their <term>sum</term> <m>\vec{u} + \vec{v}</m> is the vector obtained by adding the corresponding entries of <m>\vec{u}</m> and <m>\vec{v}</m>.</p>
         </definition>
 
         <definition>
-            Let <m>\vec{u}</m> be a vector, <m>c \in \mathbb{R}</m>. Then, the <term>scalar multiple</term> of <m>\vec{u}</m> by <m>c</m>, <m>c\vec{u}</m>, is the vector obtained by multiply each entry of <m>\vec{u}</m> by <m>c</m>.
+            <p>Let <m>\vec{u}</m> be a vector, <m>c \in \mathbb{R}</m>. Then, the <term>scalar multiple</term> of <m>\vec{u}</m> by <m>c</m>, <m>c\vec{u}</m>, is the vector obtained by multiply each entry of <m>\vec{u}</m> by <m>c</m>.</p>
         </definition>
 
         <p>
-            The number <m>c \in \mathbb{R}</m> is called a <term>scalar</term>.
+            The number <m>c \in \mathbb{R}</m> is called a <term>scalar</term>. This is because, literally, multiplying a vector by a number <m>c</m> scales the length of the vector. Geometrically, if <m>c > 0</m>, then <m>c\vec{u}</m> is the vector with the same direction as <m>\vec{u}</m>, but scaled to be <m>c</m> times as long. If <m>c \le 0</m>, then <m>c\vec{u}</m> has the opposite direction as <m>\vec{u}</m>, and is also <m>c</m> times as long as <m>\vec{u}</m>.
         </p>
 
         <p>
-            Often, it is simpler to write vectors horizontally rather than vertically, but it is necessary to keep the vertical convention. In this case, we <i>identify</i> a column vector with an ordered tuple of numbers. For example,
+            Geometrically, the sum <m>\vec{u} + \vec{v}</m> is the vector with head obtained from the head of <m>\vec{v}</m> after aligning the tail of <m>\vec{v}</m> with the head of <m>\vec{u}</m>.
+        </p>
+        
+        <p>
+            Intuitively, vectors represent motion, and <m>\vec{u} + \vec{v}</m> is the resulting motion after movement corresponding to <m>\vec{u}</m> and then <m>\vec{v}</m>.
+        </p>
+
+        <p>
+            In fact, this is just an extension of addition of real numbers, represented on a number line. This is because real numbers <m>a \in \mathbb{R}</m> can be thought of as 1-dimensional vectors <m>\begin{bmatrix} a \end{bmatrix}</m>.
+        </p>
+
+        <p>
+            Often, it is simpler to write vectors horizontally rather than vertically, but it is necessary to keep the vertical convention. In this case, we <em>identify</em> a column vector with an ordered tuple of numbers. For example,
         </p>
 
         <me>
@@ -59,13 +71,19 @@
         <p>
             Every point in the plane is completely determined by an ordered pair of numbers, so there is a one-to-one correspondence between points in the plane <m>(a,b)</m> and vectors <m>\begin{bmatrix} a \\ b \end{bmatrix}</m>.
         </p>
+        <p>
+            The equivalence can be thought of in the following way: if all geometric vectors have their tail at the origin, then their head is at the point <m>(a,b)</m>.
+        </p>
+        <p>
+            The numerical entries of a vector are often called its <term>coordinates</term>, for this reason.
+        </p>
     </subsection>
 
     <subsection>
         <title>Vectors in <m>\mathbb{R}^3</m></title>
 
         <p>
-            Vectors in <m>\mathbb{R}^3</m> are <m>3 \times 1</m> column matrices, and can be represented geometrically as points in space.
+            Vectors in <m>\mathbb{R}^3</m> are <m>3 \times 1</m> column matrices, and can be represented geometrically as points in space <m>(x,y,z)</m>. Again, there is a one-to-one correspondence between vectors in <m>\begin{bmatrix} x \\ y \\ z \end{bmatrix} \in \mathbb{R}^3</m> and ordered triples <m>(x,y,z)</m>.
         </p>
     </subsection>
 
@@ -84,7 +102,7 @@
             <li>Vectors <m>\vec{u}, \vec{v}</m> in <m>\mathbb{R}^n</m> are <term>equal</term> if their corresponding entries are equal.</li>
             <li>The <term>sum</term> <m>\vec{u} + \vec{v}</m> is obtained by adding entries componentwise.</li>
             <li>The <term>scalar multiple</term> <m>c \vec{u}</m> is obtained by multiplying every entry of <m>\vec{u}</m> by <m>c</m>.</li>
-            <li>The <m>zero vector</m>, denoted by <m>\vec{0}</m>, is the unique vector with entries which are all zeros.</li>
+            <li>The <term>zero vector</term>, denoted by <m>\vec{0}</m>, is the unique vector with entries which are all zeros.</li>
         </ul>
 
         <p>
@@ -108,7 +126,7 @@
         </theorem>
 
         <p>
-            For simplicity, the scalar multiple <m>-1\vec{u}</m> is written as <m>-\vec{u}</m>, and is called the <i>additive inverse</i> of <m>\vec{u}</m>. These properties all essentially follow from the corresponding properties of real numbers.
+            For simplicity, the scalar multiple <m>-1\vec{u}</m> is written as <m>-\vec{u}</m>, and is called the <em>additive inverse</em> of <m>\vec{u}</m>. These properties all essentially follow from the corresponding properties of real numbers.
         </p>
     </subsection>
 
@@ -116,11 +134,13 @@
         <title>Linear Combinations of Vectors</title>
 
         <definition>
-            Let <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> be vectors, <m>a_1, a_2, \dots, a_n \in \mathbb{R}</m> be scalars. Then, the vector <m>\vec{v}</m> given by,
-            <me>
-                \vec{v} = a_1 \vec{v}_1 + a_2 \vec{v}_2 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
-            </me>
-            is called a <term>linear combination</term> of <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> with <term>weights</term> <m>a_1, a_2, \dots, a_n</m>.
+            <p>
+                Let <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> be vectors, <m>a_1, a_2, \dots, a_n \in \mathbb{R}</m> be scalars. Then, the vector <m>\vec{v}</m> given by,
+                <me>
+                    \vec{v} = a_1 \vec{v}_1 + a_2 \vec{v}_2 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
+                </me>
+                is called a <term>linear combination</term> of <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> with <term>weights</term> <m>a_1, a_2, \dots, a_n</m>.
+            </p>
         </definition>
 
         <example>
@@ -210,7 +230,7 @@
             </me>
         </theorem>
 
-        This provides an alternate interpretation of a linear system, in terms of vectors.
+        This provides an alternate interpretation of a linear system, in terms of vectors. That is, solving a linear system involves determining all linear combinations of the columns of the coefficient matrix that are equal to the constant vector.
 
         <example>
             Consider the linear system,
@@ -224,7 +244,7 @@
             <me>
                 x \begin{bmatrix} 1 \\ -5 \end{bmatrix} + y \begin{bmatrix} 3 \\ 2 \end{bmatrix} = \begin{bmatrix} -1 \\ 2 \end{bmatrix}
             </me>
-            This equation can be thought of as trying to find a linear combination of the vectors <m>(1, -5)</m> and <m>(3, 2)</m> in the plane, that is equal to the vector <m>(-1, 2)</m>.
+            From this perspective, solving this linear system involves finding all possible linear combinations of the vectors <m>(1, -5)</m> and <m>(3, 2)</m> in the plane, that are equal to the vector <m>(-1, 2)</m>.
         </example>
     </subsection>
 

@@ -33,6 +33,13 @@
             </me>
             which is the <m>2 \times 2</m> identity matrix. This is pretty intuitive.
         </example>
+
+        <example>
+            For example, the matrix transformation,
+            <me>
+                \begin{bmatrix} 3 \amp 1 \\ -1 \amp 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 3x + y \\ -x + 2y \end{bmatrix}
+            </me>
+        </example>
     </subsection>
 
     <subsection>
@@ -105,6 +112,84 @@
             </me>
             which gives the same result.
         </example>
+
+        <example>
+            <title>Reflection over <m>y = -x</m></title>
+            <p>
+                Consider the transformation of reflection over the line <m>y = -x</m>. Graphically, from some examples, you might deduce that the transformation is <m>(x,y) \rightarrow (-y,-x)</m>. From the basis vector image approach, we need,
+            </p>
+            <me>
+                T\brac{\begin{bmatrix} 1 \\ 0 \end{bmatrix}} = \begin{bmatrix} 0 \\ -1 \end{bmatrix} \qquad \text{and} \qquad T\brac{\begin{bmatrix} 0 \\ 1 \end{bmatrix}} = \begin{bmatrix} -1 \\ 0 \end{bmatrix}
+            </me>
+            <p>
+                Thus, the matrix is given by,
+            </p>
+            <me>
+                R_{y=-x} = \begin{bmatrix} 0 \amp -1 \\ -1 \amp 0 \end{bmatrix}
+            </me>
+        </example>
+
+        <p>
+            In summary,
+        </p>
+        <theorem>
+            Some reflection transformations include,
+            <me>
+                R_x = \begin{bmatrix} 1 \amp 0 \\ 0 \amp -1 \end{bmatrix} \qquad R_y = \begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \qquad R_{y=x} = \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
+            </me>
+        </theorem>
+    </subsection>
+
+    <subsection>
+        <title>Stretching (Contraction/Expansion) and Dilation</title>
+        <example>
+            Consider the horizontal transformation <m>(x,y) \rightarrow (kx,y)</m> which multiplies the <m>x</m>-coordinate by a scalar <m>k &gt; 0</m>. If <m>k &gt; 1</m>, this is called a horizontal <term>expansion</term>, and if <m>0 &lt; k &lt; 1</m>, then this is called a <term>contraction</term>. In terms of matrices, this corresponds to the matrix,
+            <me>
+                \begin{bmatrix} k \amp 0 \\ 0 \amp 1 \end{bmatrix}
+            </me>
+            Similarly, vertical expansion and contraction is the transformation <m>(x,y) \rightarrow (x,ky)</m> for <m>k \ge 0</m>, and is given by,
+            <me>
+                \begin{bmatrix} 0 \amp k \\ 1 \amp 0 \end{bmatrix}
+            </me>
+        </example>
+
+        <p>
+            There is another kind of stretch which can be described as a <q>radial</q> stretch, where length are expanded or contracted from the origin. This corresponds to the transformation <m>(x,y) \rightarrow (rx,ry)</m> for some <m>r &gt; 0</m>. This is called a <term>dilation</term> if <m>r &gt; 1</m>, and a contraction if <m>0 &lt; r &lt; 1</m>. In vector form, this is the transformation <m>T(\vec{x}) = r\vec{x}</m>, corresponding to scalar multiplication by <m>r</m>. As a matrix, this corresponds to the matrix,
+        </p>
+        <me>
+            \begin{bmatrix} r \amp 0 \\ 0 \amp r \end{bmatrix}
+        </me>
+
+        <p>
+            For example, the matrix
+        </p>
+        <me>
+            \begin{bmatrix} 2 \amp 0 \\ 0 \amp 2 \end{bmatrix}
+        </me>
+        corresponds to dilaton by a factor of 2. Notice that,
+        <me>
+            \begin{bmatrix} 2 \amp 0 \\ 0 \amp 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 2x \\ 2y \end{bmatrix}
+        </me>
+
+        <p>
+            Notice that dilations are just two consecutive identical stretches, one by <m>r</m> horizontally and another by <m>r</m> vertically. In matrix form,
+        </p>
+        <me>
+            \begin{bmatrix} r \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 0 \amp r \\ 1 \amp 0 \end{bmatrix} = \begin{bmatrix} r \amp 0 \\ 0 \amp r \end{bmatrix}
+        </me>
+
+        <p>
+            In addition, we can consider <term>non-uniform dilations</term>, where one axis is stretched more than the other, say by a factor of <m>r</m> in the <m>x</m>-direction and <m>s</m> in the <m>y</m>-direction. This corresponds to the matrix,
+        </p>
+        <me>
+            \begin{bmatrix} r \amp 0 \\ 0 \amp s \end{bmatrix}
+        </me>
+        <p>
+            Again, this is equivalent to the two stretches,
+        </p>
+        <me>
+            \begin{bmatrix} r \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 0 \amp s \\ 1 \amp 0 \end{bmatrix} = \begin{bmatrix} r \amp 0 \\ 0 \amp s \end{bmatrix}
+        </me>        
     </subsection>
 
     <subsection>
@@ -189,28 +274,54 @@
             T\brac{\begin{bmatrix} 0 \\ 1 \end{bmatrix}} = \begin{bmatrix} -\sin{\theta} \\ \cos{\theta} \end{bmatrix}
         </me>
         <p>
-            Putting things together, the matrix for rotation by <m>\theta</m> is given by,
+            Putting things together, in summary, ,
         </p>
-        <me>
-            \boxed{R_{\theta} = \begin{bmatrix} \cos{\theta} \amp -\sin{\theta} \\ \sin{\theta} \amp \cos{\theta} \end{bmatrix}}
-        </me>
+
+        <theorem>
+            <p>
+                The <term>rotation transformation</term> <m>R_{\theta}: \mathbb{R}^2 \rightarrow \mathbb{R}^2</m> for rotation by an angle <m>\theta</m> counter-clockwise has matrix given by,
+            </p>
+            <me>
+                \boxed{R_{\theta} = \begin{bmatrix} \cos{\theta} \amp -\sin{\theta} \\ \sin{\theta} \amp \cos{\theta} \end{bmatrix}}
+            </me>
+        </theorem>
+
         <p>
-            Substituting the particular values of <m>90^{\circ}, 180^{\circ}, 270^{\circ}</m>, etc. result in the previously developed rotation matrices.
+            Notice that substituting the particular values of <m>90^{\circ}, 180^{\circ}, 270^{\circ}</m>, etc. result in the previously developed rotation matrices.
         </p>
     </subsection>
 
-    
-
-
-
-    <!-- <example>
+    <subsection>
+        <title>Linear Transformations Revisited</title>
         <p>
-            You may recall this from pre-calculus the definition of an odd function, which is a function <m>f</m> such that <m>f(x) = -f(-x)</m>. Graphically, an odd function has rotational symmetry about the origin, in that rotating its graph <m>180^{\circ}</m> about the origin results in the same graph. You may also recall that the transformation <m>-f(-x)</m> of <m>f(x)</m> represents a reflection over the <m>x</m>-axis and reflection over the <m>y</m>-axis. This is because rotation by <m>180^{\circ}</m> about the origin is an <i>equivalent</i> transformation as the composition of two reflections. In the language of matrix transformations, this corresponds to the matrix product,
+            The matrix form of a transformation allows us to use matrix multiplication to compose transformations together. Recall that,
         </p>
         <me>
-            \underbrace{\begin{bmatrix} 1 \amp 0 \\ 0 \amp -1 \end{bmatrix}}_{R_x} \underbrace{\begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix}}_{R_y} = \underbrace{\begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix}}_{R_{180^{\circ}}}
+            B(A\vec{x}) = (BA) \vec{x}
         </me>
-    </example> -->
+        <p>
+            That is, the matrix for performing the transformation <m>A</m> followed by the transformation <m>B</m> is equivalent to the single transformation <m>BA</m>. From one perspective, <m>BA</m> was defined precisely so that that relation holds.
+        </p>
 
+
+        <example>
+            <p>
+                You may recall this from pre-calculus the definition of an odd function, which is a function <m>f</m> such that <m>f(x) = -f(-x)</m>. Graphically, an odd function has rotational symmetry about the origin, in that rotating its graph <m>180^{\circ}</m> about the origin results in the same graph. You may also recall that the transformation from <m>f(x)</m> to <m>-f(-x)</m> represents a reflection over the <m>x</m>-axis and then reflection over the <m>y</m>-axis. So, equivalently, an odd function is one such that reflecting its graph over both the <m>x</m>-axis and then the <m>y</m>-axis results in the same graph.
+            </p>
+            <p>
+                In the language of transformations, this is because rotation by <m>180^{\circ}</m> about the origin is an <em>equivalent</em> transformation as the composition of two reflections. In the language of matrix transformations, this corresponds to the matrix product,
+            </p>
+            <me>
+                \underbrace{\begin{bmatrix} 1 \amp 0 \\ 0 \amp -1 \end{bmatrix}}_{R_x} \underbrace{\begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix}}_{R_y} = \underbrace{\begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix}}_{R_{180^{\circ}}}
+            </me>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Glide Reflection</title>
+        <p>
+            Glide reflection is a reflection and a translation.
+        </p>
+    </subsection>
 
 </section>

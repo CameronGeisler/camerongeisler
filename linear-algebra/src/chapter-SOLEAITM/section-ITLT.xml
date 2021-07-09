@@ -4,7 +4,7 @@
     <title>Intro to Linear Transformations</title>
 
     <introduction>
-        Another benefit of the matrix form <m>A\vec{x} = \vec{b}</m> of a linear system is that it allows us to view a matrix <m>A</m> as an object that <q>acts</q> on a vector <m>\vec{x}</m> to produce a new vector <m>A\vec{x}</m>. This is analogous to how a function <m>f(x)</m> <q>acts</q> on the number <m>x</m> to produce the output <m>f(x)</m>. This new perspective on a matrix is called a <i>transformation</i>, and it is a generalization of a real-valued function <m>f(x)</m>, developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an <m>n</m> real number inputs (a vector in <m>\mathbb{R}^n</m>), and an <m>m</m> real number output (a vector in <m>\mathbb{R}^m</m>).
+        Another benefit of the matrix form <m>A\vec{x} = \vec{b}</m> of a linear system is that it allows us to view a matrix <m>A</m> as an object that <q>acts</q> on a vector <m>\vec{x}</m> to produce a new vector <m>A\vec{x}</m>. This is analogous to how a function <m>f(x)</m> <q>acts</q> on the number <m>x</m> to produce the output <m>f(x)</m>. This new perspective on a matrix is called a <em>transformation</em>, and it is a generalization of a real-valued function <m>f(x)</m>, developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an <m>n</m> real number inputs (a vector in <m>\mathbb{R}^n</m>), and an <m>m</m> real number output (a vector in <m>\mathbb{R}^m</m>).
     </introduction>
 
     <subsection>

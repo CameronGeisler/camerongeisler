@@ -56,7 +56,7 @@
             \quad y = \frac{\begin{vmatrix} a_{11} \amp b_1 \amp a_{13} \\ a_{21} \amp b_2 \amp a_{23} \\ a_{31} \amp b_3 \amp a_{33} \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
             \quad z = \frac{\begin{vmatrix} a_{11} \amp a_{12} \amp b_1 \\ a_{21} \amp a_{22} \amp b_2 \\ a_{31} \amp a_{32} \amp b_3 \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
         </me>
-        Again, the denominator determinants are the determinant of the coefficient matrix, and the numerator determinant of the <m>i</m>th variable is the determinant of the coefficient matrix <i>with the <m>i</m>th column replaced by the constant vector</i>.
+        Again, the denominator determinants are the determinant of the coefficient matrix, and the numerator determinant of the <m>i</m>th variable is the determinant of the coefficient matrix <em>with the <m>i</m>th column replaced by the constant vector</em>.
     </subsection>
 
 

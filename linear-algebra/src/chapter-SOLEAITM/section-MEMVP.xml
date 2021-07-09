@@ -25,7 +25,7 @@
     </me>
 
     <p>
-        This operation, of multiplying two vectors of matching lengths to produce a single number (in particular a row vector and a column vector), is called the <term>inner product</term>, or <term>scalar product</term>, or <term>dot product</term>, of the two vectors. More generally, for vectors <m>\vec{a} = (a_1, \dots, a_n), \vec{b} = (b_1, \dots, b_n)</m>,
+        This operation, of multiplying two vectors of matching lengths to produce a single number (in particular a row vector and a column vector), is called a <term>dot product</term>, of the two vectors. More generally, for vectors <m>\vec{a} = (a_1, \dots, a_n), \vec{b} = (b_1, \dots, b_n)</m>,
     </p>
 
     <me>
@@ -82,14 +82,15 @@
 
     <subsection>
         <title>Matrix Equations as Linear Systems</title>
+        <p>
+            This provides yet another interpretation of linear systems.
+        </p>
         
         <theorem>
-            <p>
-                Let <m>A</m> be an <m>m \times n</m> matrix with columns <m>\vec{a}_1, \dots, \vec{a}_n</m>, and let <m>\vec{b} \in \mathbb{R}^m</m>. Then, the matrix equation <m>A\vec{x} = \vec{b}</m> has precisely the same solution set as the system of linear equations whose augmented matrix is,
-            </p>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix with columns <m>\vec{a}_1, \dots, \vec{a}_n</m>, and let <m>\vec{b} \in \mathbb{R}^m</m>. Then, the matrix equation <m>A\vec{x} = \vec{b}</m> has precisely the same solution set as the system of linear equations whose augmented matrix is,
             <me>
                 \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
-            </me>
+            </me></p>
         </theorem>
 
         <corollary>
@@ -130,7 +131,7 @@
         </me>
 
         <p>
-            The identity matrix acts as a <i>multiplicative identity</i>, in that it has the property that <m>I_n \vec{x} = \vec{x}</m> for all <m>\vec{x} \in \mathbb{R}^n</m>. Indeed, for example,
+            The identity matrix acts as a <em>multiplicative identity</em>, in that it has the property that <m>I_n \vec{x} = \vec{x}</m> for all <m>\vec{x} \in \mathbb{R}^n</m>. Indeed, for example,
         </p>
         <me>
             I_2 \vec{x} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 1 \cdot x_1 + 0 \cdot x_2 \\ 0 \cdot x_1 + 1 \cdot x_2 \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \vec{x}

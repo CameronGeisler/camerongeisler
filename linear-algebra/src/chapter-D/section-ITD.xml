@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-ITD">
+    <title>Introduction to Determinants</title>
+    <introduction>
+        The determinant is a number associated with a matrix, which provides information about its invertibility, as well as information about its associated linear transformation. More precisely, the determinant in an operation (or function) on a matrix, i.e. whose input is a matrix, and output is a real number.
+    </introduction>
+
+    <subsection>
+        <title>Determinants</title>
+        <p>
+            There are a few motivations for the determinant. One is as a criterion for invertibility of a matrix, which recall is equivalent to a corresponding system of equations having a unique solution. In particular, a matrix <m>A</m> is invertible if and only if the system of equations <m>A\vec{x} = \vec{b}</m> has a unique solution.
+        </p>
+        <p>
+            First, consider the most basic case, of a <m>1 \times 1</m> matrix, of the form <m>A = \begin{bmatrix} a \end{bmatrix}</m>, which corresponds to the coefficient matrix of the single-equation system,
+        </p>
+        <me>
+            ax = b
+        </me>
+        Or, in matrix form,
+        <me>
+            \begin{bmatrix} a \end{bmatrix} \begin{bmatrix} x \end{bmatrix} = \begin{bmatrix} b \end{bmatrix}
+        </me>
+        The inverse of <m>A</m> is the matrix <m>A^{-1} = \begin{bmatrix} \frac{1}{a} \end{bmatrix}</m>, provided that <m>a \neq 0</m>. Equivalently, the unique solution to the <q>system</q> is <m>x = \frac{b}{a}</m>, again provided that <m>a \neq 0</m>.
+        <p>
+            In general, we will define the determinant in such a way so that a matrix is invertible if and only if its determinant is non-zero. In this way, we define the determinant of a <m>1 \times 1</m> matrix as the entry itself.
+        </p>
+
+        <definition>
+            <p>For a <m>1 \times 1</m> matrix <m>A = \begin{bmatrix} a \end{bmatrix}</m>, the <term>determinant</term> of <m>A</m> is <m>\det{A} = a</m>.</p>
+        </definition>
+
+        <p>
+            For a <m>2 \times 2</m> matrix, of the form,
+        </p>
+        <me>
+            A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+        </me>
+        which corresponds to the system,
+        <md>
+            <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
+            <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
+        </md>
+        Recall that the matrix <m>A</m> is invertible if and only if <m>\Delta = ad - bc \neq 0</m>. Equivalently, recall that the system has a unique solution,
+        <me>
+            x_1 = \frac{1}{\Delta}(d y_1 - b y_2) \qquad x_2 = \frac{1}{\Delta}(ay_2 - cy_1) 
+        </me>
+        provided that <m>\Delta = ad - bc \neq 0</m>. This <q>difference of the products of the diagonals</q> we will define as the determinant of a <m>2 \times 2</m> matrix.
+
+        <definition>
+            <p>For a <m>2 \times 2</m> matrix <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m>, the <term>determinant</term> of <m>A</m>, <m>\det{A}</m>, is defined by,</p>
+            <me>
+                \det{A} = ad - bc
+            </me>
+        </definition>
+
+        <p>
+            Note that we are using <q>functional notation</q> <m>\det{A}</m> for the determinant of <m>A</m>, treating <q><m>\det</m></q> as a function with argument <q><m>A</m></q>. When writing the matrix explcitly, we could write,
+        </p>
+        <me>
+            \det{\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}} = ad - bc
+        </me>
+        <p>
+            Determinants are also denoted with vertical bars, as
+        </p>
+        <me>
+            \begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc
+        </me>
+        <p>
+            Intuitively, this can be thought of in some sense as a <q>magnitude</q> of the matrix, as we will see later.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title><m>3 \times 3</m> Determinants and Larger</title>
+        <p>
+            For <m>3 \times 3</m> matrices and larger, evaluating determinants is more complex. Let <m>A</m> be a <m>3 \times 3</m> matrix,
+        </p>
+        <me>
+            A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
+            a_{21} \amp a_{22} \amp a_{23} \\
+            a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
+        </me>
+        Similarly, we want to define the determinant as a number depending on the entries of the matrix, which is equal to zero precisely when the matrix is not invertible.
+    </subsection>
+
+</section>

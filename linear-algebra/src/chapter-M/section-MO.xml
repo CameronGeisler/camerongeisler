@@ -134,10 +134,9 @@
             <ul>
                 <li><em>Proof of 1. for <m>2 \times 2</m> matrices</em>. Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}</m>. Then,
                 <md>
-                    <mrow>r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix}</mrow>
-                    <mrow>\amp = \begin{bmatrix} r(a + e) \amp r(b + f) \\ r(c + g) \amp r(d + h) \end{bmatrix}</mrow>
+                    <mrow>r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix} \amp = \begin{bmatrix} r(a + e) \amp r(b + f) \\ r(c + g) \amp r(d + h) \end{bmatrix}</mrow>
                     <mrow>\amp = \begin{bmatrix} ra + re \amp rb + rf \\ rc + rg \amp rd + rh \end{bmatrix}</mrow>
-                    <mrow>\amp = \begin{bmatrix} ra \amp rb \\ rc \amp rd \end{bmatrix} + \begin{bmatrix} re \amp rf \\ rg \amp rh</mrow>
+                    <mrow>\amp = \begin{bmatrix} ra \amp rb \\ rc \amp rd \end{bmatrix} + \begin{bmatrix} re \amp rf \\ rg \amp rh \end{bmatrix}</mrow>
                     <mrow>\amp = r A + r B</mrow>
                 </md>
                 </li>

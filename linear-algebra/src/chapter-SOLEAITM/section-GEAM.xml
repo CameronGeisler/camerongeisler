@@ -46,7 +46,7 @@
 
         <definition>
             A matrix is in <term>row echelon form</term> (or simply <term>echelon form</term>, or <term>REF</term>) if,
-            <ol type="a">
+            <ol>
                 <li>Any zero rows are the bottom of the matrix.</li>
                 <li>the leading entry of every non-zero row is always strictly to the right of any leading entry above it.</li>
             </ol>
@@ -116,7 +116,7 @@
                     \mid \amp \mid \amp 0 \amp 0 \amp \ast \amp \ast
                     \end{bmatrix} \qquad \longrightarrow \qquad \underbrace{\begin{bmatrix} b \amp \ast \amp \ast \\ 0 \amp \ast \amp \ast \end{bmatrix}}_{\text{submatrix}}
                 </me>
-                Repeat this process until there are no more non-zero rows to modify.
+                (In this way, row reduction is a recursive algorithm, as row reduction of a matrix depends on performing row reduction on some smaller matrix). Repeat this step until there are no more non-zero rows to modify.                
             </li>
         </ol>
         <p>
@@ -163,13 +163,13 @@
                 \end{array}
             </me>
             At this point, notice that the third equation is the true statement (or tautology) <m>0 = 0</m>. Intuitively, this means that while there were originally 3 equations that constrained the possible solutions, one of those equations were superfluous. Then, any solution <m>(x,y,z)</m> only has to satisfy the remaining two equations. In short, there are 3 variables, but only 2 constraints. In this case, for example, if we choose an arbitrary value of <m>z</m>, say <m>z = t</m>, then we can solve for <m>x</m> and <m>y</m> in equation 1 and 2, respectively, and get a solution of the system. In particular,
-            <m>
+            <me>
                 \begin{cases}
                 x = 1 + 5t \\
                 y = 4 - t \\
                 z = t
                 \end{cases}
-            </m>
+            </me>
             Then, any tuple of the form <m>(1+5t,4-t,t)</m> (where <m>t \in \mathbb{R}</m> is any number) will be a solution to the system. In particular, there are infinitely many solutions of the system. Here, <m>z</m> is called a <em>free variable</em>, because it can take on any value to generate a solution of the system.
         </example>
 
@@ -344,7 +344,13 @@
     <exercises>
         <exercise>
             <statement>
-                Implement a Gaussian elimination algorithm in Python, to be used on a matrix formed by a 2D array.
+                In Python, implement a Gaussian elimination algorithm, to be used on a matrix formed by a 2D array.
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                In Python, extend the Gaussian elimination algorithm to perform Gauss-Jordan elimination.
             </statement>
         </exercise>
     </exercises>
