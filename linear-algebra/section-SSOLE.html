@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-08T16:54:50-07:00       *-->
+<!--*       on 2021-07-09T14:59:43-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -129,8 +129,8 @@
 <a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
-<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
@@ -149,17 +149,18 @@
 </h3>
 <article class="definition definition-like" id="definition-23"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.7.1</span><span class="period">.</span>
-</h6>A system of linear equations is <dfn class="terminology">homogeneous</dfn> if it can be written in the form \(A\vec{x} = \vec{0}\text{,}\) where \(A\) is an \(m \times n\) matrix and \(\vec{0}\) is the zero vector in \(\mathbb{R}^m\text{.}\) Otherwise, a system \(A\vec{x} = \vec{b}\) is said to be <dfn class="terminology">non-homogeneous</dfn>.</article><p id="p-91">Homogeneous systems always have at least one solution (that is, they are always consistent), in particular the solution \(\vec{x} = \vec{0}\text{,}\) often called the \(trivial\) solution. Then, we want to consider whether \(A\vec{x} = \vec{0}\) has any \(non-trivial\) solutions, that is, solutions \(\vec{x}\) which are not the zero vector.</p>
-<p id="p-92">Recall that if a system is consistent, then it has a unique solution if the REF of its augmented matrix has no free variables, and it has infinitely many solution if there at least one free variable. Then, for homogeneous systems,</p>
+</h6>A system of linear equations is <dfn class="terminology">homogeneous</dfn> if it can be written in the form \(A\vec{x} = \vec{0}\text{,}\) where \(A\) is an \(m \times n\) matrix and \(\vec{0}\) is the zero vector in \(\mathbb{R}^m\text{.}\) Otherwise, a system \(A\vec{x} = \vec{b}\) is said to be <dfn class="terminology">non-homogeneous</dfn>.</article><p id="p-94">Homogeneous systems always have at least one solution (that is, they are always consistent), in particular the solution \(\vec{x} = \vec{0}\text{,}\) often called the <dfn class="terminology">trivial</dfn> solution. Then, we want to consider whether \(A\vec{x} = \vec{0}\) has any <dfn class="terminology">non-trivial</dfn> solutions, that is, solutions \(\vec{x}\) which are not the zero vector.</p>
+<p id="p-95">Recall that if a system is consistent, then it has a unique solution if the REF of its augmented matrix has no free variables, and it has infinitely many solution if there at least one free variable. Then, for homogeneous systems,</p>
 <article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.7.2</span><span class="period">.</span>
-</h6>\(A\vec{x} = \vec{0}\)</article><p id="p-93">The solution set of a homogeneous equation can always be written as the span of some collection of vectors. If the system has no non-trivial solutions, then the solution set is \(\Span{\vec{0}} = \vec{0}\text{.}\)</p></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
+</h6>
+<p id="p-96">The homogeneous system \(A\vec{x} = \vec{0}\) has a non-trivial solution if and only if the system has at least one free variable.</p></article><p id="p-97">The solution set of a homogeneous equation can always be written as the span of some collection of vectors. If the system has no non-trivial solutions, then the solution set is \(\Span{\vec{0}} = \vec{0}\text{.}\)</p></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.7.2</span> <span class="title">Non-homogeneous Systems</span>
 </h3>
 <article class="theorem theorem-like" id="theorem-9"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.7.3</span><span class="period">.</span>
 </h6>
-<p id="p-94">Let \(A\vec{x} = \vec{b}\) be a linear system, which is consistent with solution \(\vec{v}_p\text{.}\) Then, the solution set of \(A\vec{x} = \vec{b}\) is the set of all vectors of the form \(\vec{v} = \vec{v}_p + \vec{v}_h\text{,}\) where \(\vec{v}_h\) is any solution of the associated homogeneous system.</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-95">If \(\vec{v}_p\) is a solution of \(A\vec{x} = \vec{b}\text{,}\) and \(\vec{v}_h\) is a solution of the associated homogeneous system, then \(A\vec{v}_p = \vec{b}\) and \(A\vec{v}_h = \vec{0}\text{.}\) Then,</p>
+<p id="p-98">Let \(A\vec{x} = \vec{b}\) be a linear system, which is consistent with solution \(\vec{v}_p\text{.}\) Then, the solution set of \(A\vec{x} = \vec{b}\) is the set of all vectors of the form \(\vec{v} = \vec{v}_p + \vec{v}_h\text{,}\) where \(\vec{v}_h\) is any solution of the associated homogeneous system.</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-99">If \(\vec{v}_p\) is a solution of \(A\vec{x} = \vec{b}\text{,}\) and \(\vec{v}_h\) is a solution of the associated homogeneous system, then \(A\vec{v}_p = \vec{b}\) and \(A\vec{v}_h = \vec{0}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{align*}
 A(\vec{v}_p + \vec{v}_h) \amp = \underbrace{A\vec{v}_p}_{=\vec{b}} + \underbrace{A\vec{v}_h}_{=\vec{0}}\\

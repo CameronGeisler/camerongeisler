@@ -13,7 +13,7 @@
     </introduction>
 
     <subsection>
-        <title>Inverse of a Matrix</title>
+        <title>Inverse of a Square Matrix</title>
         <definition>
             An <m>n \times n</m> square matrix <m>A</m> is <term>invertible</term> if there exists an <m>n \times n</m> matrix <m>B</m> such that <m>AB = BA = I_n</m>. Then, <m>B</m> is called the <term>inverse</term> of <m>A</m>, and is denoted by <m>B = A^{-1}</m>.
         </definition>
@@ -43,32 +43,107 @@
         <p>
             To verify that  matrix <m>B</m> is the inverse of <m>A</m>, we can multiply <m>B</m> by <m>A</m> and verify that the result is the identity matrix. Further, for a square matrix <m>A</m>, <m>AB = I_n</m> if and only if <m>BA = I_n</m>, so it is sufficient to only compute one of the two products <m>AB</m> or <m>BA</m>.
         </p>
+        <theorem>
+            <p>Let <m>A, B</m> be <m>n \times n</m> square matrices. Then, <m>AB = I_n</m> if and only if <m>BA = I_n</m>.</p>
+        </theorem>
+        <proof>
+            <p>EXERCISE.</p>
+        </proof>
+
     </subsection>
     
     <subsection>
         <title>Matrix Inverses and Linear Transformations</title>
         <p>
-            Consider a matrix <m>A</m> as a linear transformation, its inverse <m>A^{-1}</m> is the inverse linear transformation in the sense of function inverse. That is, its composition with <m>A</m> results in the identity transformation.
+            Considering a matrix <m>A</m> as a linear transformation, its inverse <m>A^{-1}</m> is the inverse linear transformation in the sense of the inverse of a function. That is, its composition with <m>A</m> results in the identity transformation. This is quite literally encoded in the definition <m>AA^{-1} = I_n</m>. In the language of linear transformations (or functions), the inverse <m>A^{-1}</m> is the linear transformation such that for every vector <m>\vec{x} \in \mathbb{R}^n</m>,
         </p>
+        <me>
+            A^{-1}(A\vec{x}) = A^{-1} A \vec{x} = I_n\vec{x} = \vec{x}
+        </me>
+        <p>
+            The parentheses are to emphasize the function composition.
+        </p>        
     </subsection>
 
     <subsection>
-        <title>Inverse of a <m>2 \times 2</m> Matrix</title>
+        <title>Computing the Inverse of a Matrix (<m>1 \times 1</m> and <m>2 \times 2</m> Cases)</title>
+
         <p>
-            For a <m>2 \times 2</m> matrix, there is a simple test for invertibility, and an explicit formula for the inverse.
+            The next natural question is: how do you compute the inverse of a matrix? It turns out that it is non-trivial, especially for large matrices. First, start with the simplest case, of a <m>1 \times 1</m> matrix <m>A = \begin{bmatrix} a \end{bmatrix}</m>. We want to find the matrix <m>B = \begin{bmatrix} b \end{bmatrix}</m> such that,
+        </p>
+        <me>
+            AB = \begin{bmatrix} a \end{bmatrix} \begin{bmatrix} b \end{bmatrix} = \begin{bmatrix} ab \end{bmatrix} = \begin{bmatrix} 1 \end{bmatrix}
+        </me>
+        <p>
+            In other words, <m>ab = 1</m>. Clearly, the entry <m>b</m> should be <m>b = \frac{1}{a}</m>, provided that <m>a \neq 0</m>. Thus,
+        </p>
+        <me>
+            \begin{bmatrix} a \end{bmatrix}^{-1} = \begin{bmatrix} \frac{1}{a} \end{bmatrix}
+        </me>
+        <p>
+            and <m>A</m> is invertible if and only if <m>a \neq 0</m>.
+        </p>
+        <p>
+            Next, consider a <m>2 \times 2</m> matrix, of the form <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m>. We want to find a matrix, say of the form <m>B = \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix}</m>, such that,
+        </p>
+        <me>
+            \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+        </me>
+        <p>
+            By the definition of matrix multiplication, this is equivalent to,
+        </p>
+        <me>
+            \begin{bmatrix} ax_{11} + bx_{21} \amp ax_{12} + bx_{22} \\ cx_{11} + dx_{21} \amp cx_{12} + dx_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+        </me>
+        <p>
+            Equating entries, this is equivalent to the system of 4 equations,
+        </p>
+        <md>
+            <mrow>ax_{11} \amp + bx_{21} \amp \amp \amp = 1</mrow>
+            <mrow>\amp \amp a_{12} \amp + bx_{22} \amp = 0</mrow>
+            <mrow>cx_{11} \amp + dx_{21} \amp \amp \amp = 0</mrow>
+            <mrow>\amp \amp cx_{12} \amp + dx_{22} \amp = 1</mrow>
+        </md>
+        <p>
+            That is, finding the inverse of a <m>2 \times 2</m> matrix is equivalent to solving this system of 4 equations in 4 unknowns. The augmented matrix is,
+        </p>
+        <me>
+            \begin{bmatrix} a \amp b \amp 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp a \amp b \amp 0 \\ c \amp d \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp c \amp d \amp 1 \end{bmatrix}
+        </me>
+        <p>
+            Converting this matrix to RREF,
+        </p>
+        <me>
+            \begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \amp \frac{d}{ad - bc} \\ 0 \amp 1 \amp 0 \amp 0 \amp -\frac{c}{ad - bc} \\ 0 \amp 0 \amp 1 \amp 0 \amp -\frac{b}{ad - bc} \\ 0 \amp 0 \amp 0 \amp 1 \amp \frac{a}{ad - bc} \end{bmatrix}
+        </me>
+        <p>
+            Thus, the inverse matrix is,
+        </p>
+        <me>
+            \begin{bmatrix} x_{11} \amp x_{21} \\ x_{12} \amp x_{22} \end{bmatrix} = \begin{bmatrix} \frac{d}{ad - bc} \amp -\frac{b}{ad - bc} \\ -\frac{c}{ad - bc} \amp \frac{a}{ad - bc} \end{bmatrix} = \frac{1}{ad - bc} \begin{bmatrix} d \amp -c \\ -b \amp a \end{bmatrix}
+        </me>
+        <p>
+            provided that <m>ad - bc \neq 0</m>. Indeed, it can be verified using matrix multiplication that,
+        </p>
+        <md>
+            <mrow>A^{-1} A \amp = \frac{1}{ad - bc} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</mrow>
+            <mrow>\amp = \frac{1}{ad - bc} \begin{bmatrix} ad - bc \amp 0 \\ 0 \amp ad - bc \end{bmatrix}</mrow>
+            <mrow>\amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}</mrow>
+        </md>
+        <p>
+            In summary,
         </p>
 
         <theorem>
-            <p>
-                Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m> be a <m>2 \times 2</m> matrix. If <m>ad - bc \neq 0</m>, then <m>A</m> is invertible, and its inverse is given by,
-            </p>
+            <title>Inverse of <m>2 \times 2</m> matrix</title>
+            <p>Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m> be a <m>2 \times 2</m> matrix. If <m>ad - bc \neq 0</m>, then <m>A</m> is invertible, and its inverse is given by,</p>
             <me>
                 \boxed{A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix}}
             </me>
         </theorem>
 
         <p>
-            If <m>ad - bc = 0</m>, then the matrix <m>A</m> does not have an inverse. Of course, a <q>proof</q> that this formula is correct can simply involve verifying the matrix multiplication that <m>AA^{-1} = I_2</m>. The method of actually determining the correct formula for <m>A^{-1}</m> from <m>A</m> is more complicated.
+            If <m>ad - bc = 0</m>, then the matrix <m>A</m> does not have an inverse.
         </p>
 
         <proof>
@@ -84,33 +159,135 @@
         <title>Solving Systems with Inverse Matrices</title>
 
         <theorem>
-            <p>
-                If <m>A</m> is an <m>n \times n</m> matrix, then the matrix equation <m>A\vec{x} = \vec{b}</m> has a unique soloution (for any <m>\vec{b} \in \mathbb{R}^n</m>), given by the vector <m>\vec{x} = A^{-1} \vec{b}</m>.
-            </p>
+            <p>Let <m>A</m> be an <m>n \times n</m> matrix. If <m>A</m> is invertible, then the matrix equation <m>A\vec{x} = \vec{b}</m> has a unique soloution (for any <m>\vec{b} \in \mathbb{R}^n</m>), given by the vector <m>\vec{x} = A^{-1} \vec{b}</m>.</p>
         </theorem>
 
         <p>
-            Intuitively, this comes from multiplying both sides of the equation <m>A\vec{x} = \vec{b}</m> on the left by <m>A^{-1}</m>, to get <m>A^{-1}A \vec{x} = A^{-1} \vec{b}</m>.  Then, <m>A^{-1} A = I_n</m> and <m>I_n \vec{x} = \vec{x}</m>, so the equation becomes <m>\vec{x} = A^{-1} \vec{b}</m>. The uniqueness follows from the fact that matrix inverses are unique.
+            Intuitively, this comes from multiplying both sides of the equation <m>A\vec{x} = \vec{b}</m> on the left by <m>A^{-1}</m>, to get <m>A^{-1}A \vec{x} = A^{-1} \vec{b}</m>. Then, <m>A^{-1} A = I_n</m> and <m>I_n \vec{x} = \vec{x}</m>, so the equation becomes <m>\vec{x} = A^{-1} \vec{b}</m>. The uniqueness follows from the fact that matrix inverses are unique.
         </p>
         <proof>
             First, indeed <m>\vec{x} = A^{-1} \vec{b}</m> is a solution, as
             <me>
-                A(A^{-1} \vec{b}) \amp = (AA^{-1}) \vec{b} = I_n \vec{b} = \vec{b}
+                A(A^{-1} \vec{b}) = (AA^{-1}) \vec{b} = I_n \vec{b} = \vec{b}
             </me>
             so it indeed satisfies the equation. For uniqueness, let <m>\vec{u}</m> be any solution, so that <m>A\vec{u} = \vec{b}</m>. Then, multiplying on the left by <m>A^{-1}</m>, <m>A^{-1} A \vec{u} = A^{-1} \vec{b}</m>, or <m>I_n \vec{u} = A^{-1} \vec{b}</m>, and so <m>\vec{u} = A^{-1} \vec{b}</m>.
         </proof>
         <p>
-            The formula <m>\vec{x} = A^{-1} \vec{b}</m> is rarely used in practice to solve a system of equations, because row reduction is almost always faster, especially for large systems, for which computing inverses is very time-consuming. A possible exception is for systems of two equations in two unknowns.
+            The formula <m>\vec{x} = A^{-1} \vec{b}</m> is rarely used in practice to solve a system of equations. This is because row reduction is almost always faster, especially for large systems, for which computing inverses is very time-consuming. A possible exception is for systems of two equations in two unknowns.
         </p>
         <p>
-            The importance of this theorem is that says that invertibility guarentees a unique solution.
+            Instead, the importance of this theorem is that says that invertibility guarentees a unique solution.
+        </p>
+        <!-- <p>
+            If the coefficient matrix does not have an inverse, then...
+        </p> -->
+
+        <example>
+            Recall that previously, we solved the <m>2 \times 2</m> system,
+            <md>
+                <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
+                <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
+            </md>
+            In matrix form,
+            <me>
+                \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
+            </me>
+            which has a unique solution,
+            <me>
+                \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} \frac{1}{\Delta} \brac{d y_1 - b y_2} \\ \frac{1}{\Delta} \brac{a y_2 - c y_1} \end{bmatrix}
+            </me>
+            provided that <m>\Delta = ad - bc \neq 0</m>. Notice that this unique solution is the product of the inverse of <m>A</m> and the constant vector,
+            <me>
+                \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \frac{1}{\Delta} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
+            </me>
+        </example>
+    </subsection>
+    
+    <subsection>
+        <title>Matrix Inverses and Elementary Matrices</title>
+        <p>
+            Elementary matrices provide insight into finding inverses of matrices.
+        </p>
+
+        <p>
+            Suppose that <m>A \sim I_n</m>. Then, there is a sequence of elementary row operations that converts <m>A</m> to <m>I_n</m>. In other words, there are a sequence of elementary matrices <m>E_1, \dots, E_p</m> (say there are <m>p</m> steps) such that,
+        </p>
+        <me>
+            A \sim E_1 A \sim E_2 (E_1 A) \sim \cdots \sim E_p(E_{p-1} \cdots E_1 A) = I_n
+        </me>
+        In other words,
+        <me>
+            E_p E_{p-1} \cdots E_2 E_1 A = I_n
+        </me>
+        In other words, the matrix <m>E_p \cdots E_1</m> multiplies with <m>A</m> to produce the identity matrix. Thus, by definition, <m>A^{-1} = E_p \cdots E_1</m>.
+
+        <p>
+            In other words, <m>A^{-1}</m> is formed by multiplying the sequence of elementary matrices used to convert <m>A</m> to <m>I_n</m>. This is equivalently <m>A^{-1} = E_p \cdots E_1 I_n</m>, i.e. <m>A^{-1}</m> is obtained by applying the row operations <m>E_1, \dots, E_p</m> successively to <m>I_n</m>, in the same sequence requried to transform <m>A</m> to <m>I_n</m>.
+        </p>
+
+        <p>
+            In fact, the converse is also true. If <m>A</m> is invertible, then <m>A</m> is row equivalent to <m>I_n</m>. In summary,
+        </p>
+
+        <theorem>
+            <title>Invertible if and only if row equivalent to the identity matrix</title>
+            <p>An <m>n \times n</m> matrix <m>A</m> is invertible if and only if <m>A</m> is row equivalent to <m>I_n</m>, and in this case, any sequence of row operations that reduces <m>A</m> to <m>I_n</m> also transforms <m>I_n</m> into <m>A^{-1}</m>.</p>
+        </theorem>
+
+        <proof>
+            <p>
+                If <m>A</m> is invertible, then the equation <m>A\vec{x} = \vec{b}</m> has a solution for every <m>\vec{b}</m>, and <m>A</m> has a pivot position in every row (<m>n</m> rows). Since <m>A</m> is square (in particular has <m>n</m> columns), this implies that the pivot positions are on the main diagonal. Thus, the RREF of <m>A</m> is <m>I_n</m>, or <m>A \sim I_n</m>.
+            </p>
+        </proof>
+
+        <p>
+            This theorem leads to an algorithm for computing matrix inverses, using row reduction. To find the inverse of <m>A</m>, convert it to RREF using row reduction, and then perform the same row reduction steps (in the same order) on <m>I_n</m>, and the result is <m>A^{-1}</m>. These two steps are combined by performing row reduction on the augmented matrix <m>\begin{bmatrix} A \mid I_n \end{bmatrix}</m>.
+        </p>
+
+        <theorem>
+            <p>To determine the inverse of a square matrix <m>A</m>,</p>
+                <ol>
+                    <li>Form the augmented matrix <m>\begin{bmatrix} A \mid I \end{bmatrix}</m>.</li>
+                    <li>Perform row reduction on the augmented matrix <m>\begin{bmatrix} A \mid I \end{bmatrix}</m></li>
+                    <li>If <m>A</m> is row equivalent to <m>I</m>, then the augmented matrix in RREF will be of the form <m>\begin{bmatrix} I \mid B \end{bmatrix}</m>. Then, <m>B = A^{-1}</m> is the inverse.</li>
+                    <li>Otherwise, if <m>A</m> is not row equivalent to <m>A</m>, then <m>A</m> does not have an inverse.</li>
+                </ol>
+        </theorem>
+
+        <p>
+            After using this procedure, the result can be verified by checking that <m>AA^{-1} = I</m>.
+        </p>
+        <p>
+            This procedure is a fast method for determining the inverse of a matrix, especially for large matrices. This is because it essentially just involves row reduction.
         </p>
     </subsection>
 
+
     <subsection>
-        <title>Matrix Inverses and Linear Systems</title>
+        <title>Inverse of a <m>3 \times 3</m> Matrix</title>
         <p>
-            If the coefficient matrix does not have an inverse, then...
+            The explicit formula for a <m>3 \times 3</m> matrix is more difficult to determine. Consider a <m>3 \times 3</m> matrix <m>A</m>,
+        </p>
+        <me>
+            A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
+        </me>
+        <p>
+            Using the process of row reduction on a <m>3 \times 3</m> matrix, the formula turns out to be,
+        </p>
+        <example>
+            <p>Derivation (FINISH).</p>
+        </example>
+        <me>
+            A^{-1} = \frac{1}{\Delta} \begin{bmatrix} a_{22} a_{33} - a_{23} a_{32} \amp -(a_{12} a_{33} - a_{32} a_{13}) \amp a_{12} a_{23} - a_{22} a_{13} \\ -(a_{21} a_{33} - a_{23} a_{31}) \amp a_{11} a_{33} - a_{13} a_{21} \amp -(a_{11} a_{23} - a_{13} a_{21}) \\ a_{21} a_{32} - a_{22} a_{31} \amp -(a_{11} a_{32} - a_{12} a_{31}) \amp a_{11} a_{22} - a_{12} a_{21} \end{bmatrix}
+        </me>
+        <p>
+            where,
+        </p>
+        <me>
+            \Delta = a_{11} a_{22} a_{33} - a_{11} a_{32} a_{23} + a_{12} a_{23} a_{32} - a_{12} a_{21} a_{33} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31}
+        </me>
+        <p>
+            Then, <m>A</m> is invertible if and only if <m>\Delta \neq 0</m>. This explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after consider the later topic of determinants.
         </p>
     </subsection>
 
@@ -180,31 +357,11 @@
         </proof>
     </subsection>
 
-    <subsection>
-        <title>Inverse of a <m>3 \times 3</m> Matrix</title>
-        <p>
-            The explicit formula for a <m>3 \times 3</m> matrix is more difficult to determine. Consider a <m>3 \times 3</m> matrix <m>A</m>,
-        </p>
-        <me>
-            A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
-        </me>
-        <p>
-            Using the process of row reduction on a <m>3 \times 3</m> matrix, the formula turns out to be,
-        </p>
-        <example>
-            <p>Derivation (FINISH).</p>
-        </example>
-        <me>
-            A^{-1} = \frac{1}{a_{11} a_{22} a_{33} - a_{11} a_{32} a_{23} + a_{12} a_{23} a_{32} - a_{12} a_{21} a_{33} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31}} \begin{bmatrix} a_{22} a_{33} - a_{23} a_{32} \amp -(a_{12} a_{33} - a_{32} a_{13}) \amp a_{12} a_{23} - a_{22} a_{13} \\ -(a_{21} a_{33} - a_{23} a_{31}) \amp a_{11} a_{33} - a_{13} a_{21} \amp -(a_{11} a_{23} - a_{13} a_{21}) \\ a_{21} a_{32} - a_{22} a_{31} \amp -(a_{11} a_{32} - a_{12} a_{31}) \amp a_{11} a_{22} - a_{12} a_{21} \end{bmatrix}
-        </me>
-        <p>
-            provided that <m>Delta = a_{11} a_{22} a_{33} - a_{11} a_{32} a_{23} + a_{12} a_{23} a_{32} - a_{12} a_{21} a_{33} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31}</m>. With this notation, the formula simplifies to,
-        </p>
-        <me>
-            \boxed{A^{-1} = \frac{1}{\Delta} \begin{bmatrix} a_{22} a_{33} - a_{23} a_{32} \amp -(a_{12} a_{33} - a_{32} a_{13}) \amp a_{12} a_{23} - a_{22} a_{13} \\ -(a_{21} a_{33} - a_{23} a_{31}) \amp a_{11} a_{33} - a_{13} a_{21} \amp -(a_{11} a_{23} - a_{13} a_{21}) \\ a_{21} a_{32} - a_{22} a_{31} \amp -(a_{11} a_{32} - a_{12} a_{31}) \amp a_{11} a_{22} - a_{12} a_{21} \end{bmatrix}}
-        </me>
-        <p>
-            provided that <m>\Delta \neq 0</m>. Even still, this explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after consider the later topic of determinants.
-        </p>
-    </subsection>
+    <exercises>
+        <exercise>
+            <statement>
+                In Python, implement a program to compute the inverse of an arbitrary square matrix, using row reduction.
+            </statement>
+        </exercise>
+    </exercises>
 </section>

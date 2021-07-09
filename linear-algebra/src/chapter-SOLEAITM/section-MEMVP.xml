@@ -115,6 +115,9 @@
 
     <subsection>
         <title>The Identity Matrix</title>
+        <p>
+            Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. We say that 1 is the <em>multiplicative identity</em> for real numbers, and that <m>a \cdot 1 = a</m> for all <m>a \in \mathbb{R}</m>. Similarly, we can define a matrix which, when multiplied by any vector, leaves it unchanged. This matrix is called an <em>identity matrix</em>.
+        </p>
 
         <definition>
             An <term>identity matrix</term> is a square matrix with 1's along the main diagonal (from top left to bottom right) and 0's everywhere else. In particular, the <m>n \times n</m> identity matrix is denoted by <m>I_n</m>, and is given by,
@@ -133,10 +136,6 @@
         <p>
             The identity matrix acts as a <em>multiplicative identity</em>, in that it has the property that <m>I_n \vec{x} = \vec{x}</m> for all <m>\vec{x} \in \mathbb{R}^n</m>. Indeed, for example,
         </p>
-        <me>
-            I_2 \vec{x} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 1 \cdot x_1 + 0 \cdot x_2 \\ 0 \cdot x_1 + 1 \cdot x_2 \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \vec{x}
-        </me>
-        From the linear combination perspective,
         <me>
             I_2 \vec{x} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \vec{x}
         </me>

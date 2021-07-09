@@ -3,12 +3,6 @@
 <section xml:id="section-VE">
     <title>Vector Equations</title>
 
-    <introduction>
-        <definition>
-            A matrix <m>A</m> is <term>square</term> if it has the same number of rows as columns. In other words, <m>A</m> is an <m>n \times n</m> matrix, for some <m>n</m>.
-        </definition>
-    </introduction>
-
     <subsection>
         <title>Vectors</title>
 

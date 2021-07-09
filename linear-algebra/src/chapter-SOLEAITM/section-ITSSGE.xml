@@ -137,9 +137,9 @@
             </me>
             Then, we can solve for <m>x_2</m> by dividing both sides by <m>ad - bc</m>,
             <me>
-                x_2 = \frac{a}{ad - bc} y_2 - \frac{c}{ad - bc} y_1
+                x_2 = \frac{1}{ad - bc} \brac{a y_2 - c y_1}
             </me>
-            Similarly, starting from the original system,
+            This is the unique solution for <m>x_2</m>, provided that <m>ad - bc \neq 0</m>. Similarly, starting from the original system,
             <md>
                 <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
                 <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
@@ -150,17 +150,13 @@
             </me>
             Then, similarly, solving for <m>x_1</m>,
             <me>
-                x_1 = \frac{d}{ad - bc} y_1 - \frac{b}{ad - bc} y_2
+                x_1 = \frac{1}{ad - bc} \brac{d y_1 - b y_2}
             </me>
-            Thus, the unique solution is,
+            Again, provided that <m>ad - bc \neq 0</m>. For simplicity, we will denote <m>\Delta = ad - bc</m> (this will be revisited later). Then, if <m>\Delta \neq 0</m>, the unique solution is,
             <me>
-                (x,y) = \brac{\frac{d}{ad - bc} y_1 - \frac{b}{ad - bc} y_2, \frac{a}{ad - bc} y_2 - \frac{c}{ad - bc} y_1}
+                (x,y) = \brac{\frac{1}{\Delta} \brac{d y_1 - b y_2}, \frac{1}{\Delta} \brac{a y_2 - c y_1}}
             </me>
-            For simplicity, we can let <m>\Delta = ad - bc</m>, and then the solution becomes,
-            <me>
-                (x,y) = \brac{\frac{d}{\Delta} y_1 - \frac{b}{\Delta} y_2, \frac{a}{\Delta} y_2 - \frac{c}{\Delta} y_1}
-            </me>
-            Note that this solution only exists if <m>\Delta \neq 0</m>. Otherwise, we are dividing by 0.
+            Note that this unique solution only exists if <m>\Delta \neq 0</m>. If <m>\Delta = 0</m>, then there may be infinitely many solutions, or no solution.
         </p>
     </subsection>
     

@@ -72,9 +72,9 @@
     </subsection>
 
     <subsection>
-        <title><m>3 \times 3</m> Determinants and Larger</title>
+        <title>Determinants of <m>3 \times 3</m> Matrices</title>
         <p>
-            For <m>3 \times 3</m> matrices and larger, evaluating determinants is more complex. Let <m>A</m> be a <m>3 \times 3</m> matrix,
+            For <m>3 \times 3</m> matrices and larger, determinants become more complex. Let <m>A</m> be a <m>3 \times 3</m> matrix,
         </p>
         <me>
             A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
@@ -82,6 +82,73 @@
             a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
         </me>
         Similarly, we want to define the determinant as a number depending on the entries of the matrix, which is equal to zero precisely when the matrix is not invertible.
+
+        <p>
+            Suppose that <m>A</m> is invertible. Then, we want to determine what restrictions this places on the entries of <m>A</m>, through the row reduction of <m>A</m>. First, recall that <m>A</m> being invertible implies that <m>A</m> is row equivalent to <m>I</m>, and (since <m>A</m> is square) <m>A</m> has a pivot in every row and column. Then, first, there is at least one non-zero entry in the first column. Without loss of generality, assume that <m>a_{11} \neq 0</m> (otherwise, row interchange to get a pivot in the first row). Then, multiply rows 2 and 3 by <m>a_{11}</m>, and subtract suitable multiples of row 1, to get,
+        </p>
+        <me>
+            \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
+            a_{11} a_{21} \amp a_{11} a_{22} \amp a_{11} a_{23} \\
+            a_{11} a_{31} \amp a_{11} a_{32} \amp a_{11} a_{33} \end{bmatrix} \sim \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
+            0 \amp a_{11} a_{22} - a_{12} a_{21} \amp a_{11} a_{23} - a_{13} a_{21} \\
+            0 \amp a_{11} a_{32} - a_{12} a_{31} \amp a_{11} a_{33} - a_{13} a_{31} \end{bmatrix}
+        </me>
+        <p>
+            Notice that we normally would have instead done,
+        </p>
+        <md>
+            <mrow>R_2 - \frac{a_{21}}{a_{11}} R_1 \amp \longrightarrow R_2</mrow>
+            <mrow>R_3 - \frac{a_{31}}{a_{11}} R_1 \amp \longrightarrow R_3</mrow>
+        </md>
+        <p>
+            which also obtains 0's below the first pivot. However, these row operations leads to fractional entries, which just makes the computations more complicated.
+        </p>
+        <p>
+            Next, again since <m>A</m> has a pivot in every column, at least one of the <m>(2,2)</m>-entry or the <m>(3,2)</m>-entry is non-zero. Without loss of generality, assume that the <m>(2,2)</m>-entry is non-zero (otherwise, use a row interchange). Then, to obtain a 0 in the <m>(3,2)</m>-entry, multiply row 3 by <m>a_{11} a_[22} - a_{12} a_{21}</m>, and add <m>-(a_{11} a_{32} - a_{23} a_{31})</m> times row 2 to row 3. This results in,
+        </p>
+        <me>
+            \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
+            0 \amp a_{11} a_{22} - a_{12} a_{21} \amp a_{11} a_{23} - a_{13} a_{21} \\
+            0 \amp (a_{11} a_{32} - a_{12} a_{31})(a_{11} a_{22} - a_{12} a_{21}) \amp (a_{11} a_{33} - a_{13} a_{31})(a_{11} a_{22} - a_{12} a_{21}) \end{bmatrix}
+        </me>
+        <p>
+            and finally,
+        </p>
+        <me>
+            \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
+            0 \amp a_{11} a_{22} - a_{12} a_{21} \amp a_{11} a_{23} - a_{13} a_{21} \\
+            0 \amp 0 \amp (a_{11} a_{33} - a_{13} a_{31})(a_{11} a_{22} - a_{12} a_{21}) - (a_{11} a_{32} - a_{12} a_{31})(a_{11} a_{23} - a_{13} a_{21}) \end{bmatrix}
+        </me>
+        <p>
+            Then, this matrix is row equivalent to <m>I</m> only if the <m>(3,3)</m>-entry is non-zero. In other words, the following expression is non-zero,
+        </p>
+        <md>
+            <mrow>\amp (a_{11} a_{33} - a_{12} a_{21})(a_{11} a_{22} - a_{12} a_{21}) - (a_{11} a_{22} - a_{12} a_{21})(a_{11} a_{23} - a_{12} a_{21})</mrow>
+            <mrow>\amp = a_{11} \brac{a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} - a_{13} a_{22} a_{31}} \neq 0</mrow>
+        </md>
+        <p>
+            By assumption, <m>a_{11} \neq 0</m>, so this entry is non-zero if and only if the other factor is non-zero,
+        </p>
+        <me>
+            a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} - a_{13} a_{22} a_{31} \neq 0
+        </me>
+        <p>
+            It turns out that the converse is also true, that if this quantity is non-zero, then the matrix <m>A</m> is invertible. For now,
+        </p>
+
+        <definition>
+            <p>Let <m>A</m> be a <m>3 \times 3</m> matrix. Then, the <term>determinant</term> of <m>A</m>, <m>\det{A}</m>, is defined by,</p>
+            <me>
+                \boxed{\det{A} = a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} - a_{13} a_{22} a_{31}}
+            </me>
+        </definition>
+
+        <p>
+            This definition is notationally complex and difficult to remember, so there are multiple alternate interpretations which make hand computations easier.
+        </p>
+        <p>
+            One pattern is that this is a combination of 6 terms, and each term is a product of 3 entries in the matrix, of one entry from each row and each column.
+        </p>
     </subsection>
 
 </section>

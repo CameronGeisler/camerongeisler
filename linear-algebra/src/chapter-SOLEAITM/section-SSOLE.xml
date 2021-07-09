@@ -11,7 +11,7 @@
         </definition>
 
         <p>
-            Homogeneous systems always have at least one solution (that is, they are always consistent), in particular the solution <m>\vec{x} = \vec{0}</m>, often called the <m>trivial</m> solution. Then, we want to consider whether <m>A\vec{x} = \vec{0}</m> has any <m>non-trivial</m> solutions, that is, solutions <m>\vec{x}</m> which are not the zero vector.
+            Homogeneous systems always have at least one solution (that is, they are always consistent), in particular the solution <m>\vec{x} = \vec{0}</m>, often called the <term>trivial</term> solution. Then, we want to consider whether <m>A\vec{x} = \vec{0}</m> has any <term>non-trivial</term> solutions, that is, solutions <m>\vec{x}</m> which are not the zero vector.
         </p>
 
         <p>
@@ -19,7 +19,7 @@
         </p>
         
         <theorem>
-            The homogeneous system <m>A\vec{x} = \vec{0}</m> has a non-trivial solution if and only if the system has at least one free variable.
+            <p>The homogeneous system <m>A\vec{x} = \vec{0}</m> has a non-trivial solution if and only if the system has at least one free variable.</p>
         </theorem>
         <p>
             The solution set of a homogeneous equation can always be written as the span of some collection of vectors. If the system has no non-trivial solutions, then the solution set is <m>\Span{\vec{0}} = \vec{0}</m>.
@@ -30,9 +30,7 @@
         <title>Non-homogeneous Systems</title>
         
         <theorem>
-            <p>
-                Let <m>A\vec{x} = \vec{b}</m> be a linear system, which is consistent with solution <m>\vec{v}_p</m>. Then, the solution set of <m>A\vec{x} = \vec{b}</m> is the set of all vectors of the form <m>\vec{v} = \vec{v}_p + \vec{v}_h</m>, where <m>\vec{v}_h</m> is any solution of the associated homogeneous system.
-            </p>
+            <p>Let <m>A\vec{x} = \vec{b}</m> be a linear system, which is consistent with solution <m>\vec{v}_p</m>. Then, the solution set of <m>A\vec{x} = \vec{b}</m> is the set of all vectors of the form <m>\vec{v} = \vec{v}_p + \vec{v}_h</m>, where <m>\vec{v}_h</m> is any solution of the associated homogeneous system.</p>
         </theorem>
         <proof>
             <p>

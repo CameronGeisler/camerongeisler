@@ -53,22 +53,71 @@
             This definition for matrix multiplication makes the equation <m>A(B\vec{x}) = (AB)\vec{x}</m> true. That is, <m>AB</m> is the single transformation that is equvialent to applying <m>B</m> first, and then <m>A</m>. In this way, multiplication of matrices corresponds to composition of linear transformations.
         </p>
         <p>
-
+            This definition also emhasizes that the column of <m>AB</m> are given by the matrix-vector products <m>A\vec{b}_1, \dots, A\vec{b}_p</m>. In some sense, matrix multiplication is a generalization of the matrix-vector product.
         </p>
     </subsection>
 
     <subsection>
-        <title>Matrix Multiplication as a Dot Product</title>
+        <title>Matrix Multiplication as a Dot Product (Entry-by-Entry)</title>
         <p>
             Another perspective on matrix multiplication views it entry-by-entry, and involves a dot product of a column and a row.
         </p>
+        <me>
+            (AB)_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
+        </me>
     </subsection>
-
+    
     <subsection>
-        <title>Row Perspective of Matrix Multiplication</title>
+        <title>Row Perspective of the Matrix-Vector Product and Matrix Multiplication</title>
         <p>
-            The <m>i</m>th row of <m>AB</m> are a linear combination of <m>B</m> with weights given by the entries of the <m>i</m>th row of <m>A</m>.
+            There is another characterization of the matrix-vector product, and matrix multiplication, from the perspective of the rows of the matrix, and in particular a linear combination of the rows. Let <m>A</m> be an <m>m \times n</m> matrix. Recall that <m>A\vec{x}</m> (where <m>\vec{x} \in \mathbb{R}^n</m>) can be thought of as a linear combination of the columns of <m>A</m> with weights given by the entries of <m>\vec{x}</m>. In a similar way, the product <m>\vec{x}A</m> (where <m>\vec{x} \in \mathbb{R}^m</m>) can be thought of as a linear combination of the rows of <m>A</m>, with weights given by the entries of <m>\vec{x}</m>. 
         </p>
+        <p>
+            More precisely, let <m>\vec{x} = (x_1, \dots, x_m)</m>, and let <m>\vec{a}^i</m> denote the <m>i</m>th row of <m>A</m>, so
+        </p>
+        <me>
+            A = \begin{bmatrix} \vec{a}^1 \\ \vdots \\ \vec{a}^m \end{bmatrix}
+        </me>
+        <p>
+            Note that we haven't defined vector powers, so this is not ambiguous. Then,
+        </p>
+        <me>
+            \vec{x} A = x_1 \vec{a}^1 + \dots + x_m \vec{a}^m
+        </me>
+        <p>
+            for which the result is again a row vector.
+        </p>
+
+        <example>
+            <p>
+                For example,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} 2 \amp -1 \end{bmatrix} \begin{bmatrix} 2 \amp 3 \\ -1 \amp 4 \end{bmatrix} \amp = 2 \begin{bmatrix} 2 \amp 3 \end{bmatrix} - 1 \begin{bmatrix} -1 \amp 4 \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} 4 \amp 6 \end{bmatrix} + \begin{bmatrix} 1 \amp -4 \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} 5 \amp 2 \end{bmatrix}</mrow>
+            </md>
+        </example>
+
+        <p>
+            Then, this leads to a characterization of matrix multiplication. Let <m>B</m> be an <m>n \times p</m> matrix. Then,
+        </p>
+        <me>
+            \boxed{AB = \begin{bmatrix} \vec{a}^1 B \\ \vdots \\ \vec{a}^m B \end{bmatrix}}
+        </me>
+        <p>
+            That is, each row of <m>AB</m> is a linear combination of the rows of <m>B</m>, with weights given by the correspondsing row of <m>A</m>. In particular, the <m>i</m>th row of <m>AB</m> is a linear combination of the rows of <m>B</m> with weights given by the entries of the <m>i</m>th row of <m>A</m>.
+        </p>
+        
+        <example>
+            <p>
+                For example,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix} \amp = \begin{bmatrix} 1 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 0 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \\ 0 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 1 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix}</mrow>
+            </md>
+        </example>
     </subsection>
 
     <subsection>
@@ -79,9 +128,7 @@
         </p>
 
         <theorem>
-            <p>
-                Let <m>A</m> be an <m>m \times n</m> matrix, <m>B</m> and <m>C</m> be <m>n \times p</m> matrices, <m>D</m> and <m>E</m> be <m>q \times m</m> matrices, <m>a \in \mathbb{R}</m> be a scalar. Then,
-            </p>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix, <m>B</m> and <m>C</m> be <m>n \times p</m> matrices, <m>D</m> and <m>E</m> be <m>q \times m</m> matrices, <m>a \in \mathbb{R}</m> be a scalar. Then,</p>
             <ol>
                 <li><em>Multiplication distributes over addition</em>.
                 <me>
@@ -99,7 +146,7 @@
         </theorem>
 
         <p>
-            These properties intuitively means that parentheses surrounding matrix expressions generally work the same as for real numbers.
+            Intuitively, these properties mean that parentheses surrounding matrix expressions generally work the same as for real numbers.
         </p>
 
         <proof>
@@ -151,9 +198,46 @@
         <title>The Identity Matrix</title>
 
         <p>
-            Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. In other words, 1 is the <em>multiplicative identity</em> for multiplication of real numbers, <m>a \cdot 1 = a</m> for all <m>a \in \mathbb{R}</m>. Similarly, we can define a matrix which, when multiplied by a matrix, leaves it unchanged, called an \textit{identity matrix}.
+            The identity matrix for the matrix-vector product plays an identical role in the multiplciation of matrices. Recall that the <m>n \times n</m> identity matrix is denoted by <m>I_n</m> and has 1's along its main diagonal (from top left to bottom right) and 0's everywhere else,
+        </p>
+        <me>
+            I_n = \begin{bmatrix} 1 \amp 0 \amp \dots \amp 0 \\ 0 \amp 1 \amp \dots \amp 0 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp \dots \amp 1 \end{bmatrix}
+        </me>
+        <p>
+            This matrix has the property that for any <m>n \times n</m> matrix <m>A</m>,
+        </p>
+        <me>
+            \boxed{AI_n = I_n A = A}
+        </me>
+
+        <example>
+            For example, you can verify that,
+            <me>
+                \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+            </me>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Operations with <m>1 \times 1</m> Matrices</title>
+        <p>
+            The arithmetic of matrices can be more deeply understood by considering the simplest possible case, of arithemtic with <m>1 \times 1</m> matrices. A general <m>1 \times 1</m> matrix is of the form <m>A = \begin{bmatrix} a \end{bmatrix}</m>. Then, addition and scalar multiplication are defined as,
+        </p>
+        <md>
+            <mrow>\begin{bmatrix} a \end{bmatrix} + \begin{bmatrix} b \end{bmatrix} \amp = \begin{bmatrix} a + b \end{bmatrix}</mrow>
+            <mrow>k \begin{bmatrix} a \end{bmatrix} \amp = \begin{bmatrix} ka \end{bmatrix}</mrow>
+            <mrow>\begin{bmatrix} a \end{bmatrix} \begin{bmatrix} b \end{bmatrix} \amp = \begin{bmatrix} ab \end{bmatrix}</mrow>
+        </md>
+        <p>
+            All of these computations follows from the more general definitions presented previously. Notice that the operations of <m>1 \times 1</m> matrices are essentially analogously to the operations of real numbers. That is, <m>1 \times 1</m> can be identified with real numbers.
+        </p>
+        <p>
+            Then, <m>2 \times 2</m> and larger matrices can be thought of as <q>generalized numbers</q>.
         </p>
     </subsection>
 
+    <subsection>
+        <title>Matrix Multiplication by Blocks (Partitioned Matrices)</title>
+    </subsection>
 
 </section>

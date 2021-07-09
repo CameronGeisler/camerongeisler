@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-08T16:54:51-07:00       *-->
+<!--*       on 2021-07-09T14:59:44-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,21 +15,32 @@
 </head>
 <body>
 <article class="definition definition-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Elementary Row Operation.</span>
-</h6>
-<ul class="disc">
-<li>
-<dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Interchange</dfn>. Interchange two rows in the matrix.</li>
-<li>
-<dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Scaling</dfn>. Multiply (or divide) an equation by a non-zero real number.</li>
-<li>
-<dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Replacement</dfn>. Add to one equation a multiple of another equation.</li>
-</ul>
-<p xmlns:svg="http://www.w3.org/2000/svg">These row operations are denoted symbolically by,</p>
-<ul class="disc">
-<li>\(R_i \leftrightarrow R_j\text{,}\) interchanging row \(i\) and row \(j\text{.}\)</li>
-<li>\(\displaystyle kR_i \rightarrow R_i\)</li>
-<li>\(\displaystyle R_i + k R_j \rightarrow R_i\)</li>
-</ul></article><span class="incontext"><a href="section-GEAM.html#definition-9">in-context</a></span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
+</h6>The <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">coefficient matrix</dfn> of a linear system is the matrix with entries given by the coefficients of the variables. The <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">augmented matrix</dfn> is the coefficient matrix with an additional column for the constant terms. The system,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{alignat*}{3}
+a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1\\
+a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2\\
+\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots\\
+a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_n
+\end{alignat*}
+</div>has coefficient matrix and augmented matrix,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\begin{array}{cc}
+\underbrace{\begin{bmatrix}
+a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
+a_{21} \amp a_{22} \amp \dots \amp a_{2n} \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+a_{m1} \amp a_{m2} \amp \dots \amp a_{mn}
+\end{bmatrix}}_{\text{coefficient matrix}}
+\amp 
+\underbrace{\left[\begin{array}{cccc|c}
+a_{11} \amp a_{12} \amp \dots \amp a_{1n} \amp b_1 \\
+a_{21} \amp a_{22} \amp \dots \amp a_{2n} \amp b_2 \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \\
+a_{m1} \amp a_{m2} \amp \dots \amp a_{mn} \amp b_n
+\end{array}\right]}_{\text{augmented matrix}}
+\end{array}
+\end{equation*}
+</div></article><span class="incontext"><a href="section-ITMAMOAS.html#definition-9">in-context</a></span>
 </body>
 </html>

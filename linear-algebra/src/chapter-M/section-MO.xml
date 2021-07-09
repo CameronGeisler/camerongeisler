@@ -41,6 +41,13 @@
             Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.
         </p>
 
+        <p>
+            For <m>2 \times 2</m> matrices,
+        </p>
+        <me>
+            \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} + \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} + b_{11} \amp a_{12} + b_{12} \\ a_{21} + b_{21} \amp a_{22} + b_{22} \end{bmatrix}
+        </me>
+
         <definition>
             <title>Scalar multiplication</title>
             Let <m>A</m> be an <m>m \times n</m> matrix, <m>k \in \mathbb{R}</m> be a scalar. Then, <m>kA</m> is the matrix formed by multiplying each of the entries of <m>A</m> by <m>k</m>, or,
@@ -50,7 +57,14 @@
         </definition>
 
         <p>
-            The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of vectors.
+            For <m>2 \times 2</m> matrices,
+        </p>
+        <me>
+            k A = k \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} ka \amp kb \\ kc \amp kd \end{bmatrix}
+        </me>
+
+        <p>
+            The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of column vectors.
         </p>
 
         <ul>
@@ -70,15 +84,20 @@
         </p>
     </subsection>
 
+
     <subsection>
         <title>Properties of Matrix Addition</title>
         <definition>
-            An <m>m \times n</m> matrix whose entries are all zero is called a <term>zero matrix</term>, and is typically denoted by 0.
+            An <m>m \times n</m> matrix whose entries are all zero is called a <term>zero matrix</term>, and is typically denoted by O, or sometimes 0.
         </definition>
 
         <p>
-            The size of a zero matrix is usually clear from the context. The zero matrix has the property that <m>A + 0 = A</m>, i.e. it is the <term>additive identity</term> for the set of all <m>n \times m</m> matrices. Note it is clear in this equation that 0 is a matrix, since a matrix <m>A</m> cannot be added to the number 0.
+            The size of a zero matrix is usually clear from the context. The zero matrix has the property that,
         </p>
+        <me>
+            A + O = A
+        </me>
+        <p>i.e. it is the <term>additive identity</term> for the set of all <m>n \times m</m> matrices. If <m>0</m> is used to denote the zero matrix, then note it is clear in this equation that 0 is a matrix, since a matrix <m>A</m> cannot be added to the number 0.</p> Also, the zero matrix has the property that <m>0 A = O</m>, that is, the zero scalar multiple of any matrix is the zero matrix.
 
         <theorem>
             <p>
@@ -144,4 +163,6 @@
         </proof>
         
     </subsection>
+
+
 </section>

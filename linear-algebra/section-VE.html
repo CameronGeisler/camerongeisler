@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-08T16:54:50-07:00       *-->
+<!--*       on 2021-07-09T14:59:43-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -129,8 +129,8 @@
 <a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
-<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
@@ -144,27 +144,25 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-VE"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Vector Equations</span>
 </h2>
-<section class="introduction" id="introduction-7"><article class="definition definition-like" id="definition-14"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
-</h6>A matrix \(A\) is <dfn class="terminology">square</dfn> if it has the same number of rows as columns. In other words, \(A\) is an \(n \times n\) matrix, for some \(n\text{.}\)</article></section><section class="subsection" id="subsection-23"><h3 class="heading hide-type">
+<section class="subsection" id="subsection-23"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.1</span> <span class="title">Vectors</span>
 </h3>
-<p id="p-53">The term <em class="emphasis">vector</em> is used widely in mathematics, physics, and computer science. For now, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <dfn class="terminology">column matrix</dfn>, a matrix with dimensions \(1 \times n\text{,}\) i.e. a matrix with 1 row and \(n\) “columns”. Similarly, a <dfn class="terminology">row vector</dfn> is a \(m \times 1\) matrix, a matrix which has 1 columns and \(m\) “rows”.</p>
-<p id="p-54">First, we will consider vectors with two entries. The set of all vectors with two entries is denoted by \(\mathbb{R}^2\) (read “r-squared” or simply “r-two”).</p>
+<p id="p-55">The term <em class="emphasis">vector</em> is used widely in mathematics, physics, and computer science. For now, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <dfn class="terminology">column matrix</dfn>, a matrix with dimensions \(1 \times n\text{,}\) i.e. a matrix with 1 row and \(n\) “columns”. Similarly, a <dfn class="terminology">row vector</dfn> is a \(m \times 1\) matrix, a matrix which has 1 columns and \(m\) “rows”.</p>
+<p id="p-56">First, we will consider vectors with two entries. The set of all vectors with two entries is denoted by \(\mathbb{R}^2\) (read “r-squared” or simply “r-two”).</p>
 <article class="definition definition-like" id="definition-15"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
+</h6>
+<p id="p-57">Two vectors in \(\mathbb{R}^2\) are <dfn class="terminology">equal</dfn> if their corresponding entries are equal.</p></article><article class="definition definition-like" id="definition-16"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
 </h6>
-<p id="p-55">Two vectors in \(\mathbb{R}^2\) are <dfn class="terminology">equal</dfn> if their corresponding entries are equal.</p></article><article class="definition definition-like" id="definition-16"><h6 class="heading">
+<p id="p-58">Let \(\vec{u}, \vec{v}\) be vectors. Their <dfn class="terminology">sum</dfn> \(\vec{u} + \vec{v}\) is the vector obtained by adding the corresponding entries of \(\vec{u}\) and \(\vec{v}\text{.}\)</p></article><article class="definition definition-like" id="definition-17"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
 </h6>
-<p id="p-56">Let \(\vec{u}, \vec{v}\) be vectors. Their <dfn class="terminology">sum</dfn> \(\vec{u} + \vec{v}\) is the vector obtained by adding the corresponding entries of \(\vec{u}\) and \(\vec{v}\text{.}\)</p></article><article class="definition definition-like" id="definition-17"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
-</h6>
-<p id="p-57">Let \(\vec{u}\) be a vector, \(c \in \mathbb{R}\text{.}\) Then, the <dfn class="terminology">scalar multiple</dfn> of \(\vec{u}\) by \(c\text{,}\) \(c\vec{u}\text{,}\) is the vector obtained by multiply each entry of \(\vec{u}\) by \(c\text{.}\)</p></article><p id="p-58">The number \(c \in \mathbb{R}\) is called a <dfn class="terminology">scalar</dfn>. This is because, literally, multiplying a vector by a number \(c\) scales the length of the vector. Geometrically, if \(c &gt; 0\text{,}\) then \(c\vec{u}\) is the vector with the same direction as \(\vec{u}\text{,}\) but scaled to be \(c\) times as long. If \(c \le 0\text{,}\) then \(c\vec{u}\) has the opposite direction as \(\vec{u}\text{,}\) and is also \(c\) times as long as \(\vec{u}\text{.}\)</p>
-<p id="p-59">Geometrically, the sum \(\vec{u} + \vec{v}\) is the vector with head obtained from the head of \(\vec{v}\) after aligning the tail of \(\vec{v}\) with the head of \(\vec{u}\text{.}\)</p>
-<p id="p-60">Intuitively, vectors represent motion, and \(\vec{u} + \vec{v}\) is the resulting motion after movement corresponding to \(\vec{u}\) and then \(\vec{v}\text{.}\)</p>
-<p id="p-61">In fact, this is just an extension of addition of real numbers, represented on a number line. This is because real numbers \(a \in \mathbb{R}\) can be thought of as 1-dimensional vectors \(\begin{bmatrix} a \end{bmatrix}\text{.}\)</p>
-<p id="p-62">Often, it is simpler to write vectors horizontally rather than vertically, but it is necessary to keep the vertical convention. In this case, we <em class="emphasis">identify</em> a column vector with an ordered tuple of numbers. For example,</p>
+<p id="p-59">Let \(\vec{u}\) be a vector, \(c \in \mathbb{R}\text{.}\) Then, the <dfn class="terminology">scalar multiple</dfn> of \(\vec{u}\) by \(c\text{,}\) \(c\vec{u}\text{,}\) is the vector obtained by multiply each entry of \(\vec{u}\) by \(c\text{.}\)</p></article><p id="p-60">The number \(c \in \mathbb{R}\) is called a <dfn class="terminology">scalar</dfn>. This is because, literally, multiplying a vector by a number \(c\) scales the length of the vector. Geometrically, if \(c &gt; 0\text{,}\) then \(c\vec{u}\) is the vector with the same direction as \(\vec{u}\text{,}\) but scaled to be \(c\) times as long. If \(c \le 0\text{,}\) then \(c\vec{u}\) has the opposite direction as \(\vec{u}\text{,}\) and is also \(c\) times as long as \(\vec{u}\text{.}\)</p>
+<p id="p-61">Geometrically, the sum \(\vec{u} + \vec{v}\) is the vector with head obtained from the head of \(\vec{v}\) after aligning the tail of \(\vec{v}\) with the head of \(\vec{u}\text{.}\)</p>
+<p id="p-62">Intuitively, vectors represent motion, and \(\vec{u} + \vec{v}\) is the resulting motion after movement corresponding to \(\vec{u}\) and then \(\vec{v}\text{.}\)</p>
+<p id="p-63">In fact, this is just an extension of addition of real numbers, represented on a number line. This is because real numbers \(a \in \mathbb{R}\) can be thought of as 1-dimensional vectors \(\begin{bmatrix} a \end{bmatrix}\text{.}\)</p>
+<p id="p-64">Often, it is simpler to write vectors horizontally rather than vertically, but it is necessary to keep the vertical convention. In this case, we <em class="emphasis">identify</em> a column vector with an ordered tuple of numbers. For example,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} 1 \\ -3 \end{bmatrix} \quad \text{is equivalent to} \quad (1,-3)
@@ -176,26 +174,26 @@
 </div>Note that \((b_1, \dots, b_n)\) is not a row vector.</section><section class="subsection" id="subsection-24"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.2</span> <span class="title">Geometry of Vectors in \(\mathbb{R}^2\)</span>
 </h3>
-<p id="p-63">Every point in the plane is completely determined by an ordered pair of numbers, so there is a one-to-one correspondence between points in the plane \((a,b)\) and vectors \(\begin{bmatrix} a \\ b \end{bmatrix}\text{.}\)</p>
-<p id="p-64">The equivalence can be thought of in the following way: if all geometric vectors have their tail at the origin, then their head is at the point \((a,b)\text{.}\)</p>
-<p id="p-65">The numerical entries of a vector are often called its <dfn class="terminology">coordinates</dfn>, for this reason.</p></section><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
+<p id="p-65">Every point in the plane is completely determined by an ordered pair of numbers, so there is a one-to-one correspondence between points in the plane \((a,b)\) and vectors \(\begin{bmatrix} a \\ b \end{bmatrix}\text{.}\)</p>
+<p id="p-66">The equivalence can be thought of in the following way: if all geometric vectors have their tail at the origin, then their head is at the point \((a,b)\text{.}\)</p>
+<p id="p-67">The numerical entries of a vector are often called its <dfn class="terminology">coordinates</dfn>, for this reason.</p></section><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.3</span> <span class="title">Vectors in \(\mathbb{R}^3\)</span>
 </h3>
-<p id="p-66">Vectors in \(\mathbb{R}^3\) are \(3 \times 1\) column matrices, and can be represented geometrically as points in space \((x,y,z)\text{.}\) Again, there is a one-to-one correspondence between vectors in \(\begin{bmatrix} x \\ y \\ z \end{bmatrix} \in \mathbb{R}^3\) and ordered triples \((x,y,z)\text{.}\)</p></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
+<p id="p-68">Vectors in \(\mathbb{R}^3\) are \(3 \times 1\) column matrices, and can be represented geometrically as points in space \((x,y,z)\text{.}\) Again, there is a one-to-one correspondence between vectors in \(\begin{bmatrix} x \\ y \\ z \end{bmatrix} \in \mathbb{R}^3\) and ordered triples \((x,y,z)\text{.}\)</p></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.4</span> <span class="title">Vectors in \(\mathbb{R}^n\)</span>
 </h3> More generally, we can consider vectors with \(n\) elements. <article class="definition definition-like" id="definition-18"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
 </h6>The set of all ordered \(n\)-tuples of \(n\) real numbers is denoted by \(\mathbb{R}^n\) (read as “r-n”).</article> The definitions of equality, sum, and scalar multiple are analogous to that for \(\mathbb{R}^2\) and \(\mathbb{R}^3\text{,}\) <ul class="disc">
 <li id="li-66">Vectors \(\vec{u}, \vec{v}\) in \(\mathbb{R}^n\) are <dfn class="terminology">equal</dfn> if their corresponding entries are equal.</li>
 <li id="li-67">The <dfn class="terminology">sum</dfn> \(\vec{u} + \vec{v}\) is obtained by adding entries componentwise.</li>
 <li id="li-68">The <dfn class="terminology">scalar multiple</dfn> \(c \vec{u}\) is obtained by multiplying every entry of \(\vec{u}\) by \(c\text{.}\)</li>
 <li id="li-69">The <dfn class="terminology">zero vector</dfn>, denoted by \(\vec{0}\text{,}\) is the unique vector with entries which are all zeros.</li>
 </ul>
-<p id="p-67">The arithmetic of vectors satisfies many of the familiar laws of arithmetic with numbers.</p>
+<p id="p-69">The arithmetic of vectors satisfies many of the familiar laws of arithmetic with numbers.</p>
 <article class="theorem theorem-like" id="theorem-3"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of vector arithmetic.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of vector arithmetic.</span>
 </h6>
-<p id="p-68">Let \(\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^n\) be vectors, \(c, d \in \mathbb{R}\text{.}\) Then,</p>
+<p id="p-70">Let \(\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^n\) be vectors, \(c, d \in \mathbb{R}\text{.}\) Then,</p>
 <ol class="decimal">
 <li id="li-70">
 <dfn class="terminology">Addition commutative</dfn>, \(\vec{u} + \vec{v} = \vec{v} + \vec{u}\text{.}\)</li>
@@ -211,20 +209,20 @@
 <dfn class="terminology">Scalar multiplication distributes over addition</dfn>, \(c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\text{.}\)</li>
 <li id="li-76">
 <dfn class="terminology">Vectors distribute over addition</dfn>, \((c + d)\vec{u} + c\vec{u} + d\vec{u}\text{.}\)</li>
-</ol></article><p id="p-69">For simplicity, the scalar multiple \(-1\vec{u}\) is written as \(-\vec{u}\text{,}\) and is called the <em class="emphasis">additive inverse</em> of \(\vec{u}\text{.}\) These properties all essentially follow from the corresponding properties of real numbers.</p></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
+</ol></article><p id="p-71">For simplicity, the scalar multiple \(-1\vec{u}\) is written as \(-\vec{u}\text{,}\) and is called the <em class="emphasis">additive inverse</em> of \(\vec{u}\text{.}\) These properties all essentially follow from the corresponding properties of real numbers.</p></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.5</span> <span class="title">Linear Combinations of Vectors</span>
 </h3>
 <article class="definition definition-like" id="definition-19"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.7</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span>
 </h6>
-<p id="p-70">Let \(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\) be vectors, \(a_1, a_2, \dots, a_n \in \mathbb{R}\) be scalars. Then, the vector \(\vec{v}\) given by,</p>
+<p id="p-72">Let \(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\) be vectors, \(a_1, a_2, \dots, a_n \in \mathbb{R}\) be scalars. Then, the vector \(\vec{v}\) given by,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{v} = a_1 \vec{v}_1 + a_2 \vec{v}_2 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
 \end{equation*}
 </div>
 <p class="continuation">is called a <dfn class="terminology">linear combination</dfn> of \(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\) with <dfn class="terminology">weights</dfn> \(a_1, a_2, \dots, a_n\text{.}\)</p></article><article class="example example-like" id="example-6"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.8</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.7</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like">Given any collection of vectors, the <dfn class="terminology">trivial</dfn> linear combination is that with all weights being 0, i.e.,<div class="displaymath">
 \begin{equation*}
 0 \vec{v}_1 + 0 \vec{v}_2 + \dots + 0 \vec{v}_n = \vec{0}
@@ -232,9 +230,9 @@
 </div></article></div></section><section class="subsection" id="subsection-28"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.6</span> <span class="title">Vector Equations</span>
 </h3>
-<p id="p-71">A <dfn class="terminology">vector equation</dfn>, naturally, is an equation involving vectors.</p>
+<p id="p-73">A <dfn class="terminology">vector equation</dfn>, naturally, is an equation involving vectors.</p>
 <article class="example example-like" id="example-7"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.9</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.8</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like">Let,<div class="displaymath">
 \begin{equation*}
 \vec{a}_1 = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} \qquad \vec{a}_2 = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} \qquad \vec{b} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}
@@ -270,35 +268,35 @@ x_1 \amp + 2x_2 \amp = \amp 7 \\
 3\vec{a}_1 + 2\vec{a}_2 = \vec{b}
 \end{equation*}
 </div></article></div>
-<p id="p-72">More generally, to solve a vector equation,</p>
+<p id="p-74">More generally, to solve a vector equation,</p>
 <div class="displaymath">
 \begin{equation*}
 x_1 \vec{a}_1 + \dots + x_n \vec{a}_n = \vec{b}
 \end{equation*}
 </div>
-<p id="p-73">Form the associated system of linear equations in \(x_1, \dots, x_n\text{,}\) and form its augmented matrix, whose columns will be \(\vec{a}_1, \dots, \vec{a}_n, \vec{b}\text{.}\) This is denoted by,</p>
+<p id="p-75">Form the associated system of linear equations in \(x_1, \dots, x_n\text{,}\) and form its augmented matrix, whose columns will be \(\vec{a}_1, \dots, \vec{a}_n, \vec{b}\text{.}\) This is denoted by,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-74">Intuitively, this is a row vector with entries which are themselves column vectors, forming a matrix. Then, use row reduction to determine the solution. In summary,</p>
+<p id="p-76">Intuitively, this is a row vector with entries which are themselves column vectors, forming a matrix. Then, use row reduction to determine the solution. In summary,</p>
 <article class="theorem theorem-like" id="theorem-4"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.5.10</span><span class="period">.</span><span class="space"> </span><span class="title">Vector equations as a linear system.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.5.9</span><span class="period">.</span><span class="space"> </span><span class="title">Vector equations as a linear system.</span>
 </h6>
-<p id="p-75">The vector equation,</p>
+<p id="p-77">The vector equation,</p>
 <div class="displaymath">
 \begin{equation*}
 x_1 \vec{a}_1 + \dots + x_n \vec{a}_n = \vec{b}
 \end{equation*}
 </div>
-<p id="p-76">has the same solution set as the system of linear equations in \(x_1, \dots, x_n\) which has augmented matrix given by,</p>
+<p id="p-78">has the same solution set as the system of linear equations in \(x_1, \dots, x_n\) which has augmented matrix given by,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
 \end{equation*}
 </div></article> This provides an alternate interpretation of a linear system, in terms of vectors. That is, solving a linear system involves determining all linear combinations of the columns of the coefficient matrix that are equal to the constant vector. <article class="example example-like" id="example-8"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.11</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.10</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like">Consider the linear system,<div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrr}
@@ -314,12 +312,12 @@ x \begin{bmatrix} 1 \\ -5 \end{bmatrix} + y \begin{bmatrix} 3 \\ 2 \end{bmatrix}
 <span class="type">Subsection</span> <span class="codenumber">2.5.7</span> <span class="title">Span of Vectors</span>
 </h3>
 <article class="definition definition-like" id="definition-20"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.12</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.11</span><span class="period">.</span>
 </h6>Let \(\vec{v}_1, \dots, \vec{v}_n \in \mathbb{R}^n\) be vectors. The <dfn class="terminology">span</dfn> of \(\vec{v}_1, \dots, \vec{v}_n\text{,}\) denoted by \(\Span{\vec{v}_1, \dots, \vec{v}_n}\text{,}\) is the set of all linear combinations of \(\vec{v}_1, \dots, \vec{v}_n\text{.}\) In other words,<div class="displaymath">
 \begin{equation*}
 \Span{\vec{v}_1, \dots, \vec{v}_n} = \set{a_1 \vec{v}_1 + \dots a_n \vec{v}_n : a_1, \dots, a_n \in \mathbb{R}}
 \end{equation*}
-</div></article><p id="p-77">By definition, a vector \(\vec{v}\) is in \(\Span{\vec{v}_1, \dots, \vec{v}_n}\) if and only if \(\vec{v}\) can be written as a linear combination of \(\vec{v}_1, \dots, \vec{v}_n\text{.}\) From the previous result, this is true if and only if the linear system with augmented matrix,</p>
+</div></article><p id="p-79">By definition, a vector \(\vec{v}\) is in \(\Span{\vec{v}_1, \dots, \vec{v}_n}\) if and only if \(\vec{v}\) can be written as a linear combination of \(\vec{v}_1, \dots, \vec{v}_n\text{.}\) From the previous result, this is true if and only if the linear system with augmented matrix,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} \vec{v}_1 \amp \dots \amp \vec{v}_n \amp \vec{v} \end{bmatrix}
@@ -327,8 +325,8 @@ x \begin{bmatrix} 1 \\ -5 \end{bmatrix} + y \begin{bmatrix} 3 \\ 2 \end{bmatrix}
 </div>has a solution.</section><section class="subsection" id="subsection-30"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.8</span> <span class="title">Geometric Interpretation of Span</span>
 </h3>
-<p id="p-78">If \(\vec{v} \in \mathbb{R}^2\text{.}\) Then, \(\Span{\vec{v}}\) is precisely the set of all scalar multiple of \(\vec{v}\text{.}\) Equivalently, the set of points on the line in \(\mathbb{R}^2\) through \(\vec{v}\) and \(\vec{0}\text{.}\)</p>
-<p id="p-79">If \(\vec{u}, \vec{v} \in \mathbb{R}^2\) are non-zero vector, and \(\vec{v}\) is not a multiple of \(\vec{v}\text{,}\) then \(\Span{\vec{u}, \vec{v}}\) makes up the entire plane \(\mathbb{R}^2\text{.}\) In \(\mathbb{R}^3\text{,}\) \(\Span{\vec{u}, \vec{v}}\) consists of the plane in \(\mathbb{R}^3\) which contains \(\vec{u}, \vec{v}\) and \(\vec{0}\text{.}\)</p></section></section></div></main>
+<p id="p-80">If \(\vec{v} \in \mathbb{R}^2\text{.}\) Then, \(\Span{\vec{v}}\) is precisely the set of all scalar multiple of \(\vec{v}\text{.}\) Equivalently, the set of points on the line in \(\mathbb{R}^2\) through \(\vec{v}\) and \(\vec{0}\text{.}\)</p>
+<p id="p-81">If \(\vec{u}, \vec{v} \in \mathbb{R}^2\) are non-zero vector, and \(\vec{v}\) is not a multiple of \(\vec{v}\text{,}\) then \(\Span{\vec{u}, \vec{v}}\) makes up the entire plane \(\mathbb{R}^2\text{.}\) In \(\mathbb{R}^3\text{,}\) \(\Span{\vec{u}, \vec{v}}\) consists of the plane in \(\mathbb{R}^3\) which contains \(\vec{u}, \vec{v}\) and \(\vec{0}\text{.}\)</p></section></section></div></main>
 </div>
 </body>
 </html>

@@ -8,58 +8,6 @@
     </introduction>
 
     <subsection>
-        <title>Matrix-Vector Product and Matrix Multiplication from the Row Perspective</title>
-        <p>
-            There is another characterization of the matrix-vector product, and matrix multiplication, from the perspective of the rows of the matrix, and in particular a linear combination of the rows. Let <m>A</m> be an <m>m \times n</m> matrix. Recall that <m>A\vec{x}</m> (where <m>\vec{x} \in \mathbb{R}^n</m>) can be thought of as a linear combination of the columns of <m>A</m> with weights given by the entries of <m>\vec{x}</m>. In a similar way, the product <m>\vec{x}A</m> (where <m>\vec{x} \in \mathbb{R}^m</m>) can be thought of as a linear combination of the rows of <m>A</m>, with weights given by the entries of <m>\vec{x}</m>. 
-        </p>
-        <p>
-            More precisely, let <m>\vec{x} = (x_1, \dots, x_m)</m>, and let <m>\vec{a}^i</m> denote the <m>i</m>th row of <m>A</m>, so
-        </p>
-        <me>
-            A = \begin{bmatrix} \vec{a}^1 \\ \vdots \\ \vec{a}^m \end{bmatrix}
-        </me>
-        <p>
-            Note that we haven't defined matrix powers, so this is not ambiguous. Then,
-        </p>
-        <me>
-            \vec{x} A = x_1 \vec{a}^1 + \dots + x_m \vec{a}^m
-        </me>
-        <p>
-            for which the result is again a row vector.
-        </p>
-
-        <example>
-            <p>
-                For example,
-            </p>
-            <md>
-                <mrow>\begin{bmatrix} 2 \amp -1 \end{bmatrix} \begin{bmatrix} 2 \amp 3 \\ -1 \amp 4 \end{bmatrix} \amp = 2 \begin{bmatrix} 2 \amp 3 \end{bmatrix} - 1 \begin{bmatrix} -1 \amp 4 \end{bmatrix}</mrow>
-                <mrow>\amp = \begin{bmatrix} 4 \amp 6 \end{bmatrix} + \begin{bmatrix} 1 \amp -4 \end{bmatrix}</mrow>
-                <mrow>\amp = \begin{bmatrix} 5 \amp 2 \end{bmatrix}</mrow>
-            </md>
-        </example>
-
-        <p>
-            Then, this leads to a characterization of matrix multiplication. Let <m>B</m> be an <m>n \times p</m> matrix. Then,
-        </p>
-        <me>
-            \boxed{AB = \begin{bmatrix} \vec{a}^1 B \\ \vdots \\ \vec{a}^m B \end{bmatrix}}
-        </me>
-        <p>
-            That is, each row of <m>AB</m> is a linear combination of the rows of <m>B</m>, with weights given by the correspondsing row of <m>A</m>.
-        </p>
-        <example>
-            <p>
-                For example,
-            </p>
-            <md>
-                <mrow>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix} \amp = \begin{bmatrix} 1 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 0 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \\ 0 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 1 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \end{bmatrix}</mrow>
-                <mrow>\amp = \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix}</mrow>
-            </md>
-        </example>
-    </subsection>
-
-    <subsection>
         <title>Elementary Matrices</title>
         <p>
             Using the row perspective on matrix multiplication, we can characterize the elementary row operation as multiplication by a matrix.
@@ -131,59 +79,5 @@
         </theorem>
     </subsection>
 
-    <subsection>
-        <title>Elementary Matrices and Matrix Inverses</title>
-        <p>
-            Elementary matrices provide insight into finding inverses of matrices.
-        </p>
-
-        <theorem>
-            <p>An <m>n \times n</m> matrix <m>A</m> is invertible if and only if <m>A</m> is row equivalent to <m>I_n</m>, and in this case, any sequence of row operations that reduces <m>A</m> to <m>I_n</m> also transforms <m>I_n</m> into <m>A^{-1}</m>.</p>
-        </theorem>
-
-        <proof>
-            <p>
-                If <m>A</m> is invertible, then the equation <m>A\vec{x} = \vec{b}</m> has a solution for every <m>\vec{b}</m>, and <m>A</m> has a pivot position in every row (<m>n</m> rows). Since <m>A</m> is square (in particular has <m>n</m> columns), this implies that the pivor positions are on the main diagonal. Thus, the RREF of <m>A</m> is <m>I_n</m>, or <m>A \sim I_n</m>.
-            </p>
-            <p>
-                Conversely, suppose that <m>A \sim I_n</m>. Then, each step in the row reduction of <m>A</m> correspond to left-multiplication by some elementary matrix. Say there are <p>p</p> steps to reduce <m>A</m> to <m>I_n</m>, with corresponding elementary matrices <m>E_1, \dots, E_p</m> such that,
-            </p>
-            <me>
-                A \sim E_1 A \sim E_2 (E_1 A) \sim \cdots \sim E_p(E_{p-1} \cdots E_1 A) = I_n
-            </me>
-            In other words,
-            <me>
-                E_p \cdots E_1 A = I_n
-            </me>
-            In other words, the matrix <m>E_p \cdots E_1</m> multiplies with <m>A</m> to produce the identity $matrix. Thus, <m>A^{-1} = E_p \cdots E_1</m>. Equvialently, <m>A^{-1} = E_p \cdots E_1 I_n</m>, i.e. <m>A^{-1}</m> is obtained by applying <m>E_1, \dots, E_p</m> successively to <m>I_n</m>, in the same sequence requried to transform <m>A</m> to <m>I_n</m>.
-        </proof>
-
-        <p>
-            The previous theorem leads to an algorithm for determining matrix inverses,
-        </p>
-
-        <theorem>
-            <p>To determine the inverse of a square matrix <m>A</m>,</p>
-                <ol>
-                    <li>Form the augmented matrix <m>\begin{bmatrix} A \mid I \end{bmatrix}</m>.</li>
-                    <li>Perform row reduction on the augmented matrix <m>\begin{bmatrix} A \mid I \end{bmatrix}</m></li>
-                    <li>If <m>A</m> is row equivalent to <m>I</m>, then the augmented matrix in RREF will be of the form <m>\begin{bmatrix} I \mid B \end{bmatrix}</m>. Then, <m>B = A^{-1}</m>.</li>
-                    <li>Otherwise, if <m>A</m> is not row equivalent to <m>A</m>, then <m>A</m> does not have an inverse.</li>
-                </ol>
-        </theorem>
-
-        <p>
-            After using this procedure, the result can be verified by checking that <m>AA^{-1} = I</m>.
-        </p>
-
-    </subsection>
-
-    <exercises>
-        <exercise>
-            <statement>
-                In Python, implement a program to compute the inverse of an arbitrary square matrix (this will use the RREF program).
-            </statement>
-        </exercise>
-    </exercises>
 
 </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-08T16:54:50-07:00       *-->
+<!--*       on 2021-07-09T14:59:43-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -129,8 +129,8 @@
 <a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
-<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
@@ -176,10 +176,19 @@ a_{m1} \amp a_{m2} \amp \dots \amp a_{mn}
 <li id="li-36">The plural of matrix is <dfn class="terminology">matrices</dfn>
 </li>
 <li id="li-37">Matrices are typically denoted by capital letters, like \(A, B, C\text{,}\) etc.</li>
-</ul></article><p id="p-26">Note that in \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</p></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
+</ul></article><p id="p-26">Note that in \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</p>
+<article class="definition definition-like" id="definition-8"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
+</h6>A matrix \(A\) is <dfn class="terminology">square</dfn> if it has the same number of rows as columns. In other words, \(A\) is an \(n \times n\) matrix, for some \(n\text{.}\)</article><p id="p-27">Examples will often include \(2 \times 2\) or \(3 \times 3\) matrices. A general \(2 \times 2\) matrix is of the form,</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} a_{22} \end{bmatrix} \qquad \text{or} \qquad A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-28">The latter notation is simpler because it doesn't involve subscripts. However, if there are multiple matrices involved, the former notation can be more practical.</p></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.3.2</span> <span class="title">Augmented Matrix of a System</span>
 </h3>
-<p id="p-27">Consider the linear system,</p>
+<p id="p-29">Consider the linear system,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrrr}
@@ -201,8 +210,8 @@ x_1 \amp - 3x_2 \amp + 4x_3 \amp = \amp -4 \\
 \left[\begin{array}{ccc|c} 1 \amp -3 \amp 4 \amp -4 \\ 3 \amp 0 \amp 7 \amp -8 \\ -4 \amp 6 \amp -1 \amp 7 \end{array}\right]
 \end{equation*}
 </div>
-<article class="definition definition-like" id="definition-8"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
+<article class="definition definition-like" id="definition-9"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span>
 </h6>The <dfn class="terminology">coefficient matrix</dfn> of a linear system is the matrix with entries given by the coefficients of the variables. The <dfn class="terminology">augmented matrix</dfn> is the coefficient matrix with an additional column for the constant terms. The system,<div class="displaymath">
 \begin{alignat*}{3}
 a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1\\
@@ -228,7 +237,7 @@ a_{m1} \amp a_{m2} \amp \dots \amp a_{mn} \amp b_n
 \end{array}\right]}_{\text{augmented matrix}}
 \end{array}
 \end{equation*}
-</div></article><p id="p-28">Quite literally, the augmented matrix results from “augmenting” the constant terms onto the coefficient matrix.</p></section></section></div></main>
+</div></article><p id="p-30">Quite literally, the augmented matrix results from “augmenting” the constant terms onto the coefficient matrix.</p></section></section></div></main>
 </div>
 </body>
 </html>
