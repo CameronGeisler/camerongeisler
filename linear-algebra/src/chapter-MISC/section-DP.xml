@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-DP">
+    <title>The Dot Product</title>
+    <subsection>
+        <title>Dot Product of Vectors</title>
+        <p>
+            Here, we define the <em>dot product</em> of vectors. First, for vectors in <m>\mathbb{R}^2</m>.
+        </p>
+
+        <definition>
+            <p>Let <m>\vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2) \in \mathbb{R}^2</m> be vectors. Then, the <term>dot product</term> of <m>\vec{u}</m> and <m>\vec{v}</m>, denoted by <m>\vec{u} \bullet \vec{v}</m>, is the sum of the products of the corresponding components,</p>
+            <me>
+                \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2}
+            </me>
+        </definition>
+
+        <p>
+            The name <q>dot product</q> comes from the fact that the multiplication is denoted by a dot. The dot product is also called the <term>scalar product</term>, because the product produces a scalar value. It is also called the <term>inner product</term>, for more complicated reasons.
+        </p>
+
+    </subsection>
+
+    <subsection>
+        <title>Properties of the Dot Product</title>
+        <theorem>
+            <p>Let <m>\vec{u}, \vec{v}, \vec{w}</m> be vectors. Then,</p>
+            <ol>
+                <li>Commutative property, <m>\vec{u} \bullet \vec{v} = \vec{v} \bullet \vec{u}</m>.</li>
+                <li>Distributive property, <m>\vec{u} \bullet (\vec{v} + \vec{w}) = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}</m>.</li>
+                <li>Associativity with scalar multiplication, for <m>k \in \mathbb{R}</m>,
+                <me>
+                    (k \vec{u}) \bullet \vec{v} = \vec{u} \bullet (k\vec{v}) = k(\vec{u} \bullet \vec{v})
+                </me></li>
+            </ol>
+        </theorem>
+        <proof>
+            <p>Each of these properties basically follows from the definition of a dot product, and the corresponding properties for real numbers. Let <m>\vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2), \vec{w} = (w_1, w_2)</m>.</p> Then,
+            <ol>
+                <li><md>
+                    <mrow>\vec{u} \bullet \vec{v} \amp = u_1 v_1 + u_2 v_2</mrow>
+                    <mrow>\amp = v_1 u_1 + v_2 u_2</mrow>
+                    <mrow>\amp = \vec{v} \bullet \vec{u}</mrow>
+                </md></li>
+                <li><md>
+                    <mrow>\vec{u} \bullet (\vec{v} + \vec{w}) \amp = (u_1, u_2) \bullet (v_1 + w_1, v_2 + w_2)</mrow>
+                    <mrow>\amp = u_1(v_1 + w_1) + u_2(v_2 + w_2)</mrow>
+                    <mrow>\amp = u_1 v_1 + u_1 w_1 + u_2 v_2 + u_2 w_2</mrow>
+                    <mrow>\amp = \brac{u_1 v_1 + u_2 v_2} + \brac{u_1 w_1 + u_2 w_2}</mrow>
+                    <mrow>\amp = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}</mrow>
+                </md></li>
+                <li><md>
+                    <mrow>(k\vec{u}) \bullet \vec{v} \amp = (ku_1, ku_2) \bullet (v_1, v_2)</mrow>
+                    <mrow>\amp = ku_1 v_1 + ku_2 v_2</mrow>
+                </md>
+                <p>This expression is equal to,</p>
+                <me>
+                    = k\brac{u_1 v_1 + u_2 v_2} = k (\vec{u} \bullet \vec{v})
+                </me>
+                <p>This is also equal to,</p>
+                <me>
+                    = u_1 (k v_1) + u_2 (k v_2) = \vec{u} \bullet (k\vec{v})
+                </me></li>
+            </ol>
+        </proof>
+    </subsection>
+
+    <subsection>
+        <title>Dot Product of a Vector with Itself</title>
+        <p>
+            The dot product also relates to the magnitude of a vector. Consider the dot product of a vector <m>\vec{u} = (u_1, u_2)</m> with itself,
+        </p>
+        <me>
+            \vec{u} \bullet \vec{u} = u_1 u_1 + u_2 u_2 = u_1^2 + u_2^2
+        </me>
+        <p>
+            This is precisely the square of the magnitude of <m>\vec{u}</m>. Thus,
+        </p>
+        <me>
+            \boxed{\abs{\vec{u}} = \sqrt{\vec{u} \bullet \vec{u}}}
+        </me>
+    </subsection>
+
+    <subsection>
+        <title>Alternate Characterization for the Dot Product</title>
+        <definition>
+            <p>Let <m>\vec{u}, \vec{v}</m> be vectors, <m>\theta</m> be the angle between <m>\vec{u}</m> and <m>\vec{v}</m>. Then,</p>
+            <me>
+                \boxed{\vec{u} \bullet \vec{v} = \abs{\vec{u}} \abs{\vec{v}} \cos{\theta}}
+            </me>
+        </definition>
+
+        <p>
+            Here, the <q>angle between <m>\vecA{u}</m> and <m>\vec{v}</m></q> means the smallest angle between the two vectors. This forces <m>\theta</m> to be between 0 and <m>180^{\circ}</m> (or <m>\pi</m> radians).
+        </p>
+        
+        <p>
+            This is an alternate characterization for the dot product, in that we could have instead defined the dot product using this formula, and then show that this definition implies the previous definition.
+        </p>
+
+        <p>
+            The proof of this fact follows from the geometry of triangles, in particular the law of cosines. Applying the law of cosines to a particular triangle of vectors shows the relationship between the dot product and the angle between vectors.
+        </p>
+
+        <proof>
+            <p>From the vectors <m>\vec{u}, \vec{v}</m>, form a triangle by joining the heads of the two vectors to form the vector <m>\vec{u} - \vec{v}</m>. Then, by the law of cosines, we can relate the angle <m>\theta</m> between the vectors <m>\vec{u}, \vec{v}</m> with the lengths of the sides of this triangle (given by the magnitudes of the vectors involved). This gives,</p>
+            <me>
+                \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = \abs{\vec{u} - \vec{v}}^2
+            </me>
+            <p>Then, expanding the right-hand side allows us to rewrite in terms of the dot product,</p>
+            <md>
+                <mrow>\abs{\vec{u} - \vec{v}}^2 \amp = (\vec{u} - \vec{v}) \bullet (\vec{u} - \vec{v})</mrow>
+                <mrow>\amp = (\vec{u} - \vec{v}) \bullet \vec{u} - (\vec{u} - \vec{v}) \bullet \vec{v} \amp\amp \text{by the distributive property}</mrow>
+                <mrow>\amp = \vec{u} \bullet \vec{u} - \vec{v} \bullet \vec{u} - \vec{u} \bullet \vec{v} + \vec{v} \bullet \vec{v}</mrow>
+                <mrow>\amp = \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\vec{u} \bullet \vec{v}</mrow>
+            </md>
+            <p>Then,</p>
+            <md>
+                <mrow>\abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} \amp = \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\vec{u} \bullet \vec{v}</mrow>
+                <mrow>-2 \abs{\vec{u}} \abs{\vec{v}} \cos{\theta} \amp = -2\vec{u} \bullet \vec{v}</mrow>
+                <mrow>\vec{u} \bullet \vec{v} = \abs{\vec{u}} \abs{\vec{v}} \cos{\theta}</mrow>
+            </md>
+            <p>as desired.</p>
+        </proof>
+    </subsection>
+
+    <subsection>
+        <title>Angle Between Vectors</title>
+        <p>
+            The 
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Dot Product and Parallel-ness</title>
+        <p>
+            In particular, if <m>\theta = 90^{\circ}</m>, then
+        </p>
+        <md>
+            <mrow>\vec{u} \bullet \vec{v} \amp = \abs{\vec{u}} \abs{\vec{v}} \underbrace{\cos{90^{\circ}}}_{0}</mrow>
+            <mrow>\amp = 0</mrow>
+        </md>
+        <p>
+            Conversely, if <m>\vec{u} \bullet \vec{v} = 0</m>, then <m>\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = 0</m>. This implies that at least one of <m>\abs{\vec{u}}, \abs{\vec{v}}, \cos{\theta}</m> is 0. If <m>\cos{\theta} = 0</m>, then <m>\theta = 90^{\circ}</m>, and the vectors are perpendicular. If either of <m>\abs{\vec{u}}, \abs{\vec{v}}</m> are 0, then the corresponding vector is the zero vector, and recall that the zero vector is said to be perpendicular to all vectors. In summary,
+        </p>
+        <corollary>
+            <title>Perpendicular if and only if zero dot product</title>
+            <p>Vectors <m>\vec{u}, \vec{v}</m> satisfy <m>\vec{u} \bullet \vec{v} = 0</m> if and only if <m>\vec{u}</m> and <m>\vec{v}</m> are perpendicular.</p>
+        </corollary>
+    </subsection>
+
+    <subsection>
+        <title>Dot Product for Vectors in <m>\mathbb{R}^3</m></title>
+
+        <definition>
+            <p>Let <m>\vec{u} = (u_1, u_2, u_3), \vec{v} = (v_1, v_2, v_3) \in \mathbb{R}^3</m> be vectors. Then, the <term>dot product</term> of <m>\vec{u}</m> and <m>\vec{v}</m> is defined by,</p>
+            <me>
+                \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3}
+            </me>
+        </definition>
+    </subsection>
+
+    <subsection>
+        <title>Dot Product for Vectors in <m>\mathbb{R}^n</m></title>
+
+        <definition>
+            <p>Let <m>\vec{u} = (u_1, \dots, u_n), \vec{v}_1 = (v_1, \dots, v_n) \in \mathbb{R}^n</m> be vectors. Then, the <term>dot product</term> of <m>\vec{u}</m> and <m>\vec{v}</m> is defined by,</p>
+            <me>
+                \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2 \dots + u_n v_n = \sum_{k=1}^n u_k v_k}
+            </me>
+        </definition>
+    </subsection>
+
+    <subsection>
+        <p>
+            The angle between <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m> is given by,
+        </p>
+        <me>
+            \theta = \arccos{\brac{\frac{\vec{x} \bullet \vec{y}}{\abs{\vec{x}} \abs{\vec{y}}}}}
+        </me>
+    </subsection>
+
+</section>

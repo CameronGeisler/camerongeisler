@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chapter-MALT" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Matrices and Linear Transformations</title>
+        <introduction>
+
+        </introduction>
+
+        <xi:include href="./chapter-MALT/section-MO.xml"/>
+        <xi:include href="./chapter-MALT/section-ITLT.xml"/>
+        <xi:include href="./chapter-MALT/section-MALT.xml"/>
+        <xi:include href="./chapter-MALT/section-LTITP.xml"/>
+        <xi:include href="./chapter-MALT/section-MM.xml"/>
+        <xi:include href="./chapter-MALT/section-EM.xml"/>
+        <xi:include href="./chapter-MALT/section-IOAM.xml"/>
+</chapter>

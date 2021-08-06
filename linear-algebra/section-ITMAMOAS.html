@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:43-07:00       *-->
+<!--*       on 2021-08-05T17:20:26-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,13 +55,18 @@
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand{\eval}[1]{\left. #1 \right|}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
 \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
 \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
 
+    
 
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\Image}{Im}
@@ -105,10 +110,7 @@
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
-<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
-<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
-</ul>
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
 </li>
 <li class="link">
 <a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
@@ -116,27 +118,48 @@
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS" class="active">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
 <li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -153,14 +176,14 @@ x \amp + 2y \amp = 5\\
 \begin{equation*}
 \begin{bmatrix} 1 \amp 2 \amp 5 \\ 2 \amp 3 \amp 8 \end{bmatrix}
 \end{equation*}
-</div>This array captures the essential information of the system. That is, the variables in the original system simply act as “placeholders”. As long as we keep track of which columns correspond to which variables, the array contains precisely the same information about the system as its “equation form”. Systems of linear equations can be conveniently and efficiently represented in this way. This kind of rectangular array of numbers is called a <dfn class="terminology">matrix</dfn>.</section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
+</div>This array captures the essential information of the system. That is, the variables in the original system simply act as “placeholders”. As long as we keep track of which columns correspond to which variables, the array contains precisely the same information about the system as its “equation form”. Systems of linear equations can be conveniently and efficiently represented in this way. This kind of rectangular array of numbers is called a <dfn class="terminology">matrix</dfn>.</section><section class="subsection" id="subsection-10"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.3.1</span> <span class="title">Matrices</span>
 </h3>
-<p id="p-23">Broadly, a matrix is a rectangular array of numbers, arranged in (horizontal) rows and (vertical) columns, and within brackets.</p>
+<p id="p-28">Broadly, a matrix is a rectangular array of numbers, arranged in (horizontal) rows and (vertical) columns, and within brackets.</p>
 <article class="definition definition-like" id="definition-7"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
 </h6>
-<p id="p-24">Let \(m, n \in \mathbb{N}\text{.}\) Then, an \(m \times n\) <dfn class="terminology">matrix</dfn> (read as “\(m\) by \(n\) matrix”) is a rectangular array of \(m\) rows and \(n\) columns of real numbers,</p>
+<p id="p-29">Let \(m, n \in \mathbb{N}\text{.}\) Then, an \(m \times n\) <dfn class="terminology">matrix</dfn> (read as “\(m\) by \(n\) matrix”) is a rectangular array of \(m\) rows and \(n\) columns of real numbers,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix}
@@ -171,24 +194,24 @@ a_{m1} \amp a_{m2} \amp \dots \amp a_{mn}
 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-25">Each number \(a_{ij}\) is called an <dfn class="terminology">entry</dfn> (or <dfn class="terminology">coefficient</dfn>, or <dfn class="terminology">element</dfn>) of the matrix. Then, \(a_{ij}\) represents the entry in row \(i\) and column \(j\text{.}\)</p>
+<p id="p-30">Each number \(a_{ij}\) is called an <dfn class="terminology">entry</dfn> (or <dfn class="terminology">coefficient</dfn>, or <dfn class="terminology">element</dfn>) of the matrix. Then, \(a_{ij}\) represents the entry in row \(i\) and column \(j\text{.}\)</p>
 <ul class="disc">
-<li id="li-36">The plural of matrix is <dfn class="terminology">matrices</dfn>
+<li id="li-40">The plural of matrix is <dfn class="terminology">matrices</dfn>
 </li>
-<li id="li-37">Matrices are typically denoted by capital letters, like \(A, B, C\text{,}\) etc.</li>
-</ul></article><p id="p-26">Note that in \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</p>
+<li id="li-41">Matrices are typically denoted by capital letters, like \(A, B, C\text{,}\) etc.</li>
+</ul></article><p id="p-31">Note that in \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</p>
 <article class="definition definition-like" id="definition-8"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
-</h6>A matrix \(A\) is <dfn class="terminology">square</dfn> if it has the same number of rows as columns. In other words, \(A\) is an \(n \times n\) matrix, for some \(n\text{.}\)</article><p id="p-27">Examples will often include \(2 \times 2\) or \(3 \times 3\) matrices. A general \(2 \times 2\) matrix is of the form,</p>
+</h6>A matrix \(A\) is <dfn class="terminology">square</dfn> if it has the same number of rows as columns. In other words, \(A\) is an \(n \times n\) matrix, for some \(n\text{.}\)</article><p id="p-32">Examples will often include \(2 \times 2\) or \(3 \times 3\) matrices. A general \(2 \times 2\) matrix is of the form,</p>
 <div class="displaymath">
 \begin{equation*}
-A = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} a_{22} \end{bmatrix} \qquad \text{or} \qquad A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+A = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \qquad \text{or} \qquad A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-28">The latter notation is simpler because it doesn't involve subscripts. However, if there are multiple matrices involved, the former notation can be more practical.</p></section><section class="subsection" id="subsection-12"><h3 class="heading hide-type">
+<p id="p-33">The latter notation is simpler because it doesn't involve subscripts. However, if there are multiple matrices involved, the former notation can be more practical.</p></section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.3.2</span> <span class="title">Augmented Matrix of a System</span>
 </h3>
-<p id="p-29">Consider the linear system,</p>
+<p id="p-34">Consider the linear system,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrrr}
@@ -237,7 +260,7 @@ a_{m1} \amp a_{m2} \amp \dots \amp a_{mn} \amp b_n
 \end{array}\right]}_{\text{augmented matrix}}
 \end{array}
 \end{equation*}
-</div></article><p id="p-30">Quite literally, the augmented matrix results from “augmenting” the constant terms onto the coefficient matrix.</p></section></section></div></main>
+</div></article><p id="p-35">Quite literally, the augmented matrix results from “augmenting” the constant terms onto the coefficient matrix.</p></section></section></div></main>
 </div>
 </body>
 </html>

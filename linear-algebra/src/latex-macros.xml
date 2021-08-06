@@ -8,13 +8,18 @@
     \renewcommand{\neg}{\sim}
     \newcommand{\brac}[1]{\left( #1 \right)}
     \newcommand{\eval}[1]{\left. #1 \right|}
+
+    <!-- %% Vectors -->
     \renewcommand{\vec}[1]{\mathbf{#1}}
-    \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} %% for augmented matrix
-    
+    \newcommand{\ihat}{\mathbf{\hat{\imath}}}
+    \newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+    \newcommand{\khat}{\mathbf{\hat{k}}}
     \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
     \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
-    
+
+        
     <!-- %% Linear algebra -->
+    \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} %% for augmented matrix
     \DeclareMathOperator{\Ker}{Ker}
     \DeclareMathOperator{\nullity}{nullity}
     \DeclareMathOperator{\Image}{Im}

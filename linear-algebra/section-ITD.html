@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:44-07:00       *-->
+<!--*       on 2021-08-05T17:20:28-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,13 +55,18 @@
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand{\eval}[1]{\left. #1 \right|}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
 \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
 \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
 
+    
 
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\Image}{Im}
@@ -105,10 +110,7 @@
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
-<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
-<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
-</ul>
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
 </li>
 <li class="link">
 <a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
@@ -116,39 +118,60 @@
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
 <li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD" class="active">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-ITD"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Introduction to Determinants</span>
+<span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Introduction to Determinants</span>
 </h2>
-<section class="introduction" id="introduction-17">The determinant is a number associated with a matrix, which provides information about its invertibility, as well as information about its associated linear transformation. More precisely, the determinant in an operation (or function) on a matrix, i.e. whose input is a matrix, and output is a real number.</section><section class="subsection" id="subsection-69"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">4.1.1</span> <span class="title">Determinants</span>
+<section class="introduction" id="introduction-24">The determinant is a number associated with a matrix, which provides information about its invertibility, as well as information about its associated linear transformation. More precisely, the determinant in an operation (or function) on a matrix, i.e. whose input is a matrix, and output is a real number.</section><section class="subsection" id="subsection-95"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.1</span> <span class="title">Determinants</span>
 </h3>
-<p id="p-255">There are a few motivations for the determinant. One is as a criterion for invertibility of a matrix, which recall is equivalent to a corresponding system of equations having a unique solution. In particular, a matrix \(A\) is invertible if and only if the system of equations \(A\vec{x} = \vec{b}\) has a unique solution.</p>
-<p id="p-256">First, consider the most basic case, of a \(1 \times 1\) matrix, of the form \(A = \begin{bmatrix} a \end{bmatrix}\text{,}\) which corresponds to the coefficient matrix of the single-equation system,</p>
+<p id="p-465">There are a few motivations for the determinant. One is as a criterion for invertibility of a matrix, which recall is equivalent to a corresponding system of equations having a unique solution. In particular, a matrix \(A\) is invertible if and only if the system of equations \(A\vec{x} = \vec{b}\) has a unique solution.</p>
+<p id="p-466">First, consider the most basic case, of a \(1 \times 1\) matrix, of the form \(A = \begin{bmatrix} a \end{bmatrix}\text{,}\) which corresponds to the coefficient matrix of the single-equation system,</p>
 <div class="displaymath">
 \begin{equation*}
 ax = b
@@ -157,11 +180,11 @@ ax = b
 \begin{equation*}
 \begin{bmatrix} a \end{bmatrix} \begin{bmatrix} x \end{bmatrix} = \begin{bmatrix} b \end{bmatrix}
 \end{equation*}
-</div>The inverse of \(A\) is the matrix \(A^{-1} = \begin{bmatrix} \frac{1}{a} \end{bmatrix}\text{,}\) provided that \(a \neq 0\text{.}\) Equivalently, the unique solution to the “system” is \(x = \frac{b}{a}\text{,}\) again provided that \(a \neq 0\text{.}\) <p id="p-257">In general, we will define the determinant in such a way so that a matrix is invertible if and only if its determinant is non-zero. In this way, we define the determinant of a \(1 \times 1\) matrix as the entry itself.</p>
-<article class="definition definition-like" id="definition-35"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
+</div>The inverse of \(A\) is the matrix \(A^{-1} = \begin{bmatrix} \frac{1}{a} \end{bmatrix}\text{,}\) provided that \(a \neq 0\text{.}\) Equivalently, the unique solution to the “system” is \(x = \frac{b}{a}\text{,}\) again provided that \(a \neq 0\text{.}\) <p id="p-467">In general, we will define the determinant in such a way so that a matrix is invertible if and only if its determinant is non-zero. In this way, we define the determinant of a \(1 \times 1\) matrix as the entry itself.</p>
+<article class="definition definition-like" id="definition-52"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
 </h6>
-<p id="p-258">For a \(1 \times 1\) matrix \(A = \begin{bmatrix} a \end{bmatrix}\text{,}\) the <dfn class="terminology">determinant</dfn> of \(A\) is \(\det{A} = a\text{.}\)</p></article><p id="p-259">For a \(2 \times 2\) matrix, of the form,</p>
+<p id="p-468">For a \(1 \times 1\) matrix \(A = \begin{bmatrix} a \end{bmatrix}\text{,}\) the <dfn class="terminology">determinant</dfn> of \(A\) is \(\det{A} = a\text{.}\)</p></article><p id="p-469">For a \(2 \times 2\) matrix, of the form,</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
@@ -175,37 +198,37 @@ c x_1 + d x_2 \amp = y_2
 \begin{equation*}
 x_1 = \frac{1}{\Delta}(d y_1 - b y_2) \qquad x_2 = \frac{1}{\Delta}(ay_2 - cy_1) 
 \end{equation*}
-</div>provided that \(\Delta = ad - bc \neq 0\text{.}\) This “difference of the products of the diagonals” we will define as the determinant of a \(2 \times 2\) matrix. <article class="definition definition-like" id="definition-36"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
+</div>provided that \(\Delta = ad - bc \neq 0\text{.}\) This “difference of the products of the diagonals” we will define as the determinant of a \(2 \times 2\) matrix. <article class="definition definition-like" id="definition-53"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span>
 </h6>
-<p id="p-260">For a \(2 \times 2\) matrix \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\text{,}\) the <dfn class="terminology">determinant</dfn> of \(A\text{,}\) \(\det{A}\text{,}\) is defined by,</p>
+<p id="p-470">For a \(2 \times 2\) matrix \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\text{,}\) the <dfn class="terminology">determinant</dfn> of \(A\text{,}\) \(\det{A}\text{,}\) is defined by,</p>
 <div class="displaymath">
 \begin{equation*}
 \det{A} = ad - bc
 \end{equation*}
-</div></article><p id="p-261">Note that we are using “functional notation” \(\det{A}\) for the determinant of \(A\text{,}\) treating “\(\det\)” as a function with argument “\(A\)”. When writing the matrix explcitly, we could write,</p>
+</div></article><p id="p-471">Note that we are using “functional notation” \(\det{A}\) for the determinant of \(A\text{,}\) treating “\(\det\)” as a function with argument “\(A\)”. When writing the matrix explcitly, we could write,</p>
 <div class="displaymath">
 \begin{equation*}
 \det{\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}} = ad - bc
 \end{equation*}
 </div>
-<p id="p-262">Determinants are also denoted with vertical bars, as</p>
+<p id="p-472">Determinants are also denoted with vertical bars, as</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc
 \end{equation*}
 </div>
-<p id="p-263">Intuitively, this can be thought of in some sense as a “magnitude” of the matrix, as we will see later.</p></section><section class="subsection" id="subsection-70"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">4.1.2</span> <span class="title">Determinants of \(3 \times 3\) Matrices</span>
+<p id="p-473">Intuitively, this can be thought of in some sense as a “magnitude” of the matrix, as we will see later.</p></section><section class="subsection" id="subsection-96"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.2</span> <span class="title">Determinants of \(3 \times 3\) Matrices</span>
 </h3>
-<p id="p-264">For \(3 \times 3\) matrices and larger, determinants become more complex. Let \(A\) be a \(3 \times 3\) matrix,</p>
+<p id="p-474">For \(3 \times 3\) matrices and larger, determinants become more complex. Let \(A\) be a \(3 \times 3\) matrix,</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
 a_{21} \amp a_{22} \amp a_{23} \\
 a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
 \end{equation*}
-</div>Similarly, we want to define the determinant as a number depending on the entries of the matrix, which is equal to zero precisely when the matrix is not invertible. <p id="p-265">Suppose that \(A\) is invertible. Then, we want to determine what restrictions this places on the entries of \(A\text{,}\) through the row reduction of \(A\text{.}\) First, recall that \(A\) being invertible implies that \(A\) is row equivalent to \(I\text{,}\) and (since \(A\) is square) \(A\) has a pivot in every row and column. Then, first, there is at least one non-zero entry in the first column. Without loss of generality, assume that \(a_{11} \neq 0\) (otherwise, row interchange to get a pivot in the first row). Then, multiply rows 2 and 3 by \(a_{11}\text{,}\) and subtract suitable multiples of row 1, to get,</p>
+</div>Similarly, we want to define the determinant as a number depending on the entries of the matrix, which is equal to zero precisely when the matrix is not invertible. <p id="p-475">Suppose that \(A\) is invertible. Then, we want to determine what restrictions this places on the entries of \(A\text{,}\) through the row reduction of \(A\text{.}\) First, recall that \(A\) being invertible implies that \(A\) is row equivalent to \(I\text{,}\) and (since \(A\) is square) \(A\) has a pivot in every row and column. Then, first, there is at least one non-zero entry in the first column. Without loss of generality, assume that \(a_{11} \neq 0\) (otherwise, row interchange to get a pivot in the first row). Then, multiply rows 2 and 3 by \(a_{11}\text{,}\) and subtract suitable multiples of row 1, to get,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
@@ -215,15 +238,15 @@ a_{11} a_{31} \amp a_{11} a_{32} \amp a_{11} a_{33} \end{bmatrix} \sim \begin{bm
 0 \amp a_{11} a_{32} - a_{12} a_{31} \amp a_{11} a_{33} - a_{13} a_{31} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-266">Notice that we normally would have instead done,</p>
+<p id="p-476">Notice that we normally would have instead done,</p>
 <div class="displaymath">
 \begin{align*}
 R_2 - \frac{a_{21}}{a_{11}} R_1 \amp \longrightarrow R_2\\
 R_3 - \frac{a_{31}}{a_{11}} R_1 \amp \longrightarrow R_3
 \end{align*}
 </div>
-<p id="p-267">which also obtains 0's below the first pivot. However, these row operations leads to fractional entries, which just makes the computations more complicated.</p>
-<p id="p-268">Next, again since \(A\) has a pivot in every column, at least one of the \((2,2)\)-entry or the \((3,2)\)-entry is non-zero. Without loss of generality, assume that the \((2,2)\)-entry is non-zero (otherwise, use a row interchange). Then, to obtain a 0 in the \((3,2)\)-entry, multiply row 3 by \(a_{11} a_[22} - a_{12} a_{21}\text{,}\) and add \(-(a_{11} a_{32} - a_{23} a_{31})\) times row 2 to row 3. This results in,</p>
+<p id="p-477">which also obtains 0's below the first pivot. However, these row operations leads to fractional entries, which just makes the computations more complicated.</p>
+<p id="p-478">Next, again since \(A\) has a pivot in every column, at least one of the \((2,2)\)-entry or the \((3,2)\)-entry is non-zero. Without loss of generality, assume that the \((2,2)\)-entry is non-zero (otherwise, use a row interchange). Then, to obtain a 0 in the \((3,2)\)-entry, multiply row 3 by \(a_{11} a_[22} - a_{12} a_{21}\text{,}\) and add \(-(a_{11} a_{32} - a_{23} a_{31})\) times row 2 to row 3. This results in,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
@@ -231,7 +254,7 @@ R_3 - \frac{a_{31}}{a_{11}} R_1 \amp \longrightarrow R_3
 0 \amp (a_{11} a_{32} - a_{12} a_{31})(a_{11} a_{22} - a_{12} a_{21}) \amp (a_{11} a_{33} - a_{13} a_{31})(a_{11} a_{22} - a_{12} a_{21}) \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-269">and finally,</p>
+<p id="p-479">and finally,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
@@ -239,29 +262,33 @@ R_3 - \frac{a_{31}}{a_{11}} R_1 \amp \longrightarrow R_3
 0 \amp 0 \amp (a_{11} a_{33} - a_{13} a_{31})(a_{11} a_{22} - a_{12} a_{21}) - (a_{11} a_{32} - a_{12} a_{31})(a_{11} a_{23} - a_{13} a_{21}) \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-270">Then, this matrix is row equivalent to \(I\) only if the \((3,3)\)-entry is non-zero. In other words, the following expression is non-zero,</p>
+<p id="p-480">Then, this matrix is row equivalent to \(I\) only if the \((3,3)\)-entry is non-zero. In other words, the following expression is non-zero,</p>
 <div class="displaymath">
 \begin{align*}
 \amp (a_{11} a_{33} - a_{12} a_{21})(a_{11} a_{22} - a_{12} a_{21}) - (a_{11} a_{22} - a_{12} a_{21})(a_{11} a_{23} - a_{12} a_{21})\\
 \amp = a_{11} \brac{a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} - a_{13} a_{22} a_{31}} \neq 0
 \end{align*}
 </div>
-<p id="p-271">By assumption, \(a_{11} \neq 0\text{,}\) so this entry is non-zero if and only if the other factor is non-zero,</p>
+<p id="p-481">By assumption, \(a_{11} \neq 0\text{,}\) so this entry is non-zero if and only if the other factor is non-zero,</p>
 <div class="displaymath">
 \begin{equation*}
 a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} - a_{13} a_{22} a_{31} \neq 0
 \end{equation*}
 </div>
-<p id="p-272">It turns out that the converse is also true, that if this quantity is non-zero, then the matrix \(A\) is invertible. For now,</p>
-<article class="definition definition-like" id="definition-37"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
+<p id="p-482">It turns out that the converse is also true, that if this quantity is non-zero, then the matrix \(A\) is invertible. For now,</p>
+<article class="definition definition-like" id="definition-54"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span>
 </h6>
-<p id="p-273">Let \(A\) be a \(3 \times 3\) matrix. Then, the <dfn class="terminology">determinant</dfn> of \(A\text{,}\) \(\det{A}\text{,}\) is defined by,</p>
+<p id="p-483">Let \(A\) be a \(3 \times 3\) matrix. Then, the <dfn class="terminology">determinant</dfn> of \(A\text{,}\) \(\det{A}\text{,}\) is defined by,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\det{A} = a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33} - a_{13} a_{22} a_{31}}
 \end{equation*}
-</div></article><p id="p-274">This definition is notationally complex and difficult to remember, so there are multiple alternate interpretations which make hand computations easier.</p></section></section></div></main>
+</div></article><p id="p-484">This definition is notationally complex and difficult to remember, so there are multiple alternate interpretations which make hand computations easier.</p>
+<p id="p-485">One pattern is that this is a combination of 6 terms, and each term is a product of 3 entries in the matrix, of one entry from each row and each column.</p></section><section class="subsection" id="subsection-97"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.3</span> <span class="title">Determinants of Larger Matrices</span>
+</h3>
+<p id="p-486">In general, computing determinants is difficult.</p></section></section></div></main>
 </div>
 </body>
 </html>

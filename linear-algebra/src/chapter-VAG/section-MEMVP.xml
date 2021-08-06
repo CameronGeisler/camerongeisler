@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-MEMVP">
+    <title>Matrix Equations, Matrix-Vector Product</title>
+
+    <introduction>
+        Next, we will combine matrices and vectors, in order to write a system of linear equations as an equation relating matrices and vectors.
+    </introduction>
+
+    <subsection>
+        <title>Product of a Matrix with a Vector</title>
+
+    <definition>
+        Let <m>A = \begin{bmatrix} a_{ij} \end{bmatrix}</m> be an <m>m \times n</m> matrix, <m>\vec{x} \in \mathbb{R}^n</m> be a vector, <m>\vec{x} = (x_1, \dots, x_n)</m>. Then, the <term>product</term> of <m>A</m> and <m>\vec{x}</m>, is the vector defined by,
+        <me>
+            \boxed{A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + a_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} = \begin{bmatrix} \sum_{k=1}^n a_{1k} x_k \\ \sum_{k=1}^n a_{2k} x_k \\ \vdots \\ \sum_{k=1}^n a_{mk} x_k \end{bmatrix}}
+        </me>
+    </definition>
+
+    <p>
+        In general, to detemrine the <m>i</m>th entry of the vector <m>A\vec{x}</m>, compute the <q>product</q> of the <m>i</m>th row of <m>A</m>, and <m>\vec{x}</m>, as,
+    </p>
+    <me>
+        \begin{bmatrix} a_{i1} \amp a_{i2} \amp \dots \amp a_{in} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} a_{i1} x_1 + a_{i2} x_2 + \dots + a_{in} x_n \end{bmatrix}
+    </me>
+
+    <p>
+        This operation, of multiplying two vectors of matching lengths to produce a single number (in particular a row vector and a column vector), is called a <term>dot product</term>, of the two vectors. More generally, for vectors <m>\vec{a} = (a_1, \dots, a_n), \vec{b} = (b_1, \dots, b_n)</m>,
+    </p>
+
+    <me>
+        \boxed{\begin{bmatrix} a_1 \amp a_2 \amp \dots \amp a_n \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix} = a_1 b_1 + a_2 b_2 + \dots + a_n b_n}
+    </me>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Form of a Linear System</title>
+    <p>
+        Multiplication of a matrix and a vector is precisely defined as to align with systems of equations. In particular, for the system of equations,
+    </p>
+    <md alignment="alignat">
+        <mrow>a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1</mrow>
+        <mrow>a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2</mrow>
+        <mrow>\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots</mrow>
+        <mrow>a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_n</mrow>
+    </md>
+    we define,
+    <me>
+        \underbrace{A = \begin{bmatrix}
+        a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
+        a_{21} \amp a_{22} \amp \dots \amp a_{2n} \\
+        \vdots \amp \vdots \amp \ddots \amp \vdots \\
+        a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
+        \end{bmatrix}}_{\text{matrix of coefficients}}
+        \qquad
+        \underbrace{\vec{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}}_{\text{vector of unknowns}} \qquad \underbrace{\vec{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}}_{\text{constant vector}}
+    </me>
+    Then, the system can be represented compactly in the form <m>A\vec{x} = \vec{b}</m>. This matrix form captures all of the information of the linear system.
+    </subsection>
+
+    <subsection>
+        <title>Linear Combination Interpretation</title>
+
+        <p>
+            From the previous definition of a matrix-vector product, we can expand out the product as,
+            <md>
+                <mrow>A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + x_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} \amp = \begin{bmatrix} a_{11} x_1 \\ a_{21} x_1 \\ \vdots \\ a_{m1} x_1 \end{bmatrix} + \begin{bmatrix} a_{12} x_2 \\ a_{22} x_2 \\ \vdots \\ a_{m2} x_2 \end{bmatrix} + \dots + \begin{bmatrix} a_{1n} x_n \\ a_{2n} x_n \\ \vdots \\ a_{mn} x_n \end{bmatrix}</mrow>
+                <mrow>\amp = x_1 \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{bmatrix} + x_2 \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{bmatrix} + \dots + x_n \begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn} x_n \end{bmatrix}</mrow>
+            </md>
+        </p>
+        
+        In this way, the product <m>A\vec{x}</m> is precisely a linear combination of the columns of <m>A</m>, with weights given by the entries of <m>\vec{x}</m>. In summary,
+
+        <theorem>
+            <p>
+                The product <m>A\vec{x}</m> is the linear combination of the columns of <m>A</m> with the corresponding entries of <m>\vec{x}</m> as weights. More precisely, if <m>A = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \cdots \amp \vec{a}_n \end{bmatrix}</m>, and <m>\vec{x} = (x_1, \dots, x_n)</m>, then,
+            </p>
+            <me>
+                \boxed{A \vec{x} = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \cdots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = x_1 \vec{a}_1 + \dots + x_n \vec{a}_n}
+            </me>
+        </theorem>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Equations as Linear Systems</title>
+        <p>
+            This provides yet another interpretation of linear systems.
+        </p>
+        
+        <theorem>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix with columns <m>\vec{a}_1, \dots, \vec{a}_n</m>, and let <m>\vec{b} \in \mathbb{R}^m</m>. Then, the matrix equation <m>A\vec{x} = \vec{b}</m> has precisely the same solution set as the system of linear equations whose augmented matrix is,
+            <me>
+                \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+            </me></p>
+        </theorem>
+
+        <corollary>
+            <p>
+                The equation <m>A\vec{x} = \vec{b}</m> has a solution if and only if <m>\vec{b}</m> is a linear combination of the columns of <m>A</m>.
+            </p>
+        </corollary>
+
+        <!-- <p>
+            In summary,
+        </p>
+
+        <theorem>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix. Then, the following are equivalent:</p>
+            <ol>
+                <li>The equation <m>A\vec{x} = \vec{b}</m> has a solution for every <m>\vec{b} \in \mathbb{R}^m</m></li>
+                <li>Every <m>\vec{b} \in \mathbb{R}^m</m> can be written as a linear combination of the columns of <m>A</m></li>
+                <li>The matrix <m>A</m> has a pivot position in every row.</li>
+            </ol>            
+        </theorem> -->
+    </subsection>
+
+    <subsection>
+        <title>The Identity Matrix</title>
+        <p>
+            Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. We say that 1 is the <em>multiplicative identity</em> for real numbers, and that <m>a \cdot 1 = a</m> for all <m>a \in \mathbb{R}</m>. Similarly, we can define a matrix which, when multiplied by any vector, leaves it unchanged. This matrix is called an <em>identity matrix</em>.
+        </p>
+
+        <definition>
+            An <term>identity matrix</term> is a square matrix with 1's along the main diagonal (from top left to bottom right) and 0's everywhere else. In particular, the <m>n \times n</m> identity matrix is denoted by <m>I_n</m>, and is given by,
+            <me>
+                I_n = \begin{bmatrix} 1 \amp 0 \amp \dots \amp 0 \\ 0 \amp 1 \amp \dots \amp 0 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp \dots \amp 1 \end{bmatrix}
+            </me>
+        </definition>
+
+        <p>
+            For example, the <m>2 \times 2</m> identity matrix <m>I_2</m> and the <m>3 \times 3</m> identity matrix <m>I_3</m> are given by,
+        </p>
+        <me>
+            I_2 = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \qquad I_3 = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+        </me>
+
+        <p>
+            The identity matrix acts as a <em>multiplicative identity</em>, in that it has the property that <m>I_n \vec{x} = \vec{x}</m> for all <m>\vec{x} \in \mathbb{R}^n</m>. Indeed, for example,
+        </p>
+        <me>
+            I_2 \vec{x} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \vec{x}
+        </me>
+    </subsection>
+
+    <subsection>
+        <title>Properties of the Matrix-Vector Product</title>
+
+        <theorem>
+            <p>
+                Let <m>A</m> be an <m>m \times n</m> matrix, <m>\vec{u}, \vec{v} \in \mathbb{R}^n</m> be vectors, <m>c \in \mathbb{R}</m> be a scalar. Then,
+            </p>
+            <ol>
+                <li><m>A(\vec{u} + \vec{v}) = A\vec{u} + A\vec{v}</m></li>
+                <li><m>A(c\vec{u}) = c(A\vec{u})</m></li>
+            </ol>
+        </theorem>
+
+        <proof>
+            <title>Proof of <m>2 \times 2</m> case</title>
+            Let <m>A = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix}, \vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2)</m>. Then,
+            <md>
+                <mrow>A(\vec{u} + \vec{v}) \amp = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix} \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \end{bmatrix}</mrow>
+                <mrow>\amp = (u_1 + v_1) \vec{a}_1 + (u_2 + v_2) \vec{a}_2</mrow>
+                <mrow>\amp = u_1 \vec{a}_1 + v_1 \vec{a}_1 + u_2 \vec{a}_2 + v_2 \vec{a}_2</mrow>
+                <mrow>\amp = \brac{u_1 \vec{a}_1 + u_2 \vec{a}_2} + \brac{v_1 \vec{a}_1 + v_2 \vec{a}_2}</mrow>
+                <mrow>\amp = A\vec{u} + A\vec{v}</mrow>
+            </md>
+            Also,
+            <md>
+                <mrow>A(c\vec{u}) \amp = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix} \begin{bmatrix} cu_1 \\ cu_2 \end{bmatrix}</mrow>
+                <mrow>\amp = cu_1 \vec{a}_1 + cu_2 \vec{a}_2</mrow>
+                <mrow>\amp = c\brac{u_1 \vec{a}_1 + u_2 \vec{a}_2}</mrow>
+                <mrow>\amp = c (A\vec{u})</mrow>
+            </md>
+        </proof>
+
+        <proof>
+            <title>Proof of general case</title>
+            Let <m>A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}, \vec{u} = (u_1, \dots, u_n), \vec{v} = (v_1, \dots, v_n)</m>. Then,
+            <md>
+                <mrow>A(\vec{u} + \vec{v}) \amp = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} u_1 + v_1 \\ \vdots \\ u_n + v_n \end{bmatrix}</mrow>
+                <mrow>\amp = (u_1 + v_1) \vec{a}_1 + \dots + (u_n + v_n) \vec{a}_n</mrow>
+                <mrow>\amp = u_1 \vec{a}_1 + \dots + u_n \vec{a}_n + v_1 \vec{a}_1 + \dots + v_n \vec{a}_n</mrow>
+                <mrow>\amp = A\vec{u} + A\vec{v}</mrow>
+            </md>
+            Also,
+            <md>
+                <mrow>A(c\vec{u}) \amp = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} cu_1 \\ \vdots \\ cu_n \end{bmatrix}</mrow>
+                <mrow>\amp = cu_1 \vec{a}_1 + \dots + cu_n \vec{a}_n</mrow>
+                <mrow>\amp = c\brac{u_1 \vec{a}_1 + \dots + u_n \vec{a}_n}</mrow>
+                <mrow>\amp = c(A\vec{u})</mrow>
+            </md>
+        </proof>
+    </subsection>
+</section>

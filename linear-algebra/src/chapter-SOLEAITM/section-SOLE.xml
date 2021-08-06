@@ -21,7 +21,7 @@
         </p>
     </introduction>
 
-    <subsection xml:id="subsection-intro-to-systems-of-linear-equations">
+    <subsection>
         <title>Introduction to Systems of Linear Equations</title>
         <p>
             Recall that in algebra, the degree of a term is the sum of the powers of the variables it contains. For example, <m>5x^2</m> has degree 2, <m>4xyz</m> has degree 3, and <m>x</m> has degree 1. A linear equation, broadly, is an equation where every term has degree at most 1. Here, we define a general linear equation in <m>n</m> variables.
@@ -34,7 +34,7 @@
     </definition>
 
     <p>
-        Most considered examples will contain somewhere from 2-5 variables (i.e. <m>n = 2, \dots, 5</m>). However, most real-life applications of linear algebra contain hundreds or thousands of variables.
+        Most considered examples will contain somewhere from 2-5 variables (i.e. <m>n = 2, \dots, 5</m>). However, most modern real-life applications of linear algebra contain hundreds or thousands of variables.
     </p>
 
     <note>
@@ -54,7 +54,9 @@
         </p>
     </definition>
 
-    Here, the coefficients <m>a_{ij}</m> are written using <em>double subscript</em> notation. Here, <m>a_{ij}</m> represents the coefficients of <m>x_j</m> in the <m>i</m>th equation. The first subscript represents the equation number, and the second represents the number of the variable that it is a coefficient of.
+    <p>
+        Here, the coefficients <m>a_{ij}</m> are written using <em>double subscript</em> notation. Here, <m>a_{ij}</m> represents the coefficients of <m>x_j</m> in the <m>i</m>th equation. The first subscript represents the equation number, and the second represents the number of the variable that it is a coefficient of.
+    </p>
 
     <p>
         <ul>
@@ -68,7 +70,7 @@
 
     </subsection>
 
-    <subsection xml:id="systems-of-two-linear-equations-in-two-variables">
+    <subsection>
         <title>Systems of Two Linear Equations In Two Variables</title>
         <p>
             A system of two linear equations in two variables is of the form,
@@ -94,6 +96,10 @@
                     Coincide (overlap each other), and so intersect infinitely many times.
                 </li>
             </ul>
+        </p>
+
+        <p>
+            Graphing both lines to solve the system is sometimes called the <term>row picture</term>, because it considers each equation (each <q>row</q>) of the system.
         </p>
 
         <p>

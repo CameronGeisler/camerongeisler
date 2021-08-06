@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:43-07:00       *-->
+<!--*       on 2021-08-05T17:20:27-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,13 +55,18 @@
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand{\eval}[1]{\left. #1 \right|}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
 \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
 \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
 
+    
 
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\Image}{Im}
@@ -96,19 +101,16 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-MEMVP.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-LI.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-MEMVP.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-VAG.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-MALT.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-MEMVP.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-SOLEAITM.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-LI.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-MEMVP.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-VAG.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-MALT.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
-<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
-<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
-</ul>
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
 </li>
 <li class="link">
 <a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
@@ -116,65 +118,86 @@
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE" class="active">Solution Sets of Linear Equations</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE" class="active">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
 <li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-SSOLE"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2.7</span> <span class="title">Solution Sets of Linear Equations</span>
+<span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Solution Sets of Linear Equations</span>
 </h2>
-<section class="subsection" id="subsection-37"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.7.1</span> <span class="title">Homogeneous Systems</span>
+<section class="subsection" id="subsection-46"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.5.1</span> <span class="title">Homogeneous Systems</span>
 </h3>
-<article class="definition definition-like" id="definition-23"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.7.1</span><span class="period">.</span>
-</h6>A system of linear equations is <dfn class="terminology">homogeneous</dfn> if it can be written in the form \(A\vec{x} = \vec{0}\text{,}\) where \(A\) is an \(m \times n\) matrix and \(\vec{0}\) is the zero vector in \(\mathbb{R}^m\text{.}\) Otherwise, a system \(A\vec{x} = \vec{b}\) is said to be <dfn class="terminology">non-homogeneous</dfn>.</article><p id="p-94">Homogeneous systems always have at least one solution (that is, they are always consistent), in particular the solution \(\vec{x} = \vec{0}\text{,}\) often called the <dfn class="terminology">trivial</dfn> solution. Then, we want to consider whether \(A\vec{x} = \vec{0}\) has any <dfn class="terminology">non-trivial</dfn> solutions, that is, solutions \(\vec{x}\) which are not the zero vector.</p>
-<p id="p-95">Recall that if a system is consistent, then it has a unique solution if the REF of its augmented matrix has no free variables, and it has infinitely many solution if there at least one free variable. Then, for homogeneous systems,</p>
-<article class="theorem theorem-like" id="theorem-8"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.7.2</span><span class="period">.</span>
-</h6>
-<p id="p-96">The homogeneous system \(A\vec{x} = \vec{0}\) has a non-trivial solution if and only if the system has at least one free variable.</p></article><p id="p-97">The solution set of a homogeneous equation can always be written as the span of some collection of vectors. If the system has no non-trivial solutions, then the solution set is \(\Span{\vec{0}} = \vec{0}\text{.}\)</p></section><section class="subsection" id="subsection-38"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.7.2</span> <span class="title">Non-homogeneous Systems</span>
-</h3>
+<article class="definition definition-like" id="definition-29"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
+</h6>A system of linear equations is <dfn class="terminology">homogeneous</dfn> if it can be written in the form \(A\vec{x} = \vec{0}\text{,}\) where \(A\) is an \(m \times n\) matrix and \(\vec{0}\) is the zero vector in \(\mathbb{R}^m\text{.}\) Otherwise, a system \(A\vec{x} = \vec{b}\) is said to be <dfn class="terminology">non-homogeneous</dfn>.</article><p id="p-191">Homogeneous systems always have at least one solution (that is, they are always consistent), in particular the solution \(\vec{x} = \vec{0}\text{,}\) often called the <dfn class="terminology">trivial</dfn> solution. Then, we want to consider whether \(A\vec{x} = \vec{0}\) has any <dfn class="terminology">non-trivial</dfn> solutions, that is, solutions \(\vec{x}\) which are not the zero vector.</p>
+<p id="p-192">Recall that if a system is consistent, then it has a unique solution if the REF of its augmented matrix has no free variables, and it has infinitely many solution if there at least one free variable. Then, for homogeneous systems,</p>
 <article class="theorem theorem-like" id="theorem-9"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.7.3</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
 </h6>
-<p id="p-98">Let \(A\vec{x} = \vec{b}\) be a linear system, which is consistent with solution \(\vec{v}_p\text{.}\) Then, the solution set of \(A\vec{x} = \vec{b}\) is the set of all vectors of the form \(\vec{v} = \vec{v}_p + \vec{v}_h\text{,}\) where \(\vec{v}_h\) is any solution of the associated homogeneous system.</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-99">If \(\vec{v}_p\) is a solution of \(A\vec{x} = \vec{b}\text{,}\) and \(\vec{v}_h\) is a solution of the associated homogeneous system, then \(A\vec{v}_p = \vec{b}\) and \(A\vec{v}_h = \vec{0}\text{.}\) Then,</p>
+<p id="p-193">The homogeneous system \(A\vec{x} = \vec{0}\) has a non-trivial solution if and only if the system has at least one free variable.</p></article><p id="p-194">The solution set of a homogeneous equation can always be written as the span of some collection of vectors. If the system has no non-trivial solutions, then the solution set is \(\Span{\vec{0}} = \vec{0}\text{.}\)</p> s</section><section class="subsection" id="subsection-47"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.5.2</span> <span class="title">Non-homogeneous Systems</span>
+</h3>
+<article class="theorem theorem-like" id="theorem-10"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span>
+</h6>
+<p id="p-195">Let \(A\vec{x} = \vec{b}\) be a linear system, which is consistent with solution \(\vec{v}_p\text{.}\) Then, the solution set of \(A\vec{x} = \vec{b}\) is the set of all vectors of the form \(\vec{v} = \vec{v}_p + \vec{v}_h\text{,}\) where \(\vec{v}_h\) is any solution of the associated homogeneous system.</p></article><article class="hiddenproof" id="proof-4"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><p id="p-196">If \(\vec{v}_p\) is a solution of \(A\vec{x} = \vec{b}\text{,}\) and \(\vec{v}_h\) is a solution of the associated homogeneous system, then \(A\vec{v}_p = \vec{b}\) and \(A\vec{v}_h = \vec{0}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{align*}
 A(\vec{v}_p + \vec{v}_h) \amp = \underbrace{A\vec{v}_p}_{=\vec{b}} + \underbrace{A\vec{v}_h}_{=\vec{0}}\\
 \amp = \vec{b} + \vec{0}\\
 \amp = \vec{b}
 \end{align*}
-</div></article></div></section><section class="subsection" id="subsection-39"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">2.7.3</span> <span class="title">Solving a Consistent System in Parametric Vector Form</span>
+</div></article></div></section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.5.3</span> <span class="title">Solving a Consistent System in Parametric Vector Form</span>
 </h3>
 <ol class="decimal">
-<li id="li-79">Use row reduction to convert the augmented matrix to RREF.</li>
-<li id="li-80">Solve for each basic variable in terms of any free variables.</li>
-<li id="li-81">Write a typical solution \(\vec{x}\) as a vector which depends on any free variables</li>
-<li id="li-82">Decompose \(\vec{x}\) into a linear combination of vectors with only numerical entries, and use free variables as parameters.</li>
+<li id="li-84">Use row reduction to convert the augmented matrix to RREF.</li>
+<li id="li-85">Solve for each basic variable in terms of any free variables.</li>
+<li id="li-86">Write a typical solution \(\vec{x}\) as a vector which depends on any free variables</li>
+<li id="li-87">Decompose \(\vec{x}\) into a linear combination of vectors with only numerical entries, and use free variables as parameters.</li>
 </ol></section></section></div></main>
 </div>
 </body>

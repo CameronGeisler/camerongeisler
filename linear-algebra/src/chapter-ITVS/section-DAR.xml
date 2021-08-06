@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-DAR">
+    <title>Dimension and Rank</title>
+
+    <introduction>
+        <p>
+            It turns out that if a subspace <m>H</m> has a basis consisting of <m>p</m> vectors, then every basis of <m>H</m> must contain exactly <m>p</m> vectors. This number <m>p</m> is called the <em>dimension</em> of <m>H</m>.
+        </p>
+    </introduction>
+
+    <subsection>
+        <title>Dimension of a Subspace</title>
+        <definition>
+            <p>The <term>dimension</term> of a non-zero subspace <m>H</m>, denoted by <m>\dim{H}</m>, is the number of vectors in any basis of <m>H</m>. The dimension of the zero subspace <m>\set{0}</m> is defined to be 0.</p>
+        </definition>
+
+        <example>
+            <title>The space <m>\mathbb{R}^n</m></title>
+            <p>
+                Intuitively, the vector space <m>\mathbb{R}^n</m> has dimension <m>n</m>. Recall that the standard basis of <m>\mathbb{R}^n</m> includes <m>n</m> vectors, so any basis of <m>\mathbb{R}^n</m> has <m>n</m> vectors.
+            </p>
+        </example>
+
+        <example>
+            <title>Dimension of the null space</title>
+            <p>
+                The dimension of the null space of a matrix <m>A</m> is, by definition, equal to the number of vectors in its basis. Recall that there is one vector for every free variable, and so the dimension is equal to the number of free variables when solving <m>A\vec{x} = \vec{0}</m>.
+            </p>
+        </example>
+
+        <definition>
+            <p>The <term>rank</term> of a matrix <m>A</m>, denoted by <m>\rank{A}</m>, is the dimension of the column space of <m>A</m>. In other words,</p>
+            <me>
+                \rank{A} = \dim{\Span{\vec{a}_1, \dots, \vec{a}_m}}
+            </me>
+        </definition>
+
+        <example>
+            <title>Dimension of the column space</title>
+            <p>Consider the dimension of the column space of a matrix. Recall that the pivot columns of <m>A</m> form a basis of <m>A</m>. Thus, the dimension of <m>A</m> is the number of pivot columns of <m>A</m>.</p>
+        </example>
+
+        <p>
+            Together, the dimension of the column space is the number of pivot columns, and the dimension of the null space is the number of non-pivot columns. For an <m>n \times m</m> matrix, there are <m>n</m> columns in total. Thus, in summary,
+        </p>
+
+        <theorem>
+            <title>Rank theorem</title>
+            <p>Let <m>A</m> be a matrix with <m>n</m> columns. Then,</p>
+            <me>
+                \boxed{\rank{A} + \dim{N(A)} = n}
+            </me>
+        </theorem>
+
+
+    </subsection>
+</section>

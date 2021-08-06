@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:43-07:00       *-->
+<!--*       on 2021-08-05T17:20:27-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,13 +55,18 @@
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand{\eval}[1]{\left. #1 \right|}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
 \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
 \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
 
+    
 
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\Image}{Im}
@@ -96,19 +101,16 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-MO.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-EM.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-LTITP.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-EM.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-MO.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-M.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-EM.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-LTITP.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-EM.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
-<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
-<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
-</ul>
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
 </li>
 <li class="link">
 <a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
@@ -116,38 +118,61 @@
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM" class="active">Matrix Multiplication</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
 <li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-MM"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Matrix Multiplication</span>
+<span class="type">Section</span> <span class="codenumber">4.5</span> <span class="title">Matrix Multiplication</span>
 </h2>
-<section class="introduction" id="introduction-13"><p id="p-165">Addition and scalar multiplication of matrices is defined in the intuitively natural way, entry-wise. However, there is another operation which is not defined in this natural way. That is, multiplying two matrices, or <em class="emphasis">matrix multiplication</em>, is not computed entry-wise. This will be a generalization of the matrix-vector product.</p>
-<p id="p-166">Consider a matrix \(B\text{.}\) If \(B\) is multipled to a vector \(\vec{x}\text{,}\) this transforms \(\vec{x}\) into the vector \(B\vec{x}\text{.}\) Then, if this vector is then multiplied by another matrix \(A\text{,}\) the resulting vector is \(A(B\vec{x})\text{.}\)</p>
-<p id="p-167">The vector \(A(B\vec{x})\) is produced from \(\vec{x}\) by a <em class="emphasis">composition</em> of transformations. Then, we define \(AB\) to be a matrix which represents this single composite transformation produced by applying \(B\) and then \(A\text{.}\)</p>
-<p id="p-168">Let \(A\) be an \(m \times n\) matrix, and \(B\) be an \(n \times p\) matrix. Let the columns of \(B\) be \(\vec{b}_1, \dots, \vec{b}_p\text{,}\) and let \(\vec{x} = (x_1, \dots, x_p)\) be a vector in \(\mathbb{R}^p\text{.}\) Then, first consider the matrix-vector product \(B\vec{x}\text{,}\)</p>
+<section class="introduction" id="introduction-16"><p id="p-270">Addition and scalar multiplication of matrices is defined in the intuitively natural way, entry-wise. However, there is another operation which is not defined in this natural way. That is, multiplying two matrices, or <em class="emphasis">matrix multiplication</em>, is not computed entry-wise. This will be a generalization of the matrix-vector product.</p></section><section class="subsection" id="subsection-62"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.1</span> <span class="title">Matrix Multiplication</span>
+</h3>
+<p id="p-271">Consider a matrix \(B\text{.}\) If \(B\) is multipled to a vector \(\vec{x}\text{,}\) this transforms \(\vec{x}\) into the vector \(B\vec{x}\text{.}\) Then, if this vector is then multiplied by another matrix \(A\text{,}\) the resulting vector is \(A(B\vec{x})\text{.}\)</p>
+<p id="p-272">The vector \(A(B\vec{x})\) is produced from \(\vec{x}\) by a <em class="emphasis">composition</em> of transformations. Then, we define \(AB\) to be a matrix which represents this single composite transformation produced by applying \(B\) and then \(A\text{.}\)</p>
+<p id="p-273">Let \(A\) be an \(m \times n\) matrix, and \(B\) be an \(n \times p\) matrix. Let the columns of \(B\) be \(\vec{b}_1, \dots, \vec{b}_p\text{,}\) and let \(\vec{x} = (x_1, \dots, x_p)\) be a vector in \(\mathbb{R}^p\text{.}\) Then, first consider the matrix-vector product \(B\vec{x}\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 B\vec{x} = x_1 \vec{b}_1 + \dots + x_p \vec{b}_p
@@ -161,52 +186,62 @@ A(B\vec{x}) = A\brac{x_1 \vec{b}_1 + \dots + x_p \vec{b}_p}
 A(B\vec{x}) = x_1 A\vec{b}_1 + \dots + x_p A \vec{b}_p
 \end{equation*}
 </div>
-<p id="p-169">In other words, the vector \(A(B\vec{x})\) is the linear combination of \(A\vec{b}_1, \dots, A\vec{b}_p\text{,}\) with the entries of \(\vec{x}\) as weights. In matrix notation,</p>
+<p id="p-274">In other words, the vector \(A(B\vec{x})\) is the linear combination of \(A\vec{b}_1, \dots, A\vec{b}_p\text{,}\) with the entries of \(\vec{x}\) as weights. In matrix notation,</p>
 <div class="displaymath">
 \begin{equation*}
 A(B\vec{x}) = \begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix} \vec{x}
 \end{equation*}
 </div>
-<p id="p-170">Thus, the matrix \(\begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix}\) is precisely the matrix which transforms \(\vec{x}\) into \(A(B\vec{x})\text{,}\) which we want to denote by \(AB\text{.}\)</p></section><section class="subsection" id="subsection-53"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.1</span> <span class="title">Matrix Multiplication</span>
-</h3>
-<article class="definition definition-like" id="definition-32"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+<p id="p-275">Thus, the matrix \(\begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix}\) is precisely the matrix which transforms \(\vec{x}\) into \(A(B\vec{x})\text{,}\) which we want to denote by \(AB\text{.}\)</p>
+<article class="definition definition-like" id="definition-36"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.5.1</span><span class="period">.</span>
 </h6>
-<p id="p-171">Let \(A\) be an \(m \times n\) matrix, \(B\) be an \(n \times p\) matrix with columns \(\vec{b}_1, \dots, \vec{b}_p\text{.}\) Then, the <dfn class="terminology">product</dfn> \(AB\) is the \(m \times p\) matrix with columns \(A\vec{b}_1, \dots, A\vec{b}_p\text{,}\) or,</p>
+<p id="p-276">Let \(A\) be an \(m \times n\) matrix, \(B\) be an \(n \times p\) matrix with columns \(\vec{b}_1, \dots, \vec{b}_p\text{.}\) Then, the <dfn class="terminology">product</dfn> \(AB\) is the \(m \times p\) matrix with columns \(A\vec{b}_1, \dots, A\vec{b}_p\text{,}\) or,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{AB = A \begin{bmatrix} \vec{b}_1 \amp \cdots \amp \vec{b}_p \end{bmatrix} = \begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-172">This definition for matrix multiplication makes the equation \(A(B\vec{x}) = (AB)\vec{x}\) true. That is, \(AB\) is the single transformation that is equvialent to applying \(B\) first, and then \(A\text{.}\) In this way, multiplication of matrices corresponds to composition of linear transformations.</p>
-<p id="p-173">This definition also emhasizes that the column of \(AB\) are given by the matrix-vector products \(A\vec{b}_1, \dots, A\vec{b}_p\text{.}\) In some sense, matrix multiplication is a generalization of the matrix-vector product.</p></section><section class="subsection" id="subsection-54"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.2</span> <span class="title">Matrix Multiplication as a Dot Product (Entry-by-Entry)</span>
+</div></article><p id="p-277">This definition for matrix multiplication makes the equation \(A(B\vec{x}) = (AB)\vec{x}\) true. That is, \(AB\) is the single transformation that is equvialent to applying \(B\) first, and then \(A\text{.}\) In this way, multiplication of matrices corresponds to composition of linear transformations.</p>
+<p id="p-278">This definition also emhasizes that the column of \(AB\) are given by the matrix-vector products \(A\vec{b}_1, \dots, A\vec{b}_p\text{.}\) In some sense, matrix multiplication is a generalization of the matrix-vector product.</p></section><section class="subsection" id="subsection-63"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.2</span> <span class="title">Matrix Multiplication as a Dot Product (Entry-by-Entry)</span>
 </h3>
-<p id="p-174">Another perspective on matrix multiplication views it entry-by-entry, and involves a dot product of a column and a row.</p>
+<p id="p-279">Another perspective on matrix multiplication views it entry-by-entry, and involves a dot product of a column and a row.</p>
+<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.2</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><p id="p-280">Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}\text{.}\) Then,</p>
+<div class="displaymath">
+\begin{align*}
+\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix} \amp = \begin{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} e \\ g \end{bmatrix} \amp \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} f \\ h \end{bmatrix} \end{bmatrix}\\
+\amp = \begin{bmatrix} e \begin{bmatrix} a \\ c \end{bmatrix} + g \begin{bmatrix} b \\ d \end{bmatrix} \amp f \begin{bmatrix} a \\ c \end{bmatrix} + h \begin{bmatrix} b \\ d \end{bmatrix} \end{bmatrix}\\
+\amp = \begin{bmatrix} ae + bg \amp af + bh \\ ce + dg \amp cf + dh \end{bmatrix}
+\end{align*}
+</div>
+<p id="p-281">Notice that the entries of this product of matrices has the form of a dot product of vectors within the original two matrices. For example, the \((1,1)\)-entry \(ae + bg\) is the dot product of \((a,b)\) with \((e,g)\text{,}\) the 1st row of \(A\) and the 1st column of \(B\text{,}\) respectively.</p></article></div>
+<p id="p-282">More generally, the \((i,j)\)-entry of \(AB\) is the dot product of the \(i\)th row of \(A\) and the \(j\)the column of \(B\text{.}\) In other words,</p>
 <div class="displaymath">
 \begin{equation*}
-(AB)_{ij} = \sum_{k=1}^n a_{ik} b_{kj}
+\boxed{(AB)_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \dots + a_{in} b_{nj} = \sum_{k=1}^n a_{ik} b_{kj}}
 \end{equation*}
-</div></section><section class="subsection" id="subsection-55"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.3</span> <span class="title">Row Perspective of the Matrix-Vector Product and Matrix Multiplication</span>
+</div></section><section class="subsection" id="subsection-64"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.3</span> <span class="title">Row Perspective of the Matrix-Vector Product and Matrix Multiplication</span>
 </h3>
-<p id="p-175">There is another characterization of the matrix-vector product, and matrix multiplication, from the perspective of the rows of the matrix, and in particular a linear combination of the rows. Let \(A\) be an \(m \times n\) matrix. Recall that \(A\vec{x}\) (where \(\vec{x} \in \mathbb{R}^n\)) can be thought of as a linear combination of the columns of \(A\) with weights given by the entries of \(\vec{x}\text{.}\) In a similar way, the product \(\vec{x}A\) (where \(\vec{x} \in \mathbb{R}^m\)) can be thought of as a linear combination of the rows of \(A\text{,}\) with weights given by the entries of \(\vec{x}\text{.}\)</p>
-<p id="p-176">More precisely, let \(\vec{x} = (x_1, \dots, x_m)\text{,}\) and let \(\vec{a}^i\) denote the \(i\)th row of \(A\text{,}\) so</p>
+<p id="p-283">There is another characterization of the matrix-vector product, and matrix multiplication, from the perspective of the rows of the matrix, and in particular a linear combination of the rows. Let \(A\) be an \(m \times n\) matrix. Recall that \(A\vec{x}\) (where \(\vec{x} \in \mathbb{R}^n\)) can be thought of as a linear combination of the columns of \(A\) with weights given by the entries of \(\vec{x}\text{.}\) In a similar way, the product \(\vec{x}A\) (where \(\vec{x} \in \mathbb{R}^m\)) can be thought of as a linear combination of the rows of \(A\text{,}\) with weights given by the entries of \(\vec{x}\text{.}\)</p>
+<p id="p-284">More precisely, let \(\vec{x} = (x_1, \dots, x_m)\text{,}\) and let \(\vec{a}^i\) denote the \(i\)th row of \(A\text{,}\) so</p>
 <div class="displaymath">
 \begin{equation*}
 A = \begin{bmatrix} \vec{a}^1 \\ \vdots \\ \vec{a}^m \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-177">Note that we haven't defined vector powers, so this is not ambiguous. Then,</p>
+<p id="p-285">Note that we haven't defined vector powers, so this is not ambiguous. Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{x} A = x_1 \vec{a}^1 + \dots + x_m \vec{a}^m
 \end{equation*}
 </div>
-<p id="p-178">for which the result is again a row vector.</p>
-<article class="example example-like" id="example-19"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><p id="p-179">For example,</p>
+<p id="p-286">for which the result is again a row vector.</p>
+<article class="example example-like" id="example-21"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-21"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.3</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-21"><article class="example example-like"><p id="p-287">For example,</p>
 <div class="displaymath">
 \begin{align*}
 \begin{bmatrix} 2 \amp -1 \end{bmatrix} \begin{bmatrix} 2 \amp 3 \\ -1 \amp 4 \end{bmatrix} \amp = 2 \begin{bmatrix} 2 \amp 3 \end{bmatrix} - 1 \begin{bmatrix} -1 \amp 4 \end{bmatrix}\\
@@ -214,54 +249,56 @@ A = \begin{bmatrix} \vec{a}^1 \\ \vdots \\ \vec{a}^m \end{bmatrix}
 \amp = \begin{bmatrix} 5 \amp 2 \end{bmatrix}
 \end{align*}
 </div></article></div>
-<p id="p-180">Then, this leads to a characterization of matrix multiplication. Let \(B\) be an \(n \times p\) matrix. Then,</p>
+<p id="p-288">Then, this leads to a characterization of matrix multiplication. Let \(B\) be an \(n \times p\) matrix. Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{AB = \begin{bmatrix} \vec{a}^1 B \\ \vdots \\ \vec{a}^m B \end{bmatrix}}
 \end{equation*}
 </div>
-<p id="p-181">That is, each row of \(AB\) is a linear combination of the rows of \(B\text{,}\) with weights given by the correspondsing row of \(A\text{.}\) In particular, the \(i\)th row of \(AB\) is a linear combination of the rows of \(B\) with weights given by the entries of the \(i\)th row of \(A\text{.}\)</p>
-<article class="example example-like" id="example-20"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-20"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-20"><article class="example example-like"><p id="p-182">For example,</p>
+<p id="p-289">That is, each row of \(AB\) is a linear combination of the rows of \(B\text{,}\) with weights given by the correspondsing row of \(A\text{.}\) In particular, the \(i\)th row of \(AB\) is a linear combination of the rows of \(B\) with weights given by the entries of the \(i\)th row of \(A\text{.}\)</p>
+<article class="example example-like" id="example-22"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-22"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.4</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-22"><article class="example example-like"><p id="p-290">For example,</p>
 <div class="displaymath">
 \begin{align*}
 \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix} \amp = \begin{bmatrix} 1 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 0 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \\ 0 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 1 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \end{bmatrix}\\
 \amp = \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix}
 \end{align*}
-</div></article></div></section><section class="subsection" id="subsection-56"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.4</span> <span class="title">Properties of Matrix Multiplication</span>
+</div></article></div></section><section class="subsection" id="subsection-65"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.4</span> <span class="title">Properties of Matrix Multiplication</span>
 </h3>
-<p id="p-183">Matrix multiplication shares many properties of real number multiplication, assuming the matrices have the appropriate dimensions.</p>
+<p id="p-291">Matrix multiplication shares many properties of real number multiplication, assuming the matrices have the appropriate dimensions.</p>
 <article class="theorem theorem-like" id="theorem-19"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.5.5</span><span class="period">.</span>
 </h6>
-<p id="p-184">Let \(A\) be an \(m \times n\) matrix, \(B\) and \(C\) be \(n \times p\) matrices, \(D\) and \(E\) be \(q \times m\) matrices, \(a \in \mathbb{R}\) be a scalar. Then,</p>
+<p id="p-292">Let \(A\) be an \(m \times n\) matrix, \(B\) and \(C\) be \(n \times p\) matrices, \(D\) and \(E\) be \(q \times m\) matrices, \(a \in \mathbb{R}\) be a scalar. Then,</p>
 <ol class="decimal">
-<li id="li-98">
+<li id="li-103">
 <em class="emphasis">Multiplication distributes over addition</em>.<div class="displaymath">
 \begin{equation*}
 A(B + C) = AB + AC \qquad \text{and} \qquad (D + E)A = DA + EA
 \end{equation*}
 </div>
 </li>
-<li id="li-99">
+<li id="li-104">
 <em class="emphasis">Associative with scalar multiplication</em>.<div class="displaymath">
 \begin{equation*}
 a(AB) = (aA)B = A(aB)
 \end{equation*}
 </div>
 </li>
-<li id="li-100">
+<li id="li-105">
 <em class="emphasis">Associative with matrix multiplication</em>.<div class="displaymath">
 \begin{equation*}
 A(BC) = (AB)C
 \end{equation*}
 </div>
 </li>
-</ol></article><p id="p-185">Intuitively, these properties mean that parentheses surrounding matrix expressions generally work the same as for real numbers.</p>
+</ol></article><p id="p-293">Intuitively, these properties mean that parentheses surrounding matrix expressions generally work the same as for real numbers.</p>
+<p id="p-294">The associative property \(A(BC) = (AB)C\) is very intuitive through the language of transformations. It says that applying the composition \(BC\) and then \(A\text{,}\) is the same as applying \(C\text{,}\) then the composition \(AB\text{.}\) Both of these are by definition equiavlent to applying \(C\text{,}\) then \(B\text{,}\) then \(A\text{.}\)</p>
+<p id="p-295">The numerical proofs for these properties for an arbitrary matrix can be tedious and symbol-heavy.</p>
 <article class="hiddenproof" id="proof-8"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><ol class="decimal">
-<li id="li-101">
+<li id="li-106">
 <em class="emphasis">Proof of 1. entry-wise</em>.<div class="displaymath">
 \begin{align*}
 (A(B + C))_{ij} \amp = \sum_{k=1}^n A_{ik}(B + C)_{kj} \amp\amp \text{definition of matrix multiplication}\\
@@ -273,7 +310,7 @@ A(BC) = (AB)C
 \end{align*}
 </div>
 </li>
-<li id="li-102">
+<li id="li-107">
 <em class="emphasis">Proof of 3. for \(2 \times 2\) matrices.</em> Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}, C = \begin{bmatrix} i \amp j \\ k \amp l \end{bmatrix}\text{.}\) Then,<div class="displaymath">
 \begin{align*}
 A(BC) = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \brac{\begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix} \begin{bmatrix} i \amp j \\ k \amp l \end{bmatrix}} \amp = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} ei + fk \amp ej + fl \\ gi + hk \amp gj + hl \end{bmatrix}\\
@@ -285,37 +322,43 @@ A(BC) = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \brac{\begin{bmatrix}
 \amp = \begin{bmatrix} (ae + bg)i + (af + bh)k \amp (ae + bg)j + (af + bh)l \\ (ce + dg)i + (cf + dh)k \amp (ce + dg)j + (cf + dh)l 
 \end{align*}
 </div>Comparing these expressions entry-by-entry shows that they are equal.</li>
-</ol></article></div></section><section class="subsection" id="subsection-57"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.5</span> <span class="title">Matrix Multiplication is Not Commutative</span>
+</ol></article></div></section><section class="subsection" id="subsection-66"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.5</span> <span class="title">Matrix Multiplication is Not Commutative</span>
 </h3>
-<p id="p-186">While matrix multiplication shares many properties of real number multiplication, it differs by an important property. That is, matrix multiplication is not commutative, in that in general, \(AB \neq BA\text{.}\) Viewing \(A\) and \(B\) as transformations, it clear that applying \(B\) first, and then \(A\text{,}\) will not be the same as applying \(A\) first, and then \(B\text{.}\) You may recall the more specific property holds for functions, that is, for real-valued functions \(f, g\text{,}\) \(f(g(x)) \neq g(f(x))\text{.}\) That is, the non-commutativity of matrix multiplication is a consequence of the more general fact that transformation composition is not commutative.</p>
-<p id="p-187">In fact, viewing \(A\) and \(B\) as matrices, suppose say \(A\) is an \(m \times n\) matrix, and \(B\) is an \(n \times p\) matrix. Then, the product \(AB\) is defined. However, the product \(BA\) is not even defined in general, unless \(m = p\text{.}\) Further, even if \(m = p\text{,}\) the product \(AB\) will have dimensions \(m \times m\text{,}\) while the product \(BA\) will have dimensions \(n \times n\text{,}\) and so \(AB\) and \(BA\) cannot even possibly be the same matrix, unless \(m = n\text{.}\) In this special case, where \(m = n\) and \(m = p\text{,}\) \(A\) and \(B\) are both square matrices, say \(n \times n\text{.}\) Even in this particular case, the entries of \(A\) and \(B\) are not all the same in general, that is, \(AB \neq BA\text{.}\)</p>
-<p id="p-188">More concretely, \(AB\) is a linear combination of the columns of \(B\text{,}\) whereas \(BA\) is a linear combination of the columns of \(A\text{,}\) and there is no reason to expect these to be equal.</p>
-<p id="p-189">Then, in the product \(AB\text{,}\) we sometimes say \(A\) is <dfn class="terminology">right-multiplied</dfn> by \(B\text{,}\) or \(B\) is <dfn class="terminology">left-multiplied</dfn> by \(A\text{.}\)</p></section><section class="subsection" id="subsection-58"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.6</span> <span class="title">The Identity Matrix</span>
+<p id="p-296">While matrix multiplication shares many properties of real number multiplication, it differs by an important property. That is, matrix multiplication is not commutative, in that in general,</p>
+<div class="displaymath">
+\begin{equation*}
+AB \neq BA
+\end{equation*}
+</div>
+<p id="p-297">Viewing \(A\) and \(B\) as transformations, it is clear that the composition applying \(B\) first, and then \(A\text{,}\) will not be the same as applying \(A\) first, and then \(B\text{.}\) You may recall the more specific property holds for functions, that is, for real-valued functions \(f, g\text{,}\) \(f(g(x)) \neq g(f(x))\text{.}\) That is, the non-commutativity of matrix multiplication is a consequence of the more general fact that transformation composition is not commutative.</p>
+<p id="p-298">In fact, viewing \(A\) and \(B\) as matrices, suppose say \(A\) is an \(m \times n\) matrix, and \(B\) is an \(n \times p\) matrix. Then, the product \(AB\) is defined. However, the product \(BA\) is not even defined in general, unless \(m = p\text{.}\) Further, even if \(m = p\text{,}\) the product \(AB\) will have dimensions \(m \times m\text{,}\) while the product \(BA\) will have dimensions \(n \times n\text{,}\) and so \(AB\) and \(BA\) cannot even possibly be the same matrix, unless \(m = n\text{.}\) In this special case, where \(m = n\) and \(m = p\text{,}\) \(A\) and \(B\) are both square matrices, say \(n \times n\text{.}\) Even in this particular case, the entries of \(A\) and \(B\) are not all the same in general, that is, \(AB \neq BA\text{.}\)</p>
+<p id="p-299">More concretely, \(AB\) is a linear combination of the columns of \(B\text{,}\) whereas \(BA\) is a linear combination of the columns of \(A\text{,}\) and there is no reason to expect these to be equal.</p>
+<p id="p-300">Then, in the product \(AB\text{,}\) we sometimes say \(A\) is <dfn class="terminology">right-multiplied</dfn> by \(B\text{,}\) or \(B\) is <dfn class="terminology">left-multiplied</dfn> by \(A\text{.}\)</p></section><section class="subsection" id="subsection-67"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.6</span> <span class="title">The Identity Matrix</span>
 </h3>
-<p id="p-190">The identity matrix for the matrix-vector product plays an identical role in the multiplciation of matrices. Recall that the \(n \times n\) identity matrix is denoted by \(I_n\) and has 1's along its main diagonal (from top left to bottom right) and 0's everywhere else,</p>
+<p id="p-301">The identity matrix for the matrix-vector product plays an identical role in the multiplciation of matrices. Recall that the \(n \times n\) identity matrix is denoted by \(I_n\) and has 1's along its main diagonal (from top left to bottom right) and 0's everywhere else,</p>
 <div class="displaymath">
 \begin{equation*}
 I_n = \begin{bmatrix} 1 \amp 0 \amp \dots \amp 0 \\ 0 \amp 1 \amp \dots \amp 0 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp \dots \amp 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-191">This matrix has the property that for any \(n \times n\) matrix \(A\text{,}\)</p>
+<p id="p-302">This matrix has the property that for any \(n \times n\) matrix \(A\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{AI_n = I_n A = A}
 \end{equation*}
 </div>
-<article class="example example-like" id="example-21"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-21"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.5</span><span class="period">.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-21"><article class="example example-like">For example, you can verify that,<div class="displaymath">
+<article class="example example-like" id="example-23"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-23"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.5.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-23"><article class="example example-like">For example, you can verify that,<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 \end{equation*}
-</div></article></div></section><section class="subsection" id="subsection-59"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.7</span> <span class="title">Matrix Operations with \(1 \times 1\) Matrices</span>
+</div></article></div></section><section class="subsection" id="subsection-68"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.7</span> <span class="title">Matrix Operations with \(1 \times 1\) Matrices</span>
 </h3>
-<p id="p-192">The arithmetic of matrices can be more deeply understood by considering the simplest possible case, of arithemtic with \(1 \times 1\) matrices. A general \(1 \times 1\) matrix is of the form \(A = \begin{bmatrix} a \end{bmatrix}\text{.}\) Then, addition and scalar multiplication are defined as,</p>
+<p id="p-303">The arithmetic of matrices can be more deeply understood by considering the simplest possible case, of arithemtic with \(1 \times 1\) matrices. A general \(1 \times 1\) matrix is of the form \(A = \begin{bmatrix} a \end{bmatrix}\text{.}\) Then, addition and scalar multiplication are defined as,</p>
 <div class="displaymath">
 \begin{align*}
 \begin{bmatrix} a \end{bmatrix} + \begin{bmatrix} b \end{bmatrix} \amp = \begin{bmatrix} a + b \end{bmatrix}\\
@@ -323,9 +366,9 @@ k \begin{bmatrix} a \end{bmatrix} \amp = \begin{bmatrix} ka \end{bmatrix}\\
 \begin{bmatrix} a \end{bmatrix} \begin{bmatrix} b \end{bmatrix} \amp = \begin{bmatrix} ab \end{bmatrix}
 \end{align*}
 </div>
-<p id="p-193">All of these computations follows from the more general definitions presented previously. Notice that the operations of \(1 \times 1\) matrices are essentially analogously to the operations of real numbers. That is, \(1 \times 1\) can be identified with real numbers.</p>
-<p id="p-194">Then, \(2 \times 2\) and larger matrices can be thought of as “generalized numbers”.</p></section><section class="subsection" id="subsection-60"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.2.8</span> <span class="title">Matrix Multiplication by Blocks (Partitioned Matrices)</span>
+<p id="p-304">All of these computations follows from the more general definitions presented previously. Notice that the operations of \(1 \times 1\) matrices are essentially analogously to the operations of real numbers. That is, \(1 \times 1\) can be identified with real numbers.</p>
+<p id="p-305">Then, \(2 \times 2\) and larger matrices can be thought of as “generalized numbers”.</p></section><section class="subsection" id="subsection-69"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.5.8</span> <span class="title">Matrix Multiplication by Blocks (Partitioned Matrices)</span>
 </h3></section></section></div></main>
 </div>
 </body>

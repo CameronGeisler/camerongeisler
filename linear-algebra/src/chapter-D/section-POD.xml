@@ -3,5 +3,111 @@
 <section xml:id="section-POD">
     <title>Properties of Determinants</title>
 
+    <subsection>
+        <title>Determinants and Row Operations</title>
+        <p>
+            The key to computing determinants efficiently is to consider how determinants are affected when the entries of a matrix change. In particular, by elementary row operations.
+        </p>
+    
+        <p>
+            First, consider the <m>2 \times 2</m> case. Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m> be a <m>2 \times 2</m> matrix, with determinant <m>\det{A} = ad - bc</m>. Consider how this determinant is affected by row operations.
+        </p>
+        <ol>
+            <li>For scaling, say row 1 is scaled by <m>k</m>,
+            <md>
+                <mrow>\det{\begin{bmatrix} ka \amp kb \\ c \amp d \end{bmatrix}} \amp = ka(d) - kb(c)</mrow>
+                <mrow>\amp = k\brac{ad - bc} = k \cdot \det{A}</mrow>
+            </md>
+            The determinant is also scaled by <m>k</m>.</li>
+            <li>For row exchange, consider exchanging row 1 and 2,
+                <md>
+                    <mrow>\det{\begin{bmatrix} c \amp d \\ a \amp b \end{bmatrix} \amp = cb - ad</mrow>
+                    <mrow>\amp = -\brac{ad - bc} = -\det{A}</mrow>
+                </md>
+            This row operations changes the sign of the determinant.
+            </li>
+            <li>
+                For row replacement, say <m>R_2 + k R_1 \rightarrow R_2</m>,
+                <md>
+                    <mrow>\det{\begin{bmatrix} a \amp b \\ c + ka \amp d + kb \end{bmatrix}} \amp = a(d + kb) - b(c + ka)</mrow>
+                    <mrow>\amp = ad - bc + abk - abk</mrow>
+                    <mrow>\amp = ad - bc = \det{A}</mrow>
+                </md>
+                This row operation doesn't change the value of the determinant.
+            </li>
+        </ol>
+    
+        <p>
+            It turns out these properties are true for determinants of any size matrix.
+        </p>
+    
+        <theorem>
+            <title>Determinants and elementary row operations</title>
+            <p>Let <m>A</m> be a square matrix, <m>B</m> be the matrix resulting from <m>A</m> after a single row operation. Then,</p>
+            <ol>
+                <li>If a multiple of row row is added to another row, then <m>\det{B} = \det{A}</m>.</li>
+                <li>If two rows are interchanged, then <m>\det{B} = -\det{A}</m>.</li>
+                <li>If one row is scaled by <m>k \neq 0</m>, then <m>\det{B} = k \cdot \det{A}</m>.</li>
+            </ol>
+        </theorem>
+    
+        <p>
+            In particular, only row interchanges and scalings affect the value of the determinant.
+        </p>
+    </subsection>
 
+    <subsection>
+        <title>Evaluating Determinants of Higher Order</title>
+        <p>
+            The preceding properties of determinants leads to a method for evaluating determinants, which is particularly efficient for higher-order matrices. Consider a square matrix <m>A</m>. First, use row reduction to convert <m>A</m> to REF. Matrices in REF are upper triangular, so denote this matrix by <m>U</m>. Then, the determinant of <m>U</m> is the product of its diagonal entries. Then, the determinant of <m>A</m> will be a multiple of the determinant of <m>U</m>,
+        </p>
+        <me>
+            \det{A} = c \cdot \det{U}
+        </me>
+        <p>
+            where <m>c</m> is the product of all of the constant factors and sign changes accumulated by row interchanges and scalings. In particular, if we perform the conversion to REF without using scaling operations (which recall is possible to do), then,
+        </p>
+        <me>
+            \det{A} = (-1)^r \det{U}
+        </me>
+        <p>
+            where <m>r</m> is the number of row exchanges.
+        </p>
+
+        <p>
+            This is the algorithm that most computer programs use to evaluate determinants.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Determinants and Invertibility</title>
+        <p>
+            The previous algorithm for evalauting determinants also provides theoretical insight into the relationship between invertibility and determinants.
+        </p>
+
+        <p>
+            If <m>A</m> is invertible, then all of the diagonal entries of <m>A</m> are pivots, and so the diagonal entries of <m>U</m> will all be non-zero. Otherwise, if <m>A</m> is not invertible, then at least one of the diagonal entires of <m>U</m> will be equal to 0. This implies that <m>\det{U} = 0</m>, and so <m>\det{A} = 0</m> also. This proves the main theorem relating determinants and invertible matrices.
+        </p>
+
+        <theorem>
+            <title>Invertible if and only if non-zero determinant</title>
+            <p>A square matrix <m>A</m> is invertible if and only if <m>\det{A} \neq 0</m>.</p>
+        </theorem>
+    </subsection>
+
+    <subsection>
+        <title>Number of Operations for Computing Determinants</title>
+        <p>
+            Determinant of an <m>n \times n</m> matrix has order <m>n!</m>.
+        </p>
+    </subsection>
+
+    <exercises>
+        <exercise>
+            <statement>
+                In Python, implement a program that computes determinants using row reduction, and the product of the diagonal elements of a matrix.
+            </statement>
+        </exercise>
+    </exercises>
+    
 </section>

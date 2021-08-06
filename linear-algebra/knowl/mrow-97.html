@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:45-07:00       *-->
+<!--*       on 2021-08-05T17:20:30-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,15 +16,14 @@
 <body>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-\amp (A_1 A_2 \cdots A_{n-1} A_n)(A_n^{-1} A_{n-1}^{-1} \cdots A_2^{-1} A_1^{-1})\\
-\amp = A_1 A_2 \cdots A_{n-1} (A_n A_n^{-1}) A_{n-1}^{-1} \cdots A_2^{-1} A_1^{-1}\\
-\amp = A_1 A_2 \cdots A_{n-2} (A_{n-1} A_{n-1}^{-1}) A_{n-2}^{-1} \cdots A_2^{-1} A_1^{-1}\\
-\amp = \dots\\
-\amp = A_1 (A_2 A_2^{-1}) A_1^{-1}\\
-\amp = A_1 A_1^{-1}\\
-\amp = I_n
+(A(B + C))_{ij} \amp = \sum_{k=1}^n A_{ik}(B + C)_{kj} \amp\amp \text{definition of matrix multiplication}\\
+\amp = \sum_{k=1}^n A_{ik}(B_{kj} + C_{kj}) \amp\amp \text{definition of matrix addition}\\
+\amp = \sum_{k=1}^n (A_{ik} B_{kj} + A_{ik} C_{kj})\\
+\amp = \sum_{k=1}^n A_{ik}B_{kj} + \sum_{k=1}^n A_{ik}C_{kj}\\
+\amp = (AB)_{ij} + (AC)_{ij} \amp\amp \text{definition of matrix multiplication}\\
+\amp = (AB + AC)_{ij} \amp\amp \text{definition of matrix addition}
 \end{align*}
 </div>
-<span class="incontext"><a href="section-IOAM.html#mjx-eqn:mrow-97">in-context</a></span>
+<span class="incontext"><a href="section-MM.html#mjx-eqn:mrow-97">in-context</a></span>
 </body>
 </html>

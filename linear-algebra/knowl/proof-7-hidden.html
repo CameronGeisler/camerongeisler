@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:44-07:00       *-->
+<!--*       on 2021-08-05T17:20:29-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,14 +13,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="hiddenproof"><ul class="disc"><li>
-<em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">Proof of 1. for \(2 \times 2\) matrices</em>. Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}\text{.}\) Then,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<body><article class="hiddenproof">For \(\vec{x} \in \mathbb{R}^n\text{,}\)<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vec{x} = x_1 \ihat + \dots + x_n \vec{e}_n
+\end{equation*}
+</div>Then,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{align*}
-r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix} \amp = \begin{bmatrix} r(a + e) \amp r(b + f) \\ r(c + g) \amp r(d + h) \end{bmatrix}\\
-\amp = \begin{bmatrix} ra + re \amp rb + rf \\ rc + rg \amp rd + rh \end{bmatrix}\\
-\amp = \begin{bmatrix} ra \amp rb \\ rc \amp rd \end{bmatrix} + \begin{bmatrix} re \amp rf \\ rg \amp rh \end{bmatrix}\\
-\amp = r A + r B
+T(\vec{x}) = T(x_1 \ihat + \dots + x_n \vec{e}_n) \amp = x_1 T(\ihat) + \dots + x_n T(\vec{e}_n)\\
+\amp = \begin{bmatrix} T(\ihat) \amp \cdots \amp T(\vec{e}_n) \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\
+\amp = A\vec{x}
 \end{align*}
-</div>
-</li></ul></article></body>
+</div></article></body>
 </html>

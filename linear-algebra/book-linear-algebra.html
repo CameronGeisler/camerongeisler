@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:42-07:00       *-->
+<!--*       on 2021-08-05T17:20:26-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,13 +55,18 @@
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand{\eval}[1]{\left. #1 \right|}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
 \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
 \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
 
+    
 
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\Image}{Im}
@@ -105,10 +110,7 @@
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
-<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
-<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
-</ul>
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
 </li>
 <li class="link">
 <a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
@@ -116,27 +118,48 @@
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
 <li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -146,11 +169,16 @@
 <li id="li-2">MATH 223 Linear Algbra (University of British Columbia)</li>
 <li id="li-3">CPSC 314 Computer Graphics (University of British Columbia)</li>
 <li id="li-4"><a class="external" href="https://www.youtube.com/playlist?list=PLIljB45xT85BhzJ-oWNug1YtUjfWp1qAp" target="_blank">Wild Linear Algebra (Wildberger)</a></li>
+<li id="li-5"><a class="external" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank">Essence of Linear Algebra (Grant Sanderson)</a></li>
+<li id="li-6"><a class="external" href="https://www.youtube.com/playlist?list=PL221E2BBF13BECF6C" target="_blank">MIT 18.06 Linear Algebra (Gilbert Strang)</a></li>
 </ul></section><nav class="summary-links"><ul>
 <li><a href="chapter-1.html"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a></li>
 <li><a href="chapter-SOLEAITM.html"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a></li>
-<li><a href="chapter-M.html"><span class="codenumber">3</span> <span class="title">Matrices</span></a></li>
-<li><a href="chapter-D.html"><span class="codenumber">4</span> <span class="title">Determinants</span></a></li>
+<li><a href="chapter-VAG.html"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a></li>
+<li><a href="chapter-MALT.html"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a></li>
+<li><a href="chapter-ITVS.html"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a></li>
+<li><a href="chapter-D.html"><span class="codenumber">6</span> <span class="title">Determinants</span></a></li>
+<li><a href="chapter-MISC.html"><span class="codenumber">7</span> <span class="title">Misc</span></a></li>
 </ul></nav></section></div></main>
 </div>
 </body>

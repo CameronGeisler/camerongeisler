@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-EAE">
+    <title>Eigenvalues and Eigenvectors</title>
+    <introduction>
+        <p>
+            Dissect the action of a linear transformation <m>\vec{x} \mapsto A\vec{x}</m> into elements which are easily visualized.
+        </p>
+        <p>
+            Eigenvalues and eigenvectors have applications in pure and applied mathematics, and appear in settings far more general than we consider here. Applications to differential equations and continuous dynamical systems, physics and chemistry.
+        </p>
+        <p>
+            Consider a linear transformation in <m>\mathbb{R}^2</m>. In general, such a trasformation will perform some kind of stretch, rotation, and/or reflection to an input vector. However, sometimes, there are particular vectors <m>\vec{x}</m> for which the transformation only scales the vector, say to <m>\lambda \vec{x}</m> (here, <m>\lambda</m> is the Greek letter lambda). In <m>\mathbb{R}^2</m>, this means that the output vector is parallel to the input. In matrix form, this means that,
+        </p>
+        <me>
+            A\vec{x} = \lambda \vec{x}
+        </me>
+        <p>
+            These special vectors <m>\vec{x}</m> are called <em>eigenvectors</em> for the matrix. Of course, the zero vector trivially satisfies this condition, because <m>A\vec{0} = \lambda \vec{0}</m> for any matrix <m>A</m>, and for any scalar <m>\lambda</m>. Thus, we are concerned with non-zero vectors <m>\vec{x}</m> which satisfy this equation. The scalar <m>\lambda</m> is called an <em>eigenvalue</em>.
+        </p>
+    </introduction>
+
+    <subsection>
+        <title>Eigenvalues and Eigenvectors</title>
+
+
+
+        <definition>
+            <p>Let <m>A</m> be an <m>n \times n</m> matrix. Then, a non-zero vector <m>\vec{x} \in \mathbb{R}^n</m> is an <term>eigenvector</term>, associated with <term>eigenvalue</term> <m>\lambda</m>, if</p>
+            <me>
+                A\vec{x} = \lambda \vec{x}
+            </me>
+        </definition>
+
+        <p>
+            The term eigenvalue and eigenvector comes from the German word Eigenwert, meaning <q>proper value</q>.
+        </p>
+
+        <p>
+            Again, in <m>\mathbb{R}^2</m> (or <m>\mathbb{R}^3</m>), an eigenvector of <m>A</m> is a vector which is parallel to itself after transformation by <m>A</m>. More precisely, if <m>\lambda > 0</m>, then <m>A\vec{x}</m> is parallel to <m>\vec{x}</m>, and if <m>\lambda < 0</m>, then <m>A\vec{x}</m> is anti-parallel to <m>\vec{x}</m>.
+        </p>
+
+    </subsection>
+
+    <subsection>
+        <title>Determining Eigenvalues and Eigenvectors</title>
+        <p>
+            Let <m>A</m> be an <m>n \times n</m> matrix, and consider the eigenvectors of <m>A</m>. Let <m>\vec{x}</m> be an eigenvector of <m>A</m>, with eigenvalue <m>\lambda</m>. Then, by definition, <m>A\vec{x} = \lambda \vec{x}</m>. Rearranging this equation,
+        </p>
+        <me>
+            A\vec{x} - \lambda \vec{x} = \vec{0}
+        </me>
+        <p>
+            The two terms on the left-hand side can be combined by writing <m>\lambda \vec{x}</m> as <m>\lambda I_n \vec{x}</m> (where <m>I_n</m> is the <m>n \times n</m> identity matrix), and <q>factoring out</q> <m>\vec{x}</m>,
+        </p>
+        <me>
+            (A - \lambda I_n) \vec{x} = \vec{0}
+        </me>
+        <p>
+            The expression <m>A - \lambda I_n</m> is a matrix, so this forms a homogeneous system of linear equations. Then, recall that a homogeneous system has a non-zero soloution (here, for <m>\vec{x}</m>) if and only if the coefficient matrix <m>A - \lambda I_n</m> is not invertible, which recall occurs when its determinant is equal to 0, or
+        </p>
+        <me>
+            \det{(A - \lambda I_n)} = 0
+        </me>
+        <p>
+            We can reverse all of this reasoning. If <m>\det{(A - \lambda I_n)} = 0</m> for some particular choice of <m>\lambda</m>, then <m>(A - \lambda I_n) \vec{x} = \vec{0}</m> has a non-zero solution, and so this scalar <m>\lambda</m> and solution <m>\vec{x}</m> are associated eigenvalue and eigenvector.
+        </p>
+        <p>
+            Thus, to determine eigenvalues, solve the equation <m>\det{(A - \lambda I_n)} = 0</m> for <m>\lambda</m>. Then, for each eigenvalue <m>\lambda</m>, to find an associated eigenvector, solve the homogeneous system <m>(A - \lambda I_n) \vec{x} = \vec{0}</m> for a vector <m>\vec{x}</m>. In summary,
+        </p>
+        <theorem>
+            <title>Determining eigenvalues and eigenvectors</title>
+            <p>Let <m>A</m> be an <m>n \times n</m> matrix. Then, <m>\lambda \in \mathbb{R}</m> is an eigenvalue of <m>A</m> if,</p>
+            <me>
+                \det{(A - \lambda I_n)} = 0
+            </me>
+            <p>and, the eigenvectors associated with <m>\lambda</m> are the non-zero solutions for <m>\vec{x}</m> in the homogeneous system,</p>
+            <me>
+                (A - \lambda I_n) \vec{x} = \vec{0}
+            </me>
+        </theorem>
+
+        <p>
+            Note that the matrix <m>A - \lambda I_n</m> is just <m>A</m> with <m>\lambda</m> subtracted from each entry on the main diagonal.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>The Eigenspace</title>
+        <p>
+            For an eigenvalue <m>\lambda</m>, the set of all solutions to the equation,
+        </p>
+        <me>
+            (A - \lambda I_n) \vec{x} = \vec{0}
+        </me>
+        <p>
+            is just the null space of the matrix <m>A - \lambda I_n</m>. In particular, this set is a subspace of <m>\mathbb{R}</m>, and is called the <term>eigensapce</term> of <m>A</m> corresponding to <m>\lambda</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Computing Eigenvalues</title>
+
+        <theorem>
+            <p>The eigenvalues of a triangular matrix are the entries on its main diagonal.</p>
+        </theorem>
+    </subsection>
+
+    <subsection>
+        <title>The Characteristic Equation</title>
+        <p>
+            Recall that eigenvalues are solutions <m>\lambda</m> to the equation <m>\det{(A - \lambda I_n)} = 0</m>. Then, evaluating a determinant involves some sum and products of the entries of the matrix, so in this case involves sums and products of expressions involving <m>\lambda</m>. In this way, the resulting equation is a polynomial equation in <m>\lambda</m>. In particular, it is an <m>n</m>th degree polynomial equation.
+        </p>
+        <definition>
+            <p>Let <m>A</m> be an <m>n \times n</m> matrix. Then, the <term>characteristic polynomial</term> of <m>A</m>, is given by,</p>
+            <me>
+                p_A(\lambda) = \det{(A - \lambda I_n)}
+            </me>
+        </definition>
+
+        <p>
+            Then, eigenvalues are precisely the roots of the characteristic polynomial, and the equation <m>p_A(\lambda) = 0</m> is called the <term>characteristic euquation</term>.
+        </p>
+        <p>
+            Polynomial equations can be solved exactly for low degree polnomials, however, for even moderately large <m>n</m> (say <m>n = 5</m>), polynomial equations can't be solved exactly, in general. For these and larger systems, numerical root-finding methods are used to solve for eigenvalues approximately.
+        </p>
+        <p>
+            Also, for this reason, eigenvalues should not be computed by hand, except for possibly <m>2 \times 2</m> matrices, which result in quadratic equations. For even <m>3 \times 3</m> matrices, these lead to a cubic equation, which in general is difficult to solve by hand, unless the numbers are chosen precisely.
+        </p>
+    </subsection>
+    
+</section>

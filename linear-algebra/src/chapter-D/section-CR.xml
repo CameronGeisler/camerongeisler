@@ -11,28 +11,28 @@
         <mrow> a x_1 + b x_2 \amp = y_1 </mrow>
         <mrow> c x_1 + d x_2 \amp = y_2 </mrow>
     </md>
-    Its solution is given by,
+    Its (unique) solution is given by,
     <me>
-        (x,y) = \brac{\frac{d}{\Delta} y_1 - \frac{b}{\Delta} y_2, \frac{a}{\Delta} y_2 - \frac{c}{\Delta} y_1}
+        \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} \frac{1}{\Delta} \brac{d y_1 - b y_2} \\ \frac{1}{\Delta} \brac{a y_2 - c y_1} \end{bmatrix}
     </me>
-    where <m>\Delta = ad - bc</m>, and provided that <m>\Delta \neq 0</m>.
+    <p>where <m>\Delta = ad - bc</m>, and provided that <m>\Delta \neq 0</m>.</p>
     <p>
         More explicitly,
     </p>
     <me>
-        x = \frac{dy_1 - by_2}{ad - bc} \qquad y = \frac{ay_2 - cy_1}{ad - bc}
+        x_1 = \frac{dy_1 - by_2}{ad - bc} \qquad x_2 = \frac{ay_2 - cy_1}{ad - bc}
     </me>
-    Notice that the numerator has the form of a <m>2 \times 2</m> determinant. For <m>x</m>, <m>dy_1 - by_2</m> has a similar form as <m>ad - bc</m>, except with <m>y_1</m> and <m>y_2</m> instead of <m>a</m> and <m>c</m>, respectively. Thus, the numerator is,
+    Notice that the numerator has the form of a <m>2 \times 2</m> determinant, being a difference of products. For <m>x_1</m>, <m>dy_1 - by_2</m> has a similar form as <m>ad - bc</m>, except with <m>y_1</m> and <m>y_2</m> instead of <m>a</m> and <m>c</m>, respectively. Thus, the numerator is,
     <me>
         \det{\begin{bmatrix} y_1 \amp b \\ y_2 \amp d \end{bmatrix}}
     </me>
-    Similarly, for <m>y</m>, here <m>y_2</m> and <m>y_1</m> replace <m>d</m> and <m>b</m>, respectively, and so the numerator is,
+    Similarly, for <m>x_2</m>, here <m>y_2</m> and <m>y_1</m> replace <m>d</m> and <m>b</m>, respectively, and so the numerator is,
     <me>
         \det{\begin{bmatrix} a \amp y_1 \\ c \amp y_2 \end{bmatrix}}
     </me>
     Thus, the unique solution can be written as a ratio of two determinants,
     <me>
-        x = \frac{\begin{vmatrix} y_1 \amp b \\ y_2 \amp d \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}} \qquad y = \frac{\begin{vmatrix} a \amp y_1 \\ c \amp y_2 \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}}
+        x_1 = \frac{\begin{vmatrix} y_1 \amp b \\ y_2 \amp d \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}} \qquad x_2 = \frac{\begin{vmatrix} a \amp y_1 \\ c \amp y_2 \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}}
     </me>
     Consider the pattern in the numerator matrix we are taking the determinant of. If we consider <m>x</m> and <m>y</m> to be the 1st and 2nd variables, respectively, then for the <m>i</m>th variable, the matrix in the numerator is the coefficient matrix, with the <m>i</m>th column replaced by the constant vector <m>(y_1, y_2)</m>.
     </introduction>
@@ -57,6 +57,36 @@
             \quad z = \frac{\begin{vmatrix} a_{11} \amp a_{12} \amp b_1 \\ a_{21} \amp a_{22} \amp b_2 \\ a_{31} \amp a_{32} \amp b_3 \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
         </me>
         Again, the denominator determinants are the determinant of the coefficient matrix, and the numerator determinant of the <m>i</m>th variable is the determinant of the coefficient matrix <em>with the <m>i</m>th column replaced by the constant vector</em>.
+    </subsection>
+
+    <subsection>
+        <title>Cramer's Rule</title>
+
+        <p>
+            This pattern generalizes to any system of <m>n</m> equations in <m>n</m> unknowns, and the resulting theorem is called <em>Cramer's rule</em>. First, for an <m>n \times n</m> matrix <m>A</m> and vector <m>\vec{b} \in \mathbb{R}^n</m>, let <m>A_i(\vec{b})</m> denote the matrix obtained from <m>A</m> by replacing column <m>i</m> by the vector <m>\vec{b}</m>,
+        </p>
+        <me>
+            A_i(\vec{b}) = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_{i-1} \amp \vec{b} \amp \vec{a}_{i+1} \amp \dots \vec{a}_n \end{bmatrix}
+        </me>
+        <p>
+            Then,
+        </p>
+        <theorem>
+            <title>Cramer's rule</title>
+            <p>
+                Let <m>A</m> be an <m>n \times n</m> matrix, <m>\vec{b} \in \mathbb{R}^n</m>. Then, if <m>A</m> is invertible, then the unique solution <m>\vec{x}</m> of the linear system <m>A\vec{x} = \vec{b}</m> has entries given by,
+            </p>
+            <me>
+                x_i = \frac{\det{A_i(\vec{b})}{\det{A}} \qquad \text{for <m>i = 1, 2, \dots, n</m>}
+            </me>
+        </theorem>
+
+        <p>
+            Cramer's rule gives a concise and rather explcit form of the solution of a linear system. However, it isn't particularly useful for solving linear systems, because it involves evaluating many determinants, making it very inefficient. Computing just one determinant takes about as much work as solving <m>A\vec{x} = \vec{b}</m> by row reduction.
+        </p>
+        <p>
+            On the other hand, it is useful for other theoretical calculations. For example, it can be used to examine how the sensitivity of the solution of <m>A\vec{x} = \vec{b}</m>, i.e. how the solutions changes when the entires of <m>\vec{b}</m> changes.
+        </p>
     </subsection>
 
 

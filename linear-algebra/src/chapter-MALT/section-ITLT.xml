@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-ITLT">
+    <title>Intro to Linear Transformations</title>
+
+    <introduction>
+        Another benefit of the matrix form <m>A\vec{x} = \vec{b}</m> of a linear system is that it allows us to view a matrix <m>A</m> as an object that <q>acts</q> on a vector <m>\vec{x}</m> to produce a new vector <m>A\vec{x}</m>. This is analogous to how a function <m>f(x)</m> <q>acts</q> on the number <m>x</m> to produce the output <m>f(x)</m>. This new perspective on a matrix is called a <em>transformation</em>, and it is a generalization of a real-valued function <m>f(x)</m>, developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an <m>n</m> real number inputs (a vector in <m>\mathbb{R}^n</m>), and an <m>m</m> real number output (a vector in <m>\mathbb{R}^m</m>).
+    </introduction>
+
+    <subsection>
+        <title>Transformations</title>
+
+        <definition>
+            A <term>transformation</term> (or <term>mapping</term>) <m>T</m> form <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m> is a rule which assigns to each vector <m>\vec{x} \in \mathbb{R}^n</m> a vector <m>T(\vec{x})</m> in <m>\mathbb{R}^m</m>.
+            <ul>
+                <li>The set <m>\mathbb{R}^n</m> is called the domain of <m>T</m> (more generally, a subset of <m>\mathbb{R}^n</m>, denoted by <m>D(T)</m>), and <m>\mathbb{R}^m</m> is called the <term>codomain</term> of <m>T</m></li>
+                <li>For <m>\vec{x} \in \mathbb{R}^n</m>, the vector <m>T(\vec{x})</m> is called the <term>image</term> of <m>\vec{x}</m>.</li>
+                <li>The <term>range</term> of <m>T</m> is the set of all images <m>T(\vec{x})</m>.</li>
+            </ul>
+        </definition>
+
+        <p>
+            The term <q>transformation</q> or <q>mapping</q> is used, however the concept is basically the same as the familiar function.
+        </p>
+
+        <p>
+            Intuitively, a transformation <m>T</m> can be understood in terms of the <q>movement</q> of mapping one vector to another. More generally, <m>T</m> maps its domain <m>\mathbb{R}^n</m> to its range, and this can be thought of as moving all possible input vectors to their corresponding output vectors. In particular, in <m>\mathbb{R}^2</m> can be thought of as a transformation in the sense of geometry, a way of changing the shape of some objects in some way (translation, rotation, stretching, expansion and compression, etc.).
+        </p>
+
+        <p>
+            If <m>A</m> is an <m>m \times n</m> matrix, then matrix multiplication by <m>A</m> is a transformation. In particular, the map <m>T(\vec{x}) = A\vec{x}</m> is a transformation from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m>.
+        </p>
+
+    </subsection>
+    <subsection>
+        <title>Linear Transformations</title>
+        <p>
+            In linear algebra, we only consider transformations with a particular <q>linear</q> property, called <q>linear transformations</q>. Recall that if <m>A</m> is an <m>m \times n</m> matrix, and <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m>, then,
+        </p>
+        <me>
+            A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} \quad \text{and} \quad A(c\vec{x}) = cA\vec{x}
+        </me>
+
+        <p>
+            These properties together make matrix multiplication a so-called <q>linear</q> transformation.
+        </p>
+
+        <definition>
+            A transformation <m>T</m> is <term>linear</term> if,
+            <ol>
+                <li><m>T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})</m> for all <m>\vec{x}, \vec{y} \in D(T)</m>.</li>
+                <li><m>T(c \vec{x}) = c T(\vec{x})</m> for all <m>c \in \mathbb{R}, \vec{x} \in D(T)</m>.</li>
+            </ol>
+        </definition>
+
+        <p>
+            Intuitively, property 2 means that if you scale the input by a factor of <m>c</m>, then the output will be correspondingly scaled by <m>c</m>.
+        </p>
+
+        <p>
+            Linear transformations are said to be <term>operation preserving</term>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding <m>\vec{x} + \vec{y}</m> in <m>\mathbb{R}^n</m> and then applying <m>T</m> is equivalent to applying <m>T</m> to <m>\vec{x}</m> and <m>\vec{y}</m> and then adding their result in <m>\mathbb{R}^m</m>.
+        </p>
+
+        <p>
+            With this definition, every matrix transformation is a linear transformation. 
+        </p>
+
+        <theorem>
+            <title>Maps 0 to 0</title>
+            <p>
+                If <m>T</m> is a linear transformation, then <m>T(\vec{0}) = \vec{0}</m>.
+            </p>
+        </theorem>
+
+        <proof>
+            By linearity, <m>T(\vec{0}) = T(0\vec{x}) = 0 \cdot T(\vec{x}) = \vec{0}</m>.
+        </proof>
+
+        <p>
+            Geometrically, a transformation is linear if it maps all (straight) lines to lines, and fixes the origin. Linear transformations have the property that grid lines remain parallel and evenly spaced.
+        </p>
+
+        <theorem>
+            <title>General linear property</title>
+            <p>
+                Let <m>T</m> be a linear transformation, <m>\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}</m>. Then,
+            </p>
+            <me>
+                \boxed{T(a_1 \vec{v}_1 + \dots + a_n \vec{v}_n) = a_1 T(\vec{v}_1) + \dots + a_n T(\vec{v}_n)}
+            </me>
+            <p>
+                More compactly,
+            </p>
+            <me>
+                T\brac{\sum_{k=1}^n a_k \vec{v}_k} = \sum_{k=1}^n a_k T(\vec{v}_k)
+            </me>
+        </theorem>
+    </subsection>
+</section>

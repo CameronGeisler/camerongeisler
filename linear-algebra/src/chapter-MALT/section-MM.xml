@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-MM">
+    <title>Matrix Multiplication</title>
+
+    <introduction>
+        <p>
+            Addition and scalar multiplication of matrices is defined in the intuitively natural way, entry-wise. However, there is another operation which is not defined in this natural way. That is, multiplying two matrices, or <em>matrix multiplication</em>, is not computed entry-wise. This will be a generalization of the matrix-vector product.
+        </p>
+    </introduction>
+
+    <subsection>
+        <title>Matrix Multiplication</title>
+
+        <p>
+            Consider a matrix <m>B</m>. If <m>B</m> is multipled to a vector <m>\vec{x}</m>, this transforms <m>\vec{x}</m> into the vector <m>B\vec{x}</m>. Then, if this vector is then multiplied by another matrix <m>A</m>, the resulting vector is <m>A(B\vec{x})</m>.
+        </p>
+    
+        <p>
+            The vector <m>A(B\vec{x})</m> is produced from <m>\vec{x}</m> by a <em>composition</em> of transformations. Then, we define <m>AB</m> to be a matrix which represents this single composite transformation produced by applying <m>B</m> and then <m>A</m>.
+        </p>
+        <p>
+            Let <m>A</m> be an <m>m \times n</m> matrix, and <m>B</m> be an <m>n \times p</m> matrix. Let the columns of <m>B</m> be <m>\vec{b}_1, \dots, \vec{b}_p</m>, and let <m>\vec{x} = (x_1, \dots, x_p)</m> be a vector in <m>\mathbb{R}^p</m>. Then, first consider the matrix-vector product <m>B\vec{x}</m>,
+        </p>
+        <me>
+            B\vec{x} = x_1 \vec{b}_1 + \dots + x_p \vec{b}_p
+        </me>
+        Then, consider <m>A(B\vec{x})</m>,
+        <me>
+            A(B\vec{x}) = A\brac{x_1 \vec{b}_1 + \dots + x_p \vec{b}_p}
+        </me>
+        Here, <m>A</m> is being applied to a linear combination of <m>\vec{b}_1, \dots, \vec{b}_p</m>, with weights <m>x_1, \dots, x_p</m>. So, by linearity, this is equivalent to,
+        <me>
+            A(B\vec{x}) = x_1 A\vec{b}_1 + \dots + x_p A \vec{b}_p
+        </me>
+        <p>
+            In other words, the vector <m>A(B\vec{x})</m> is the linear combination of <m>A\vec{b}_1, \dots, A\vec{b}_p</m>, with the entries of <m>\vec{x}</m> as weights. In matrix notation,
+        </p>
+        <me>
+            A(B\vec{x}) = \begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix} \vec{x}
+        </me>
+        <p>
+            Thus, the matrix <m>\begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix}</m> is precisely the matrix which transforms <m>\vec{x}</m> into <m>A(B\vec{x})</m>, which we want to denote by <m>AB</m>.
+        </p>
+
+        <definition>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix, <m>B</m> be an <m>n \times p</m> matrix with columns <m>\vec{b}_1, \dots, \vec{b}_p</m>. Then, the <term>product</term> <m>AB</m> is the <m>m \times p</m> matrix with columns <m>A\vec{b}_1, \dots, A\vec{b}_p</m>, or,</p>
+            <me>
+                \boxed{AB = A \begin{bmatrix} \vec{b}_1 \amp \cdots \amp \vec{b}_p \end{bmatrix} = \begin{bmatrix} A \vec{b}_1 \amp \cdots \amp A \vec{b}_p \end{bmatrix}}
+            </me>
+        </definition>
+
+        <p>
+            This definition for matrix multiplication makes the equation <m>A(B\vec{x}) = (AB)\vec{x}</m> true. That is, <m>AB</m> is the single transformation that is equvialent to applying <m>B</m> first, and then <m>A</m>. In this way, multiplication of matrices corresponds to composition of linear transformations.
+        </p>
+        <p>
+            This definition also emhasizes that the column of <m>AB</m> are given by the matrix-vector products <m>A\vec{b}_1, \dots, A\vec{b}_p</m>. In some sense, matrix multiplication is a generalization of the matrix-vector product.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Multiplication as a Dot Product (Entry-by-Entry)</title>
+        <p>
+            Another perspective on matrix multiplication views it entry-by-entry, and involves a dot product of a column and a row.
+        </p>
+        
+        <example>
+            <p>Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}</m>. Then,</p>
+            <md>
+                <mrow>\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix} \amp = \begin{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} e \\ g \end{bmatrix} \amp \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} f \\ h \end{bmatrix} \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} e \begin{bmatrix} a \\ c \end{bmatrix} + g \begin{bmatrix} b \\ d \end{bmatrix} \amp f \begin{bmatrix} a \\ c \end{bmatrix} + h \begin{bmatrix} b \\ d \end{bmatrix} \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} ae + bg \amp af + bh \\ ce + dg \amp cf + dh \end{bmatrix}</mrow>
+            </md>
+            <p>
+                Notice that the entries of this product of matrices has the form of a dot product of vectors within the original two matrices. For example, the <m>(1,1)</m>-entry <m>ae + bg</m> is the dot product of <m>(a,b)</m> with <m>(e,g)</m>, the 1st row of <m>A</m> and the 1st column of <m>B</m>, respectively.
+            </p>
+        </example>
+
+        <p>
+            More generally, the <m>(i,j)</m>-entry of <m>AB</m> is the dot product of the <m>i</m>th row of <m>A</m> and the <m>j</m>the column of <m>B</m>. In other words,
+        </p>
+
+        <me>
+            \boxed{(AB)_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \dots + a_{in} b_{nj} = \sum_{k=1}^n a_{ik} b_{kj}}
+        </me>
+    </subsection>
+    
+    <subsection>
+        <title>Row Perspective of the Matrix-Vector Product and Matrix Multiplication</title>
+        <p>
+            There is another characterization of the matrix-vector product, and matrix multiplication, from the perspective of the rows of the matrix, and in particular a linear combination of the rows. Let <m>A</m> be an <m>m \times n</m> matrix. Recall that <m>A\vec{x}</m> (where <m>\vec{x} \in \mathbb{R}^n</m>) can be thought of as a linear combination of the columns of <m>A</m> with weights given by the entries of <m>\vec{x}</m>. In a similar way, the product <m>\vec{x}A</m> (where <m>\vec{x} \in \mathbb{R}^m</m>) can be thought of as a linear combination of the rows of <m>A</m>, with weights given by the entries of <m>\vec{x}</m>. 
+        </p>
+        <p>
+            More precisely, let <m>\vec{x} = (x_1, \dots, x_m)</m>, and let <m>\vec{a}^i</m> denote the <m>i</m>th row of <m>A</m>, so
+        </p>
+        <me>
+            A = \begin{bmatrix} \vec{a}^1 \\ \vdots \\ \vec{a}^m \end{bmatrix}
+        </me>
+        <p>
+            Note that we haven't defined vector powers, so this is not ambiguous. Then,
+        </p>
+        <me>
+            \vec{x} A = x_1 \vec{a}^1 + \dots + x_m \vec{a}^m
+        </me>
+        <p>
+            for which the result is again a row vector.
+        </p>
+
+        <example>
+            <p>
+                For example,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} 2 \amp -1 \end{bmatrix} \begin{bmatrix} 2 \amp 3 \\ -1 \amp 4 \end{bmatrix} \amp = 2 \begin{bmatrix} 2 \amp 3 \end{bmatrix} - 1 \begin{bmatrix} -1 \amp 4 \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} 4 \amp 6 \end{bmatrix} + \begin{bmatrix} 1 \amp -4 \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} 5 \amp 2 \end{bmatrix}</mrow>
+            </md>
+        </example>
+
+        <p>
+            Then, this leads to a characterization of matrix multiplication. Let <m>B</m> be an <m>n \times p</m> matrix. Then,
+        </p>
+        <me>
+            \boxed{AB = \begin{bmatrix} \vec{a}^1 B \\ \vdots \\ \vec{a}^m B \end{bmatrix}}
+        </me>
+        <p>
+            That is, each row of <m>AB</m> is a linear combination of the rows of <m>B</m>, with weights given by the correspondsing row of <m>A</m>. In particular, the <m>i</m>th row of <m>AB</m> is a linear combination of the rows of <m>B</m> with weights given by the entries of the <m>i</m>th row of <m>A</m>.
+        </p>
+        
+        <example>
+            <p>
+                For example,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix} \amp = \begin{bmatrix} 1 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 0 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \\ 0 \cdot \begin{bmatrix} 5 \amp 2 \end{bmatrix} + 1 \cdot \begin{bmatrix} -2 \amp 4 \end{bmatrix} \end{bmatrix}</mrow>
+                <mrow>\amp = \begin{bmatrix} 5 \amp 2 \\ -2 \amp 4 \end{bmatrix}</mrow>
+            </md>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Properties of Matrix Multiplication</title>
+
+        <p>
+            Matrix multiplication shares many properties of real number multiplication, assuming the matrices have the appropriate dimensions.
+        </p>
+
+        <theorem>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix, <m>B</m> and <m>C</m> be <m>n \times p</m> matrices, <m>D</m> and <m>E</m> be <m>q \times m</m> matrices, <m>a \in \mathbb{R}</m> be a scalar. Then,</p>
+            <ol>
+                <li><em>Multiplication distributes over addition</em>.
+                <me>
+                    A(B + C) = AB + AC \qquad \text{and} \qquad (D + E)A = DA + EA
+                </me></li>
+                <li><em>Associative with scalar multiplication</em>.
+                <me>
+                    a(AB) = (aA)B = A(aB)
+                </me></li>
+                <li><em>Associative with matrix multiplication</em>.
+                <me>
+                    A(BC) = (AB)C
+                </me></li>
+            </ol>
+        </theorem>
+
+        <p>
+            Intuitively, these properties mean that parentheses surrounding matrix expressions generally work the same as for real numbers.
+        </p>
+
+        <p>
+            The associative property <m>A(BC) = (AB)C</m> is very intuitive through the language of transformations. It says that applying the composition <m>BC</m> and then <m>A</m>, is the same as applying <m>C</m>, then the composition <m>AB</m>. Both of these are by definition equiavlent to applying <m>C</m>, then <m>B</m>, then <m>A</m>.
+        </p>
+
+        <p>
+            The numerical proofs for these properties for an arbitrary matrix can be tedious and symbol-heavy.
+        </p>
+
+        <proof>
+            <ol>
+                <li><em>Proof of 1. entry-wise</em>.
+                <md>
+                    <mrow>(A(B + C))_{ij} \amp = \sum_{k=1}^n A_{ik}(B + C)_{kj} \amp\amp \text{definition of matrix multiplication}</mrow>
+                    <mrow>\amp = \sum_{k=1}^n A_{ik}(B_{kj} + C_{kj}) \amp\amp \text{definition of matrix addition}</mrow>
+                    <mrow>\amp = \sum_{k=1}^n (A_{ik} B_{kj} + A_{ik} C_{kj})</mrow>
+                    <mrow>\amp = \sum_{k=1}^n A_{ik}B_{kj} + \sum_{k=1}^n A_{ik}C_{kj}</mrow>
+                    <mrow>\amp = (AB)_{ij} + (AC)_{ij} \amp\amp \text{definition of matrix multiplication}</mrow>
+                    <mrow>\amp = (AB + AC)_{ij} \amp\amp \text{definition of matrix addition}</mrow>
+                </md></li>
+                <li>
+                    <em>Proof of 3. for <m>2 \times 2</m> matrices.</em> Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}, C = \begin{bmatrix} i \amp j \\ k \amp l \end{bmatrix}</m>. Then,
+                    <md>
+                        <mrow>A(BC) = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \brac{\begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix} \begin{bmatrix} i \amp j \\ k \amp l \end{bmatrix}} \amp = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} ei + fk \amp ej + fl \\ gi + hk \amp gj + hl \end{bmatrix}</mrow>
+                        <mrow>\amp = \begin{bmatrix} a(ei + fk) + b(gi + hk) \amp a(ej + fl) + b(gj + hl) \\ c(ei + fk) + d(gi + hk) \amp c(ej + fl) + d(gj + hl) \end{bmatrix}</mrow>
+                    </md>
+                    Also,
+                    <md>
+                        <mrow>(AB)C = \brac{\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}} \begin{bmatrix} i \amp j \\ k \amp l \end{bmatrix} \amp = \begin{bmatrix} ae + bg \amp af + bh \\ ce + dg \amp cf + dh \end{bmatrix} \begin{bmatrix} i \amp j \\ k \amp l \end{bmatrix}</mrow>
+                        <mrow>\amp = \begin{bmatrix} (ae + bg)i + (af + bh)k \amp (ae + bg)j + (af + bh)l \\ (ce + dg)i + (cf + dh)k \amp (ce + dg)j + (cf + dh)l </mrow>
+                    </md>
+                    Comparing these expressions entry-by-entry shows that they are equal.
+                </li>
+            </ol>
+        </proof>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Multiplication is Not Commutative</title>
+
+        <p>
+            While matrix multiplication shares many properties of real number multiplication, it differs by an important property. That is, matrix multiplication is not commutative, in that in general,
+        </p>
+        <me>
+            AB \neq BA
+        </me>
+        <p>
+            Viewing <m>A</m> and <m>B</m> as transformations, it is clear that the composition applying <m>B</m> first, and then <m>A</m>, will not be the same as applying <m>A</m> first, and then <m>B</m>. You may recall the more specific property holds for functions, that is, for real-valued functions <m>f, g</m>, <m>f(g(x)) \neq g(f(x))</m>. That is, the non-commutativity of matrix multiplication is a consequence of the more general fact that transformation composition is not commutative.
+        </p>
+        <p>
+            In fact, viewing <m>A</m> and <m>B</m> as matrices, suppose say <m>A</m> is an <m>m \times n</m> matrix, and <m>B</m> is an <m>n \times p</m> matrix. Then, the product <m>AB</m> is defined. However, the product <m>BA</m> is not even defined in general, unless <m>m = p</m>. Further, even if <m>m = p</m>, the product <m>AB</m> will have dimensions <m>m \times m</m>, while the product <m>BA</m> will have dimensions <m>n \times n</m>, and so <m>AB</m> and <m>BA</m> cannot even possibly be the same matrix, unless <m>m = n</m>. In this special case, where <m>m = n</m> and <m>m = p</m>, <m>A</m> and <m>B</m> are both square matrices, say <m>n \times n</m>. Even in this particular case, the entries of <m>A</m> and <m>B</m> are not all the same in general, that is, <m>AB \neq BA</m>.
+        </p>
+        <p>
+            More concretely, <m>AB</m> is a linear combination of the columns of <m>B</m>, whereas <m>BA</m> is a linear combination of the columns of <m>A</m>, and there is no reason to expect these to be equal.
+        </p>
+        <p>
+            Then, in the product <m>AB</m>, we sometimes say <m>A</m> is <term>right-multiplied</term> by <m>B</m>, or <m>B</m> is <term>left-multiplied</term> by <m>A</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>The Identity Matrix</title>
+
+        <p>
+            The identity matrix for the matrix-vector product plays an identical role in the multiplciation of matrices. Recall that the <m>n \times n</m> identity matrix is denoted by <m>I_n</m> and has 1's along its main diagonal (from top left to bottom right) and 0's everywhere else,
+        </p>
+        <me>
+            I_n = \begin{bmatrix} 1 \amp 0 \amp \dots \amp 0 \\ 0 \amp 1 \amp \dots \amp 0 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp \dots \amp 1 \end{bmatrix}
+        </me>
+        <p>
+            This matrix has the property that for any <m>n \times n</m> matrix <m>A</m>,
+        </p>
+        <me>
+            \boxed{AI_n = I_n A = A}
+        </me>
+
+        <example>
+            For example, you can verify that,
+            <me>
+                \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+            </me>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Operations with <m>1 \times 1</m> Matrices</title>
+        <p>
+            The arithmetic of matrices can be more deeply understood by considering the simplest possible case, of arithemtic with <m>1 \times 1</m> matrices. A general <m>1 \times 1</m> matrix is of the form <m>A = \begin{bmatrix} a \end{bmatrix}</m>. Then, addition and scalar multiplication are defined as,
+        </p>
+        <md>
+            <mrow>\begin{bmatrix} a \end{bmatrix} + \begin{bmatrix} b \end{bmatrix} \amp = \begin{bmatrix} a + b \end{bmatrix}</mrow>
+            <mrow>k \begin{bmatrix} a \end{bmatrix} \amp = \begin{bmatrix} ka \end{bmatrix}</mrow>
+            <mrow>\begin{bmatrix} a \end{bmatrix} \begin{bmatrix} b \end{bmatrix} \amp = \begin{bmatrix} ab \end{bmatrix}</mrow>
+        </md>
+        <p>
+            All of these computations follows from the more general definitions presented previously. Notice that the operations of <m>1 \times 1</m> matrices are essentially analogously to the operations of real numbers. That is, <m>1 \times 1</m> can be identified with real numbers.
+        </p>
+        <p>
+            Then, <m>2 \times 2</m> and larger matrices can be thought of as <q>generalized numbers</q>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Matrix Multiplication by Blocks (Partitioned Matrices)</title>
+    </subsection>
+
+</section>

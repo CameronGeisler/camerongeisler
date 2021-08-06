@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T14:59:43-07:00       *-->
+<!--*       on 2021-08-05T17:20:26-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,13 +55,18 @@
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
 \newcommand{\eval}[1]{\left. #1 \right|}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
 \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
 \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
 
+    
 
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
 \DeclareMathOperator{\Image}{Im}
@@ -105,10 +110,7 @@
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul>
-<li><a href="subsec-AOLA.html" data-scroll="subsec-AOLA">Applications of Linear Algebra</a></li>
-<li><a href="subsection-2.html" data-scroll="subsection-2">Misc Notes</a></li>
-</ul>
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
 </li>
 <li class="link">
 <a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
@@ -116,27 +118,48 @@
 <li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE" class="active">Intro to Solving Systems, Gaussian Elimination</a></li>
 <li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
 <li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTAG.html" data-scroll="section-LTAG">Linear Transformations and Geometry</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-M.html" data-scroll="chapter-M"><span class="codenumber">3</span> <span class="title">Matrices</span></a><ul>
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
 <li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
 <li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
 <li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">4</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -144,17 +167,17 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-ITSSGE"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Intro to Solving Systems, Gaussian Elimination</span>
 </h2>
-<section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<section class="subsection" id="subsection-5"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.2.1</span> <span class="title">Existence and Uniqueness</span>
 </h3>
-<p id="p-15">When solving a system, we have two main questions:</p>
+<p id="p-20">When solving a system, we have two main questions:</p>
 <ol class="decimal">
-<li id="li-28">Existence. Does the system have at least one solution?</li>
-<li id="li-29">Uniqueness. If the system has a solution, is it unique? Or, is there more than one solution?</li>
-</ol></section><section class="subsection" id="subsection-7"><h3 class="heading hide-type">
+<li id="li-32">Existence. Does the system have at least one solution?</li>
+<li id="li-33">Uniqueness. If the system has a solution, is it unique? Or, is there more than one solution?</li>
+</ol></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.2.2</span> <span class="title">Triangular Systems, Back-Substitution</span>
 </h3>
-<p id="p-16">Some systems are particularly simple to solve.</p>
+<p id="p-21">Some systems are particularly simple to solve.</p>
 <article class="example example-like" id="example-1"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-1"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-1"><article class="example example-like">Consider the system,<div class="displaymath">
@@ -166,23 +189,23 @@
 \end{array}
 \end{equation*}
 </div>Notice that the last equation has only one variable, and so can be solved to determine the value of \(z\text{.}\) In this case, \(3z = 3\) implies that \(z = 1\text{.}\) In other words, if \((x,y,z)\) is a solution to this system, it must have \(z=1\) in order to satisfy the 3rd equation. Then, we can work backwards and determine the remaining values. First, this value of \(z\) can be used to solve for \(y\) in the second equation. If \(z = 1\text{,}\) then \(3y + 1 = 10\text{,}\) and solving for \(y\) gives \(y = 3\text{.}\) Finally, the values of \(y\) and \(z\) can be used to solve for \(x\text{,}\) using the first equation. If \(z = 1\) and \(y = 3\text{,}\) then \(2x + 3 - 1 = -2\text{,}\) and solving for \(x\) gives \(x = -2\text{.}\) Thus, this system has a single unique solution, \((-2,3,1)\text{.}\)</article></div>
-<p id="p-17">Systems with this “staircase” form are called triangular. More precisely,</p>
+<p id="p-22">Systems with this “staircase” form are called triangular. More precisely,</p>
 <article class="definition definition-like" id="definition-5"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
-</h6>A linear system is <dfn class="terminology">triangular</dfn> if the last equation has at most 1 variable, the 2nd-last has at most 2 variables, the 3rd-last has at most 3 variables, etc.</article><p id="p-18">Triangular systems can be solved using this simple technique, called <dfn class="terminology">back-substitution</dfn>. This technique can be used for any triangular system to solve for the value of each variable.</p></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
+</h6>A linear system is <dfn class="terminology">triangular</dfn> if the last equation has at most 1 variable, the 2nd-last has at most 2 variables, the 3rd-last has at most 3 variables, etc.</article><p id="p-23">Triangular systems can be solved using this simple technique, called <dfn class="terminology">back-substitution</dfn>. This technique can be used for any triangular system to solve for the value of each variable.</p></section><section class="subsection" id="subsection-7"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.2.3</span> <span class="title">Gaussian Elimination, Elementary Operations</span>
 </h3>
-<p id="p-19"><dfn class="terminology">Gaussian elimination</dfn> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another somewhat simpler system, without changing the solution set. In other words, the simpler system is <em class="emphasis">equivalent</em> to the original system, in that the simpler system has the same solution set as the original system. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.</p>
+<p id="p-24"><dfn class="terminology">Gaussian elimination</dfn> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another somewhat simpler system, without changing the solution set. In other words, the simpler system is <em class="emphasis">equivalent</em> to the original system, in that the simpler system has the same solution set as the original system. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.</p>
 <article class="definition definition-like" id="definition-6"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Elementary operations.</span>
 </h6> Denote equation \(i\) by \(E_i\text{.}\) Then, the elementary operations are, <ul class="disc">
-<li id="li-30">
+<li id="li-34">
 <dfn class="terminology">Interchange</dfn>. Interchange the order of two equations in the system, \(E_1 \leftrightarrow E_j\text{.}\)</li>
-<li id="li-31">
+<li id="li-35">
 <dfn class="terminology">Scaling</dfn>. Multiply (or divide) an equation by a non-zero real number, \(kE_i \rightarrow E_i\text{.}\)</li>
-<li id="li-32">
+<li id="li-36">
 <dfn class="terminology">Replacement</dfn>. Add to one equation a multiple of another equation, \(E_i + kE_j \rightarrow E_i\text{.}\)</li>
-</ul></article><p id="p-20">The fact that these elementary operations do not change the solution set of the system is crucial, and it somewhat subtle, and will be explained after an example.</p>
+</ul></article><p id="p-25">The fact that these elementary operations do not change the solution set of the system is crucial, and it somewhat subtle, and will be explained after an example.</p>
 <article class="example example-like" id="example-2"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-2"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
 </h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-2"><article class="example example-like">Consider the system,<div class="displaymath">
@@ -209,18 +232,18 @@
 \amp \amp -4z \amp = \amp -4
 \end{array}
 \end{equation*}
-</div>This system is in triangular form, so we can use back substitution. Solving for \(z\text{,}\) we get \(z = 1\text{.}\) Then, solving for \(y\) gives \(y = 2\text{,}\) and finally \(x = -1\text{.}\)</article></div></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
+</div>This system is in triangular form, so we can use back substitution. Solving for \(z\text{,}\) we get \(z = 1\text{.}\) Then, solving for \(y\) gives \(y = 2\text{,}\) and finally \(x = -1\text{.}\)</article></div></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.2.4</span> <span class="title">Remark on Elementary Operations</span>
 </h3>
-<p id="p-21">A crucial property of elementary operations is that applying them does not change the solution set of the system. More precisely, if an elementary operation transforms system 1 into system 2, then system 1 and system 2 have the same solution set.</p>
+<p id="p-26">A crucial property of elementary operations is that applying them does not change the solution set of the system. More precisely, if an elementary operation transforms system 1 into system 2, then system 1 and system 2 have the same solution set.</p>
 <ul class="disc">
-<li id="li-33">First, interchanging two equations \(E_i \leftrightarrow E_j\text{,}\) i.e. rearranging the order of the equations, clearly does not affect the solutions of those two equations, and so doesn't affect the solution set of the system.</li>
-<li id="li-34">Also, multiplying an equation \(E_i\) by a non-zero constant \(k\) does not change the solutions of that equation, as any solution of \(E_i\) is also a solution of \(kE_i\text{,}\) and vise versa. This is true as long as \(k \neq 0\text{,}\) as if \(k = 0\text{,}\) then \(0 \cdot K_i\) is just the equation \(0 = 0\) for which any tuple will be a solution.</li>
-<li id="li-35">Finally, consider adding a multiple of an equation to another equation, \(E_i + kE_j \rightarrow E_i\text{.}\) Let \((x_1, \dots, x_n)\) be a solution to the original system. Then, it is a solution of \(E_i\) and \(E_j\text{.}\) From before, it is also a solution to \(kE_j\text{.}\) This implies that \((x_1, \dots, x_n)\) is a solution to the sum \(E_i + kE_j\text{.}\)</li>
-</ul> Then, it follows that any sequence of these operations will not change the solution set of the system.</section><section class="subsection" id="subsection-10"><h3 class="heading hide-type">
+<li id="li-37">First, interchanging two equations \(E_i \leftrightarrow E_j\text{,}\) i.e. rearranging the order of the equations, clearly does not affect the solutions of those two equations, and so doesn't affect the solution set of the system.</li>
+<li id="li-38">Also, multiplying an equation \(E_i\) by a non-zero constant \(k\) does not change the solutions of that equation, as any solution of \(E_i\) is also a solution of \(kE_i\text{,}\) and vise versa. This is true as long as \(k \neq 0\text{,}\) as if \(k = 0\text{,}\) then \(0 \cdot K_i\) is just the equation \(0 = 0\) for which any tuple will be a solution.</li>
+<li id="li-39">Finally, consider adding a multiple of an equation to another equation, \(E_i + kE_j \rightarrow E_i\text{.}\) Let \((x_1, \dots, x_n)\) be a solution to the original system. Then, it is a solution of \(E_i\) and \(E_j\text{.}\) From before, it is also a solution to \(kE_j\text{.}\) This implies that \((x_1, \dots, x_n)\) is a solution to the sum \(E_i + kE_j\text{.}\)</li>
+</ul> Then, it follows that any sequence of these operations will not change the solution set of the system.</section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.2.5</span> <span class="title">Solving Systems of Two Equations in Two Variables</span>
 </h3>
-<p id="p-22">Consider a system of two equations in two unknowns,</p>
+<p id="p-27">Consider a system of two equations in two unknowns,</p>
 <div class="displaymath">
 \begin{align*}
 a x_1 + b x_2 \amp = y_1 \\

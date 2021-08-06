@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-B">
+    <title>Basis of a Vector Space</title>
+
+    <subsection>
+        <title>Basis of a Subspace</title>
+        <p>
+            Subspaces typically contain an infinite number of vectors, so it is useful to determine a small set of vectors in the subspace which span the subspace. For the column space, this comes directly from the definition. For the null space, this comes from finding the parametric vector form of the homogeneous solution set. This set of vectors which span a space is called a <em>basis</em>.
+        </p>
+        <definition>
+            <p>A <term>basis</term> of a subspace <m>U</m> of <m>\mathbb{R}^n</m> is a linearly independent set in <m>U</m> that spans <m>U</m>.</p>
+        </definition>
+
+        <example>
+            <title>The standard basis vectors</title>
+            <p>Recall the standard basis vectors. In <m>\mathbb{R}^2</m>, they are given by,</p>
+            <me>
+                \ihat = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \jhat = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+            </me>
+            <p>In <m>\mathbb{R}^3</m>, they are given by,</p>
+            <me>
+                \ihat = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \quad \jhat = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \quad \khat = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+            </me>
+            <p>and more generally, in <m>\mathbb{R}^n</m>, they are given by,</p>
+            <me>
+                \vec{e}_1 = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \quad \vec{e}_2 = \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{bmatrix} \quad \dots \quad \vec{e}_n = \begin{bmatrix} 0 \\ \vdots \\ 0 \\ 1 \end{bmatrix}
+            </me>
+            <p>In general, the <m>i</m>th standard basis vector <m>\vec{e}_i</m> has a 1 in its <m>i</m>th component and 0's everywhere else. In each case, these vectors are linearly independent, and span <m>\mathbb{R}^n</m>. The fact that they span <m>\mathbb{R}^n</m> is clear, because any vector <m>\vec{x} = (x_1, \dots, x_n)</m> can be written as the linear combination,</p>
+            <me>
+                \vec{x} = x_1 \vec{e}_1 + \dots + x_n \vec{e}_n
+            </me>
+            <p>Also, they are linearly independent, because they form the matrix equation <m>I_n \vec{x} = \vec{0}</m>, which only has the trivial solution.</p>
+        </example>
+
+        <example>
+            <title>Alternate bases</title>
+            <p>
+                In fact, for any invertible matrix <m>A</m> (of size <m>n \times n</m>), its columns forms a basis of <m>\mathbb{R}^n</m>. This is because the columns are a linearly independent set that spans <m>\mathbb{R}^n</m>.
+            </p>
+        </example>
+
+        <example>
+            <title>Basis of the null space</title>
+            <p>
+                Recall that the null space of <m>A</m> is the solution set of <m>A \vec{x} = \vec{0}</m>. When this solution set is written in parametric vector form, the vectors form a basis for <m>N(A)</m>.
+            </p>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Basis of the Column Space</title>
+        <theorem>
+            <p>The pivot columns of a matrix <m>A</m> form a basis for the column space of <m>A</m>.</p>
+        </theorem>
+
+        <p>
+            Note that the pivot columns of <m>A</m> form a basis, not the pivot columns of the RREF of <m>A</m>.
+        </p>
+    </subsection>
+</section>

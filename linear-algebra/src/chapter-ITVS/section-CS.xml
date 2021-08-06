@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-CS">
+    <title>Coordinate Systems</title>
+
+    <subsection>
+        <title>Coordinate Systems</title>
+        <p>
+            Recall that a basis is a spanning set, in that every vector can be written as some linear combination of basis vectors. In addition, bases are useful because it turns out that every vector in a subspace <m>H</m> can be written <em>uniquely</em> as a linear combination of a basis of <m>H</m>.
+        </p>
+
+        <theorem>
+            <title>Unique Representation theorem</title>
+            Let <m>\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_p}</m> be a basis of <m>H</m>. Then, for every <m>\vec{x} \in H</m>, there exist unique weights <m>c_1, \dots, c_p</m> such that,
+            <me>
+                \vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p
+            </me>
+        </theorem>
+        <proof>
+            <p>Suppose that <m>\vec{x}</m> has two representations as linear combinations of <m>\mathcal{B}</m>, say <m>\vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p</m> and <m>\vec{x} = d_1 \vec{b}_1 + \dots + d_p \vec{b}_p</m>. Then, subtracting these two representations,</p>
+            <me>
+                \vec{0} = \vec{x} - \vec{x} = (c_1 - d_1) \vec{b}_1 + \dots + (c_p - d_p) \vec{b}_p
+            </me>
+            <p>Then, since <m>\mathcal{B}</m> is linearly independent, every weight must be equal to 0. Thus, <m>c_i - d_i = 0</m> for every <m>i</m>, or <m>c_i = d_i</m> for every <m>i</m>. That is, the representations are the same.</p>
+        </proof>
+
+        <definition>
+            <p>Let <m>\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_p}</m> be a basis of a subspace <m>H</m>. Then, for <m>\vec{x} \in H</m>, the <term>coordinates of <m>\vec{x}</m> relative to the basis</term> <m>\mathcal{B}</m> are the weights <m>c_1, \dots, c_p</m> such that <m>\vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p</m>, and the vector,</p>
+            <me>
+                [\vec{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ \vdots \\ c_p \end{bmatrix}
+            </me>
+            <p>is called the <term>coordinate vector of <m>\vec{x}</m> relative to <m>\mathcal{B}</m></term>.</p>
+        </definition>
+    </subsection>
+</section>

@@ -52,7 +52,7 @@
             Examples will often include <m>2 \times 2</m> or <m>3 \times 3</m> matrices. A general <m>2 \times 2</m> matrix is of the form,
         </p>
         <me>
-            A = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} a_{22} \end{bmatrix} \qquad \text{or} \qquad A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+            A = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \qquad \text{or} \qquad A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
         </me>
         <p>
             The latter notation is simpler because it doesn't involve subscripts. However, if there are multiple matrices involved, the former notation can be more practical.

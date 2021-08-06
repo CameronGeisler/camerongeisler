@@ -1,0 +1,231 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-08-05T17:20:28-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Matrix Factorizations, LU Factorziation</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\require{cancel}\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+    
+
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-DP.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-MISC.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-DP.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-MISC.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU" class="active">Matrix Factorizations, LU Factorziation</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-LU"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.2</span> <span class="title">Matrix Factorizations, LU Factorziation</span>
+</h2>
+<section class="introduction" id="introduction-27">Recall that factoring an algebraic expression involves writing it as a product of two or more expressions, and is helpful in various ways. A <dfn class="terminology">factorization</dfn> of a matrix \(A\) expresses it as a product of two or more matrices.</section><section class="subsection" id="subsection-113"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.1</span> <span class="title">LU Factorization</span>
+</h3>
+<p id="p-533">Let \(A\) be an \(m \times n\) matrix. Suppose that \(A\) can be converted to row echelon form without using row exchanges. Then, \(A\) can be written in the form \(A = LU\text{,}\) where \(L\) is an \(m \times m\) lower triangular matrix, amnd \(U\) is an \(m \times n\) upper triangular matrix.</p>
+<p id="p-534">The matrix \(U\) is the REF of \(A\text{,}\) and so is naturally upper triangular. The matrix \(L\) is the product of the elementary matrices used to convert \(A\) to \(U\text{,}\) so it is just the identity matrix with additional non-zero entries below the diagonal, corresponding to the row replacements and scaling row operations.</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{array}{rcc}
+A = \amp \begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \\ \ast \amp 1 \amp 0 \amp 0 \\ \ast \amp \ast \amp 1 \amp 0 \\ \ast \amp \ast \amp \ast \amp 1 \end{bmatrix} \amp \begin{bmatrix} \blacksquare \amp \ast \amp \ast \amp \ast \amp \ast \\
+0 \amp \blacksquare \amp \ast \amp \ast \amp \ast \\
+0 \amp 0 \amp 0 \amp \blacksquare \amp \ast \\
+0 \amp 0 \amp 0 \amp 0 \amp 0 \end{bmatrix} \\
+\amp L \amp U
+\end{array}
+\end{equation*}
+</div>
+<p id="p-535">This is called an <dfn class="terminology">LU factorization</dfn> of \(A\text{.}\) The matrix \(L\) is called <dfn class="terminology">unit lower triangular</dfn> (<dfn class="terminology">ULT</dfn>) because it is lower triangular and it has all 1's on the main diagonal.</p>
+<p id="p-536">If the LU factorization of \(A\) exists, \(A = LU\text{,}\) then the linear system \(A\vec{x} = \vec{b}\) becomes \(LU\vec{x} = \vec{b}\text{,}\) or, \(L(U\vec{x}) = \vec{b}\text{.}\) Then, to solve this system for \(\vec{x}\text{,}\) we can do it in two parts. First, find the vector(s) \(\vec{y}\) such that \(L\vec{y} = \vec{b}\text{.}\) Then, find the vectors \(\vec{x}\) such that \(U\vec{x} = \vec{y}\text{.}\) Both of these systems are easy to solve because their coefficient matrices are triangular. In this way, we solve the original system by solving two simpler systems.</p>
+<p id="p-537">Intuitively, we are “peeling back the layers” of \(L(U\vec{x}) = \vec{b}\text{.}\)</p></section><section class="subsection" id="subsection-114"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.2</span> <span class="title">Performing LU Factorization</span>
+</h3>
+<p id="p-538">If \(A\) can be reduced to row echelon form \(U\) using only row replacements which add a multiple of one row to another row <em class="emphasis">below it</em>, then there exists elementary matrices \(E_1, E_2, \dots, E_p\) (say there are \(p\) steps) which are all unit lower triangular, such that,</p>
+<div class="displaymath">
+\begin{equation*}
+E_p \cdots E_1 A = U
+\end{equation*}
+</div>
+<p id="p-539">Then,</p>
+<div class="displaymath">
+\begin{gather*}
+A = (E_p \cdots E_1)^{-1} U\\
+A = (E_1^{-1} \cdots E_p^{-1}) U
+\end{gather*}
+</div>
+<p id="p-540">Thus, \(A = LU\text{,}\) where,</p>
+<div class="displaymath">
+\begin{equation*}
+L = (E_p \cdots E_1)^{-1} = E_1^{-1} \cdots E_p^{-1}
+\end{equation*}
+</div>
+<p id="p-541">It turns out that indeed, \(L\) is ULT, because all of \(E_1, \dots, E_p\) are ULT, and the fact that the product of ULT matrices is ULT, and the inverse of a ULT matrix is ULT.</p>
+<article class="theorem theorem-like" id="theorem-42"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="period">.</span>
+</h6></article><article class="theorem theorem-like" id="theorem-43"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="period">.</span>
+</h6>\(A\)\(A\)\(A^{-1}\)</article><article class="hiddenproof" id="proof-22"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof">To prove this, we will prove that \(A\) is row equivalent to \(I\text{.}\) The entries below the \((1,1)\)-entry \(a_{11} = 1\) can be changed to 0 by adding a multiple of row 1. Since row 1 has no other non-zero entries, the \((2,2)\)-entry is unaffected. Also, this row operation only affects the first column of \(I\text{,}\) below the main diagonal. Next, the \((2,2)\)-entry is the next pivot, which can be used to change all entries below it to 0 by row replacement. Similarly, the \((2,2)\)-entry is the only non-zero entry in its row of \(A\text{,}\) so the other entries, in particular the \((3,3)\)-entry, is not affected. Also, this row operation only affects the 2nd column of \(I\text{,}\) below the main diagonal. Continuing in this way, the diagonal entries are all of the pivots, and \(A\) is reduced to \(I\text{,}\) so \(A\) is invertible, and the augmented matrix is \(\begin{bmatrix} I \mid A^{-1} \end{bmatrix}\text{.}\) Each row operation only adds multiples of the pivot rows to rows below it, so \(A^{-1}\) is unit lower triangular.</article></div></section><section class="subsection" id="subsection-115"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.3</span> <span class="title">Algorithm for LU Factorization</span>
+</h3>
+<p id="p-542">It turns out that computing \(E_1^{-1} \cdots E_p^{-1}\) is much easier than computing \((E_p \cdots E_1)^{-1}\text{.}\) That is, inverting each elementary matrix first and then taking their product, is easier than computing the product first and then inverting.</p></section><section class="subsection" id="subsection-116"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.4</span> <span class="title">Number of Operations for LU Factorization</span>
+</h3>
+<p id="p-543">Recall that for an arbitrary \(n \times n\) matrix \(A\text{,}\) converting \(A\) to REF requires about \(\frac{2n^3}{3}\) flops. Then, further performing back substitution on this (upper triangular) REF matrix requires about \(n^2\) flops.</p>
+<p id="p-544">Then, suppose we want to consider many linear systems with the same coefficient matrix, \(A\vec{x} = \vec{b}_1, A\vec{x} = \vec{b}_2, A\vec{x} = \vec{b}_k\) (note here \(\vec{b}_i\) just denotes arbitray constant vectors, and not necessarily denote the column vectors of a matrix \(B\)). To solve each of these systems individually would require performing row reduction and back substitution, so a total of \(\frac{2n^3}{3} + n^2\) for each system. Then, in total, this would be \(k \brac{\frac{2n^3}{3} + n^2}\text{.}\) Instead, using LU factorization, we perform the row reduction once to determine \(U\text{,}\) and determine \(L\) by the matrix inverse procedure. In general, computing matrix inverses is difficult, but for elementary matrices, there are very few non-zero entries, so the multiplication and inversion is very fast. Thus, in total, we will say about \({2n^3}{3}\text{.}\)</p>
+<p id="p-545">Then, for each system, we perform back substitution for the systems \(L\vec{y} = \vec{b}, U\vec{x} = \vec{y}\text{,}\) each requiring \(n^2\) flops, which together is \(2n^2\text{.}\) Thus, in total, there are,</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{2n^3}{3} + 2n^2 \cdot k \quad \text{flops}
+\end{equation*}
+</div></section></section></div></main>
+</div>
+</body>
+</html>

@@ -151,4 +151,11 @@
         </p>
     </subsection>
 
+    <subsection>
+        <title>Determinants of Larger Matrices</title>
+        <p>
+            In general, computing determinants is difficult.
+        </p>
+    </subsection>
+
 </section>

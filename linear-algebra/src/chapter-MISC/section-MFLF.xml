@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-LU">
+    <title>Matrix Factorizations, LU Factorziation</title>
+
+    <introduction>
+        Recall that factoring an algebraic expression involves writing it as a product of two or more expressions, and is helpful in various ways. A <term>factorization</term> of a matrix <m>A</m> expresses it as a product of two or more matrices.
+    </introduction>
+
+    <subsection>
+        <title>LU Factorization</title>
+
+        <p>
+            Let <m>A</m> be an <m>m \times n</m> matrix. Suppose that <m>A</m> can be converted to row echelon form without using row exchanges. Then, <m>A</m> can be written in the form <m>A = LU</m>, where <m>L</m> is an <m>m \times m</m> lower triangular matrix, amnd <m>U</m> is an <m>m \times n</m> upper triangular matrix.
+        </p>
+        <p>
+            The matrix <m>U</m> is the REF of <m>A</m>, and so is naturally upper triangular. The matrix <m>L</m> is the product of the elementary matrices used to convert <m>A</m> to <m>U</m>, so it is just the identity matrix with additional non-zero entries below the diagonal, corresponding to the row replacements and scaling row operations.
+        </p>
+        <me>
+            \begin{array}{rcc}
+                A = \amp \begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \\ \ast \amp 1 \amp 0 \amp 0 \\ \ast \amp \ast \amp 1 \amp 0 \\ \ast \amp \ast \amp \ast \amp 1 \end{bmatrix} \amp \begin{bmatrix} \blacksquare \amp \ast \amp \ast \amp \ast \amp \ast \\
+                0 \amp \blacksquare \amp \ast \amp \ast \amp \ast \\
+                0 \amp 0 \amp 0 \amp \blacksquare \amp \ast \\
+                0 \amp 0 \amp 0 \amp 0 \amp 0 \end{bmatrix} \\
+                \amp L \amp U
+            \end{array}
+        </me>
+        <p>
+            This is called an <term>LU factorization</term> of <m>A</m>. The matrix <m>L</m> is called <term>unit lower triangular</term> (<term>ULT</term>) because it is lower triangular and it has all 1's on the main diagonal.
+        </p>
+
+        <p>
+            If the LU factorization of <m>A</m> exists, <m>A = LU</m>, then the linear system <m>A\vec{x} = \vec{b}</m> becomes <m>LU\vec{x} = \vec{b}</m>, or, <m>L(U\vec{x}) = \vec{b}</m>. Then, to solve this system for <m>\vec{x}</m>, we can do it in two parts. First, find the vector(s) <m>\vec{y}</m> such that <m>L\vec{y} = \vec{b}</m>. Then, find the vectors <m>\vec{x}</m> such that <m>U\vec{x} = \vec{y}</m>. Both of these systems are easy to solve because their coefficient matrices are triangular. In this way, we solve the original system by solving two simpler systems.
+        </p>
+        <p>
+            Intuitively, we are <q>peeling back the layers</q> of <m>L(U\vec{x}) = \vec{b}</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Performing LU Factorization</title>
+        <p>
+            If <m>A</m> can be reduced to row echelon form <m>U</m> using only row replacements which add a multiple of one row to another row <em>below it</em>, then there exists elementary matrices <m>E_1, E_2, \dots, E_p</m> (say there are <m>p</m> steps) which are all unit lower triangular, such that,
+        </p>
+        <me>
+            E_p \cdots E_1 A = U
+        </me>
+        <p>
+            Then,
+        </p>
+        <md>
+           <mrow>A = (E_p \cdots E_1)^{-1} U</mrow>
+           <mrow>A = (E_1^{-1} \cdots E_p^{-1}) U</mrow>
+        </md>
+        <p>
+            Thus, <m>A = LU</m>, where,
+        </p>
+        <me>
+            L = (E_p \cdots E_1)^{-1} = E_1^{-1} \cdots E_p^{-1}
+        </me>
+        <p>
+            It turns out that indeed, <m>L</m> is ULT, because all of <m>E_1, \dots, E_p</m> are ULT, and the fact that the product of ULT matrices is ULT, and the inverse of a ULT matrix is ULT.
+        </p>
+
+        <theorem>
+            The product of unit lower triangular matrices is unit lower triangular.
+        </theorem>
+
+        <theorem>
+            If <m>A</m> is ULT, then <m>A</m> is invertible, and <m>A^{-1}</m> is also ULT.
+        </theorem>
+        <proof>
+            To prove this, we will prove that <m>A</m> is row equivalent to <m>I</m>. The entries below the <m>(1,1)</m>-entry <m>a_{11} = 1</m> can be changed to 0 by adding a multiple of row 1. Since row 1 has no other non-zero entries, the <m>(2,2)</m>-entry is unaffected. Also, this row operation only affects the first column of <m>I</m>, below the main diagonal. Next, the <m>(2,2)</m>-entry is the next pivot, which can be used to change all entries below it to 0 by row replacement. Similarly, the <m>(2,2)</m>-entry is the only non-zero entry in its row of <m>A</m>, so the other entries, in particular the <m>(3,3)</m>-entry, is not affected. Also, this row operation only affects the 2nd column of <m>I</m>, below the main diagonal. Continuing in this way, the diagonal entries are all of the pivots, and <m>A</m> is reduced to <m>I</m>, so <m>A</m> is invertible, and the augmented matrix is <m>\begin{bmatrix} I \mid A^{-1} \end{bmatrix}</m>. Each row operation only adds multiples of the pivot rows to rows below it, so <m>A^{-1}</m> is unit lower triangular.
+        </proof>
+    </subsection>
+
+    <subsection>
+        <title>Algorithm for LU Factorization</title>
+
+        <p>
+            It turns out that computing <m>E_1^{-1} \cdots E_p^{-1}</m> is much easier than computing <m>(E_p \cdots E_1)^{-1}</m>. That is, inverting each elementary matrix first and then taking their product, is easier than computing the product first and then inverting.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Number of Operations for LU Factorization</title>
+        <p>
+            Recall that for an arbitrary <m>n \times n</m> matrix <m>A</m>, converting <m>A</m> to REF requires about <m>\frac{2n^3}{3}</m> flops. Then, further performing back substitution on this (upper triangular) REF matrix requires about <m>n^2</m> flops.
+        </p>
+        <p>
+            Then, suppose we want to consider many linear systems with the same coefficient matrix, <m>A\vec{x} = \vec{b}_1, A\vec{x} = \vec{b}_2, A\vec{x} = \vec{b}_k</m> (note here <m>\vec{b}_i</m> just denotes arbitray constant vectors, and not necessarily denote the column vectors of a matrix <m>B</m>). To solve each of these systems individually would require performing row reduction and back substitution, so a total of <m>\frac{2n^3}{3} + n^2</m> for each system. Then, in total, this would be <m>k \brac{\frac{2n^3}{3} + n^2}</m>. Instead, using LU factorization, we perform the row reduction once to determine <m>U</m>, and determine <m>L</m> by the matrix inverse procedure. In general, computing matrix inverses is difficult, but for elementary matrices, there are very few non-zero entries, so the multiplication and inversion is very fast. Thus, in total, we will say about <m>{2n^3}{3}</m>.
+        </p>
+        <p>
+            Then, for each system, we perform back substitution for the systems <m>L\vec{y} = \vec{b}, U\vec{x} = \vec{y}</m>, each requiring <m>n^2</m> flops, which together is <m>2n^2</m>. Thus, in total, there are,
+        </p>
+        <me>
+            \frac{2n^3}{3} + 2n^2 \cdot k \quad \text{flops}
+        </me>
+    </subsection>
+
+</section>

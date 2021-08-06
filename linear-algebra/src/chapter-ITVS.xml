@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chapter-ITVS" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Introduction to Vector Spaces</title>
+        <introduction>
+
+        </introduction>
+        
+        <xi:include href="./chapter-ITVS/section-ITVSRCS.xml"/>
+        <xi:include href="./chapter-ITVS/section-LI.xml"/>
+        <xi:include href="./chapter-ITVS/section-B.xml"/>
+        <xi:include href="./chapter-ITVS/section-CS.xml"/>
+        <xi:include href="./chapter-ITVS/section-DAR.xml"/>
+</chapter>
