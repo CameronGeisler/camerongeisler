@@ -263,8 +263,20 @@
             </me></li>
         </ul>
         <p>
-            In <m>\mathbb{R}^n</m>, the standard basis vectors
+            In <m>\mathbb{R}^n</m>, the standard basis vectors are given by,
         </p>
+        <md>
+            <mrow>\vec{e}_1 \amp = (1,0,0\dots,0)</mrow>
+            <mrow>\vec{e}_2 \amp = (0,1,0,\dots,0)</mrow>
+            <mrow>\vdots \amp</mrow>
+            <mrow>\vec{e}_n \amp = (0,0,0\dots,0,1)</mrow>
+        </md>
+        <p>
+            Then, every vector <m>\vec{x} = (x_1, \dots, x_n)</m> in <m>\mathbb{R}^n</m> can be written as a linear combination of these basis vectors, as,
+        </p>
+        <me>
+            \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = x_1 \vec{e}_1 + x_2 \vec{e}_2 + \dots + x_n \vec{e}_n
+        </me>
     </subsection>
 
     <subsection>

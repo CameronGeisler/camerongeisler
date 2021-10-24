@@ -3,8 +3,16 @@
 <section xml:id="section-SSOLE">
     <title>Solution Sets of Linear Equations</title>
 
+    <introduction>
+        Next, we will use the matrix representation of a linear system <m>A\vec{x} = \vec{b}</m> and the language of vectors to describe the solution sets to linear systems. These solution sets will be another important theme throughout linear algebra.
+    </introduction>
+
     <subsection>
         <title>Homogeneous Systems</title>
+
+        <p>
+            First, it turns out that in order to study solutions to <m>A\vec{x} = \vec{b}</m>, it is helpful to first study the more simple case where <m>\vec{b} = \vec{0}</m>, i.e. the linear system <m>A\vec{x} = \vec{0}</m>. These systems are called <em>homogeneous</em>.
+        </p>
 
         <definition>
             A system of linear equations is <term>homogeneous</term> if it can be written in the form <m>A\vec{x} = \vec{0}</m>, where <m>A</m> is an <m>m \times n</m> matrix and <m>\vec{0}</m> is the zero vector in <m>\mathbb{R}^m</m>. Otherwise, a system <m>A\vec{x} = \vec{b}</m> is said to be <term>non-homogeneous</term>.
@@ -21,14 +29,130 @@
         <theorem>
             <p>The homogeneous system <m>A\vec{x} = \vec{0}</m> has a non-trivial solution if and only if the system has at least one free variable.</p>
         </theorem>
+
+        <example>
+            <p>
+                Consider the system,
+            </p>
+            <me>
+                \begin{array}{rrrrr}
+                3x_1 \amp + 5x_2 \amp -4 x_3 \amp = \amp 0 \\
+                -3x_1 \amp -2x_2 \amp + 4x_3 \amp = \amp 0 \\
+                6x_1 \amp + x_2 \amp -8 x_3 \amp = \amp 0
+                \end{array}
+            </me>
+            <p>
+                This is a homogeneous system. In matrix form,
+            </p>
+            <me>
+                \begin{bmatrix} A \mid \vec{0} \end{bmatrix} = \left[\begin{array}{ccc|c} 3 \amp 5 \amp -4 \amp 0 \\ -3 \amp -2 \amp 4 \amp 0 \\ 6 \amp 1 \amp -8 \amp 0 \end{array} \right]
+            </me>
+            <p>
+                Converting to REF,
+            </p>
+            <me>
+                \left[\begin{array}{ccc|c} 3 \amp 5 \amp -4 \amp 0 \\ 0 \amp 3 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]
+            </me>
+            <p>
+                Since <m>x_3</m> is a free variable, the homogeneous system <m>A\vec{x} = \vec{0}</m> has a non-trivial solution. Converting to RREF,
+            </p>
+            <me>
+                \left[\begin{array}{ccc|c} 1 \amp 0 \amp -\frac{4}{3} \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]
+            </me>
+            <p>
+                Then, solving for the basic variables <m>x_1</m> and <m>x_2</m> in terms of the free variables gives <m>x_1 = \frac{4}{3} x_3, x_2 = 0</m>, and <m>x_3</m> free. Then, in vector form,
+            </p>
+            <md>
+                <mrow>\vec{x} \amp = \begin{bmatrix} \frac{4}{3} x_3 \\ 0 \\ x_3 \end{bmatrix}</mrow>
+                <mrow>\amp = x_3 \begin{bmatrix} \frac{4}{3} \\ 0 \\ 1 \end{bmatrix}</mrow>
+            </md>
+            <p>
+                Every solution to this system is a scalar multiple of the vector <m>\vec{v} = (4/3, 0, 1)</m>. In this way, the solution set is precisely the span of this vector,
+            </p>
+            <me>
+                \vec{x} = \Span{\begin{bmatrix} \frac{4}{3} \\ 0 \\ 1 \end{bmatrix}}
+            </me>
+            <p>
+                Geometrically, this is a line in <m>\mathbb{R}^3</m> through the origin.
+            </p>
+        </example>
+
+        <example>
+            <title>One equation in two variables</title>
+            <p>
+                Consider the very simple homogeneous linear <q>system</q> which only consists of one equation,
+            </p>
+            <me>
+                x + 2y = 0
+            </me>
+            <p>
+                which has augmented matrix,
+            </p>
+            <me>
+                \left[\begin{array}{cc|c} 1 \amp 2 \amp 0 \end{array} \right]
+            </me>
+            <p>
+                This matrix is already in RREF (the only leading entry is 1, and all of the entries above it are 0). Then, <m>y</m> is a free variable. Letting <m>y = t</m>, we get that <m>x = -2t</m>. Then, the solution is of the form,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} x \\ y \end{bmatrix} \amp = \begin{bmatrix} - 2t \\ t \end{bmatrix}</mrow>
+                <mrow>\amp = t \begin{bmatrix} -2 \\ 1 \end{bmatrix}</mrow>
+            </md>
+            <p>
+                Notice that this is precisely the parametric equation of a line in 2D, through the origin <m>\vec{r}_0 = \vec{0}</m>, and with direction vector <m>(-2,1)</m>. Also, the solution set is precisely <m>\Span{\begin{bmatrix} -2 \\ 1 \end{bmatrix}}</m>.
+            </p>
+        </example>
+
+        <example>
+            <title>One equation in three variables</title>
+            <p>
+                Consider the homogeneous system with the single equation,
+            </p>
+            <me>
+                x - y + 3z = 0
+            </me>
+            <p>with augmented matrix,</p>
+            <me>
+                \left[\begin{array}{ccc|c} 1 \amp -1 \amp 3 \amp 0 \end{array} \right]
+            </me>
+            <p>
+                Again, this is already in RREF, with free variables <m>y</m> and <m>z</m>. Then, letting <m>y = t, z = s</m> be parameters, we get that <m>x = t - 3s</m>. Then, solutions are of the form,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} x \\ y \\ z \end{bmatrix} \amp = \begin{bmatrix} t - 3s \\ t \\ s \end{bmatrix}</mrow>
+                <mrow>\amp = t \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} + s \begin{bmatrix} -3 \\ 0 \\ 1 \end{bmatrix}</mrow>
+            </md>
+            <p>
+                Note that this is precisely the parametric equation of a plane in 3D, which passes through <m>\vec{r}_0 = \vec{0}</m>, and with direction vectors <m>(1,1,0)</m> and <m>(-3,0,1)</m>. Also, the solution set is precisely,
+            </p>
+            <me>
+                \Span{\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} -3 \\ 0 \\ 1 \end{bmatrix}}
+            </me>
+        </example>
+
         <p>
-            The solution set of a homogeneous equation can always be written as the span of some collection of vectors. If the system has no non-trivial solutions, then the solution set is <m>\Span{\vec{0}} = \vec{0}</m>.
+            In general, the solution set of a homogeneous system can always be written as the span of some collection of vectors. Also, the number of vectors in the span correpsonds to the number of free variables. If the system has no non-trivial solutions, then the solution set is <m>\Span{\vec{0}} = \vec{0}</m>.
         </p>
-s
+        <p>
+            A solution set described in terms of parameters and vectors is called <term>parametric vector form</term>.
+        </p>
     </subsection>
 
     <subsection>
         <title>Non-homogeneous Systems</title>
+
+        <p>
+            Then, it turns out that to solve a non-homogeneous system, it just requires adding a bit more information onto the solution its corresponding homogeneous system.
+        </p>
+        <p>
+            When solving <m>A\vec{x} = \vec{b}</m> using row reduction, the solution in parametric vector form will be a particular vector <m>\vec{v}_p</m>, along with a linear combination of other vectors.
+        </p>
+        <p>
+            Geometrically, the vector addition <m>\vec{v}_p</m> acts as a translation onto vectors which are a solution of the associated homogeneous system. For example, if the solution set to homogeneous equation is a line <m>L</m>, then the solution set to <m>A\vec{x} = \vec{b}</m> is the line <m>L</m> translated by the vector <m>\vec{v}_p</m>, forming a line which is parallel to <m>L</m>. In other words, the solution set of <m>A\vec{x} = \vec{b}</m> is a line through <m>\vec{v}_p</m> parallel to the solution set of <m>A\vec{x} = \vec{0}</m>.
+        </p>
+        <p>
+            Similarly, if the solution set to <m>A\vec{x} = \vec{0}</m> is a plane, then the solution set to <m>A\vec{x} \vec{b}</m> is a plane through <m>\vec{v}_p</m> which is parallel to the solution set of <m>A\vec{x} = \vec{0}</m> (recall for planes, parallel means parallel normal vectors).
+        </p>
         
         <theorem>
             <p>Let <m>A\vec{x} = \vec{b}</m> be a linear system, which is consistent with solution <m>\vec{v}_p</m>. Then, the solution set of <m>A\vec{x} = \vec{b}</m> is the set of all vectors of the form <m>\vec{v} = \vec{v}_p + \vec{v}_h</m>, where <m>\vec{v}_h</m> is any solution of the associated homogeneous system.</p>
@@ -43,15 +167,88 @@ s
                 <mrow>\amp = \vec{b}</mrow>
             </md>
         </proof>
+
+        <p>
+            Note that if <m>A \vec{x} = \vec{b}</m> is not consistent, then the solution set is the empty set.
+        </p>
     </subsection>
 
     <subsection>
         <title>Solving a Consistent System in Parametric Vector Form</title>
+        <p>
+            In summary, to solve <m>A\vec{x} = \vec{b}</m>,
+        </p>
         <ol>
             <li>Use row reduction to convert the augmented matrix to RREF.</li>
             <li>Solve for each basic variable in terms of any free variables.</li>
-            <li>Write a typical solution <m>\vec{x}</m> as a vector which depends on any free variables</li>
+            <li>Write a typical solution <m>\vec{x}</m> as a vector which depends on any free variables.</li>
             <li>Decompose <m>\vec{x}</m> into a linear combination of vectors with only numerical entries, and use free variables as parameters.</li>
         </ol>
     </subsection>
+
+    
+    <subsection>
+        <title>Intersection of Two Planes</title>
+        <p>
+            In most cases, two planes will intersect to form a line in <m>\mathbb{R}^3</m>. For the planes,
+        </p>
+        <me>
+            \begin{cases} a_1 x + b_1 y + c_1 z = d_1 \\
+            a_2 x + b_2 y + c_2 z = d_2 \end{cases}
+        </me>
+        <p>
+            The intersection of these planes is, by definition, the set of all points which are on both planes. A point is on each plane if and only if it satisfies its equation, so finding the intersection of planes is equivalent to solving the system of two equations for <m>(x,y,z)</m>.
+        </p>
+        <p>
+            Otherwise, if the two planes have parallel normal vectors, then the planes themselves will be parallel, and not intersect. Finally, if the planes are parallel, it is possible that they coincide (overlap).
+        </p>
+
+        <example>
+            <p>
+                Consider two planes, with equations,
+            </p>
+            <me>
+                \begin{array}{rrrrr}
+                x \amp + 2y \amp -z \amp = \amp -3 \\
+                3x \amp + 7y \amp + 2z \amp = \amp 1
+                \end{array}
+            </me>
+            <p>
+                The augmented matrix of this system is,
+            </p>
+            <me>
+                \begin{bmatrix} 1 \amp 2 \amp -1 \amp -3 \\ 3 \amp 7 \amp 2 \amp 1 \end{bmatrix}
+            </me>
+            <p>
+                Converting to RREF using row reduction,
+            </p>
+            <me>
+                \begin{bmatrix} 1 \amp 0 \amp -11 \amp -23 \\ 0 \amp 1 \amp 5 \amp 10 \end{bmatrix}
+            </me>
+            <p>
+                Then, <m>x_3</m> is a free variable, and solving for the basic variables <m>x_1</m> and <m>x_2</m> in terms of <m>x_3</m>, <m>x_1 = -23 + 11 x_3</m> and <m>x_2 = 10 - 5x_3</m>. Then, in vector form,
+            </p>
+            <me>
+                \vec{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} -23 + 11x_3 \\ 10 - 5x_3 \\ x_3 \end{bmatrix} = \begin{bmatrix} -23 \\ 10 \\ 0 \end{bmatrix} + x_3 \begin{bmatrix} 11 \\ -5 \\ 1 \end{bmatrix}
+            </me>
+            <p>
+                This is the parametric equation of a line (in <m>\mathbb{R}^3</m>), which passes through the point <m>(-23,10,0)</m> and with direction vector <m>\vec{v} = (11,-5,1)</m>.
+            </p>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Equation of Line as Intersection of Two Planes</title>
+    </subsection>
+
+    <subsection>
+        <title>Intersection of Three Planes</title>
+        <p>
+            In most cases, three planes will intersect at a single point. Again, this corresponds to solving the system of equations for the three planes.
+        </p>
+    </subsection>
+
+
+
+
 </section>

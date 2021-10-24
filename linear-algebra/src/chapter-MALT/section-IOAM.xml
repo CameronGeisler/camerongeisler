@@ -360,7 +360,7 @@
             \Delta = a_{11} a_{22} a_{33} - a_{11} a_{32} a_{23} + a_{12} a_{23} a_{32} - a_{12} a_{21} a_{33} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31}
         </me>
         <p>
-            Then, <m>A</m> is invertible if and only if <m>\Delta \neq 0</m>. This explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after consider the later topic of determinants.
+            Then, <m>A</m> is invertible if and only if <m>\Delta \neq 0</m>. This explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after considering the later topic of determinants.
         </p>
     </subsection>
 

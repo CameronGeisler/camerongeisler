@@ -63,10 +63,7 @@
                 </me></li>
             </ol>
         </proof>
-    </subsection>
 
-    <subsection>
-        <title>Dot Product of a Vector with Itself</title>
         <p>
             The dot product also relates to the magnitude of a vector. Consider the dot product of a vector <m>\vec{u} = (u_1, u_2)</m> with itself,
         </p>
@@ -91,7 +88,7 @@
         </definition>
 
         <p>
-            Here, the <q>angle between <m>\vecA{u}</m> and <m>\vec{v}</m></q> means the smallest angle between the two vectors. This forces <m>\theta</m> to be between 0 and <m>180^{\circ}</m> (or <m>\pi</m> radians).
+            Here, the <q>angle between <m>\vec{u}</m> and <m>\vec{v}</m></q> means the smallest angle between the two vectors. This forces <m>\theta</m> to be between 0 and <m>180^{\circ}</m> (or <m>\pi</m> radians).
         </p>
         
         <p>
@@ -127,7 +124,7 @@
     <subsection>
         <title>Angle Between Vectors</title>
         <p>
-            The 
+            The (acute) angle between two vectors.
         </p>
     </subsection>
 
@@ -161,7 +158,10 @@
     </subsection>
 
     <subsection>
-        <title>Dot Product for Vectors in <m>\mathbb{R}^n</m></title>
+        <title>Dot Product for Vectors in <m>\mathbb{R}^n</m> (Inner Product)</title>
+        <p>
+            The dot product can be extended to <m>\mathbb{R}^n</m>. It is often called the inner product.
+        </p>
 
         <definition>
             <p>Let <m>\vec{u} = (u_1, \dots, u_n), \vec{v}_1 = (v_1, \dots, v_n) \in \mathbb{R}^n</m> be vectors. Then, the <term>dot product</term> of <m>\vec{u}</m> and <m>\vec{v}</m> is defined by,</p>
@@ -169,15 +169,82 @@
                 \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2 \dots + u_n v_n = \sum_{k=1}^n u_k v_k}
             </me>
         </definition>
+
+        <p>
+            If <m>\vec{u}, \vec{v}</m> are vectors in <m>\mathbb{R}^n</m>, then recall that thtey are considered <m>n \times 1</m> matrices. Then, the transpose <m>\vec{u}^T</m> is a <m>1 \times n</m> matrix, and the matrix product <m>\vec{u}^T \vec{v}</m> is a <m>1 \times 1</m> matrix, whose entry is given by the dot product,
+        </p>
+        <me>
+            \begin{bmatrix} u_1 \amp u_2 \amp \dots \amp u_n \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = u_1 v_1 + u_2 v_2 + \dots + u_n v_n
+        </me>
+        <p>
+            Strictly speaking, the product is a <m>1 \times 1</m> matrix, however it is treated as a real number and written without brackets.
+        </p>
+        <p>
+            Then, the product <m>\vec{u} \bullet \vec{v} = \vec{u}^T \vec{v}</m> is called the <term>inner product</term> of <m>\vec{u}</m> and <m>\vec{v}</m>.
+        </p>
+        <p>
+            All of the properties of the dot product generalize for the inner product in <m>\mathbb{R}^n</m>.
+        </p>
+
+        <theorem>
+            <p>Let <m>\vec{u}, \vec{v}, \vec{w}</m> be vectors in <m>\mathbb{R}^n</m>. Then,</p>
+            <ol>
+                <li>Commutative property, <m>\vec{u} \bullet \vec{v} = \vec{v} \bullet \vec{u}</m>.</li>
+                <li>Distributive property, <m>\vec{u} \bullet (\vec{v} + \vec{w}) = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}</m>.</li>
+                <li>Associativity with scalar multiplication, for <m>k \in \mathbb{R}</m>,
+                <me>
+                    (k \vec{u}) \bullet \vec{v} = \vec{u} \bullet (k\vec{v}) = k(\vec{u} \bullet \vec{v})
+                </me></li>
+            </ol>
+        </theorem>
+
+        <proof>
+            Let <m>\vec{u} = (u_1, \dots, u_n), \vec{v} = (v_1, \dots, v_n), \vec{w} = (w_1, \dots, w_n)</m>. Then, FINISH.
+        </proof>
+        <p>
+            Also,
+        </p>
+        <theorem>
+            Let <m>\vec{u} \in \mathbb{R}^n</m>. Then, <m>\vec{u} \bullet \vec{u} \geq 0</m>, and <m>\vec{u} \bullet \vec{u} = 0</m> if and only if <m>\vec{u} = 0</m>.
+        </theorem>
+
+        <corollary>
+            <p>
+                In general,
+            </p>
+            <me>
+                (a_1 \vec{v}_1 + \dots + a_p \vec{v}_p) \bullet \vec{w} = a_1 \vec{v}_1 \bullet \vec{w} + \dots + a_p \vec{v}_p \bullet \vec{w}
+            </me>
+        </corollary>
     </subsection>
 
     <subsection>
+        <title>Pythagorean Theorem</title>
         <p>
-            The angle between <m>\vec{x}, \vec{y} \in \mathbb{R}^n</m> is given by,
+            <theorem>
+                Two vectors <m>\vec{u}, \vec{v}</m> in <m>\mathbb{R}^n</m> are perpendicular if and only if <m>\abs{\vec{u} + \vec{v}}^2 = \abs{\vec{u}}^2 + \abs{\vec{v}}^2</m>.
+            </theorem>
         </p>
-        <me>
-            \theta = \arccos{\brac{\frac{\vec{x} \bullet \vec{y}}{\abs{\vec{x}} \abs{\vec{y}}}}}
-        </me>
+    </subsection>
+
+    <subsection>
+        <title>Angle Between Vectors</title>
+        <p>
+            Recall that in <m>\mathbb{R}^2</m> and <m>\mathbb{R}^3</m>, the (geometric) angle between two vectors is given by the equation <m>\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = \vec{u} \bullet \vec{v}</m>. For higher dimensions, there is no physical notion of angle. However, that equation can be used to <em>define</em> the angle between <m>\vec{u}, \vec{v} \in \mathbb{R}^n</m>.
+        </p>
+        
+        <definition>
+            <title>Angle between vectors in <m>\mathbb{R}^n</m></title>
+            <p>
+                <me>
+                    \theta = \arccos{\brac{\frac{\vec{x} \bullet \vec{y}}{\abs{\vec{x}} \abs{\vec{y}}}}}
+                </me>
+            </p>
+        </definition>
+
+        <p>
+            In statistics, the value of <m>\cos{\theta}</m> is called the correlation coefficient, for suitable vectors <m>\vec{u}, \vec{v}</m>.
+        </p>
     </subsection>
 
 </section>

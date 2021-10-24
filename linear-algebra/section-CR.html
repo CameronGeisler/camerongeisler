@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:28-07:00       *-->
+<!--*       on 2021-10-24T16:08:36-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -69,14 +69,14 @@
 \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
 \DeclareMathOperator{\Image}{Im}
 \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\colrk}{colrk}
 \DeclareMathOperator{\rowrk}{rowrk}
-\DeclareMathOperator{\Row}{Row}
-\DeclareMathOperator{\Col}{Col}
-\DeclareMathOperator{\Null}{N}
 \newcommand{\tr}[1]{tr\left( #1 \right)}
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
@@ -124,7 +124,7 @@
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
 <li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
@@ -142,11 +142,11 @@
 </li>
 <li class="link">
 <a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
-<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
-<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 <li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 </ul>
 </li>
 <li class="link">
@@ -157,7 +157,13 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -167,7 +173,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-CR"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.2</span> <span class="title">Cramer's Rule</span>
 </h2>
-<section class="introduction" id="introduction-25"><p id="p-487">Recall that for a \(2 \times 2\) system of the form,</p>
+<section class="introduction" id="introduction-26"><p id="p-577">Recall that for a \(2 \times 2\) system of the form,</p>
 <div class="displaymath">
 \begin{align*}
 a x_1 + b x_2 \amp = y_1 \\
@@ -178,8 +184,8 @@ c x_1 + d x_2 \amp = y_2
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} \frac{1}{\Delta} \brac{d y_1 - b y_2} \\ \frac{1}{\Delta} \brac{a y_2 - c y_1} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-488">where \(\Delta = ad - bc\text{,}\) and provided that \(\Delta \neq 0\text{.}\)</p>
-<p id="p-489">More explicitly,</p>
+<p id="p-578">where \(\Delta = ad - bc\text{,}\) and provided that \(\Delta \neq 0\text{.}\)</p>
+<p id="p-579">More explicitly,</p>
 <div class="displaymath">
 \begin{equation*}
 x_1 = \frac{dy_1 - by_2}{ad - bc} \qquad x_2 = \frac{ay_2 - cy_1}{ad - bc}
@@ -196,10 +202,10 @@ x_1 = \frac{dy_1 - by_2}{ad - bc} \qquad x_2 = \frac{ay_2 - cy_1}{ad - bc}
 \begin{equation*}
 x_1 = \frac{\begin{vmatrix} y_1 \amp b \\ y_2 \amp d \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}} \qquad x_2 = \frac{\begin{vmatrix} a \amp y_1 \\ c \amp y_2 \end{vmatrix}}{\begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix}}
 \end{equation*}
-</div>Consider the pattern in the numerator matrix we are taking the determinant of. If we consider \(x\) and \(y\) to be the 1st and 2nd variables, respectively, then for the \(i\)th variable, the matrix in the numerator is the coefficient matrix, with the \(i\)th column replaced by the constant vector \((y_1, y_2)\text{.}\)</section><section class="subsection" id="subsection-98"><h3 class="heading hide-type">
+</div>Consider the pattern in the numerator matrix we are taking the determinant of. If we consider \(x\) and \(y\) to be the 1st and 2nd variables, respectively, then for the \(i\)th variable, the matrix in the numerator is the coefficient matrix, with the \(i\)th column replaced by the constant vector \((y_1, y_2)\text{.}\)</section><section class="subsection" id="subsection-105"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.1</span> <span class="title">The \(3 \times 3\) Case</span>
 </h3>
-<p id="p-490">A similar pattern is true for a \(3 \times 3\) system,</p>
+<p id="p-580">A similar pattern is true for a \(3 \times 3\) system,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrrr}
@@ -214,26 +220,26 @@ x = \frac{\begin{vmatrix} b_1 \amp a_{12} \amp a_{13} \\ b_2 \amp a_{22} \amp a_
 \quad y = \frac{\begin{vmatrix} a_{11} \amp b_1 \amp a_{13} \\ a_{21} \amp b_2 \amp a_{23} \\ a_{31} \amp b_3 \amp a_{33} \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
 \quad z = \frac{\begin{vmatrix} a_{11} \amp a_{12} \amp b_1 \\ a_{21} \amp a_{22} \amp b_2 \\ a_{31} \amp a_{32} \amp b_3 \end{vmatrix}}{\begin{vmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{vmatrix}}
 \end{equation*}
-</div>Again, the denominator determinants are the determinant of the coefficient matrix, and the numerator determinant of the \(i\)th variable is the determinant of the coefficient matrix <em class="emphasis">with the \(i\)th column replaced by the constant vector</em>.</section><section class="subsection" id="subsection-99"><h3 class="heading hide-type">
+</div>Again, the denominator determinants are the determinant of the coefficient matrix, and the numerator determinant of the \(i\)th variable is the determinant of the coefficient matrix <em class="emphasis">with the \(i\)th column replaced by the constant vector</em>.</section><section class="subsection" id="subsection-106"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.2</span> <span class="title">Cramer's Rule</span>
 </h3>
-<p id="p-491">This pattern generalizes to any system of \(n\) equations in \(n\) unknowns, and the resulting theorem is called <em class="emphasis">Cramer's rule</em>. First, for an \(n \times n\) matrix \(A\) and vector \(\vec{b} \in \mathbb{R}^n\text{,}\) let \(A_i(\vec{b})\) denote the matrix obtained from \(A\) by replacing column \(i\) by the vector \(\vec{b}\text{,}\)</p>
+<p id="p-581">This pattern generalizes to any system of \(n\) equations in \(n\) unknowns, and the resulting theorem is called <em class="emphasis">Cramer's rule</em>. First, for an \(n \times n\) matrix \(A\) and vector \(\vec{b} \in \mathbb{R}^n\text{,}\) let \(A_i(\vec{b})\) denote the matrix obtained from \(A\) by replacing column \(i\) by the vector \(\vec{b}\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 A_i(\vec{b}) = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_{i-1} \amp \vec{b} \amp \vec{a}_{i+1} \amp \dots \vec{a}_n \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-492">Then,</p>
-<article class="theorem theorem-like" id="theorem-38"><h6 class="heading">
+<p id="p-582">Then,</p>
+<article class="theorem theorem-like" id="theorem-42"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Cramer's rule.</span>
 </h6>
-<p id="p-493">Let \(A\) be an \(n \times n\) matrix, \(\vec{b} \in \mathbb{R}^n\text{.}\) Then, if \(A\) is invertible, then the unique solution \(\vec{x}\) of the linear system \(A\vec{x} = \vec{b}\) has entries given by,</p>
+<p id="p-583">Let \(A\) be an \(n \times n\) matrix, \(\vec{b} \in \mathbb{R}^n\text{.}\) Then, if \(A\) is invertible, then the unique solution \(\vec{x}\) of the linear system \(A\vec{x} = \vec{b}\) has entries given by,</p>
 <div class="displaymath">
 \begin{equation*}
 x_i = \frac{\det{A_i(\vec{b})}{\det{A}} \qquad \text{for }
 \end{equation*}
-</div></article><p id="p-494">Cramer's rule gives a concise and rather explcit form of the solution of a linear system. However, it isn't particularly useful for solving linear systems, because it involves evaluating many determinants, making it very inefficient. Computing just one determinant takes about as much work as solving \(A\vec{x} = \vec{b}\) by row reduction.</p>
-<p id="p-495">On the other hand, it is useful for other theoretical calculations. For example, it can be used to examine how the sensitivity of the solution of \(A\vec{x} = \vec{b}\text{,}\) i.e. how the solutions changes when the entires of \(\vec{b}\) changes.</p></section></section></div></main>
+</div></article><p id="p-584">Cramer's rule gives a concise and rather explcit form of the solution of a linear system. However, it isn't particularly useful for solving linear systems, because it involves evaluating many determinants, making it very inefficient. Computing just one determinant takes about as much work as solving \(A\vec{x} = \vec{b}\) by row reduction.</p>
+<p id="p-585">On the other hand, it is useful for other theoretical calculations. For example, it can be used to examine how the sensitivity of the solution of \(A\vec{x} = \vec{b}\text{,}\) i.e. how the solutions changes when the entires of \(\vec{b}\) changes.</p></section></section></div></main>
 </div>
 </body>
 </html>

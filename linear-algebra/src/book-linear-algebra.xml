@@ -28,7 +28,9 @@
         <xi:include href="./chapter-MALT.xml"/>
         <xi:include href="./chapter-ITVS.xml"/>
         <xi:include href="./chapter-D.xml"/>
-
+        <xi:include href="./chapter-GVS.xml"/>
+        <xi:include href="./chapter-EAE.xml"/>
+        
         <xi:include href="./chapter-MISC.xml"/>
 
     </book>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:29-07:00       *-->
+<!--*       on 2021-10-24T16:08:38-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,13 @@
 </head>
 <body>
 <h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">If \(A\) is an \(m \times n\) matrix, then matrix multiplication by \(A\) is a transformation. In particular, the map \(T(\vec{x}) = A\vec{x}\) is a transformation from \(\mathbb{R}^n\) to \(\mathbb{R}^m\text{.}\)</p>
-<span class="incontext"><a href="section-ITLT.html#p-211">in-context</a></span>
+<p>From the previous definition of a matrix-vector product, we can expand out the product as,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + x_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} \amp = \begin{bmatrix} a_{11} x_1 \\ a_{21} x_1 \\ \vdots \\ a_{m1} x_1 \end{bmatrix} + \begin{bmatrix} a_{12} x_2 \\ a_{22} x_2 \\ \vdots \\ a_{m2} x_2 \end{bmatrix} + \dots + \begin{bmatrix} a_{1n} x_n \\ a_{2n} x_n \\ \vdots \\ a_{mn} x_n \end{bmatrix}\\
+\amp = x_1 \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{bmatrix} + x_2 \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{bmatrix} + \dots + x_n \begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn} x_n \end{bmatrix}
+\end{align*}
+</div>
+<span class="incontext"><a href="section-MEMVP.html#p-211">in-context</a></span>
 </body>
 </html>

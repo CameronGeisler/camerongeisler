@@ -10,7 +10,7 @@
             The concepts in linear algebra are equal in importance to the computation.
         </p>
         <p>
-            The pre-requisites for linear algebra are essentially just algebra. That is, being comfortable with variables, equations, functions, and sets. In particular, calculus is not a necessary pre-requisite for linear algebra.
+            The pre-requisites for linear algebra are essentially just high-school algebra. That is, being comfortable with variables, equations, functions, and sets. In particular, calculus is not a necessary pre-requisite for linear algebra. However, typically linear algebra is taught at the university level, because it contains some higher levels of mathematical abstraction and mathematical reasoning.
         </p>
     </introduction>
 
@@ -23,7 +23,7 @@
                     Applications to engineering, physics, biology, economics, and statistics.
                 </li>
                 <li>
-                    Computer science, including computer graphics.
+                    Computer science, including computer graphics, and machine learning.
                 </li>
                 <li>
                     Oil exploration, ships searching for offshore oil deposits solve thousands of systems of linear equations every day. The seismic data for the equations are obtained from underwater shock waves created by explosions from air guns.

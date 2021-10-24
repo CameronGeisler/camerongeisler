@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:29-07:00       *-->
+<!--*       on 2021-10-24T16:08:38-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,29 +15,35 @@
 </head>
 <body>
 <article class="example example-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.7</span><span class="period">.</span><span class="space"> </span><span class="title">Dilations.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.7</span><span class="period">.</span>
 </h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">There is another kind of stretch which can be described as a “radial” stretch, where length are expanded or contracted from the origin. This corresponds to the transformation \((x,y) \rightarrow (rx,ry)\) for some \(r &gt; 0\text{.}\) This is called a <dfn class="terminology">dilation</dfn> if \(r &gt; 1\text{,}\) and a contraction if \(0 &lt; r &lt; 1\text{.}\) In vector form, this is the transformation \(T(\vec{x}) = r\vec{x}\text{,}\) corresponding to scalar multiplication by \(r\text{.}\) As a matrix, this corresponds to the matrix,</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Consider two planes, with equations,</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\begin{bmatrix} r \amp 0 \\ 0 \amp r \end{bmatrix}
+\begin{array}{rrrrr}
+x \amp + 2y \amp -z \amp = \amp -3 \\
+3x \amp + 7y \amp + 2z \amp = \amp 1
+\end{array}
 \end{equation*}
 </div>
-<p xmlns:svg="http://www.w3.org/2000/svg">For example, the matrix</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">The augmented matrix of this system is,</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\begin{bmatrix} 2 \amp 0 \\ 0 \amp 2 \end{bmatrix}
-\end{equation*}
-</div>corresponds to dilaton by a factor of 2. Notice that,<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
-\begin{equation*}
-\begin{bmatrix} 2 \amp 0 \\ 0 \amp 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 2x \\ 2y \end{bmatrix}
+\begin{bmatrix} 1 \amp 2 \amp -1 \amp -3 \\ 3 \amp 7 \amp 2 \amp 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p xmlns:svg="http://www.w3.org/2000/svg">Notice that dilations are just two consecutive identical stretches, one by \(r\) horizontally and another by \(r\) vertically. In matrix form,</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">Converting to RREF using row reduction,</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
 \begin{equation*}
-\begin{bmatrix} r \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 0 \amp r \\ 1 \amp 0 \end{bmatrix} = \begin{bmatrix} r \amp 0 \\ 0 \amp r \end{bmatrix}
+\begin{bmatrix} 1 \amp 0 \amp -11 \amp -23 \\ 0 \amp 1 \amp 5 \amp 10 \end{bmatrix}
 \end{equation*}
-</div></article><span class="incontext"><a href="section-LTITP.html#example-17">in-context</a></span>
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">Then, \(x_3\) is a free variable, and solving for the basic variables \(x_1\) and \(x_2\) in terms of \(x_3\text{,}\) \(x_1 = -23 + 11 x_3\) and \(x_2 = 10 - 5x_3\text{.}\) Then, in vector form,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\vec{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} -23 + 11x_3 \\ 10 - 5x_3 \\ x_3 \end{bmatrix} = \begin{bmatrix} -23 \\ 10 \\ 0 \end{bmatrix} + x_3 \begin{bmatrix} 11 \\ -5 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p xmlns:svg="http://www.w3.org/2000/svg">This is the parametric equation of a line (in \(\mathbb{R}^3\)), which passes through the point \((-23,10,0)\) and with direction vector \(\vec{v} = (11,-5,1)\text{.}\)</p></article><span class="incontext"><a href="section-SSOLE.html#example-17">in-context</a></span>
 </body>
 </html>

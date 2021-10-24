@@ -6,10 +6,10 @@
     <subsection>
         <title>Basis of a Subspace</title>
         <p>
-            Subspaces typically contain an infinite number of vectors, so it is useful to determine a small set of vectors in the subspace which span the subspace. For the column space, this comes directly from the definition. For the null space, this comes from finding the parametric vector form of the homogeneous solution set. This set of vectors which span a space is called a <em>basis</em>.
+            Subspaces typically contain an infinite number of vectors, so it is useful to determine a small set of vectors in the subspace which span the subspace. That is, a minimal set of vectors that span the subspace. This set of vectors which span a space is called a <em>basis</em>.
         </p>
         <definition>
-            <p>A <term>basis</term> of a subspace <m>U</m> of <m>\mathbb{R}^n</m> is a linearly independent set in <m>U</m> that spans <m>U</m>.</p>
+            <p>A <term>basis</term> of a subspace <m>H</m> of <m>\mathbb{R}^n</m> is a linearly independent set that spans <m>H</m>.</p>
         </definition>
 
         <example>
@@ -30,13 +30,16 @@
             <me>
                 \vec{x} = x_1 \vec{e}_1 + \dots + x_n \vec{e}_n
             </me>
-            <p>Also, they are linearly independent, because they form the matrix equation <m>I_n \vec{x} = \vec{0}</m>, which only has the trivial solution.</p>
+            <p>Also, they are linearly independent, because they form the matrix equation <m>I_n \vec{x} = \vec{0}</m>, which of course is equivalently <m>\vec{x} = \vec{0}</m>, so there is only the trivial solution.</p>
         </example>
 
         <example>
             <title>Alternate bases</title>
             <p>
-                In fact, for any invertible matrix <m>A</m> (of size <m>n \times n</m>), its columns forms a basis of <m>\mathbb{R}^n</m>. This is because the columns are a linearly independent set that spans <m>\mathbb{R}^n</m>.
+                In fact, for any invertible matrix <m>A</m> (of size <m>n \times n</m>), its columns forms a basis of <m>\mathbb{R}^n</m>. This is because, if a matrix is invertible, its columns form a linearly independent set of <m>n</m> vectors, which spans <m>\mathbb{R}^n</m>.
+            </p>
+            <p>
+                In this way, bases for a subspace are highly non-unique.
             </p>
         </example>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:28-07:00       *-->
+<!--*       on 2021-08-18T16:58:12-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -69,14 +69,14 @@
 \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
 \DeclareMathOperator{\Image}{Im}
 \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\colrk}{colrk}
 \DeclareMathOperator{\rowrk}{rowrk}
-\DeclareMathOperator{\Row}{Row}
-\DeclareMathOperator{\Col}{Col}
-\DeclareMathOperator{\Null}{N}
 \newcommand{\tr}[1]{tr\left( #1 \right)}
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
@@ -124,7 +124,7 @@
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
 <li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
@@ -157,7 +157,13 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -167,164 +173,84 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-ITVSRCS"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Introduction to Vector Spaces (Real Coordinate Spaces)</span>
 </h2>
-<section class="introduction" id="introduction-20">Now, the “real” linear algebra.</section><section class="subsection" id="subsection-80"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-21">Now, the “real” linear algebra. Applications of vector spaces in engineering, physics, and statistics.</section><section class="subsection" id="subsection-87"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Introduction to Vector Spaces</span>
 </h3>
-<p id="p-383">A vector space is a space of vectors. Broadly, a “space” is a set of objects which satisfy some specific conditions. In particular, vector spaces are sets of vectors for which we can perform the fundamental operations for vectors: addition and scalar multiplication. That is, we can take linear combinations.</p>
-<p id="p-384">Slightly more precisely, a vector space is a set \(V\) of vectors for which adding any two vectors in \(V\) is a vector that is also in \(V\text{,}\) and the scalar multiple of any vector in \(V\) is also in \(V\text{.}\) In other words, adding and scaling vectors in the space “stays” in the space.</p>
-<article class="definition definition-like" id="definition-39"><h6 class="heading">
+<p id="p-443">A vector space is a space of vectors. Broadly, a “space” is a set of objects which satisfy some specific conditions. In particular, vector spaces are sets of vectors for which we can perform the fundamental operations for vectors: addition and scalar multiplication. That is, we can take linear combinations.</p>
+<p id="p-444">Slightly more precisely, a vector space is a set \(V\) of vectors for which adding any two vectors in \(V\) is a vector that is also in \(V\text{,}\) and the scalar multiple of any vector in \(V\) is also in \(V\text{.}\) In other words, adding and scaling vectors in the space “stays” in the space.</p>
+<article class="definition definition-like" id="definition-43"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span>
 </h6>
-<p id="p-385">A <dfn class="terminology">vector space</dfn> is a set of vectors \(V\) such that,</p>
+<p id="p-445">A <dfn class="terminology">vector space</dfn> is a set of vectors \(V\) such that,</p>
 <ol class="decimal">
 <li id="li-112">If \(\vec{u}, \vec{v} \in V\text{,}\) then \(\vec{u} + \vec{v} \in V\) also.</li>
 <li id="li-113">If \(\vec{v} \in V\) and \(c \in \mathbb{R}\text{,}\) then \(c\vec{v} \in V\) also.</li>
-</ol></article><p id="p-386">This property that combining objects through some operation producing another object also within the set is called <dfn class="terminology">closure</dfn>. Then, a vector space is a set of vectors which is closed under addition and scalar multiplication. More compactly, we can say a vector space is <dfn class="terminology">closed under taking linear combinations</dfn>.</p>
-<article class="example example-like" id="example-26"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h6 class="heading">
+</ol></article><p id="p-446">This property that combining objects through some operation producing another object also within the set is called <dfn class="terminology">closure</dfn>. Then, a vector space is a set of vectors which is closed under addition and scalar multiplication. More compactly, we can say a vector space is <dfn class="terminology">closed under taking linear combinations</dfn>.</p>
+<article class="example example-like" id="example-34"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space \(\mathbb{R}^2\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><p id="p-387">The set \(\mathbb{R}^2\) of all vectors with two real number components, is a vector space.</p></article></div>
-<article class="example example-like" id="example-27"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-27"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><p id="p-447">The set \(\mathbb{R}^2\) of all vectors with two real number components, is a vector space.</p></article></div>
+<article class="example example-like" id="example-35"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space \(\mathbb{R}\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-27"><article class="example example-like"><p id="p-388">The real numbers \(\mathbb{R}\) can also be considered a vector space.</p></article></div>
-<article class="example example-like" id="example-28"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-28"><h6 class="heading">
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-448">The real numbers \(\mathbb{R}\) can also be considered a vector space.</p></article></div>
+<article class="example example-like" id="example-36"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space \(\mathbb{R}^n\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-28"><article class="example example-like"><p id="p-389">More generally, \(\mathbb{R}^n\) is a vector space.</p></article></div></section><section class="subsection" id="subsection-81"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Introduction to Span of Vectors in \(\mathbb{R}^2, \mathbb{R}^3\)</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><p id="p-449">More generally, \(\mathbb{R}^n\) is a vector space.</p></article></div></section><section class="subsection" id="subsection-88"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Subspaces</span>
 </h3>
-<article class="definition definition-like" id="definition-40"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span>
-</h6>Broadly, the <dfn class="terminology">span</dfn> of a collection of vectors is the set of all of their linear combinations.</article><article class="definition definition-like" id="definition-41"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
-</h6>
-<p id="p-390">Let \(\vec{u}, \vec{v}\) be vectors. Then, the <dfn class="terminology">span</dfn> of \(\vec{u}\) and \(\vec{v}\) is the set of all of their linear combinations, and is denoted by \(\Span{\vec{u}, \vec{v}}\text{.}\) In other words,</p>
-<div class="displaymath">
-\begin{equation*}
-\boxed{\Span{\vec{u}, \vec{v}} = \set{a \vec{u} + b \vec{v}: a, b \in \mathbb{R}}}
-\end{equation*}
-</div></article><p id="p-391">Intuitively, “span” means “the amount of space something covers”, and the span of vectors is all the possible vectors which can be “reached” by combining \(\vec{u}, \vec{v}\) using only the two fundamental operations of addition and scalar multiplication.</p>
-<article class="example example-like" id="example-29"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-29"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">A single vector in \(\mathbb{R}^2\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-29"><article class="example example-like"><p id="p-392">Consider a single vector \(\vec{v}\) in \(\mathbb{R}^2\text{.}\) The span of \(\vec{v}\text{,}\) \(\Span{\vec{v}}\text{,}\) is the set of all linear combinations of the single vector \(\vec{v}\text{.}\) There is only one vector, so there is no addition. In this way, \(\Span{\vec{v}}\) is the set of all multiples of \(\vec{v}\text{,}\)</p>
-<div class="displaymath">
-\begin{equation*}
-\boxed{\Span{\vec{v}} = \set{a\vec{v}: a \in \mathbb{R}}}
-\end{equation*}
-</div>
-<p id="p-393">Then, in \(\mathbb{R}^2\text{,}\) this forms a line, in particular a line through the origin \((0,0)\text{,}\) and through \(\vec{v}\text{.}\)</p></article></div>
-<article class="example example-like" id="example-30"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-30"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Two vectors in \(\mathbb{R}^2\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-30"><article class="example example-like"><p id="p-394">Consider two vectors \(\vec{u}, \vec{v}\) in \(\mathbb{R}^2\text{.}\) Then, by definition,</p>
-<div class="displaymath">
-\begin{equation*}
-\Span{\vec{u}, \vec{v}} = \set{a \vec{u} + b \vec{v}: a, b \in \mathbb{R}}
-\end{equation*}
-</div>
-<p id="p-395">First, suppose that \(\vec{u}, \vec{v} \neq \vec{0}\) are non-zero. If \(\vec{u}, \vec{v}\) are not parallel, then it turns out that the span of \(\vec{u}\) and \(\vec{v}\) is all of \(\mathbb{R}^2\text{,}\) i.e. the entire plane. That is, every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\vec{u}, \vec{v}\text{.}\)</p>
-<p id="p-396">For example, a familiar case is for the standard basis vectors \(\ihat, \jhat\text{.}\) These vectors are not parallel (they are perpendicular), so,</p>
-<div class="displaymath">
-\begin{equation*}
-\Span{\ihat, \jhat} = \set{a \cdot \ihat + b \cdot \jhat : a, b \in \mathbb{R}}
-\end{equation*}
-</div>
-<p id="p-397">and we know that every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\ihat\) and \(\jhat\text{.}\)</p>
-<p id="p-398">If \(\vec{u}, \vec{v}\) are parallel, that is, either vector is a scalar multiple of the other, then the span of \(\vec{u}, \vec{v}\) is a line (in the plane). Intuitively, the second vector doesn't “add” any new additional possible vectors. More precisely, if say \(\vec{u} = k \vec{v}\text{,}\) then,</p>
-<div class="displaymath">
-\begin{align*}
-a\vec{u} + b\vec{v} \amp = ak \vec{v} + b \vec{v}\\
-\amp = (ak + b) \vec{v}
-\end{align*}
-</div>
-<p id="p-399">That is, any linear combination of \(\vec{u}\) and \(\vec{v}\) is really just a multiple of \(\vec{v}\text{.}\) Conversely, any multiple of \(\vec{v}\) can be written as \(a\vec{u} + b \vec{v}\) for some weights \(a, b\text{.}\) All of this reasoning can be oriented in the opposite direction, to say that all linear combinations \(a\vec{u} + b\vec{v}\) are just a multiple of \(\vec{u}\text{.}\) That is,</p>
-<div class="displaymath">
-\begin{equation*}
-\Span{\vec{u}, \vec{v}} = \Span{\vec{v}} = \Span{\vec{u}}
-\end{equation*}
-</div>
-<p id="p-400">In the most extremely pathological case, if \(\vec{u}, \vec{v}\) are both the zero vector, then their span is just the zero vector, i.e. a single point.</p></article></div>
-<article class="example example-like" id="example-31"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Span of vectors in \(\mathbb{R}^3\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><p id="p-401">Consider two vectors \(\vec{u}, \vec{v}\) in \(\mathbb{R}^3\text{.}\) If \(\vec{u}, \vec{v}\) are not parallel, then the span of \(\vec{u}, \vec{v}\) forms a plane in \(\mathbb{R}^3\text{.}\)</p>
-<p id="p-402">Adding a third vector \(\vec{w}\) to the span, which is not included in the plane spanned by \(\vec{u}\) and \(\vec{v}\text{,}\) results in the entire 3D space \(\mathbb{R}^3\text{.}\)</p></article></div>
-<article class="definition definition-like" id="definition-42"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.10</span><span class="period">.</span>
-</h6>
-<p id="p-403">Let \(\vec{u}, \vec{v}, \vec{w}\) be vectors. Then, the <dfn class="terminology">span</dfn> of \(\vec{u}, \vec{v}, \vec{w}\) is given by,</p>
-<div class="displaymath">
-\begin{equation*}
-\boxed{\Span{\vec{u}, \vec{v}, \vec{w}} = \set{a \vec{u} + b \vec{v} + c \vec{w}: a, b, c \in \mathbb{R}}}
-\end{equation*}
-</div></article></section><section class="subsection" id="subsection-82"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">Span of \(n\) Vectors</span>
-</h3>
-<article class="definition definition-like" id="definition-43"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.11</span><span class="period">.</span>
-</h6>Let \(\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^n\) be vectors. The <dfn class="terminology">span</dfn> of \(\vec{v}_1, \dots, \vec{v}_p\text{,}\) denoted by \(\Span{\vec{v}_1, \dots, \vec{v}_n}\text{,}\) is the set of all linear combinations of \(\vec{v}_1, \dots, \vec{v}_p\text{.}\) In other words,<div class="displaymath">
-\begin{equation*}
-\Span{\vec{v}_1, \dots, \vec{v}_p} = \set{a_1 \vec{v}_1 + \dots a_n \vec{v}_p : a_1, \dots, a_p \in \mathbb{R}}
-\end{equation*}
-</div></article><p id="p-404">By definition, a vector \(\vec{v}\) is in \(\Span{\vec{v}_1, \dots, \vec{v}_p}\) if and only if \(\vec{v}\) can be written as a linear combination of \(\vec{v}_1, \dots, \vec{v}_p\text{.}\) Thus, to determine if \(\vec{v}\) is in the span of \(\vec{v}_1, \dots, \vec{v}_n\text{,}\) solve the linear system with augmented matrix,</p>
-<div class="displaymath">
-\begin{equation*}
-\begin{bmatrix} \vec{v}_1 \amp \dots \amp \vec{v}_p \amp \vec{v} \end{bmatrix}
-\end{equation*}
-</div>
-<p id="p-405">If this system has a solution, then \(\vec{v} \in \Span{\vec{v}_1, \dots, \vec{v}_n}\text{,}\) and the solution \(a_1, \dots, a_n\) provides the weights of the linear combination.</p></section><section class="subsection" id="subsection-83"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.4</span> <span class="title">Subspaces</span>
-</h3>
-<p id="p-406">Many interesting vector spaces are subsets of other vectors spaces. This naturally leads to the concept of a vector subspace.</p>
-<p id="p-407">Let \(V\) be a vector space. Then, a subset \(U \subseteq V\) is a <dfn class="terminology">vector subspace</dfn> of \(V\) (or simply <dfn class="terminology">subspace</dfn>) if \(U\) is itself a vector space.</p>
-<p id="p-408">For now, most of the vector spaces we encounter will be subspaces of \(\mathbb{R}^n\text{,}\) for some \(n\text{.}\)</p>
-<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Subspaces of \(\mathbb{R}^2\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like"><p id="p-409">Consider the possible subspaces of \(\mathbb{R}^2\text{.}\) Let \(U \subseteq \mathbb{R}^2\) be a subspace. First, notice that if \(\vec{v} \in U\) is any vector, then \(0 \vec{v} = \vec{0}\) is also in \(U\text{,}\) because \(U\) is closed under scalar multiplication. Thus, any subspace of \(\mathbb{R}^2\) must contain the zero vector. Indeed, the vector space containing only the zero vector \(U = \set{\vec{0}}\) is a vector space. This can be trivially verified, since any scalar multiple of \(\vec{0}\) is \(\vec{0}\text{,}\) and any sum of \(\vec{0}\) is \(\vec{0}\text{.}\)</p>
-<p id="p-410">Then, suppose \(U\) contains any non-zero vector \(\vec{d} \neq \vec{0}\text{.}\) Then, \(U\) must also contain all scalar multiples of \(\vec{d}\text{.}\) Thus, \(U\) must contain the line parallel to \(\vec{d}\) and through the origin. Indeed, this set, which is a line in \(\mathbb{R}^2\text{,}\) or the span of \(\vec{d}\text{,}\) is a vector space.</p>
+<p id="p-450">Many interesting vector spaces are subsets of other vectors spaces. This naturally leads to the concept of a vector subspace.</p>
+<p id="p-451">Let \(V\) be a vector space. Then, a subset \(U \subseteq V\) is a <dfn class="terminology">vector subspace</dfn> of \(V\) (or simply <dfn class="terminology">subspace</dfn>) if \(U\) is itself a vector space.</p>
+<p id="p-452">For now, most of the vector spaces we encounter will be subspaces of \(\mathbb{R}^n\text{,}\) for some \(n\text{.}\)</p>
+<article class="example example-like" id="example-37"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-37"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Subspaces of \(\mathbb{R}^2\).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-37"><article class="example example-like"><p id="p-453">Consider the possible subspaces of \(\mathbb{R}^2\text{.}\) Let \(U \subseteq \mathbb{R}^2\) be a subspace. First, notice that if \(\vec{v} \in U\) is any vector, then \(0 \vec{v} = \vec{0}\) is also in \(U\text{,}\) because \(U\) is closed under scalar multiplication. Thus, any subspace of \(\mathbb{R}^2\) must contain the zero vector. Indeed, the vector space containing only the zero vector \(U = \set{\vec{0}}\) is a vector space. This can be trivially verified, since any scalar multiple of \(\vec{0}\) is \(\vec{0}\text{,}\) and any sum of \(\vec{0}\) is \(\vec{0}\text{.}\)</p>
+<p id="p-454">Then, suppose \(U\) contains any non-zero vector \(\vec{d} \neq \vec{0}\text{.}\) Then, \(U\) must also contain all scalar multiples of \(\vec{d}\text{.}\) Thus, \(U\) must contain the line parallel to \(\vec{d}\) and through the origin. Indeed, this set, which is a line in \(\mathbb{R}^2\text{,}\) or the span of \(\vec{d}\text{,}\) is a vector space.</p>
 <div class="displaymath">
 \begin{equation*}
 U = \span{\vec{d}} = \set{c \vec{d}: c \in \mathbb{R}}
 \end{equation*}
 </div>
-<p id="p-411">Indeed, if \(\vec{u}, \vec{v} \in U\text{,}\) then they are both scalar multiples of \(\vec{d}\text{.}\) Then, \(\vec{u} = a \vec{d}, \vec{v} = b \vec{d}\) for some scalars \(a, b \in \mathbb{R}\text{.}\) Then, \(\vec{u} + \vec{v} = a\vec{d} + b\vec{d} = (a + b) \vec{d}\) is also a scalar multiple of \(\vec{d}\text{,}\) and so is also in \(U\text{.}\) Also, for any scalar \(c\text{,}\) \(c\vec{v} = (cb) \vec{v}\) is also a scalar multiple of \(\vec{d}\text{,}\) and so is in \(U\text{.}\) Thus, \(U\) is a vector space.</p>
-<p id="p-412">Next, suppose that \(U\) contains another vector which is not parallel to \(\vec{d}\text{,}\) say these two vectors are now called \(\vec{v}_1\) and \(\vec{v}_2\text{.}\) Then, their span is a vector space. In this case, it makes up the entire plane \(\mathbb{R}^2\text{.}\)</p>
-<p id="p-413">In summary, the possible subspaces of \(\mathbb{R}^2\) are a single point (the origin), a line through the origin, and the entire plane.</p></article></div>
-<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Subspaces of \(\mathbb{R}^3\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><p id="p-414">The possible subspaces of \(\mathbb{R}^3\) are a single point (the origin), a line through the origin, a plane through the origin, or the entire 3D space.</p></article></div></section><section class="subsection" id="subsection-84"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.5</span> <span class="title">Spans of Vectors as a Subspace</span>
+<p id="p-455">Indeed, if \(\vec{u}, \vec{v} \in U\text{,}\) then they are both scalar multiples of \(\vec{d}\text{.}\) Then, \(\vec{u} = a \vec{d}, \vec{v} = b \vec{d}\) for some scalars \(a, b \in \mathbb{R}\text{.}\) Then, \(\vec{u} + \vec{v} = a\vec{d} + b\vec{d} = (a + b) \vec{d}\) is also a scalar multiple of \(\vec{d}\text{,}\) and so is also in \(U\text{.}\) Also, for any scalar \(c\text{,}\) \(c\vec{v} = (cb) \vec{v}\) is also a scalar multiple of \(\vec{d}\text{,}\) and so is in \(U\text{.}\) Thus, \(U\) is a vector space.</p>
+<p id="p-456">Next, suppose that \(U\) contains another vector which is not parallel to \(\vec{d}\text{,}\) say these two vectors are now called \(\vec{v}_1\) and \(\vec{v}_2\text{.}\) Then, their span is a vector space. In this case, it makes up the entire plane \(\mathbb{R}^2\text{.}\)</p>
+<p id="p-457">In summary, the possible subspaces of \(\mathbb{R}^2\) are a single point (the origin), a line through the origin, and the entire plane.</p></article></div>
+<article class="example example-like" id="example-38"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-38"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Subspaces of \(\mathbb{R}^3\).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-38"><article class="example example-like"><p id="p-458">The possible subspaces of \(\mathbb{R}^3\) are a single point (the origin), a line through the origin, a plane through the origin, or the entire 3D space.</p></article></div></section><section class="subsection" id="subsection-89"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">Spans of Vectors as a Subspace</span>
 </h3>
-<p id="p-415">Almost by definition, the span of vectors in \(\mathbb{R}^n\) is a subspace of \(\mathbb{R}^n\text{.}\) Let \(\vec{v}_1, \vec{v}_2 \in \mathbb{R}^n\text{.}\) Then,</p></section><section class="subsection" id="subsection-85"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.6</span> <span class="title">Vector Spaces of \(\mathbb{R}^n\)</span>
+<p id="p-459">Almost by definition, the span of vectors in \(\mathbb{R}^n\) is a subspace of \(\mathbb{R}^n\text{.}\) Let \(\vec{v}_1, \vec{v}_2 \in \mathbb{R}^n\text{.}\) Then,</p></section><section class="subsection" id="subsection-90"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.4</span> <span class="title">Vector Spaces of \(\mathbb{R}^n\)</span>
 </h3>
-<p id="p-416">Every vector space (and subspace) must contain the zero vector \(\vec{0}\text{.}\)</p></section><section class="subsection" id="subsection-86"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.7</span> <span class="title">Intersection of Subspaces is a Subspace</span>
-</h3></section><section class="subsection" id="subsection-87"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.8</span> <span class="title">The Column Space</span>
+<p id="p-460">Every vector space (and subspace) must contain the zero vector \(\vec{0}\text{.}\)</p></section><section class="subsection" id="subsection-91"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.5</span> <span class="title">Intersection of Subspaces is a Subspace</span>
+</h3></section><section class="subsection" id="subsection-92"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.6</span> <span class="title">The Column Space</span>
 </h3>
-<p id="p-417">Subspaces often arise in connection with some matrix \(A\text{.}\) The two most important ways to construct subspaces are called the column space and null space, of a matrix.</p>
+<p id="p-461">Subspaces often arise in connection with some matrix \(A\text{.}\) The two most important ways to construct subspaces are called the column space and null space, of a matrix.</p>
 <article class="definition definition-like" id="definition-44"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.14</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span>
 </h6>
-<p id="p-418">The <dfn class="terminology">column space</dfn> of a matrix \(A\) is the set of all linear combinations of the column vectors of \(A\text{.}\) More precisely, if \(A\) is an \(m \times n\) matrix, \(A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}\text{,}\) then the column space, denoted by \(C(A)\text{,}\) is defined by,</p>
+<p id="p-462">The <dfn class="terminology">column space</dfn> of a matrix \(A\) is the set of all linear combinations of the column vectors of \(A\text{.}\) More precisely, if \(A\) is an \(m \times n\) matrix, \(A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}\text{,}\) then the column space, denoted by \(C(A)\text{,}\) is defined by,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{C(A) = \Span{\vec{a}_1, \dots, \vec{a}_n}}
 \end{equation*}
-</div></article><p id="p-419">The column space of an \(m \times n\) matrix \(A\) is a subspace of \(\mathbb{R}^m\) (since the column vectors are vectors in \(\mathbb{R}^m\)).</p>
-<p id="p-420">Recall that \(\vec{b}\) is in the span of \(\vec{a}_1, \dots, \vec{a}_n\) if and only if the linear system \(A\vec{x} = \vec{b}\) has a solution. Then, the column space is equiavlently the set of all vectors \(\vec{b}\) such that \(A\vec{x} = \vec{b}\) has a solution. Conversely, \(A\vec{x} = \vec{b}\) has a solution precisely when \(\vec{b}\) is in the column space of \(A\text{.}\)</p></section><section class="subsection" id="subsection-88"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.9</span> <span class="title">The Null Space</span>
+</div></article><p id="p-463">The column space of an \(m \times n\) matrix \(A\) is a subspace of \(\mathbb{R}^m\) (since the column vectors are vectors in \(\mathbb{R}^m\)).</p>
+<p id="p-464">Recall that \(\vec{b}\) is in the span of \(\vec{a}_1, \dots, \vec{a}_n\) if and only if the linear system \(A\vec{x} = \vec{b}\) has a solution. Then, the column space is equiavlently the set of all vectors \(\vec{b}\) such that \(A\vec{x} = \vec{b}\) has a solution. Conversely, \(A\vec{x} = \vec{b}\) has a solution precisely when \(\vec{b}\) is in the column space of \(A\text{.}\)</p></section><section class="subsection" id="subsection-93"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.7</span> <span class="title">The Null Space</span>
 </h3>
 <article class="definition definition-like" id="definition-45"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.15</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span>
 </h6>
-<p id="p-421">Let \(A\) be an \(n \times m\) matrix. Then, the <dfn class="terminology">null space</dfn> of \(A\text{,}\) \(N(A)\text{,}\) is the set of all solutions to the homogeneous system \(A\vec{x} = \vec{0}\text{.}\) In other words, it is the set of all vectors \(\vec{x}\) such that \(A\vec{x} = \vec{0}\text{,}\) or</p>
+<p id="p-465">Let \(A\) be an \(n \times m\) matrix. Then, the <dfn class="terminology">null space</dfn> of \(A\text{,}\) \(N(A)\text{,}\) is the set of all solutions to the homogeneous system \(A\vec{x} = \vec{0}\text{.}\) In other words, it is the set of all vectors \(\vec{x}\) such that \(A\vec{x} = \vec{0}\text{,}\) or</p>
 <div class="displaymath">
 \begin{equation*}
 N(A) = \set{\vec{x} \in \mathbb{R}^n : A\vec{x} = \vec{0}}
 \end{equation*}
-</div></article><p id="p-422">Certainly, the zero vector \(\vec{0} \in N(A)\text{,}\) because \(A\vec{0} = \vec{0}\) for any matrix \(A\text{.}\)</p>
+</div></article><p id="p-466">Certainly, the zero vector \(\vec{0} \in N(A)\text{,}\) because \(A\vec{0} = \vec{0}\) for any matrix \(A\text{.}\)</p>
 <article class="theorem theorem-like" id="theorem-31"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.16</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span>
 </h6>
-<p id="p-423">The null space is a subspace. More precisely, if \(A\) is an \(n \times m\) matrix, then \(N(A)\) is a subspace of \(\mathbb{R}^n\text{.}\)</p></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><p id="p-424">Let \(\vec{x}, \vec{y} \in N(A), c \in \mathbb{R}\text{.}\) Then, \(A\vec{x} = \vec{0}\) and \(A\vec{y} = \vec{0}\text{.}\) Then,</p>
+<p id="p-467">The null space is a subspace. More precisely, if \(A\) is an \(n \times m\) matrix, then \(N(A)\) is a subspace of \(\mathbb{R}^n\text{.}\)</p></article><article class="hiddenproof" id="proof-17"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><p id="p-468">Let \(\vec{x}, \vec{y} \in N(A), c \in \mathbb{R}\text{.}\) Then, \(A\vec{x} = \vec{0}\) and \(A\vec{y} = \vec{0}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{align*}
 A(\vec{x} + \vec{y}) \amp = A\vec{x} + A\vec{y}\\
@@ -332,7 +258,7 @@ A(\vec{x} + \vec{y}) \amp = A\vec{x} + A\vec{y}\\
 \amp = \vec{0}
 \end{align*}
 </div>
-<p id="p-425">and so \(\vec{x} + \vec{y} \in N(A)\text{.}\) Also,</p>
+<p id="p-469">and so \(\vec{x} + \vec{y} \in N(A)\text{.}\) Also,</p>
 <div class="displaymath">
 \begin{align*}
 A(c\vec{x}) \amp = c(A\vec{x})\\
@@ -340,12 +266,9 @@ A(c\vec{x}) \amp = c(A\vec{x})\\
 \amp = \vec{0}
 \end{align*}
 </div>
-<p id="p-426">and so \(c\vec{x} \in N(A)\text{.}\) Thus, \(N(A)\) is a subspace.</p></article></div>
-<p id="p-427">The null space is unique in that for a general matrix \(A\) and vector \(\vec{b}\text{,}\) the set of all solutions \(\vec{x}\) such that \(A\vec{x} = \vec{b}\) is not a vector space (i.e. if \(\vec{b} \neq \vec{0}\)). For example, because \(\vec{0}\) is not a solution and so is not in the solution set. Graphically, the solution set may be a line or plane which does not go through the origin.</p>
-<p id="p-428">The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em class="emphasis">implicitly</em>, whereas the column space is defined <em class="emphasis">explicitly</em>. To determine an explicit description of \(N(A)\text{,}\) solve the homogeneous system \(A\vec{x} = \vec{0}\text{,}\) and write the solution set in parametric vector form.</p></section><section class="subsection" id="subsection-89"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.10</span> <span class="title">Misc</span>
-</h3>
-<p id="p-429">Applications of vector spaces in engineering, physics, and statistics.</p></section></section></div></main>
+<p id="p-470">and so \(c\vec{x} \in N(A)\text{.}\) Thus, \(N(A)\) is a subspace.</p></article></div>
+<p id="p-471">The null space is unique in that for a general matrix \(A\) and vector \(\vec{b}\text{,}\) the set of all solutions \(\vec{x}\) such that \(A\vec{x} = \vec{b}\) is not a vector space (i.e. if \(\vec{b} \neq \vec{0}\)). For example, because \(\vec{0}\) is not a solution and so is not in the solution set. Graphically, the solution set may be a line or plane which does not go through the origin.</p>
+<p id="p-472">The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em class="emphasis">implicitly</em>, whereas the column space is defined <em class="emphasis">explicitly</em>. To determine an explicit description of \(N(A)\text{,}\) solve the homogeneous system \(A\vec{x} = \vec{0}\text{,}\) and write the solution set in parametric vector form. Then, recall that the solution set to a homogeneous system is always a span of vectors. Then, the null space can always be written explicitly as the span of some vectors.</p></section></section></div></main>
 </div>
 </body>
 </html>

@@ -22,14 +22,14 @@
     \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} %% for augmented matrix
     \DeclareMathOperator{\Ker}{Ker}
     \DeclareMathOperator{\nullity}{nullity}
+    \DeclareMathOperator{\Row}{Row}
+    \DeclareMathOperator{\Col}{Col}
+    \DeclareMathOperator{\Null}{N}
     \DeclareMathOperator{\Image}{Im}
     \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
     \DeclareMathOperator{\rank}{rank}
     \DeclareMathOperator{\colrk}{colrk}
     \DeclareMathOperator{\rowrk}{rowrk}
-    \DeclareMathOperator{\Row}{Row}
-    \DeclareMathOperator{\Col}{Col}
-    \DeclareMathOperator{\Null}{N}
     \newcommand{\tr}[1]{tr\left( #1 \right)}
     \DeclareMathOperator{\matref}{ref}
     \DeclareMathOperator{\matrref}{rref}

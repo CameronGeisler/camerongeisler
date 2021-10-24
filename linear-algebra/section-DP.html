@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:28-07:00       *-->
+<!--*       on 2021-10-24T16:08:36-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -69,14 +69,14 @@
 \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
 \DeclareMathOperator{\Image}{Im}
 \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\colrk}{colrk}
 \DeclareMathOperator{\rowrk}{rowrk}
-\DeclareMathOperator{\Row}{Row}
-\DeclareMathOperator{\Col}{Col}
-\DeclareMathOperator{\Null}{N}
 \newcommand{\tr}[1]{tr\left( #1 \right)}
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
@@ -124,7 +124,7 @@
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
 <li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
@@ -142,11 +142,11 @@
 </li>
 <li class="link">
 <a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
-<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
-<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 <li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 </ul>
 </li>
 <li class="link">
@@ -157,7 +157,13 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP" class="active">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -165,45 +171,45 @@
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-DP"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">7.1</span> <span class="title">The Dot Product</span>
+<span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">The Dot Product</span>
 </h2>
-<section class="subsection" id="subsection-104"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.1</span> <span class="title">Dot Product of Vectors</span>
+<section class="subsection" id="subsection-121"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.1</span> <span class="title">Dot Product of Vectors</span>
 </h3>
-<p id="p-509">Here, we define the <em class="emphasis">dot product</em> of vectors. First, for vectors in \(\mathbb{R}^2\text{.}\)</p>
-<article class="definition definition-like" id="definition-55"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.1.1</span><span class="period">.</span>
+<p id="p-643">Here, we define the <em class="emphasis">dot product</em> of vectors. First, for vectors in \(\mathbb{R}^2\text{.}\)</p>
+<article class="definition definition-like" id="definition-60"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.1</span><span class="period">.</span>
 </h6>
-<p id="p-510">Let \(\vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2) \in \mathbb{R}^2\) be vectors. Then, the <dfn class="terminology">dot product</dfn> of \(\vec{u}\) and \(\vec{v}\text{,}\) denoted by \(\vec{u} \bullet \vec{v}\text{,}\) is the sum of the products of the corresponding components,</p>
+<p id="p-644">Let \(\vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2) \in \mathbb{R}^2\) be vectors. Then, the <dfn class="terminology">dot product</dfn> of \(\vec{u}\) and \(\vec{v}\text{,}\) denoted by \(\vec{u} \bullet \vec{v}\text{,}\) is the sum of the products of the corresponding components,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2}
 \end{equation*}
-</div></article><p id="p-511">The name “dot product” comes from the fact that the multiplication is denoted by a dot. The dot product is also called the <dfn class="terminology">scalar product</dfn>, because the product produces a scalar value. It is also called the <dfn class="terminology">inner product</dfn>, for more complicated reasons.</p></section><section class="subsection" id="subsection-105"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.2</span> <span class="title">Properties of the Dot Product</span>
+</div></article><p id="p-645">The name “dot product” comes from the fact that the multiplication is denoted by a dot. The dot product is also called the <dfn class="terminology">scalar product</dfn>, because the product produces a scalar value. It is also called the <dfn class="terminology">inner product</dfn>, for more complicated reasons.</p></section><section class="subsection" id="subsection-122"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.2</span> <span class="title">Properties of the Dot Product</span>
 </h3>
-<article class="theorem theorem-like" id="theorem-41"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.1.2</span><span class="period">.</span>
+<article class="theorem theorem-like" id="theorem-48"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.2</span><span class="period">.</span>
 </h6>
-<p id="p-512">Let \(\vec{u}, \vec{v}, \vec{w}\) be vectors. Then,</p>
+<p id="p-646">Let \(\vec{u}, \vec{v}, \vec{w}\) be vectors. Then,</p>
 <ol class="decimal">
-<li id="li-120">Commutative property, \(\vec{u} \bullet \vec{v} = \vec{v} \bullet \vec{u}\text{.}\)</li>
-<li id="li-121">Distributive property, \(\vec{u} \bullet (\vec{v} + \vec{w}) = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}\text{.}\)</li>
-<li id="li-122">Associativity with scalar multiplication, for \(k \in \mathbb{R}\text{,}\)<div class="displaymath">
+<li id="li-135">Commutative property, \(\vec{u} \bullet \vec{v} = \vec{v} \bullet \vec{u}\text{.}\)</li>
+<li id="li-136">Distributive property, \(\vec{u} \bullet (\vec{v} + \vec{w}) = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}\text{.}\)</li>
+<li id="li-137">Associativity with scalar multiplication, for \(k \in \mathbb{R}\text{,}\)<div class="displaymath">
 \begin{equation*}
 (k \vec{u}) \bullet \vec{v} = \vec{u} \bullet (k\vec{v}) = k(\vec{u} \bullet \vec{v})
 \end{equation*}
 </div>
 </li>
-</ol></article><article class="hiddenproof" id="proof-20"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof"><p id="p-513">Each of these properties basically follows from the definition of a dot product, and the corresponding properties for real numbers. Let \(\vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2), \vec{w} = (w_1, w_2)\text{.}\)</p> Then, <ol class="decimal">
-<li id="li-123"><div class="displaymath">
+</ol></article><article class="hiddenproof" id="proof-21"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof"><p id="p-647">Each of these properties basically follows from the definition of a dot product, and the corresponding properties for real numbers. Let \(\vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2), \vec{w} = (w_1, w_2)\text{.}\)</p> Then, <ol class="decimal">
+<li id="li-138"><div class="displaymath">
 \begin{align*}
 \vec{u} \bullet \vec{v} \amp = u_1 v_1 + u_2 v_2\\
 \amp = v_1 u_1 + v_2 u_2\\
 \amp = \vec{v} \bullet \vec{u}
 \end{align*}
 </div></li>
-<li id="li-124"><div class="displaymath">
+<li id="li-139"><div class="displaymath">
 \begin{align*}
 \vec{u} \bullet (\vec{v} + \vec{w}) \amp = (u_1, u_2) \bullet (v_1 + w_1, v_2 + w_2)\\
 \amp = u_1(v_1 + w_1) + u_2(v_2 + w_2)\\
@@ -212,61 +218,59 @@
 \amp = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}
 \end{align*}
 </div></li>
-<li id="li-125">
+<li id="li-140">
 <div class="displaymath">
 \begin{align*}
 (k\vec{u}) \bullet \vec{v} \amp = (ku_1, ku_2) \bullet (v_1, v_2)\\
 \amp = ku_1 v_1 + ku_2 v_2
 \end{align*}
 </div>
-<p id="p-514">This expression is equal to,</p>
+<p id="p-648">This expression is equal to,</p>
 <div class="displaymath">
 \begin{equation*}
 = k\brac{u_1 v_1 + u_2 v_2} = k (\vec{u} \bullet \vec{v})
 \end{equation*}
 </div>
-<p id="p-515">This is also equal to,</p>
+<p id="p-649">This is also equal to,</p>
 <div class="displaymath">
 \begin{equation*}
 = u_1 (k v_1) + u_2 (k v_2) = \vec{u} \bullet (k\vec{v})
 \end{equation*}
 </div>
 </li>
-</ol></article></div></section><section class="subsection" id="subsection-106"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.3</span> <span class="title">Dot Product of a Vector with Itself</span>
-</h3>
-<p id="p-516">The dot product also relates to the magnitude of a vector. Consider the dot product of a vector \(\vec{u} = (u_1, u_2)\) with itself,</p>
+</ol></article></div>
+<p id="p-650">The dot product also relates to the magnitude of a vector. Consider the dot product of a vector \(\vec{u} = (u_1, u_2)\) with itself,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{u} \bullet \vec{u} = u_1 u_1 + u_2 u_2 = u_1^2 + u_2^2
 \end{equation*}
 </div>
-<p id="p-517">This is precisely the square of the magnitude of \(\vec{u}\text{.}\) Thus,</p>
+<p id="p-651">This is precisely the square of the magnitude of \(\vec{u}\text{.}\) Thus,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\abs{\vec{u}} = \sqrt{\vec{u} \bullet \vec{u}}}
 \end{equation*}
-</div></section><section class="subsection" id="subsection-107"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.4</span> <span class="title">Alternate Characterization for the Dot Product</span>
+</div></section><section class="subsection" id="subsection-123"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.3</span> <span class="title">Alternate Characterization for the Dot Product</span>
 </h3>
-<article class="definition definition-like" id="definition-56"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.1.3</span><span class="period">.</span>
+<article class="definition definition-like" id="definition-61"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.3</span><span class="period">.</span>
 </h6>
-<p id="p-518">Let \(\vec{u}, \vec{v}\) be vectors, \(\theta\) be the angle between \(\vec{u}\) and \(\vec{v}\text{.}\) Then,</p>
+<p id="p-652">Let \(\vec{u}, \vec{v}\) be vectors, \(\theta\) be the angle between \(\vec{u}\) and \(\vec{v}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\vec{u} \bullet \vec{v} = \abs{\vec{u}} \abs{\vec{v}} \cos{\theta}}
 \end{equation*}
-</div></article><p id="p-519">Here, the “angle between \(\vecA{u}\) and \(\vec{v}\)” means the smallest angle between the two vectors. This forces \(\theta\) to be between 0 and \(180^{\circ}\) (or \(\pi\) radians).</p>
-<p id="p-520">This is an alternate characterization for the dot product, in that we could have instead defined the dot product using this formula, and then show that this definition implies the previous definition.</p>
-<p id="p-521">The proof of this fact follows from the geometry of triangles, in particular the law of cosines. Applying the law of cosines to a particular triangle of vectors shows the relationship between the dot product and the angle between vectors.</p>
-<article class="hiddenproof" id="proof-21"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof"><p id="p-522">From the vectors \(\vec{u}, \vec{v}\text{,}\) form a triangle by joining the heads of the two vectors to form the vector \(\vec{u} - \vec{v}\text{.}\) Then, by the law of cosines, we can relate the angle \(\theta\) between the vectors \(\vec{u}, \vec{v}\) with the lengths of the sides of this triangle (given by the magnitudes of the vectors involved). This gives,</p>
+</div></article><p id="p-653">Here, the “angle between \(\vec{u}\) and \(\vec{v}\)” means the smallest angle between the two vectors. This forces \(\theta\) to be between 0 and \(180^{\circ}\) (or \(\pi\) radians).</p>
+<p id="p-654">This is an alternate characterization for the dot product, in that we could have instead defined the dot product using this formula, and then show that this definition implies the previous definition.</p>
+<p id="p-655">The proof of this fact follows from the geometry of triangles, in particular the law of cosines. Applying the law of cosines to a particular triangle of vectors shows the relationship between the dot product and the angle between vectors.</p>
+<article class="hiddenproof" id="proof-22"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><p id="p-656">From the vectors \(\vec{u}, \vec{v}\text{,}\) form a triangle by joining the heads of the two vectors to form the vector \(\vec{u} - \vec{v}\text{.}\) Then, by the law of cosines, we can relate the angle \(\theta\) between the vectors \(\vec{u}, \vec{v}\) with the lengths of the sides of this triangle (given by the magnitudes of the vectors involved). This gives,</p>
 <div class="displaymath">
 \begin{equation*}
 \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = \abs{\vec{u} - \vec{v}}^2
 \end{equation*}
 </div>
-<p id="p-523">Then, expanding the right-hand side allows us to rewrite in terms of the dot product,</p>
+<p id="p-657">Then, expanding the right-hand side allows us to rewrite in terms of the dot product,</p>
 <div class="displaymath">
 \begin{align*}
 \abs{\vec{u} - \vec{v}}^2 \amp = (\vec{u} - \vec{v}) \bullet (\vec{u} - \vec{v})\\
@@ -275,7 +279,7 @@
 \amp = \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\vec{u} \bullet \vec{v}
 \end{align*}
 </div>
-<p id="p-524">Then,</p>
+<p id="p-658">Then,</p>
 <div class="displaymath">
 \begin{align*}
 \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} \amp = \abs{\vec{u}}^2 + \abs{\vec{v}}^2 - 2\vec{u} \bullet \vec{v}\\
@@ -283,54 +287,97 @@
 \vec{u} \bullet \vec{v} = \abs{\vec{u}} \abs{\vec{v}} \cos{\theta}
 \end{align*}
 </div>
-<p id="p-525">as desired.</p></article></div></section><section class="subsection" id="subsection-108"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.5</span> <span class="title">Angle Between Vectors</span>
+<p id="p-659">as desired.</p></article></div></section><section class="subsection" id="subsection-124"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.4</span> <span class="title">Angle Between Vectors</span>
 </h3>
-<p id="p-526">The</p></section><section class="subsection" id="subsection-109"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.6</span> <span class="title">Dot Product and Parallel-ness</span>
+<p id="p-660">The (acute) angle between two vectors.</p></section><section class="subsection" id="subsection-125"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.5</span> <span class="title">Dot Product and Parallel-ness</span>
 </h3>
-<p id="p-527">In particular, if \(\theta = 90^{\circ}\text{,}\) then</p>
+<p id="p-661">In particular, if \(\theta = 90^{\circ}\text{,}\) then</p>
 <div class="displaymath">
 \begin{align*}
 \vec{u} \bullet \vec{v} \amp = \abs{\vec{u}} \abs{\vec{v}} \underbrace{\cos{90^{\circ}}}_{0}\\
 \amp = 0
 \end{align*}
 </div>
-<p id="p-528">Conversely, if \(\vec{u} \bullet \vec{v} = 0\text{,}\) then \(\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = 0\text{.}\) This implies that at least one of \(\abs{\vec{u}}, \abs{\vec{v}}, \cos{\theta}\) is 0. If \(\cos{\theta} = 0\text{,}\) then \(\theta = 90^{\circ}\text{,}\) and the vectors are perpendicular. If either of \(\abs{\vec{u}}, \abs{\vec{v}}\) are 0, then the corresponding vector is the zero vector, and recall that the zero vector is said to be perpendicular to all vectors. In summary,</p>
+<p id="p-662">Conversely, if \(\vec{u} \bullet \vec{v} = 0\text{,}\) then \(\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = 0\text{.}\) This implies that at least one of \(\abs{\vec{u}}, \abs{\vec{v}}, \cos{\theta}\) is 0. If \(\cos{\theta} = 0\text{,}\) then \(\theta = 90^{\circ}\text{,}\) and the vectors are perpendicular. If either of \(\abs{\vec{u}}, \abs{\vec{v}}\) are 0, then the corresponding vector is the zero vector, and recall that the zero vector is said to be perpendicular to all vectors. In summary,</p>
 <article class="corollary theorem-like" id="corollary-2"><h6 class="heading">
-<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">7.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Perpendicular if and only if zero dot product.</span>
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">9.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Perpendicular if and only if zero dot product.</span>
 </h6>
-<p id="p-529">Vectors \(\vec{u}, \vec{v}\) satisfy \(\vec{u} \bullet \vec{v} = 0\) if and only if \(\vec{u}\) and \(\vec{v}\) are perpendicular.</p></article></section><section class="subsection" id="subsection-110"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.7</span> <span class="title">Dot Product for Vectors in \(\mathbb{R}^3\)</span>
+<p id="p-663">Vectors \(\vec{u}, \vec{v}\) satisfy \(\vec{u} \bullet \vec{v} = 0\) if and only if \(\vec{u}\) and \(\vec{v}\) are perpendicular.</p></article></section><section class="subsection" id="subsection-126"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.6</span> <span class="title">Dot Product for Vectors in \(\mathbb{R}^3\)</span>
 </h3>
-<article class="definition definition-like" id="definition-57"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.1.5</span><span class="period">.</span>
+<article class="definition definition-like" id="definition-62"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.5</span><span class="period">.</span>
 </h6>
-<p id="p-530">Let \(\vec{u} = (u_1, u_2, u_3), \vec{v} = (v_1, v_2, v_3) \in \mathbb{R}^3\) be vectors. Then, the <dfn class="terminology">dot product</dfn> of \(\vec{u}\) and \(\vec{v}\) is defined by,</p>
+<p id="p-664">Let \(\vec{u} = (u_1, u_2, u_3), \vec{v} = (v_1, v_2, v_3) \in \mathbb{R}^3\) be vectors. Then, the <dfn class="terminology">dot product</dfn> of \(\vec{u}\) and \(\vec{v}\) is defined by,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3}
 \end{equation*}
-</div></article></section><section class="subsection" id="subsection-111"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.8</span> <span class="title">Dot Product for Vectors in \(\mathbb{R}^n\)</span>
+</div></article></section><section class="subsection" id="subsection-127"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.7</span> <span class="title">Dot Product for Vectors in \(\mathbb{R}^n\) (Inner Product)</span>
 </h3>
-<article class="definition definition-like" id="definition-58"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.1.6</span><span class="period">.</span>
+<p id="p-665">The dot product can be extended to \(\mathbb{R}^n\text{.}\) It is often called the inner product.</p>
+<article class="definition definition-like" id="definition-63"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.6</span><span class="period">.</span>
 </h6>
-<p id="p-531">Let \(\vec{u} = (u_1, \dots, u_n), \vec{v}_1 = (v_1, \dots, v_n) \in \mathbb{R}^n\) be vectors. Then, the <dfn class="terminology">dot product</dfn> of \(\vec{u}\) and \(\vec{v}\) is defined by,</p>
+<p id="p-666">Let \(\vec{u} = (u_1, \dots, u_n), \vec{v}_1 = (v_1, \dots, v_n) \in \mathbb{R}^n\) be vectors. Then, the <dfn class="terminology">dot product</dfn> of \(\vec{u}\) and \(\vec{v}\) is defined by,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\vec{u} \bullet \vec{v} = u_1 v_1 + u_2 v_2 \dots + u_n v_n = \sum_{k=1}^n u_k v_k}
 \end{equation*}
-</div></article></section><section class="subsection" id="subsection-112"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.1.9</span> <span class="title"></span>
-</h3>
-<p id="p-532">The angle between \(\vec{x}, \vec{y} \in \mathbb{R}^n\) is given by,</p>
+</div></article><p id="p-667">If \(\vec{u}, \vec{v}\) are vectors in \(\mathbb{R}^n\text{,}\) then recall that thtey are considered \(n \times 1\) matrices. Then, the transpose \(\vec{u}^T\) is a \(1 \times n\) matrix, and the matrix product \(\vec{u}^T \vec{v}\) is a \(1 \times 1\) matrix, whose entry is given by the dot product,</p>
 <div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} u_1 \amp u_2 \amp \dots \amp u_n \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = u_1 v_1 + u_2 v_2 + \dots + u_n v_n
+\end{equation*}
+</div>
+<p id="p-668">Strictly speaking, the product is a \(1 \times 1\) matrix, however it is treated as a real number and written without brackets.</p>
+<p id="p-669">Then, the product \(\vec{u} \bullet \vec{v} = \vec{u}^T \vec{v}\) is called the <dfn class="terminology">inner product</dfn> of \(\vec{u}\) and \(\vec{v}\text{.}\)</p>
+<p id="p-670">All of the properties of the dot product generalize for the inner product in \(\mathbb{R}^n\text{.}\)</p>
+<article class="theorem theorem-like" id="theorem-49"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.7</span><span class="period">.</span>
+</h6>
+<p id="p-671">Let \(\vec{u}, \vec{v}, \vec{w}\) be vectors in \(\mathbb{R}^n\text{.}\) Then,</p>
+<ol class="decimal">
+<li id="li-141">Commutative property, \(\vec{u} \bullet \vec{v} = \vec{v} \bullet \vec{u}\text{.}\)</li>
+<li id="li-142">Distributive property, \(\vec{u} \bullet (\vec{v} + \vec{w}) = \vec{u} \bullet \vec{v} + \vec{u} \bullet \vec{w}\text{.}\)</li>
+<li id="li-143">Associativity with scalar multiplication, for \(k \in \mathbb{R}\text{,}\)<div class="displaymath">
+\begin{equation*}
+(k \vec{u}) \bullet \vec{v} = \vec{u} \bullet (k\vec{v}) = k(\vec{u} \bullet \vec{v})
+\end{equation*}
+</div>
+</li>
+</ol></article><article class="hiddenproof" id="proof-23"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof">Let \(\vec{u} = (u_1, \dots, u_n), \vec{v} = (v_1, \dots, v_n), \vec{w} = (w_1, \dots, w_n)\text{.}\) Then, FINISH.</article></div>
+<p id="p-672">Also,</p>
+<article class="theorem theorem-like" id="theorem-50"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.8</span><span class="period">.</span>
+</h6>\(\vec{u} \in \mathbb{R}^n\text{.}\)\(\vec{u} \bullet \vec{u} \geq 0\text{,}\)\(\vec{u} \bullet \vec{u} = 0\)\(\vec{u} = 0\text{.}\)</article><article class="corollary theorem-like" id="corollary-3"><h6 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">9.1.9</span><span class="period">.</span>
+</h6>
+<p id="p-673">In general,</p>
+<div class="displaymath">
+\begin{equation*}
+(a_1 \vec{v}_1 + \dots + a_p \vec{v}_p) \bullet \vec{w} = a_1 \vec{v}_1 \bullet \vec{w} + \dots + a_p \vec{v}_p \bullet \vec{w}
+\end{equation*}
+</div></article></section><section class="subsection" id="subsection-128"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.8</span> <span class="title">Pythagorean Theorem</span>
+</h3>
+<p id="p-674"><article class="theorem theorem-like" id="theorem-51"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.10</span><span class="period">.</span>
+</h6>\(\vec{u}, \vec{v}\)\(\mathbb{R}^n\)\(\abs{\vec{u} + \vec{v}}^2 = \abs{\vec{u}}^2 + \abs{\vec{v}}^2\text{.}\)</article></p></section><section class="subsection" id="subsection-129"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.9</span> <span class="title">Angle Between Vectors</span>
+</h3>
+<p id="p-675">Recall that in \(\mathbb{R}^2\) and \(\mathbb{R}^3\text{,}\) the (geometric) angle between two vectors is given by the equation \(\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = \vec{u} \bullet \vec{v}\text{.}\) For higher dimensions, there is no physical notion of angle. However, that equation can be used to <em class="emphasis">define</em> the angle between \(\vec{u}, \vec{v} \in \mathbb{R}^n\text{.}\)</p>
+<article class="definition definition-like" id="definition-64"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Angle between vectors in \(\mathbb{R}^n\).</span>
+</h6>
+<div class="displaymath" id="p-676">
 \begin{equation*}
 \theta = \arccos{\brac{\frac{\vec{x} \bullet \vec{y}}{\abs{\vec{x}} \abs{\vec{y}}}}}
 \end{equation*}
-</div></section></section></div></main>
+</div></article><p id="p-677">In statistics, the value of \(\cos{\theta}\) is called the correlation coefficient, for suitable vectors \(\vec{u}, \vec{v}\text{.}\)</p></section></section></div></main>
 </div>
 </body>
 </html>

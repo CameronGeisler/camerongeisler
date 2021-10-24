@@ -5,7 +5,7 @@
 
     <introduction>
         <p>
-            It turns out that if a subspace <m>H</m> has a basis consisting of <m>p</m> vectors, then every basis of <m>H</m> must contain exactly <m>p</m> vectors. This number <m>p</m> is called the <em>dimension</em> of <m>H</m>.
+            Recall that bases of a subspace are not unique. However, it turns out that all bases of a given subspace contain the same number of vectors. That is, if a subspace <m>H</m> has a basis consisting of <m>p</m> vectors, then every basis of <m>H</m> contains exactly <m>p</m> vectors. This number <m>p</m> is called the <em>dimension</em> of <m>H</m>.
         </p>
     </introduction>
 
@@ -28,13 +28,19 @@
                 The dimension of the null space of a matrix <m>A</m> is, by definition, equal to the number of vectors in its basis. Recall that there is one vector for every free variable, and so the dimension is equal to the number of free variables when solving <m>A\vec{x} = \vec{0}</m>.
             </p>
         </example>
+    </subsection>
 
+    <subsection>
+        <title>Rank of a Matrix</title>
         <definition>
             <p>The <term>rank</term> of a matrix <m>A</m>, denoted by <m>\rank{A}</m>, is the dimension of the column space of <m>A</m>. In other words,</p>
             <me>
                 \rank{A} = \dim{\Span{\vec{a}_1, \dots, \vec{a}_m}}
             </me>
         </definition>
+        <p>
+            Then, the rank is also the number of pivot columns (recall that the dimension of <m>C(A)</m> is equal to the number of pivot columns).
+        </p>
 
         <example>
             <title>Dimension of the column space</title>
@@ -53,6 +59,31 @@
             </me>
         </theorem>
 
+        <p>
+            In particular, if say <m>\rank{A} = r</m>, then <m>\dim{N(A)} = n - r</m>.
+        </p>
 
+        <theorem>
+            <title>The basis theorem</title>
+            <p>
+                Let <m>H</m> be a <m>p</m>-dimensional subspace of <m>\mathbb{R}^n</m> (i.e. <m>\dim{H} = p</m>). Then, every linearly independent set of <m>p</m> vectors is a basis of <m>H</m>. Also, every set of <m>p</m> vectors that spans <m>H</m> is a basis of <m>H</m>.
+            </p>
+        </theorem>
+
+    </subsection>
+
+    <subsection>
+        <title>Rank and the Invertible Matrix Theorem</title>
+        <theorem>
+            <p>Let <m>A</m> be an <m>n \times n</m> matrix. Then, the following are each equivalent to the statement that <m>A</m> is invertible:</p>
+            <ol>
+                <li>The columns of <m>A</m> form a basis of <m>\mathbb{R}^n</m>.</li>
+                <li>The columns of <m>A</m> span <m>\mathbb{R}^n</m>, <m>\Col{A} = \mathbb{R}^n</m>.</li>
+                <li><m>\dim{\Col{A}} = n</m>.</li>
+                <li><m>A</m> has full rank, <m>\rank{A} = n</m>.</li>
+                <li><m>N(A) = \set{\vec{0}}</m>.</li>
+                <li><m>\dim{N(A)} = 0</m>.</li>
+            </ol>
+        </theorem>
     </subsection>
 </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:28-07:00       *-->
+<!--*       on 2021-10-24T16:08:36-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -69,14 +69,14 @@
 \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
 \DeclareMathOperator{\Image}{Im}
 \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\colrk}{colrk}
 \DeclareMathOperator{\rowrk}{rowrk}
-\DeclareMathOperator{\Row}{Row}
-\DeclareMathOperator{\Col}{Col}
-\DeclareMathOperator{\Null}{N}
 \newcommand{\tr}[1]{tr\left( #1 \right)}
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
@@ -101,10 +101,10 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-CS.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-ITVS.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-D.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-B.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-ITVS.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-CS.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-CS.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-ITVS.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-D.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-B.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-ITVS.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-CS.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -124,7 +124,7 @@
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
 <li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
@@ -142,11 +142,11 @@
 </li>
 <li class="link">
 <a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
-<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
-<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 <li><a href="section-DAR.html" data-scroll="section-DAR" class="active">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 </ul>
 </li>
 <li class="link">
@@ -157,7 +157,13 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -165,41 +171,62 @@
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-DAR"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.5</span> <span class="title">Dimension and Rank</span>
+<span class="type">Section</span> <span class="codenumber">5.4</span> <span class="title">Dimension and Rank</span>
 </h2>
-<section class="introduction" id="introduction-22"><p id="p-456">It turns out that if a subspace \(H\) has a basis consisting of \(p\) vectors, then every basis of \(H\) must contain exactly \(p\) vectors. This number \(p\) is called the <em class="emphasis">dimension</em> of \(H\text{.}\)</p></section><section class="subsection" id="subsection-94"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.5.1</span> <span class="title">Dimension of a Subspace</span>
+<section class="introduction" id="introduction-23"><p id="p-511">Recall that bases of a subspace are not unique. However, it turns out that all bases of a given subspace contain the same number of vectors. That is, if a subspace \(H\) has a basis consisting of \(p\) vectors, then every basis of \(H\) contains exactly \(p\) vectors. This number \(p\) is called the <em class="emphasis">dimension</em> of \(H\text{.}\)</p></section><section class="subsection" id="subsection-97"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.4.1</span> <span class="title">Dimension of a Subspace</span>
+</h3>
+<article class="definition definition-like" id="definition-49"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
+</h6>
+<p id="p-512">The <dfn class="terminology">dimension</dfn> of a non-zero subspace \(H\text{,}\) denoted by \(\dim{H}\text{,}\) is the number of vectors in any basis of \(H\text{.}\) The dimension of the zero subspace \(\set{0}\) is defined to be 0.</p></article><article class="example example-like" id="example-46"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-46"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">The space \(\mathbb{R}^n\).</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-46"><article class="example example-like"><p id="p-513">Intuitively, the vector space \(\mathbb{R}^n\) has dimension \(n\text{.}\) Recall that the standard basis of \(\mathbb{R}^n\) includes \(n\) vectors, so any basis of \(\mathbb{R}^n\) has \(n\) vectors.</p></article></div>
+<article class="example example-like" id="example-47"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-47"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Dimension of the null space.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-47"><article class="example example-like"><p id="p-514">The dimension of the null space of a matrix \(A\) is, by definition, equal to the number of vectors in its basis. Recall that there is one vector for every free variable, and so the dimension is equal to the number of free variables when solving \(A\vec{x} = \vec{0}\text{.}\)</p></article></div></section><section class="subsection" id="subsection-98"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.4.2</span> <span class="title">Rank of a Matrix</span>
 </h3>
 <article class="definition definition-like" id="definition-50"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span>
 </h6>
-<p id="p-457">The <dfn class="terminology">dimension</dfn> of a non-zero subspace \(H\text{,}\) denoted by \(\dim{H}\text{,}\) is the number of vectors in any basis of \(H\text{.}\) The dimension of the zero subspace \(\set{0}\) is defined to be 0.</p></article><article class="example example-like" id="example-40"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-40"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span><span class="space"> </span><span class="title">The space \(\mathbb{R}^n\).</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-40"><article class="example example-like"><p id="p-458">Intuitively, the vector space \(\mathbb{R}^n\) has dimension \(n\text{.}\) Recall that the standard basis of \(\mathbb{R}^n\) includes \(n\) vectors, so any basis of \(\mathbb{R}^n\) has \(n\) vectors.</p></article></div>
-<article class="example example-like" id="example-41"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-41"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Dimension of the null space.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-41"><article class="example example-like"><p id="p-459">The dimension of the null space of a matrix \(A\) is, by definition, equal to the number of vectors in its basis. Recall that there is one vector for every free variable, and so the dimension is equal to the number of free variables when solving \(A\vec{x} = \vec{0}\text{.}\)</p></article></div>
-<article class="definition definition-like" id="definition-51"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.5.4</span><span class="period">.</span>
-</h6>
-<p id="p-460">The <dfn class="terminology">rank</dfn> of a matrix \(A\text{,}\) denoted by \(\rank{A}\text{,}\) is the dimension of the column space of \(A\text{.}\) In other words,</p>
+<p id="p-515">The <dfn class="terminology">rank</dfn> of a matrix \(A\text{,}\) denoted by \(\rank{A}\text{,}\) is the dimension of the column space of \(A\text{.}\) In other words,</p>
 <div class="displaymath">
 \begin{equation*}
 \rank{A} = \dim{\Span{\vec{a}_1, \dots, \vec{a}_m}}
 \end{equation*}
-</div></article><article class="example example-like" id="example-42"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h6 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Dimension of the column space.</span>
-</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><p id="p-461">Consider the dimension of the column space of a matrix. Recall that the pivot columns of \(A\) form a basis of \(A\text{.}\) Thus, the dimension of \(A\) is the number of pivot columns of \(A\text{.}\)</p></article></div>
-<p id="p-462">Together, the dimension of the column space is the number of pivot columns, and the dimension of the null space is the number of non-pivot columns. For an \(n \times m\) matrix, there are \(n\) columns in total. Thus, in summary,</p>
+</div></article><p id="p-516">Then, the rank is also the number of pivot columns (recall that the dimension of \(C(A)\) is equal to the number of pivot columns).</p>
+<article class="example example-like" id="example-48"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-48"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Dimension of the column space.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-48"><article class="example example-like"><p id="p-517">Consider the dimension of the column space of a matrix. Recall that the pivot columns of \(A\) form a basis of \(A\text{.}\) Thus, the dimension of \(A\) is the number of pivot columns of \(A\text{.}\)</p></article></div>
+<p id="p-518">Together, the dimension of the column space is the number of pivot columns, and the dimension of the null space is the number of non-pivot columns. For an \(n \times m\) matrix, there are \(n\) columns in total. Thus, in summary,</p>
 <article class="theorem theorem-like" id="theorem-37"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.6</span><span class="period">.</span><span class="space"> </span><span class="title">Rank theorem.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.4.6</span><span class="period">.</span><span class="space"> </span><span class="title">Rank theorem.</span>
 </h6>
-<p id="p-463">Let \(A\) be a matrix with \(n\) columns. Then,</p>
+<p id="p-519">Let \(A\) be a matrix with \(n\) columns. Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\rank{A} + \dim{N(A)} = n}
 \end{equation*}
-</div></article></section></section></div></main>
+</div></article><p id="p-520">In particular, if say \(\rank{A} = r\text{,}\) then \(\dim{N(A)} = n - r\text{.}\)</p>
+<article class="theorem theorem-like" id="theorem-38"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.4.7</span><span class="period">.</span><span class="space"> </span><span class="title">The basis theorem.</span>
+</h6>
+<p id="p-521">Let \(H\) be a \(p\)-dimensional subspace of \(\mathbb{R}^n\) (i.e. \(\dim{H} = p\)). Then, every linearly independent set of \(p\) vectors is a basis of \(H\text{.}\) Also, every set of \(p\) vectors that spans \(H\) is a basis of \(H\text{.}\)</p></article></section><section class="subsection" id="subsection-99"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.4.3</span> <span class="title">Rank and the Invertible Matrix Theorem</span>
+</h3>
+<article class="theorem theorem-like" id="theorem-39"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.4.8</span><span class="period">.</span>
+</h6>
+<p id="p-522">Let \(A\) be an \(n \times n\) matrix. Then, the following are each equivalent to the statement that \(A\) is invertible:</p>
+<ol class="decimal">
+<li id="li-114">The columns of \(A\) form a basis of \(\mathbb{R}^n\text{.}\)</li>
+<li id="li-115">The columns of \(A\) span \(\mathbb{R}^n\text{,}\) \(\Col{A} = \mathbb{R}^n\text{.}\)</li>
+<li id="li-116">\(\dim{\Col{A}} = n\text{.}\)</li>
+<li id="li-117">\(A\) has full rank, \(\rank{A} = n\text{.}\)</li>
+<li id="li-118">\(N(A) = \set{\vec{0}}\text{.}\)</li>
+<li id="li-119">\(\dim{N(A)} = 0\text{.}\)</li>
+</ol></article></section></section></div></main>
 </div>
 </body>
 </html>

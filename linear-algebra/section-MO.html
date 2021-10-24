@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-08-05T17:20:27-07:00       *-->
+<!--*       on 2021-10-24T16:08:34-07:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -69,14 +69,14 @@
 \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
 \DeclareMathOperator{\Image}{Im}
 \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\colrk}{colrk}
 \DeclareMathOperator{\rowrk}{rowrk}
-\DeclareMathOperator{\Row}{Row}
-\DeclareMathOperator{\Col}{Col}
-\DeclareMathOperator{\Null}{N}
 \newcommand{\tr}[1]{tr\left( #1 \right)}
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
@@ -124,7 +124,7 @@
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
 <li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
-<li><a href="section-VE.html" data-scroll="section-VE">Vector Equations</a></li>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
@@ -142,11 +142,11 @@
 </li>
 <li class="link">
 <a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
-<li><a href="section-ITVSRCS.html" data-scroll="section-ITVSRCS">Introduction to Vector Spaces (Real Coordinate Spaces)</a></li>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
-<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 <li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 </ul>
 </li>
 <li class="link">
@@ -157,7 +157,13 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">7</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -167,7 +173,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-MO"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Matrix Operations</span>
 </h2>
-<section class="introduction" id="introduction-13">Recall that an \(m \times n\) matrix \(A\) is a rectangular array of real numbers with \(m\) rows and \(n\) columns,<div class="displaymath">
+<section class="introduction" id="introduction-14">Recall that an \(m \times n\) matrix \(A\) is a rectangular array of real numbers with \(m\) rows and \(n\) columns,<div class="displaymath">
 \begin{equation*}
 A = \begin{bmatrix}
 a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
@@ -180,39 +186,39 @@ a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
 \begin{equation*}
 A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
 \end{equation*}
-</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-49"><h3 class="heading hide-type">
+</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-56"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span>
 </h3>
-<article class="definition definition-like" id="definition-30"><h6 class="heading">
+<article class="definition definition-like" id="definition-34"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
-</h6>Two matrices \(A\) and \(B\) are <dfn class="terminology">equal</dfn> if they have equal dimensions \(m \times n\text{,}\) and each corresponding entries are equal, i.e. \(a_{ij} = b_{ij}\) for all \(i, j\text{.}\)</article><article class="definition definition-like" id="definition-31"><h6 class="heading">
+</h6>Two matrices \(A\) and \(B\) are <dfn class="terminology">equal</dfn> if they have equal dimensions \(m \times n\text{,}\) and each corresponding entries are equal, i.e. \(a_{ij} = b_{ij}\) for all \(i, j\text{.}\)</article><article class="definition definition-like" id="definition-35"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix addition.</span>
 </h6>
-<p id="p-197">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
+<p id="p-258">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{(A + B)_{ij} = \begin{bmatrix} a_{ij} + b_{ij} \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-198">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
-<p id="p-199">For \(2 \times 2\) matrices,</p>
+</div></article><p id="p-259">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
+<p id="p-260">For \(2 \times 2\) matrices,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} + \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} + b_{11} \amp a_{12} + b_{12} \\ a_{21} + b_{21} \amp a_{22} + b_{22} \end{bmatrix}
 \end{equation*}
 </div>
-<article class="definition definition-like" id="definition-32"><h6 class="heading">
+<article class="definition definition-like" id="definition-36"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar multiplication.</span>
 </h6> Let \(A\) be an \(m \times n\) matrix, \(k \in \mathbb{R}\) be a scalar. Then, \(kA\) is the matrix formed by multiplying each of the entries of \(A\) by \(k\text{,}\) or,<div class="displaymath">
 \begin{equation*}
 \boxed{(kA)_{ij} = kA_{ij}}
 \end{equation*}
-</div></article><p id="p-200">For \(2 \times 2\) matrices,</p>
+</div></article><p id="p-261">For \(2 \times 2\) matrices,</p>
 <div class="displaymath">
 \begin{equation*}
 k A = k \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} ka \amp kb \\ kc \amp kd \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-201">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of column vectors.</p>
+<p id="p-262">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of column vectors.</p>
 <ul class="disc">
 <li id="li-88">The sum \(A + B\) is the matrix whose columns are the sums of the corresponding columns of \(A\) and \(B\text{,}\) or,<div class="displaymath">
 \begin{equation*}
@@ -227,21 +233,21 @@ kA = \begin{bmatrix} k \vec{a}_1 \amp k \vec{a}_2 \amp \cdots \amp k \vec{a}_n \
 </div>
 </li>
 </ul>
-<p id="p-202">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-50"><h3 class="heading hide-type">
+<p id="p-263">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-57"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.2</span> <span class="title">Properties of Matrix Addition</span>
 </h3>
-<article class="definition definition-like" id="definition-33"><h6 class="heading">
+<article class="definition definition-like" id="definition-37"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
-</h6>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by O, or sometimes 0.</article><p id="p-203">The size of a zero matrix is usually clear from the context. The zero matrix has the property that,</p>
+</h6>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by O, or sometimes 0.</article><p id="p-264">The size of a zero matrix is usually clear from the context. The zero matrix has the property that,</p>
 <div class="displaymath">
 \begin{equation*}
 A + O = A
 \end{equation*}
 </div>
-<p id="p-204">i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. If \(0\) is used to denote the zero matrix, then note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p> Also, the zero matrix has the property that \(0 A = O\text{,}\) that is, the zero scalar multiple of any matrix is the zero matrix. <article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
+<p id="p-265">i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. If \(0\) is used to denote the zero matrix, then note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p> Also, the zero matrix has the property that \(0 A = O\text{,}\) that is, the zero scalar multiple of any matrix is the zero matrix. <article class="theorem theorem-like" id="theorem-11"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span>
 </h6>
-<p id="p-205">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
+<p id="p-266">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
 <ol class="decimal">
 <li id="li-90">
 <em class="emphasis">Commutative property</em>.<div class="displaymath">
@@ -271,12 +277,12 @@ A + (-A) = 0
 \end{equation*}
 </div>
 </li>
-</ol></article><p id="p-206">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
-<p id="p-207">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
+</ol></article><p id="p-267">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
+<p id="p-268">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
 <article class="theorem theorem-like" id="theorem-12"><h6 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
 </h6>
-<p id="p-208">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
+<p id="p-269">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
 <ol class="decimal">
 <li id="li-94">
 <em class="emphasis">Scalar distributes over matrix addition</em>.<div class="displaymath">
