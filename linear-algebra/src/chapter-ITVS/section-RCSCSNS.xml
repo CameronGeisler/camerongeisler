@@ -102,8 +102,11 @@
             so <m>\vec{u} + \vec{v}</m> is a linear combination of <m>\vec{v}_1, \vec{v}_2</m>, and so <m>\vec{u} + \vec{v} \in H</m>. Also, for a scalar <m>c \in \mathbb{R}</m>, <m>c\vec{u} = c(s_1 \vec{v}_1 + s_2 \vec{v}) = (cs_1) \vec{v}_1 + (cs_2) \vec{v}_2</m>, and so <m>c\vec{u} \in H</m> also.
         </p>
         <p>
-            More generally, for any collection of vectors <m>\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^n</m>, <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is a subspace of <m>\mathbb{R}^n</m>. Then, <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is called the <term>subspace spanned by</term> <m>\vec{v}_1, \dots, \vec{v}_p</m>.
+            More generally,
         </p>
+        <definition>
+            For a collection of vectors <m>\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^n</m>, their span <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is a subspace of <m>\mathbb{R}^n</m>. Then, <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is called the <term>subspace spanned by</term> <m>\vec{v}_1, \dots, \vec{v}_p</m>.
+        </definition>
         <p>
             Conversely, if <m>H = \Span{\vec{v}_1, \dots, \vec{v}_p}</m>, then the subspace <m>H</m> is <term>spanned</term> by <m>\vec{v}_1, \dots, \vec{v}_p</m>.
         </p>
@@ -111,8 +114,6 @@
             Also, the subspace <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is the smallest subspace of <m>\mathbb{R}^n</m> which contains the vectors <m>\vec{v}_1, \dots, \vec{v}_p</m>. Intuitively, if <m>H</m> is a subspace that contains <m>\vec{v}_1, \dots, \vec{v}_p</m>, then at minimum, <m>H</m> must contain all of the linear combinations of these vectors. If we stop there, we form precisely the span of these vectors.
         </p>
     </subsection>
-
-
 
     <subsection>
         <title>Vector Spaces of <m>\mathbb{R}^n</m></title>
@@ -179,10 +180,20 @@
         </proof>
 
         <p>
-            The null space is unique in that for a general matrix <m>A</m> and vector <m>\vec{b}</m>, the set of all solutions <m>\vec{x}</m> such that <m>A\vec{x} = \vec{b}</m> is not a vector space (i.e. if <m>\vec{b} \neq \vec{0}</m>). For example, because <m>\vec{0}</m> is not a solution and so is not in the solution set. Graphically, the solution set may be a line or plane which does not go through the origin.
+            The null space is special, because for a general matrix <m>A</m> and vector <m>\vec{b}</m>, the set of all solutions <m>\vec{x}</m> such that <m>A\vec{x} = \vec{b}</m> is not a vector space (i.e. if <m>\vec{b} \neq \vec{0}</m>). For example, because <m>\vec{0}</m> is not a solution and so is not in the solution set. Graphically, the solution set may be a line or plane which does not go through the origin.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Contrasting the Column and Null Space</title>
+        <p>
+            The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em>implicitly</em>, whereas the column space is defined <em>explicitly</em>.
         </p>
         <p>
-            The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em>implicitly</em>, whereas the column space is defined <em>explicitly</em>. To determine an explicit description of <m>N(A)</m>, solve the homogeneous system <m>A\vec{x} = \vec{0}</m>, and write the solution set in parametric vector form. Then, recall that the solution set to a homogeneous system is always a span of vectors. Then, the null space can always be written explicitly as the span of some vectors.
+            Because the column space is defined explicitly, it is easy to construct elements of the column space, simply by specifing values for the coefficients. To determine an explicit description of <m>N(A)</m>, solve the homogeneous system <m>A\vec{x} = \vec{0}</m>, and write the solution set in parametric vector form. Then, recall that the solution set to a homogeneous system is always a span of vectors. Then, the null space can always be written explicitly as the span of some vectors.
+        </p>
+        <p>
+            On the other hand, because the null space is defined implicitly by a condition, it is easy to verify if a given vector <m>\vec{x}</m> is in the null space <m>N(A)</m>, simply by computing <m>A\vec{x}</m> and checking whether or not is is equal to the zero vector. To determine if <m>\vec{b} \in C(A)</m>, we have to consider the system of equations <m>A\vec{x} = \vec{b}</m>, and determine if there is a solution or not.
         </p>
     </subsection>
 

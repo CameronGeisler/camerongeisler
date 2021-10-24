@@ -1,0 +1,482 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-10-24T16:52:58-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Inverse of a Matrix</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\require{cancel}\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+    
+
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-EM.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-ITVS.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-EM.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-ITVS.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM" class="active">Inverse of a Matrix</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-IOAM"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.7</span> <span class="title">Inverse of a Matrix</span>
+</h2>
+<section class="introduction" id="introduction-19"><p id="p-382">Recall that for real numbers, the <em class="emphasis">inverse</em> (or <em class="emphasis">multiplicative inverse</em>, or <em class="emphasis">reciprocal</em> of \(a \in \mathbb{R}\) is the number \(b\) such that ab = 1. We denote \(b\) by \(\frac{1}{a}\) or \(a^{-1}\text{.}\) For example, the multiplicative inverse of \(3\) is \(3^{-1} = \frac{1}{3}\text{,}\) because \(3 \cdot \frac{1}{3} = \frac{1}{3} \cdot 3 = 1\text{.}\) Also, inverses only exist for non-zero real numbers.</p>
+<p id="p-383">For matrices, we can define an analogous notion of inverse. However, unlike real number multiplication, matrix multiplication is not commutative. Further, for both sides of the product to be defined, the matrices involved must be square. So, most often, we focus on inverses of square matrices. Also, similarly, the inverse of a matrix will only exist if the matrix is “non-zero” in some sense.</p></section><section class="subsection" id="subsection-79"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.1</span> <span class="title">Inverse of a Square Matrix</span>
+</h3>
+<article class="definition definition-like" id="definition-42"><h6 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.7.1</span><span class="period">.</span>
+</h6>An \(n \times n\) square matrix \(A\) is <dfn class="terminology">invertible</dfn> if there exists an \(n \times n\) matrix \(B\) such that \(AB = BA = I_n\text{.}\) Then, \(B\) is called the <dfn class="terminology">inverse</dfn> of \(A\text{,}\) and is denoted by \(B = A^{-1}\text{.}\)</article><article class="theorem theorem-like" id="theorem-22"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.2</span><span class="period">.</span>
+</h6>
+<p id="p-384">If a square matrix \(A\) is invertible, then its inverse is unique.</p></article><article class="hiddenproof" id="proof-9"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof">If \(B\) and \(C\) are both inverses of \(A\text{,}\) then \(AB = BA = I_n\) and \(AC = CA = I_n\text{.}\) Then,<div class="displaymath">
+\begin{equation*}
+B = BI_n = B(AC) = (BA)C = I_n C = C
+\end{equation*}
+</div>Thus, \(B = C\text{.}\)</article></div>
+<p id="p-385">Thus, the inverse of a matrix \(A\text{,}\) if it exists, is well-defined, and so is denoted by \(A^{-1}\text{.}\) It has the property that,</p>
+<div class="displaymath">
+\begin{equation*}
+AA^{-1} = A^{-1} A = I_n
+\end{equation*}
+</div>
+<p id="p-386">A matrix which is not invertible is sometimes called <dfn class="terminology">singular</dfn>, and a matrix which is invertible is called <dfn class="terminology">non-singular</dfn>.</p>
+<p id="p-387">To verify that  matrix \(B\) is the inverse of \(A\text{,}\) we can multiply \(B\) by \(A\) and verify that the result is the identity matrix. Further, for a square matrix \(A\text{,}\) \(AB = I_n\) if and only if \(BA = I_n\text{,}\) so it is sufficient to only compute one of the two products \(AB\) or \(BA\text{.}\)</p>
+<article class="theorem theorem-like" id="theorem-23"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.3</span><span class="period">.</span>
+</h6>
+<p id="p-388">Let \(A, B\) be \(n \times n\) square matrices. Then, \(AB = I_n\) if and only if \(BA = I_n\text{.}\)</p></article><article class="hiddenproof" id="proof-10"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-10"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-10"><article class="hiddenproof"><p id="p-389">EXERCISE.</p></article></div></section><section class="subsection" id="subsection-80"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.2</span> <span class="title">Matrix Inverses and Linear Transformations</span>
+</h3>
+<p id="p-390">Considering a matrix \(A\) as a linear transformation, its inverse \(A^{-1}\) is the inverse linear transformation in the sense of the inverse of a function. That is, its composition with \(A\) results in the identity transformation. This is quite literally encoded in the definition \(AA^{-1} = I_n\text{.}\) In the language of linear transformations (or functions), the inverse \(A^{-1}\) is the linear transformation such that for every vector \(\vec{x} \in \mathbb{R}^n\text{,}\)</p>
+<div class="displaymath">
+\begin{equation*}
+A^{-1}(A\vec{x}) = A^{-1} A \vec{x} = I_n\vec{x} = \vec{x}
+\end{equation*}
+</div>
+<p id="p-391">The parentheses are to emphasize the function composition.</p></section><section class="subsection" id="subsection-81"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.3</span> <span class="title">Computing the Inverse of a Matrix (\(1 \times 1\) and \(2 \times 2\) Cases)</span>
+</h3>
+<p id="p-392">The next natural question is: how do you compute the inverse of a matrix? It turns out that it is non-trivial, especially for large matrices. First, start with the simplest case, of a \(1 \times 1\) matrix \(A = \begin{bmatrix} a \end{bmatrix}\text{.}\) We want to find the matrix \(B = \begin{bmatrix} b \end{bmatrix}\) such that,</p>
+<div class="displaymath">
+\begin{equation*}
+AB = \begin{bmatrix} a \end{bmatrix} \begin{bmatrix} b \end{bmatrix} = \begin{bmatrix} ab \end{bmatrix} = \begin{bmatrix} 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-393">In other words, \(ab = 1\text{.}\) Clearly, the entry \(b\) should be \(b = \frac{1}{a}\text{,}\) provided that \(a \neq 0\text{.}\) Thus,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \end{bmatrix}^{-1} = \begin{bmatrix} \frac{1}{a} \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-394">and \(A\) is invertible if and only if \(a \neq 0\text{.}\)</p>
+<p id="p-395">Next, consider a \(2 \times 2\) matrix, of the form \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\text{.}\) We want to find a matrix, say of the form \(B = \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix}\text{,}\) such that,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-396">By the definition of matrix multiplication, this is equivalent to,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} ax_{11} + bx_{21} \amp ax_{12} + bx_{22} \\ cx_{11} + dx_{21} \amp cx_{12} + dx_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-397">Equating entries, this is equivalent to the system of 4 equations,</p>
+<div class="displaymath">
+\begin{align*}
+ax_{11} \amp + bx_{21} \amp \amp \amp = 1\\
+\amp \amp a_{12} \amp + bx_{22} \amp = 0\\
+cx_{11} \amp + dx_{21} \amp \amp \amp = 0\\
+\amp \amp cx_{12} \amp + dx_{22} \amp = 1
+\end{align*}
+</div>
+<p id="p-398">That is, finding the inverse of a \(2 \times 2\) matrix is equivalent to solving this system of 4 equations in 4 unknowns. The augmented matrix is,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp b \amp 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp a \amp b \amp 0 \\ c \amp d \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp c \amp d \amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-399">Converting this matrix to RREF,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \amp \frac{d}{ad - bc} \\ 0 \amp 1 \amp 0 \amp 0 \amp -\frac{c}{ad - bc} \\ 0 \amp 0 \amp 1 \amp 0 \amp -\frac{b}{ad - bc} \\ 0 \amp 0 \amp 0 \amp 1 \amp \frac{a}{ad - bc} \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-400">provided that \(ad - bc \neq 0\text{.}\) Thus, the inverse matrix is,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} x_{11} \amp x_{21} \\ x_{12} \amp x_{22} \end{bmatrix} = \begin{bmatrix} \frac{d}{ad - bc} \amp -\frac{b}{ad - bc} \\ -\frac{c}{ad - bc} \amp \frac{a}{ad - bc} \end{bmatrix} = \frac{1}{ad - bc} \begin{bmatrix} d \amp -c \\ -b \amp a \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-401">In summary,</p>
+<article class="theorem theorem-like" id="theorem-24"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.4</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse of \(2 \times 2\) matrix.</span>
+</h6>
+<p id="p-402">Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\) be a \(2 \times 2\) matrix. If \(ad - bc \neq 0\text{,}\) then \(A\) is invertible, and its inverse is given by,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix}}
+\end{equation*}
+</div></article><p id="p-403">Intuitively, \(A^{-1}\) is obtained from \(A\) by exchanging the diagonal entries, negating the “off-diagonal” entries, and dividing by \(ad - bc\text{.}\)</p>
+<article class="hiddenproof" id="proof-11"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof"><p id="p-404">The previously explained steps could be considered a “derivation”, but a proof of this formula only requires that we verify that \(A^{-1} A = I_2\) using matrix multiplication. Indeed,</p>
+<div class="displaymath">
+\begin{align*}
+A^{-1} A \amp = \frac{1}{ad - bc} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\\
+\amp = \frac{1}{ad - bc} \begin{bmatrix} ad - bc \amp 0 \\ 0 \amp ad - bc \end{bmatrix}\\
+\amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} = I_2
+\end{align*}
+</div></article></div>
+<p id="p-405">If \(ad - bc = 0\text{,}\) then the matrix \(A\) does not have an inverse.</p></section><section class="subsection" id="subsection-82"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.4</span> <span class="title">Solving Systems with Inverse Matrices</span>
+</h3>
+<article class="theorem theorem-like" id="theorem-25"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.5</span><span class="period">.</span>
+</h6>
+<p id="p-406">Let \(A\) be an \(n \times n\) matrix. If \(A\) is invertible, then the matrix equation \(A\vec{x} = \vec{b}\) has a unique soloution (for any \(\vec{b} \in \mathbb{R}^n\)), given by the vector \(\vec{x} = A^{-1} \vec{b}\text{.}\)</p></article><p id="p-407">Intuitively, this comes from multiplying both sides of the equation \(A\vec{x} = \vec{b}\) on the left by \(A^{-1}\text{,}\) to get \(A^{-1}A \vec{x} = A^{-1} \vec{b}\text{.}\) Then, \(A^{-1} A = I_n\) and \(I_n \vec{x} = \vec{x}\text{,}\) so the equation becomes \(\vec{x} = A^{-1} \vec{b}\text{.}\) The uniqueness follows from the fact that matrix inverses are unique.</p>
+<article class="hiddenproof" id="proof-12"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof">First, indeed \(\vec{x} = A^{-1} \vec{b}\) is a solution, as<div class="displaymath">
+\begin{equation*}
+A(A^{-1} \vec{b}) = (AA^{-1}) \vec{b} = I_n \vec{b} = \vec{b}
+\end{equation*}
+</div>so it indeed satisfies the equation. For uniqueness, let \(\vec{u}\) be any solution, so that \(A\vec{u} = \vec{b}\text{.}\) Then, multiplying on the left by \(A^{-1}\text{,}\) \(A^{-1} A \vec{u} = A^{-1} \vec{b}\text{,}\) or \(I_n \vec{u} = A^{-1} \vec{b}\text{,}\) and so \(\vec{u} = A^{-1} \vec{b}\text{.}\)</article></div>
+<p id="p-408">The formula \(\vec{x} = A^{-1} \vec{b}\) is rarely used in practice to solve a system of equations. This is because row reduction is almost always faster, especially for large systems, for which computing inverses is very time-consuming. A possible exception is for systems of two equations in two unknowns.</p>
+<p id="p-409">Instead, the importance of this theorem is that says that invertibility guarentees a unique solution.</p>
+<article class="example example-like" id="example-32"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.7.6</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">Recall that previously, we solved the \(2 \times 2\) system,<div class="displaymath">
+\begin{align*}
+a x_1 + b x_2 \amp = y_1 \\
+c x_1 + d x_2 \amp = y_2 
+\end{align*}
+</div>In matrix form,<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
+\end{equation*}
+</div>which has a unique solution,<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} \frac{1}{\Delta} \brac{d y_1 - b y_2} \\ \frac{1}{\Delta} \brac{a y_2 - c y_1} \end{bmatrix}
+\end{equation*}
+</div>provided that \(\Delta = ad - bc \neq 0\text{.}\) Notice that this unique solution is the product of the inverse of \(A\) and the constant vector,<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \frac{1}{\Delta} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
+\end{equation*}
+</div></article></div></section><section class="subsection" id="subsection-83"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.5</span> <span class="title">Inverses of Larger Matrices</span>
+</h3>
+<p id="p-410">The reasoning used to determine the inverse of a \(2 \times 2\) matrix involved solving a linear system with 4 equations and 4 variables. Using a slightly different perspective, it can be discovered how to generalize this reasoning to higher dimensions.</p>
+<p id="p-411">Again, consider the matrix equation,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-412">where the variables are \(x_{11}, x_{12}, x_{21}, x_{22}\text{.}\) If we consider the perspective of multiplication as linear combinations of the columns of \(A\text{,}\) the product on the left-hand side is,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \\ x_{21} \end{bmatrix} \amp \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{12} \\ x_{22} \end{bmatrix}\end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-413">So, the matrix equation requries that,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \\ x_{21} \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \text{and} \qquad \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{21} \\ x_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-414">These are two linear systems, each with two equations and two unknowns each, and corresponding augmented matrices,</p>
+<div class="displaymath">
+\begin{equation*}
+\left[\begin{array}{cc|c} a \amp b \amp 1 \\ c \amp d \amp 0 \end{array}\right] \qquad \text{and} \qquad \left[\begin{array}{cc|c} a \amp b \amp 0 \\ c \amp d \amp 1 \end{array}\right]
+\end{equation*}
+</div>
+<p id="p-415">At first, this seems just as complicated as a single system with 4 equations and 4 unknowns. However, the insight is that the coefficient matrix for the systems are the same. Thus, the elementary row operations used to solve one system will be the same as that used to solve the other. In this way, we can augment the systems together, and work with the augmented matrix,</p>
+<div class="displaymath">
+\begin{equation*}
+\left[\begin{array}{cc|cc} a \amp b \amp 1 \amp 0 \\ c \amp d \amp 0 \amp 1 \end{array}\right]
+\end{equation*}
+</div>
+<p id="p-416">That is, \(\begin{bmatrix} A \amp I_2 \end{bmatrix}\text{.}\) Then, after performing row reduction, the resulting matrix should be of the form,</p>
+<div class="displaymath">
+\begin{equation*}
+\left[\begin{array}{cc|cc} 1 \amp 0 \amp \ast \amp \ast \\ 0 \amp 1 \amp \ast \amp \ast \end{array}\right]
+\end{equation*}
+</div>
+<p id="p-417">Then, the entries of \(A^{-1}\) will be precisely the entires on the right-hand side of the augmented matrix. If \(A\) turns out to be not invertible (in the \(2 \times 2\) case, if \(ad - bc = 0\)), then the left-hand side of the augmented matrix will not reduce to \(I_2\text{,}\) but instead have some zero rows, indicating that the system of equations used to find the inverse doesn't have a solution.</p>
+<p id="p-418">All of the previous reasoning applies to general \(n \times n\) matrix \(A\text{.}\) If the inverse is say \(B = \begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix}\text{,}\) then in this case, the equation \(AB = I_n\) is equivalent to the \(n\) linear systems,</p>
+<div class="displaymath">
+\begin{equation*}
+A\vec{b}_1 = \vec{e}_1 \qquad A\vec{b}_2 = \vec{e}_2 \quad \dots \quad A\vec{b}_n = \vec{e}_n
+\end{equation*}
+</div>
+<p id="p-419">each with \(n\) equations and \(n\) unknowns. These systems can be combined and solved together, by row reducing the augmented matrix formed by augmented the identity matrix onto the right-hand side,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} A \mid I_n \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-420">Then, if \(A\) reduces to \(I_n\text{,}\) then \(A^{-1}\) is the resulting matrix on the right-hand side.</p>
+<p id="p-421">In summary, we get an algorithm for computing matrix inverses, using row reduction. To find the inverse of \(A\text{,}\) convert it to RREF using row reduction, and then perform the same row reduction steps (in the same order) on \(I_n\text{,}\) and the result is \(A^{-1}\text{.}\) These two steps are combined by performing row reduction on the augmented matrix \(\begin{bmatrix} A \mid I_n \end{bmatrix}\text{.}\)</p>
+<article class="theorem theorem-like" id="theorem-26"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.7</span><span class="period">.</span>
+</h6>
+<p id="p-422">To determine the inverse of a square matrix \(A\text{,}\)</p>
+<ol class="decimal">
+<li id="li-108">Form the augmented matrix \(\begin{bmatrix} A \mid I \end{bmatrix}\text{.}\)</li>
+<li id="li-109">Convert the augmented matrix to RREF using Gauss-Jordan elimination.</li>
+<li id="li-110">If \(A\) is row equivalent to \(I\text{,}\) then the augmented matrix in RREF will be of the form \(\begin{bmatrix} I \mid B \end{bmatrix}\text{.}\) Then, \(B = A^{-1}\) is the inverse.</li>
+<li id="li-111">Otherwise, if \(A\) is not row equivalent to \(A\text{,}\) then \(A\) does not have an inverse.</li>
+</ol></article><p id="p-423">In short,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} A \mid I_n \end{bmatrix} \longrightarrow \begin{bmatrix} I_n \amp A^{-1} \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-424">After using this procedure, the result can be verified by checking that \(AA^{-1} = I\text{.}\)</p>
+<p id="p-425">This procedure is a fast method for determining the inverse of a matrix, especially for large matrices. This is because it essentially just involves row reduction.</p></section><section class="subsection" id="subsection-84"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.6</span> <span class="title">Matrix Inverses and Elementary Matrices</span>
+</h3>
+<p id="p-426">The previous reasoning can be generalized and made more precise using elementary matrices.</p>
+<p id="p-427">Suppose that \(A \sim I_n\text{,}\) that is, there is a sequence of elementary row operations that converts \(A\) to \(I_n\text{.}\) In other words, there are a sequence of elementary matrices \(E_1, \dots, E_p\) (say there are \(p\) steps) such that,</p>
+<div class="displaymath">
+\begin{equation*}
+A \sim E_1 A \sim E_2 (E_1 A) \sim \cdots \sim E_p(E_{p-1} \cdots E_1 A) = I_n
+\end{equation*}
+</div>In other words,<div class="displaymath">
+\begin{equation*}
+E_p E_{p-1} \cdots E_2 E_1 A = I_n
+\end{equation*}
+</div>In other words, the matrix \(E_p \cdots E_1\) multiplies with \(A\) to produce the identity matrix. Thus, by definition, \(A^{-1} = E_p \cdots E_1\text{.}\) <p id="p-428">In other words, \(A^{-1}\) is formed by multiplying the sequence of elementary matrices used to convert \(A\) to \(I_n\text{.}\) This is equivalently \(A^{-1} = E_p \cdots E_1 I_n\text{,}\) i.e. \(A^{-1}\) is obtained by applying the row operations \(E_1, \dots, E_p\) successively to \(I_n\text{,}\) in the same sequence requried to transform \(A\) to \(I_n\text{.}\)</p>
+<p id="p-429">In fact, the converse is also true. If \(A\) is invertible, then \(A\) is row equivalent to \(I_n\text{.}\) In summary,</p>
+<article class="theorem theorem-like" id="theorem-27"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.8</span><span class="period">.</span><span class="space"> </span><span class="title">Invertible if and only if row equivalent to the identity matrix.</span>
+</h6>
+<p id="p-430">An \(n \times n\) matrix \(A\) is invertible if and only if \(A\) is row equivalent to \(I_n\text{,}\) and in this case, any sequence of row operations that reduces \(A\) to \(I_n\) also transforms \(I_n\) into \(A^{-1}\text{.}\)</p></article><article class="hiddenproof" id="proof-13"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><p id="p-431">If \(A\) is invertible, then the equation \(A\vec{x} = \vec{b}\) has a solution for every \(\vec{b}\text{,}\) and \(A\) has a pivot position in every row (\(n\) rows). Since \(A\) is square (in particular has \(n\) columns), this implies that the pivot positions are on the main diagonal. Thus, the RREF of \(A\) is \(I_n\text{,}\) or \(A \sim I_n\text{.}\)</p></article></div></section><section class="subsection" id="subsection-85"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.7</span> <span class="title">Inverse of a \(3 \times 3\) Matrix</span>
+</h3>
+<p id="p-432">The explicit formula for a \(3 \times 3\) matrix is more difficult to determine. Consider a \(3 \times 3\) matrix \(A\text{,}\)</p>
+<div class="displaymath">
+\begin{equation*}
+A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-433">Using the process of row reduction on a \(3 \times 3\) matrix, the formula turns out to be,</p>
+<article class="example example-like" id="example-33"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h6 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.7.9</span><span class="period">.</span>
+</h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><p id="p-434">Derivation (FINISH).</p></article></div>
+<div class="displaymath">
+\begin{equation*}
+A^{-1} = \frac{1}{\Delta} \begin{bmatrix} a_{22} a_{33} - a_{23} a_{32} \amp -(a_{12} a_{33} - a_{32} a_{13}) \amp a_{12} a_{23} - a_{22} a_{13} \\ -(a_{21} a_{33} - a_{23} a_{31}) \amp a_{11} a_{33} - a_{13} a_{21} \amp -(a_{11} a_{23} - a_{13} a_{21}) \\ a_{21} a_{32} - a_{22} a_{31} \amp -(a_{11} a_{32} - a_{12} a_{31}) \amp a_{11} a_{22} - a_{12} a_{21} \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-435">where,</p>
+<div class="displaymath">
+\begin{equation*}
+\Delta = a_{11} a_{22} a_{33} - a_{11} a_{32} a_{23} + a_{12} a_{23} a_{32} - a_{12} a_{21} a_{33} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31}
+\end{equation*}
+</div>
+<p id="p-436">Then, \(A\) is invertible if and only if \(\Delta \neq 0\text{.}\) This explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after considering the later topic of determinants.</p></section><section class="subsection" id="subsection-86"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.7.8</span> <span class="title">Properties of Inverse Matrices</span>
+</h3>
+<article class="theorem theorem-like" id="theorem-28"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.10</span><span class="period">.</span>
+</h6>
+<p id="p-437">If \(A\) is invertible, then \(A^{-1}\) is invertible, and the inverse of \(A^{-1}\) is \(A\text{,}\) or</p>
+<div class="displaymath">
+\begin{equation*}
+(A^{-1})^{-1} = A
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-14"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof">By definition, the inverse of \(A^{-1}\) is the matrix \(B\) such that \(A^{-1} B = BA^{-1} = I_n\text{.}\) Clearly, \(A\) satisfies this, as \(A^{-1} A = A A^{-1} = I_n\text{.}\)</article></div>
+<article class="theorem theorem-like" id="theorem-29"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.11</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse of a product.</span>
+</h6>
+<p id="p-438">If \(A, B\) are \(n \times n\) invertible matrices, then their product \(AB\) is invertible, and the inverse of \(AB\) is the product of the inverses of \(A\) and \(B\) in reverse order. In other words,</p>
+<div class="displaymath">
+\begin{equation*}
+(AB)^{-1} = B^{-1} A^{-1}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-15"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><div class="displaymath">
+\begin{equation*}
+(AB)(B^{-1} A^{-1}) = A(BB^{-1})A^{-1} = A I_n A^{-1} = AA^{-1} = I_n
+\end{equation*}
+</div>Thus, \((AB)^{-1} = B^{-1}A^{-1}\text{.}\)</article></div>
+<p id="p-439">Intuitively, considering matrices \(A, B\) as linear transformations, this statement follow from the fact that the inverse of a composition of functions is the composition of the inverse functions in reverse order, or \((f \circ g)^{-1} = g^{-1} \circ f^{-1}\text{.}\)</p>
+<p id="p-440">This property can be generalized,</p>
+<article class="theorem theorem-like" id="theorem-30"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7.12</span><span class="period">.</span><span class="space"> </span><span class="title">Generalized inverse of a product.</span>
+</h6>
+<p id="p-441">If \(A_1, A_2, \dots, A_n\) are invertible \(n \times n\) matrices, then their product \(A_1 A_2 \cdots A_n\) is invertible, and the inverse is the product of their inverses in reverse order,</p>
+<div class="displaymath">
+\begin{equation*}
+(A_1 \cdots A_n)^{-1} = A_n^{-1} \cdots A_1^{-1}
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-16"><a data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h6 class="heading"><span class="type">Proof<span class="period">.</span></span></h6></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><p id="p-442">Intuitively, the inverses will “cancel out” from inside out,</p>
+<div class="displaymath">
+\begin{align*}
+\amp (A_1 A_2 \cdots A_{n-1} A_n)(A_n^{-1} A_{n-1}^{-1} \cdots A_2^{-1} A_1^{-1})\\
+\amp = A_1 A_2 \cdots A_{n-1} (A_n A_n^{-1}) A_{n-1}^{-1} \cdots A_2^{-1} A_1^{-1}\\
+\amp = A_1 A_2 \cdots A_{n-2} (A_{n-1} A_{n-1}^{-1}) A_{n-2}^{-1} \cdots A_2^{-1} A_1^{-1}\\
+\amp = \dots\\
+\amp = A_1 (A_2 A_2^{-1}) A_1^{-1}\\
+\amp = A_1 A_1^{-1}\\
+\amp = I_n
+\end{align*}
+</div>
+<p id="p-443">A more precise argument uses mathematical induction.</p></article></div></section><section class="exercises" id="exercises-2"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">4.7.9</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-3"><h6 class="heading"><span class="codenumber">1<span class="period">.</span></span></h6>In Python, implement a program to compute the inverse of an arbitrary square matrix, using row reduction.</article></section></section></div></main>
+</div>
+</body>
+</html>
