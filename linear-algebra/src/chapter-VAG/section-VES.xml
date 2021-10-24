@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-VES">
+    <title>Vector Equations, Span</title>
+    <introduction>
+        Vectors will provide another interpretation for a system of linear equations. In particular, a linear system can be represented as an equation involving a certain linear combinations of vectors.
+    </introduction>
+
+    <subsection>
+        <title>Vector Equations</title>
+        <p>
+            A <term>vector equation</term> is an equation involving vectors.
+        </p>
+
+        <example>
+            <p>
+                Consider the linear system,
+            </p>
+            <me>
+                \begin{array}{rrrr}
+                2x \amp -y \amp = \amp 0 \\
+                -x \amp + 2y \amp = \amp 3
+                \end{array}
+            </me>
+            <p>
+                By definition of vector equality, this is equivalent to the (vector) equation,
+            </p>
+            <me>
+                \begin{bmatrix} 2x - y \\ -x + 2y \end{bmatrix} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
+            </me>
+            <p>
+                Then, the left hand side can be expanded, to show how it depends on <m>x</m> and <m>y</m>,
+            </p>
+            <md>
+                <mrow>\begin{bmatrix} 2x \\ -x \end{bmatrix} + \begin{bmatrix} -y \\ 2y \end{bmatrix} \amp = \begin{bmatrix} 0 \\ 3 \end{bmatrix}</mrow>
+                <mrow>x \begin{bmatrix} 2 \\ -1 \end{bmatrix} + y \begin{bmatrix} -1 \\ 2 \end{bmatrix} \amp = \begin{bmatrix} 0 \\ 3 \end{bmatrix}</mrow>
+            </md>
+            <p>
+                Then, solving this linear system involves determining all possible linear combinations of the vectors <m>(2,-1)</m> and <m>(-1,2)</m> which are equal to <m>(0,3)</m>. Further, the column vectors are precisely the columns of the coefficient matrix of the system,
+            </p>
+            <me>
+                \begin{bmatrix} 2 \amp -1 \\ -1 \amp 2 \end{bmatrix}
+            </me>
+            <p>
+                Geometrically, we can solve this system using the parallelogram rule for addition. Let <m>\vec{a}_1 = (2,-1), \vec{a}_2 = (-1,2)</m> and <m>\vec{b} = (0,3)</m>. Sketch all of these vectors in standard position. Sketch a parallelogram with sides parallel to <m>\vec{a}_1</m> and <m>\vec{a}_2</m>, with one vertex at the origin, and opposite vertex at the the head of <m>\vec{b}</m>. Then, the sides parallel to <m>\vec{a}_1</m> and <m>\vec{a}_2</m> are multiples of <m>\vec{a}_1</m> and <m>\vec{a}_2</m> whose sum (by the parallelogram rule) is <m>\vec{b}</m>. These scalar multiples are the solution to the system.
+            </p>
+        </example>
+
+        <p>
+            More generally, consider a system of linear equations,
+        </p>
+        <md alignment="alignat">
+            <mrow>a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1</mrow>
+            <mrow>a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2</mrow>
+            <mrow>\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots</mrow>
+            <mrow>a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_m</mrow>
+        </md>
+        <p>
+            with augmented matrix,
+        </p>
+        <me>
+            \left[\begin{array}{cccc|c}
+                a_{11} \amp a_{12} \amp \dots \amp a_{1n} \amp b_1 \\
+                a_{21} \amp a_{22} \amp \dots \amp a_{2n} \amp b_2 \\
+                \vdots \amp \vdots \amp \ddots \amp \vdots \amp \vdots \\
+                a_{m1} \amp a_{m2} \amp \dots \amp a_{mn} \amp b_n
+            \end{array}\right]
+        </me>
+        <p>
+            For brevity, and to focus on the column vectors making up the matrix, we will denote the columns of the coefficient matrix <m>A</m> as <m>\vec{a}_1, \vec{a}_2, \dots, \vec{a}_n</m>, and the constant vector as <m>\vec{b}</m>. Then, the augmented matrix can be denoted by,
+        </p>
+        
+        <me>
+            \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+        </me>
+
+        <p>
+            Intuitively, this is a row vector with entries which are themselves column vectors, forming a matrix.
+        </p>
+
+        <p>
+            Then, in summary,
+        </p>
+
+        <theorem>
+            <title>Linear systems as vector equations.</title>
+            <p>The system of linear equations,</p>
+            <md alignment="alignat">
+                <mrow>a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1</mrow>
+                <mrow>a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2</mrow>
+                <mrow>\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots</mrow>
+                <mrow>a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_m</mrow>
+            </md>
+            <p>with corresponding augmented matrix,</p>
+            <me>
+                \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+            </me>
+            <p>has the same solution set as the vector equation,</p>
+            <me>
+                x_1 \vec{a}_1 + x_2 \vec{a}_2 + \dots + x_n \vec{a}_n = \vec{b}
+            </me>
+        </theorem>
+
+        <p>
+            In other words, solving a linear system can be thought of as determining all linear combinations of the column vectors <m>\vec{a}_1, \dots, \vec{a}_n</m> of the coefficient matrix <m>A</m> that are equal to the constant vector <m>\vec{b}</m>. This perspective is called the <term>column picture</term>.
+        </p>
+
+        <p>
+            Conversely, to solve a vector equation,
+        </p>
+        <me>
+            x_1 \vec{a}_1 + \dots + x_n \vec{a}_n = \vec{b}
+        </me>
+        <p>
+            Form the associated system of linear equations in <m>x_1, \dots, x_n</m>, and form its augmented matrix, whose columns will be <m>\vec{a}_1, \dots, \vec{a}_n, \vec{b}</m>. Then, use row reduction to determine the solution.
+        </p>
+
+        <theorem>
+            <title>Vector equations as a linear system</title>
+            <p>
+                The vector equation,
+            </p>
+            <me>
+                x_1 \vec{a}_1 + \dots + x_n \vec{a}_n = \vec{b}
+            </me>
+            <p>
+                has the same solution set as the system of linear equations in <m>x_1, \dots, x_n</m> which has augmented matrix given by,
+            </p>
+            <me>
+                \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+            </me>
+        </theorem>
+
+        <example>
+            Consider the linear system,
+            <me>
+                \begin{array}{rrrr}
+                x \amp + 3y \amp = -1 \\
+                -5x \amp + 2y \amp = 2
+                \end{array}
+            </me>
+            which has vector form,
+            <me>
+                x \begin{bmatrix} 1 \\ -5 \end{bmatrix} + y \begin{bmatrix} 3 \\ 2 \end{bmatrix} = \begin{bmatrix} -1 \\ 2 \end{bmatrix}
+            </me>
+            From this perspective, solving this linear system involves finding all possible linear combinations of the vectors <m>(1, -5)</m> and <m>(3, 2)</m> in the plane, that are equal to the vector <m>(-1, 2)</m>.
+        </example>
+
+        <!-- <example>
+            Let,
+            <me>
+                \vec{a}_1 = \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} \qquad \vec{a}_2 = \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} \qquad \vec{b} = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}
+            </me>
+            and consider the equation,
+            <me>
+                x_1 \vec{a}_1 + x_2 \vec{a}_2 = \vec{b}
+            </me>
+            Here, the unknowns are <m>x_1</m> and <m>x_2</m>. Intuitively, this represents the questions of whether <m>\vec{b}</m> can be written as a linear combination of <m>\vec{a}_1</m> and <m>\vec{a}_2</m>. In other words, if there exists weights <m>x_1, x_2</m> such that the linear combination <m>x_1 \vec{a}_1 + x_2 \vec{a}_2</m> is equal to <m>\vec{b}</m>. Using the properties of vectors, we can combine and simplify the left-hand side,
+            <md>
+                <mrow>x_1 \begin{bmatrix} 1 \\ -2 \\ -5 \end{bmatrix} + x_2 \begin{bmatrix} 2 \\ 5 \\ 6 \end{bmatrix} \amp = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}</mrow>
+                <mrow>\begin{bmatrix} x_1 \\ -2x_1 \\ -5x_1 \end{bmatrix} + \begin{bmatrix} 2x_2 \\ 5x_2 \\ 6x_2 \end{bmatrix} \amp = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}</mrow>
+                <mrow>\begin{bmatrix} x_1 + 2x_2 \\ -2x_1 + 5x_2 \\ -5x_1 + 6x_2 \end{bmatrix} \amp = \begin{bmatrix} 7 \\ 4 \\ -3 \end{bmatrix}</mrow>
+            </md>
+            This vector equation is equivalent to the original equation, but it is in a more convenient form. By the definition of equality for vectors, we know that these two vectors are equal if and only if their corresponding entries are equal. In other words, if <m>x_1, x_2</m> is a solution to the linear system,
+            <me>
+                \begin{array}{rrrr}
+                x_1 \amp + 2x_2 \amp = \amp 7 \\
+                -2x_1 \amp + 5x_2 \amp = \amp 4 \\
+                -5x_1 \amp + 6x_2 \amp = -3
+                \end{array}
+            </me>
+            Using row reduction,
+            <me>
+                \left[\begin{array}{cc|c} 1 \amp 2 \amp 7 \\ -2 \amp 5 \amp 4 \\ -5 \amp 6 \amp -3 \end{array} \right]
+            </me>
+            This matrix has RREF,
+            <me>
+                \left[\begin{array}{cc|c} 1 \amp 0 \amp 3 \\ 0 \amp 1 \amp 2 \\ 0 \amp 0 \amp 0 \end{array} \right]
+            </me>
+            Thus, the system is consistent with <m>x_1 = 3, x_2 = 2</m>, and so,
+            <me>
+                3\vec{a}_1 + 2\vec{a}_2 = \vec{b}
+            </me>
+        </example> -->
+
+    </subsection>
+
+
+    <subsection>
+        <title>Introduction to Span of Vectors in <m>\mathbb{R}^2, \mathbb{R}^3</m></title>
+
+        <p>
+            One of the key ideas in linear algebra is to study the set of all vectors which can be written as a linear combination of a fixed set of vectors. We say that these are all the vectors <q>spanned</q>, or <q>generated</q>, by this set.
+        </p>
+
+        <definition>
+            Broadly, the <term>span</term> of a collection of vectors is the set of all of their linear combinations.
+        </definition>
+
+        <definition>
+            <p>Let <m>\vec{u}, \vec{v}</m> be vectors. Then, the <term>span</term> of <m>\vec{u}</m> and <m>\vec{v}</m> is the set of all of their linear combinations, and is denoted by <m>\Span{\vec{u}, \vec{v}}</m>. In other words,</p>
+            <me>
+                \boxed{\Span{\vec{u}, \vec{v}} = \set{a \vec{u} + b \vec{v}: a, b \in \mathbb{R}}}
+            </me>
+        </definition>
+
+        <p>
+            Intuitively, <q>span</q> means <q>the amount of space something covers</q>, and the span of vectors is all the possible vectors which can be <q>reached</q> by combining <m>\vec{u}, \vec{v}</m> using only the two fundamental operations of addition and scalar multiplication.
+        </p>
+
+        <example>
+            <title>A single vector in <m>\mathbb{R}^2</m></title>
+            <p>
+                Consider a single vector <m>\vec{v}</m> in <m>\mathbb{R}^2</m>. The span of <m>\vec{v}</m>, <m>\Span{\vec{v}}</m>, is the set of all linear combinations of the single vector <m>\vec{v}</m>. There is only one vector, so there is no addition. In this way, <m>\Span{\vec{v}}</m> is the set of all multiples of <m>\vec{v}</m>,
+            </p>
+            <me>
+                \boxed{\Span{\vec{v}} = \set{a\vec{v}: a \in \mathbb{R}}}
+            </me>
+            <p>
+                Then, in <m>\mathbb{R}^2</m>, this forms a line, in particular a line through the origin <m>(0,0)</m>, and through <m>\vec{v}</m>.
+            </p>
+        </example>
+
+        <example>
+            <title>Two vectors in <m>\mathbb{R}^2</m></title>
+            <p>
+                Consider two vectors <m>\vec{u}, \vec{v}</m> in <m>\mathbb{R}^2</m>. Then, by definition,
+            </p>
+            <me>
+                \Span{\vec{u}, \vec{v}} = \set{a \vec{u} + b \vec{v}: a, b \in \mathbb{R}}
+            </me>
+            <p>
+                First, suppose that <m>\vec{u}, \vec{v} \neq \vec{0}</m> are non-zero. If <m>\vec{u}, \vec{v}</m> are not parallel, then it turns out that the span of <m>\vec{u}</m> and <m>\vec{v}</m> is all of <m>\mathbb{R}^2</m>, i.e. the entire plane. That is, every vector in <m>\mathbb{R}^2</m> can be written as a linear combination of <m>\vec{u}, \vec{v}</m>.
+            </p>
+            <p>
+                For example, a familiar case is for the standard basis vectors <m>\ihat, \jhat</m>. These vectors are not parallel (they are perpendicular), so,
+            </p>
+            <me>
+                \Span{\ihat, \jhat} = \set{a \cdot \ihat + b \cdot \jhat : a, b \in \mathbb{R}}
+            </me>
+            <p>
+                and we know that every vector in <m>\mathbb{R}^2</m> can be written as a linear combination of <m>\ihat</m> and <m>\jhat</m>.
+            </p>
+            <p>
+                If <m>\vec{u}, \vec{v}</m> are parallel, that is, either vector is a scalar multiple of the other, then the span of <m>\vec{u}, \vec{v}</m> is a line (in the plane). Intuitively, the second vector doesn't <q>add</q> any new additional possible vectors. More precisely, if say <m>\vec{u} = k \vec{v}</m>, then,
+            </p>
+            <md>
+                <mrow>a\vec{u} + b\vec{v} \amp = ak \vec{v} + b \vec{v}</mrow>
+                <mrow>\amp = (ak + b) \vec{v}</mrow>
+            </md>
+            <p>
+                That is, any linear combination of <m>\vec{u}</m> and <m>\vec{v}</m> is really just a multiple of <m>\vec{v}</m>. Conversely, any multiple of <m>\vec{v}</m> can be written as <m>a\vec{u} + b \vec{v}</m> for some weights <m>a, b</m>. All of this reasoning can be oriented in the opposite direction, to say that all linear combinations <m>a\vec{u} + b\vec{v}</m> are just a multiple of <m>\vec{u}</m>. That is,
+            </p>
+            <me>
+                \Span{\vec{u}, \vec{v}} = \Span{\vec{v}} = \Span{\vec{u}}
+            </me>
+
+            <p>
+                In the most extremely pathological case, if <m>\vec{u}, \vec{v}</m> are both the zero vector, then their span is just the zero vector, i.e. a single point.
+            </p>
+        </example>
+
+        <example>
+            <title>Span of vectors in <m>\mathbb{R}^3</m></title>
+            <p>
+                Consider two vectors <m>\vec{u}, \vec{v}</m> in <m>\mathbb{R}^3</m>. If <m>\vec{u}, \vec{v}</m> are not parallel, then the span of <m>\vec{u}, \vec{v}</m> forms a plane in <m>\mathbb{R}^3</m>. 
+            </p>
+            <p>
+                Adding a third vector <m>\vec{w}</m> to the span, which is not included in the plane spanned by <m>\vec{u}</m> and <m>\vec{v}</m>, results in the entire 3D space <m>\mathbb{R}^3</m>.
+            </p>
+        </example>
+
+        <definition>
+            <p>Let <m>\vec{u}, \vec{v}, \vec{w}</m> be vectors. Then, the <term>span</term> of <m>\vec{u}, \vec{v}, \vec{w}</m> is given by,</p>
+            <me>
+                \boxed{\Span{\vec{u}, \vec{v}, \vec{w}} = \set{a \vec{u} + b \vec{v} + c \vec{w}: a, b, c \in \mathbb{R}}}
+            </me>
+        </definition>
+    </subsection>
+
+    <subsection>
+        <title>Span of <m>n</m> Vectors</title>
+        <definition>
+            Let <m>\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^n</m> be vectors. The <term>span</term> of <m>\vec{v}_1, \dots, \vec{v}_p</m>, denoted by <m>\Span{\vec{v}_1, \dots, \vec{v}_n}</m>, is the set of all linear combinations of <m>\vec{v}_1, \dots, \vec{v}_p</m>. In other words,
+            <me>
+                \Span{\vec{v}_1, \dots, \vec{v}_p} = \set{a_1 \vec{v}_1 + \dots a_n \vec{v}_p : a_1, \dots, a_p \in \mathbb{R}}
+            </me>
+        </definition>
+
+        <p>
+            Notice that the span <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> contains the zero vector, because <m>\vec{0} = 0 \vec{v}_1 + \dots + 0 \vec{v}_p</m>. Also, it contains every scalar multiple of every vector in the span, for example, every scalar multiple of <m>\vec{v}_1</m>, because <m>c\vec{v}_1 = c\vec{v}_1 + 0\vec{v}_2 + \dots + \vec{v}_p</m>.
+        </p>
+
+        <p>
+            More generally, by definition, a vector <m>\vec{v}</m> is in <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> if and only if <m>\vec{v}</m> can be written as a linear combination of <m>\vec{v}_1, \dots, \vec{v}_p</m>, i.e. the following vector equation has a solution,
+        </p>
+        <me>
+            x_1 \vec{v}_1 + x_2 \vec{v}_2 + \dots + x_p \vec{v}_p = \vec{v}
+        </me>
+        <p>
+            Thus, to determine if <m>\vec{v}</m> is in the span of <m>\vec{v}_1, \dots, \vec{v}_n</m>, solve the linear system with augmented matrix,
+        </p>
+        <me>
+            \begin{bmatrix} \vec{v}_1 \amp \dots \amp \vec{v}_p \amp \vec{v} \end{bmatrix}
+        </me>
+        <p>
+            If this system has a solution, then <m>\vec{v} \in \Span{\vec{v}_1, \dots, \vec{v}_n}</m>, and any solution <m>a_1, \dots, a_n</m> provides the weights of the linear combination.
+        </p>
+
+    </subsection>    
+
+
+</section>

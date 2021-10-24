@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section>
+    <title>Linear Transformations Over Vector Spaces</title>
+    <introduction>
+        <p>
+            Previously, we defined a linear transformation between <m>\mathbb{R}^n</m> and <m>\mathbb{R}^m</m>. More generally, we can define it for two arbitrary vector spaces <m>V, W</m>.
+        </p>
+    </introduction>
+
+    <subsection>
+        <title>Linear Transformations</title>
+
+        <p>Let <m>V, W</m> be vector spaces.</p>
+
+        <definition>
+            <p>A <term>transformation</term> <m>T</m> from <m>V</m> to <m>W</m> is a rule that assigns to each vector <m>\vec{x} \in V</m> a unique vector <m>T(\vec{x})</m> in <m>W</m>.</p>
+        </definition>
+        
+        <definition>
+            A transformation <m>T</m> from <m>V</m> to <m>W</m> is <term>linear</term> if,
+            <ol>
+                <li><m>T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})</m> for all <m>\vec{x}, \vec{y} \in V</m>.</li>
+                <li><m>T(c \vec{x}) = c T(\vec{x})</m> for all <m>c \in \mathbb{R}, \vec{x} \in V</m>.</li>
+            </ol>
+        </definition>
+    </subsection>
+
+    <subsection>
+        <title>Kernel and Range</title>
+        <p>
+            Then, we can define analogous concepts for the column space and null space, for linear transformations. Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>.
+        </p>
+
+        <definition>
+            The <term>kernel</term> of <m>T</m>, <m>\Ker{T}</m>, is the set of all <m>\vec{v} \in V</m> such that <m>T(\vec{v}) = \vec{0}</m> (where <m>\vec{0}</m> is the zero vector in <m>W</m>). In other words,
+            <me>
+                \boxed{\Ker{T} = \set{\vec{v} \in V: T(\vec{v}) = \vec{0}}}
+            </me>
+        </definition>
+
+        <definition>
+            The <term>image</term> of <m>T</m>, <m>\Ima{T}</m>, is the set of all vectors in <m>W</m> that <m>T</m> maps to. In other words,
+            <me>
+                \boxed{\Ima{T} = \set{T(\vec{v}): \vec{v} \in V}
+            </me>
+        </definition>
+
+        <p>
+            If <m>T</m> has a matrix representation, say <m>T(\vec{x}) = A\vec{x}</m> for a matrix <m>A</m>, then the kernel and image of <m>T</m> are precisely the null space and column space of <m>A</m>, respectively.
+        </p>
+    </subsection>
+</section>

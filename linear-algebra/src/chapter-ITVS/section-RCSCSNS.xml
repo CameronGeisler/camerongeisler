@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-RCSCSNS">
+    <title>Real Coordinate Spaces, Column Space and Null Space</title>
+    <introduction>
+        Now, the <q>real</q> linear algebra. Applications of vector spaces in engineering, physics, and statistics.
+    </introduction>
+
+    <subsection>
+        <title>Introduction to Vector Spaces</title>
+
+        <p>
+            A vector space is a space of vectors. Broadly, a <q>space</q> is a set of objects which satisfy some specific conditions. In particular, vector spaces are sets of vectors for which we can perform the fundamental operations for vectors: addition and scalar multiplication. That is, we can take linear combinations.
+        </p>
+
+        <p>
+            Slightly more precisely, a vector space is a set <m>V</m> of vectors for which adding any two vectors in <m>V</m> is a vector that is also in <m>V</m>, and the scalar multiple of any vector in <m>V</m> is also in <m>V</m>. In other words, adding and scaling vectors in the space <q>stays</q> in the space.
+        </p>
+
+        <definition>
+            <p>A <term>vector space</term> is a set of vectors <m>V</m> such that,</p>
+            <ol>
+                <li>If <m>\vec{u}, \vec{v} \in V</m>, then <m>\vec{u} + \vec{v} \in V</m> also.</li>
+                <li>If <m>\vec{v} \in V</m> and <m>c \in \mathbb{R}</m>, then <m>c\vec{v} \in V</m> also.</li>
+            </ol>
+        </definition>
+
+        <p>
+            This property that combining objects through some operation producing another object also within the set is called <term>closure</term>. Then, a vector space is a set of vectors which is closed under addition and scalar multiplication. More compactly, we can say a vector space is <term>closed under taking linear combinations</term>.
+        </p>
+
+        <example>
+            <title>The vector space <m>\mathbb{R}^2</m></title>
+            <p>The set <m>\mathbb{R}^2</m> of all vectors with two real number components, is a vector space.</p>
+        </example>
+
+        <example>
+            <title>The vector space <m>\mathbb{R}</m></title>
+            <p>The real numbers <m>\mathbb{R}</m> can also be considered a vector space. The sum of two real numbers is a real number, and multiplying a real number by another real number is a real number.</p>
+        </example>
+
+        <example>
+            <title>The vector space <m>\mathbb{R}^n</m></title>
+            <p>
+                More generally, <m>\mathbb{R}^n</m> is a vector space.
+            </p>
+        </example>
+    </subsection>
+    <subsection>
+        <title>Subspaces</title>
+        <p>
+            Many interesting vector spaces are subsets of other vectors spaces. This naturally leads to the concept of a vector subspace.
+        </p>
+
+        <defintion>
+            <p>Let <m>V</m> be a vector space. Then, a subset <m>U \subseteq V</m> is a <term>vector subspace</term> of <m>V</m> (or simply <term>subspace</term>) if <m>U</m> is itself a vector space.</p>
+        </defintion>
+
+        <p>
+            For now, most of the vector spaces we encounter will be subspaces of <m>\mathbb{R}^n</m>, for some <m>n</m>.
+        </p>
+
+        <example>
+            <title>Subspaces of <m>\mathbb{R}^2</m></title>
+            <p>
+                Consider the possible subspaces of <m>\mathbb{R}^2</m>. Let <m>U \subseteq \mathbb{R}^2</m> be a subspace. First, notice that if <m>\vec{v} \in U</m> is any vector, then <m>0 \vec{v} = \vec{0}</m> is also in <m>U</m>, because <m>U</m> is closed under scalar multiplication. Thus, any subspace of <m>\mathbb{R}^2</m> must contain the zero vector. Indeed, the vector space containing only the zero vector <m>U = \set{\vec{0}}</m> is a vector space. This can be trivially verified, since any scalar multiple of <m>\vec{0}</m> is <m>\vec{0}</m>, and any sum of <m>\vec{0}</m> is <m>\vec{0}</m>.
+            </p>
+            <p>
+                Then, suppose <m>U</m> contains any non-zero vector <m>\vec{d} \neq \vec{0}</m>. Then, <m>U</m> must also contain all scalar multiples of <m>\vec{d}</m>. Thus, <m>U</m> must contain the line parallel to <m>\vec{d}</m> and through the origin. Indeed, this set, which is a line in <m>\mathbb{R}^2</m>, or the span of <m>\vec{d}</m>, is a vector space.
+            </p>
+            <me>
+                U = \span{\vec{d}} = \set{c \vec{d}: c \in \mathbb{R}}
+            </me>
+            <p>
+                Indeed, if <m>\vec{u}, \vec{v} \in U</m>, then they are both scalar multiples of <m>\vec{d}</m>. Then, <m>\vec{u} = a \vec{d}, \vec{v} = b \vec{d}</m> for some scalars <m>a, b \in \mathbb{R}</m>. Then, <m>\vec{u} + \vec{v} = a\vec{d} + b\vec{d} = (a + b) \vec{d}</m> is also a scalar multiple of <m>\vec{d}</m>, and so is also in <m>U</m>. Also, for any scalar <m>c</m>, <m>c\vec{v} = (cb) \vec{v}</m> is also a scalar multiple of <m>\vec{d}</m>, and so is in <m>U</m>. Thus, <m>U</m> is a vector space.
+            </p>
+            <p>
+                Next, suppose that <m>U</m> contains another vector which is not parallel to <m>\vec{d}</m>, say these two vectors are now called <m>\vec{v}_1</m> and <m>\vec{v}_2</m>. Then, their span is a vector space. In this case, it makes up the entire plane <m>\mathbb{R}^2</m>.
+            </p>
+            <p>
+                In summary, the possible subspaces of <m>\mathbb{R}^2</m> are a single point (the origin), a line through the origin, and the entire plane.
+            </p>
+        </example>
+
+        <example>
+            <title>Subspaces of <m>\mathbb{R}^3</m></title>
+            <p>
+                The possible subspaces of <m>\mathbb{R}^3</m> are a single point (the origin), a line through the origin, a plane through the origin, or the entire 3D space.
+            </p>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Spans of Vectors as a Subspace</title>
+        <p>
+            Almost by definition, the span of vectors in <m>\mathbb{R}^n</m> is a subspace of <m>\mathbb{R}^n</m>. Let <m>\vec{v}_1, \vec{v}_2 \in \mathbb{R}^n</m>. Then, consider <m>H = \Span{\vec{v}_1, \vec{v}_2}</m>. For <m>\vec{u}, \vec{v} \in H</m>, <m>\vec{u} = s_1 \vec{v}_1 + s_2 \vec{v}_2</m> and <m>\vec{v} = t_1 \vec{v}_1 + t_2 \vec{v}_2</m> for some scalars <m>s_1, s_2, t_1, t_2</m>. Then,
+        </p>
+        <me>
+            \vec{u} + \vec{v} = (s_1 + t_1) \vec{v}_1 + (s_2 + t_2) \vec{v}_2
+        </me>
+        <p>
+            so <m>\vec{u} + \vec{v}</m> is a linear combination of <m>\vec{v}_1, \vec{v}_2</m>, and so <m>\vec{u} + \vec{v} \in H</m>. Also, for a scalar <m>c \in \mathbb{R}</m>, <m>c\vec{u} = c(s_1 \vec{v}_1 + s_2 \vec{v}) = (cs_1) \vec{v}_1 + (cs_2) \vec{v}_2</m>, and so <m>c\vec{u} \in H</m> also.
+        </p>
+        <p>
+            More generally, for any collection of vectors <m>\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^n</m>, <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is a subspace of <m>\mathbb{R}^n</m>. Then, <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is called the <term>subspace spanned by</term> <m>\vec{v}_1, \dots, \vec{v}_p</m>.
+        </p>
+        <p>
+            Conversely, if <m>H = \Span{\vec{v}_1, \dots, \vec{v}_p}</m>, then the subspace <m>H</m> is <term>spanned</term> by <m>\vec{v}_1, \dots, \vec{v}_p</m>.
+        </p>
+        <p>
+            Also, the subspace <m>\Span{\vec{v}_1, \dots, \vec{v}_p}</m> is the smallest subspace of <m>\mathbb{R}^n</m> which contains the vectors <m>\vec{v}_1, \dots, \vec{v}_p</m>. Intuitively, if <m>H</m> is a subspace that contains <m>\vec{v}_1, \dots, \vec{v}_p</m>, then at minimum, <m>H</m> must contain all of the linear combinations of these vectors. If we stop there, we form precisely the span of these vectors.
+        </p>
+    </subsection>
+
+
+
+    <subsection>
+        <title>Vector Spaces of <m>\mathbb{R}^n</m></title>
+        <p>
+            Every vector space (and subspace) must contain the zero vector <m>\vec{0}</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Intersection of Subspaces is a Subspace</title>
+    </subsection>
+
+    <subsection>
+        <title>The Column Space</title>
+        <p>
+            Subspaces often arise in connection with some matrix <m>A</m>. The two most important ways to construct subspaces are called the column space and null space, of a matrix.
+        </p>
+
+        <definition>
+            <p>The <term>column space</term> of a matrix <m>A</m> is the set of all linear combinations of the column vectors of <m>A</m>. More precisely, if <m>A</m> is an <m>m \times n</m> matrix, <m>A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}</m>, then the column space, denoted by <m>C(A)</m>, is defined by,</p>
+            <me>
+                \boxed{C(A) = \Span{\vec{a}_1, \dots, \vec{a}_n}}
+            </me>
+        </definition>
+
+        <p>
+            The column space of an <m>m \times n</m> matrix <m>A</m> is a subspace of <m>\mathbb{R}^m</m> (since the column vectors are vectors in <m>\mathbb{R}^m</m>).
+        </p>
+        <p>
+            Recall that <m>\vec{b}</m> is in the span of <m>\vec{a}_1, \dots, \vec{a}_n</m> if and only if the linear system <m>A\vec{x} = \vec{b}</m> has a solution. Then, the column space is equiavlently the set of all vectors <m>\vec{b}</m> such that <m>A\vec{x} = \vec{b}</m> has a solution. Conversely, <m>A\vec{x} = \vec{b}</m> has a solution precisely when <m>\vec{b}</m> is in the column space of <m>A</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>The Null Space</title>
+        <definition>
+            <p>Let <m>A</m> be an <m>n \times m</m> matrix. Then, the <term>null space</term> of <m>A</m>, <m>N(A)</m>, is the set of all solutions to the homogeneous system <m>A\vec{x} = \vec{0}</m>. In other words, it is the set of all vectors <m>\vec{x}</m> such that <m>A\vec{x} = \vec{0}</m>, or</p>
+            <me>
+                N(A) = \set{\vec{x} \in \mathbb{R}^n : A\vec{x} = \vec{0}}
+            </me>
+        </definition>
+
+        <p>
+            Certainly, the zero vector <m>\vec{0} \in N(A)</m>, because <m>A\vec{0} = \vec{0}</m> for any matrix <m>A</m>.
+        </p>
+
+        <theorem>
+            <p>The null space is a subspace. More precisely, if <m>A</m> is an <m>n \times m</m> matrix, then <m>N(A)</m> is a subspace of <m>\mathbb{R}^n</m>.</p>
+        </theorem>
+        <proof>
+            <p>Let <m>\vec{x}, \vec{y} \in N(A), c \in \mathbb{R}</m>. Then, <m>A\vec{x} = \vec{0}</m> and <m>A\vec{y} = \vec{0}</m>. Then,</p>
+            <md>
+                <mrow>A(\vec{x} + \vec{y}) \amp = A\vec{x} + A\vec{y}</mrow>
+                <mrow>\amp = \vec{0} + \vec{0}</mrow>
+                <mrow>\amp = \vec{0}</mrow>
+            </md>
+            <p>and so <m>\vec{x} + \vec{y} \in N(A)</m>. Also,</p>
+            <md>
+                <mrow>A(c\vec{x}) \amp = c(A\vec{x})</mrow>
+                <mrow>\amp = c \cdot \vec{0}</mrow>
+                <mrow>\amp = \vec{0}</mrow>
+            </md>
+            <p>and so <m>c\vec{x} \in N(A)</m>. Thus, <m>N(A)</m> is a subspace.</p>
+        </proof>
+
+        <p>
+            The null space is unique in that for a general matrix <m>A</m> and vector <m>\vec{b}</m>, the set of all solutions <m>\vec{x}</m> such that <m>A\vec{x} = \vec{b}</m> is not a vector space (i.e. if <m>\vec{b} \neq \vec{0}</m>). For example, because <m>\vec{0}</m> is not a solution and so is not in the solution set. Graphically, the solution set may be a line or plane which does not go through the origin.
+        </p>
+        <p>
+            The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em>implicitly</em>, whereas the column space is defined <em>explicitly</em>. To determine an explicit description of <m>N(A)</m>, solve the homogeneous system <m>A\vec{x} = \vec{0}</m>, and write the solution set in parametric vector form. Then, recall that the solution set to a homogeneous system is always a span of vectors. Then, the null space can always be written explicitly as the span of some vectors.
+        </p>
+    </subsection>
+
+</section>

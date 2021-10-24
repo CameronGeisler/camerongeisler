@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-LSR">
+    <title>Least-Squares Regression</title>
+    <introduction>
+        <p>
+            Recall that polynomial interpolation is the problem of finding an <m>(n-1)</m>th degree polynomial that fits (passes through) <m>n</m> data points. In contrast, polynomial regression is the problem of finding a low degree polynomial (typically <m>k =1, 2, 3</m>) which best approximates <m>n</m> data points (where <m>n</m> is typically very large).
+        </p>
+        <p>
+            When <m>n</m> is very large, it isn't practical or useful to find a polynomial which exactly fits through every point. Instead, we want a relatively simple polynomial which provides a good approximation for the general trend of the data.
+        </p>
+    </introduction>
+
+    <subsection>
+        <title>Linear Regression</title>
+        <p>
+            The most basic, most useful type of polynomial regression is linear regression, finding a degree 1 polynomial that best fit the data. Let <m>(x_1,y_1), \dots, (x_n, y_n)</m> be <m>n</m> data points. The polynomial will be of the form <m>p(x) = a_0 + a_1 x</m>. Then, intuitively, we want to solve the approximate linear system,
+        </p>
+        <me>
+            \begin{array}{rrrr}
+            a_0 + \amp a_1 x_1 \amp \approx \amp y_1 \\
+            a_0 + \amp a_1 x_2 \amp \approx \amp y_2 \\
+            \amp \vdots \\
+            a_0 + \amp a_1 x_n \amp \approx \amp y_n \\
+        </me>
+        <p>
+            The variables are the coefficients <m>a_0, a_1</m>. In almost all cases, there will be no exact, because this is a system with more equations than unknowns (<m>n</m> equations and 2 unknowns). In matrix form,
+        </p>
+        <me>
+            \begin{bmatrix} 1 \amp x_1 \\ 1 \amp x_2 \\ \vdots \amp \vdots \\ 1 \amp x_n \end{bmatrix} \begin{bmatrix} a_0 \\ a_1 \end{bmatrix} \approx \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}
+        </me>
+    </subsection>
+
+</section>

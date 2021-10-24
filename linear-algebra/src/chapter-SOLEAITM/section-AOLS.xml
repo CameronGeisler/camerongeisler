@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-AOLS">
+    <title>Basic Applications of Linear Systems</title>
+
+    <introduction>
+        Systems of linear equations naturally arise in various applications.
+    </introduction>
+
+    <subsection>
+        <title>Balancing Chemical Equations</title>
+    </subsection>
+
+    <subsection>
+        <title>Network Flow</title>
+    </subsection>
+
+</section>

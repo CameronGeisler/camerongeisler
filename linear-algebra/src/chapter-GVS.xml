@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chapter-GVS" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>General Vector Spaces</title>
+        <introduction>
+
+        </introduction>
+        
+        <xi:include href="./chapter-GVS/section-VSAS.xml"/>
+</chapter>
