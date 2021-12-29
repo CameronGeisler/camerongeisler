@@ -11,14 +11,14 @@
         <title>Linear Algebra Notes</title>
 
         <introduction>
-            These notes are based on,
+            These notes are roughly based on:
             <ul>
                 <li>Linear Algebra and Its Applications (Lay).</li>
                 <li>MATH 223 Linear Algebra (University of British Columbia)</li>
-                <li>CPSC 314 Computer Graphics (University of British Columbia)</li>
-                <li><url href="https://www.youtube.com/playlist?list=PLIljB45xT85BhzJ-oWNug1YtUjfWp1qAp">Wild Linear Algebra (Wildberger)</url></li>
+                <li><url href="https://www.youtube.com/playlist?list=PLIljB45xT85BhzJ-oWNug1YtUjfWp1qAp">Wild Linear Algebra (Norman Wildberger)</url></li>
                 <li><url href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra (Grant Sanderson)</url></li>
                 <li><url href="https://www.youtube.com/playlist?list=PL221E2BBF13BECF6C">MIT 18.06 Linear Algebra (Gilbert Strang)</url></li>
+                <li>CPSC 314 Computer Graphics (University of British Columbia)</li>
             </ul>
         </introduction>
         
