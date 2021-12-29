@@ -4,7 +4,7 @@
     <title>Introduction to Vectors</title>
 
     <introduction>
-        Previously, we consider linear systems as strictly from the perspective of relationships between variables. Next, we will consider it from the perspective of <em>vectors</em>. Vectors are at the heart of linear algebra.
+        Previously, we considered linear systems as strictly from the perspective of relationships between variables. Next, we will consider it from the perspective of <em>vectors</em>. Vectors are at the heart of linear algebra.
     </introduction>
 
     <subsection>
