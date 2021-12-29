@@ -104,7 +104,7 @@
             which also obtains 0's below the first pivot. However, these row operations leads to fractional entries, which just makes the computations more complicated.
         </p>
         <p>
-            Next, again since <m>A</m> has a pivot in every column, at least one of the <m>(2,2)</m>-entry or the <m>(3,2)</m>-entry is non-zero. Without loss of generality, assume that the <m>(2,2)</m>-entry is non-zero (otherwise, use a row interchange). Then, to obtain a 0 in the <m>(3,2)</m>-entry, multiply row 3 by <m>a_{11} a_[22} - a_{12} a_{21}</m>, and add <m>-(a_{11} a_{32} - a_{23} a_{31})</m> times row 2 to row 3. This results in,
+            Next, again since <m>A</m> has a pivot in every column, at least one of the <m>(2,2)</m>-entry or the <m>(3,2)</m>-entry is non-zero. Without loss of generality, assume that the <m>(2,2)</m>-entry is non-zero (otherwise, use a row interchange). Then, to obtain a 0 in the <m>(3,2)</m>-entry, multiply row 3 by <m>a_{11} a_{22} - a_{12} a_{21}</m>, and add <m>-(a_{11} a_{32} - a_{23} a_{31})</m> times row 2 to row 3. This results in,
         </p>
         <me>
             \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\
