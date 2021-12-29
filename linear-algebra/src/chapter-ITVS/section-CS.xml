@@ -33,7 +33,7 @@
         </definition>
 
         <p>
-            Intuitively, the coordinates of a vector <m>\vec{x}</m> are a <q>name</q> for <m>\vec{x}</m> that uniquely identifies it among all vectors in <m>H</m>. In this way, each basis provides a differnt naming system. Alternatively, different bases can be thought of as different reference frames or different points of view on a given vector.
+            Intuitively, the coordinates of a vector <m>\vec{x}</m> are a <q>name</q> for <m>\vec{x}</m> that uniquely identifies it among all vectors in <m>H</m>. In this way, each basis acts as a different naming system. Alternatively, different bases can be thought of as different reference frames or different points of view on a given vector.
         </p>
 
         <p>
@@ -46,7 +46,7 @@
                 Consider <m>\mathbb{R}^2</m>, and the basis <m>\mathcal{B} = \set{\vec{b}_1, \vec{b}_2}</m>, where <m>\vec{b}_1 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}, \vec{b}_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}</m>. Consider the vector <m>\vec{x} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}</m> (in the standard basis coordinates), and consider the coordinates of this vector in the basis <m>\mathcal{B}</m>. The coordinates <m>c_1, c_2</m> of <m>\vec{x}</m> relative to <m>\mathcal{B}</m>, by definition, satisfy the equation,
             </p>
             <me>
-                c_1 \begin{bmatrix} 2 \\ 1 \end{bmatrix} + c_2 \end{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}
+                c_1 \begin{bmatrix} 2 \\ 1 \end{bmatrix} + c_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}
             </me>
             <p>Or, in matrix form,</p>
             <me>
@@ -74,13 +74,13 @@
             The matrix <m>\begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix}</m> is denoted by <m>P_{\mathcal{B}}</m>, and is called the <term>change-of-coordinates matrix</term> from <m>\mathcal{B}</m> to the standard basis in <m>\mathbb{R}^n</m>. Then,
         </p>
         <me>
-            \vec{x} = P_{\mathcal{B}} [\vec{x}]_{\mathcal{B}}
+            \boxed{\vec{x} = P_{\mathcal{B}} [\vec{x}]_{\mathcal{B}}}
         </me>
         <p>
             i.e. left-multiplication by <m>P_{\mathcal{B}}</m> converts the coordinate vector <m>[\vec{x}]_{\mathcal{B}}</m> into <m>\vec{x}</m>. Conversely, the columns of <m>P_{\mathcal{B}}</m> form a basis of <m>\mathbb{R}^n</m> (by assumption), so <m>P_{\mathcal{B}}</m> is invertible. Then,
         </p>
         <me>
-            [\vec{x}]_{\mathcal{B}} = P_{\mathcal{B}}^{-1} \vec{x}
+            \boxed{[\vec{x}]_{\mathcal{B}} = P_{\mathcal{B}}^{-1} \vec{x}}
         </me>
         <p>
             i.e. left-multiplication by the inverse of the change-of-coordinates matrix <m>P_{\mathcal{B}}^{-1}</m> converts <m>\vec{x}</m> to its coordinate vector <m>[\vec{x}]_{\mathcal{B}}</m>.
@@ -149,13 +149,13 @@
             [\vec{x}]_{\mathcal{C}} = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
         </me>
         <p>
-            In other words,
+            Denoting this matrix by <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m>,
         </p>
         <me>
             [\vec{x}]_{\mathcal{C}} = P_{\mathcal{B} \rightarrow \mathcal{C}} [\vec{x}]_{\mathcal{B}}
         </me>
         <p>
-            where <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m> is a matrix which converts vectors in <m>\mathcal{B}</m> coordinates to <m>\mathcal{C}</m> coordinates. Also, the columns of <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m> are the coordinates of the basis vectors of <m>\mathcal{B}</m> in terms of <m>\mathcal{C}</m> coordinates.
+            Here, <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m> is a matrix which converts vectors in <m>\mathcal{B}</m> coordinates to <m>\mathcal{C}</m> coordinates (hence the subscript <m>\mathcal{B} \rightarrow \mathcal{C}</m>). Also, the columns of <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m> are the coordinates of the basis vectors of <m>\mathcal{B}</m> in terms of <m>\mathcal{C}</m> coordinates.
         </p>
 
         <p>
@@ -168,7 +168,7 @@
                 Let <m>\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_n}, \mathcal{C} = \set{\vec{c}_1, \dots, \vec{c}_n}</m> be bases of <m>\mathbb{R}^n</m>. Then, there is a unique <m>n \times n</m> matrix <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m>, called the <term>change-of-coordinates matrix from <m>\mathcal{B}</m> to <m>\mathcal{C}</m></term>, such that,
             </p>
             <me>
-                [\vec{x}]_{\mathcal{C}} = P_{\mathcal{B} \rightarrow \mathcal{C}} [\vec{x}]_{\mathcal{B}}
+                \boxed{[\vec{x}]_{\mathcal{C}} = P_{\mathcal{B} \rightarrow \mathcal{C}} [\vec{x}]_{\mathcal{B}}}
             </me>
             <p>
                 Further, the columns of <m>P_{\mathcal{B} \rightarrow \mathcal{C}}</m> are the coordinates vectors of the basis <m>\mathcal{B}</m> with respect to <m>\mathcal{C}</m>,

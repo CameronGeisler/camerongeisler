@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="chapter-VALE" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Vectors and Linear Equations</title>
+        <introduction>
+
+        </introduction>
+
+        <xi:include href="./chapter-VALE/section-VES.xml"/>
+        <xi:include href="./chapter-VALE/section-MEMVP.xml"/>
+        <xi:include href="./chapter-VALE/section-SSOLE.xml"/>
+
+</chapter>

@@ -7,9 +7,7 @@
         </introduction>
         
         <xi:include href="./chapter-VAG/section-ITV.xml"/>
-        <xi:include href="./chapter-VAG/section-VEOLAP.xml"/>
-        <xi:include href="./chapter-VAG/section-VES.xml"/>
-        <xi:include href="./chapter-VAG/section-MEMVP.xml"/>
-        <xi:include href="./chapter-VAG/section-SSOLE.xml"/>
+        <xi:include href="./chapter-VAG/section-VEOL.xml"/>
+        <xi:include href="./chapter-VAG/section-VEOP.xml"/>
 
 </chapter>

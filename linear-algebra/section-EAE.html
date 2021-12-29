@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-10-24T16:34:38-07:00       *-->
+<!--*       on 2021-12-28T16:50:31-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -123,14 +123,19 @@
 <li class="link">
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
-<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
 <li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
 <li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
 <li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
@@ -141,7 +146,7 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
 <li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
@@ -150,20 +155,20 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
 <li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-26.html" data-scroll="section-26">Vector Spaces and Subspaces</a></li></ul>
 </li>
 <li class="link">
-<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE" class="active">Eigenvalues and Eigenvectors</a></li></ul>
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE" class="active">Eigenvalues and Eigenvectors</a></li></ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -171,95 +176,95 @@
 </ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-EAE"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title">Eigenvalues and Eigenvectors</span>
+<span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">Eigenvalues and Eigenvectors</span>
 </h2>
-<section class="introduction" id="introduction-30"><p id="p-620">Dissect the action of a linear transformation \(\vec{x} \mapsto A\vec{x}\) into elements which are easily visualized.</p>
-<p id="p-621">Eigenvalues and eigenvectors have applications in pure and applied mathematics, and appear in settings far more general than we consider here. Applications to differential equations and continuous dynamical systems, physics and chemistry.</p>
-<p id="p-622">Consider a linear transformation in \(\mathbb{R}^2\text{.}\) In general, such a trasformation will perform some kind of stretch, rotation, and/or reflection to an input vector. However, sometimes, there are particular vectors \(\vec{x}\) for which the transformation only scales the vector, say to \(\lambda \vec{x}\) (here, \(\lambda\) is the Greek letter lambda). In \(\mathbb{R}^2\text{,}\) this means that the output vector is parallel to the input. In matrix form, this means that,</p>
+<section class="introduction" id="introduction-32"><p id="p-639">Dissect the action of a linear transformation \(\vec{x} \mapsto A\vec{x}\) into elements which are easily visualized.</p>
+<p id="p-640">Eigenvalues and eigenvectors have applications in pure and applied mathematics, and appear in settings far more general than we consider here. Applications to differential equations and continuous dynamical systems, physics and chemistry.</p>
+<p id="p-641">Consider a linear transformation in \(\mathbb{R}^2\text{.}\) In general, such a trasformation will perform some kind of stretch, rotation, and/or reflection to an input vector. However, sometimes, there are particular vectors \(\vec{x}\) for which the transformation only scales the vector, say to \(\lambda \vec{x}\) (here, \(\lambda\) is the Greek letter lambda). In \(\mathbb{R}^2\text{,}\) this means that the output vector is parallel to the input. In matrix form, this means that,</p>
 <div class="displaymath">
 \begin{equation*}
 A\vec{x} = \lambda \vec{x}
 \end{equation*}
 </div>
-<p id="p-623">These special vectors \(\vec{x}\) are called <em class="emphasis">eigenvectors</em> for the matrix. Of course, the zero vector trivially satisfies this condition, because \(A\vec{0} = \lambda \vec{0}\) for any matrix \(A\text{,}\) and for any scalar \(\lambda\text{.}\) Thus, we are concerned with non-zero vectors \(\vec{x}\) which satisfy this equation. The scalar \(\lambda\) is called an <em class="emphasis">eigenvalue</em>.</p></section><section class="subsection" id="subsection-116"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.1.1</span> <span class="title">Eigenvalues and Eigenvectors</span>
+<p id="p-642">These special vectors \(\vec{x}\) are called <em class="emphasis">eigenvectors</em> for the matrix. Of course, the zero vector trivially satisfies this condition, because \(A\vec{0} = \lambda \vec{0}\) for any matrix \(A\text{,}\) and for any scalar \(\lambda\text{.}\) Thus, we are concerned with non-zero vectors \(\vec{x}\) which satisfy this equation. The scalar \(\lambda\) is called an <em class="emphasis">eigenvalue</em>.</p></section><section class="subsection" id="subsection-118"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.1</span> <span class="title">Eigenvalues and Eigenvectors</span>
 </h3>
 <article class="definition definition-like" id="definition-59"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.1</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.1</span><span class="period">.</span>
 </h6>
-<p id="p-624">Let \(A\) be an \(n \times n\) matrix. Then, a non-zero vector \(\vec{x} \in \mathbb{R}^n\) is an <dfn class="terminology">eigenvector</dfn>, associated with <dfn class="terminology">eigenvalue</dfn> \(\lambda\text{,}\) if</p>
+<p id="p-643">Let \(A\) be an \(n \times n\) matrix. Then, a non-zero vector \(\vec{x} \in \mathbb{R}^n\) is an <dfn class="terminology">eigenvector</dfn>, associated with <dfn class="terminology">eigenvalue</dfn> \(\lambda\text{,}\) if</p>
 <div class="displaymath">
 \begin{equation*}
 A\vec{x} = \lambda \vec{x}
 \end{equation*}
-</div></article><p id="p-625">The term eigenvalue and eigenvector comes from the German word Eigenwert, meaning “proper value”.</p>
-<p id="p-626">Again, in \(\mathbb{R}^2\) (or \(\mathbb{R}^3\)), an eigenvector of \(A\) is a vector which is parallel to itself after transformation by \(A\text{.}\) More precisely, if \(\lambda &gt; 0\text{,}\) then \(A\vec{x}\) is parallel to \(\vec{x}\text{,}\) and if \(\lambda \l 0\text{,}\) then \(A\vec{x}\) is anti-parallel to \(\vec{x}\text{.}\)</p></section><section class="subsection" id="subsection-117"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.1.2</span> <span class="title">Determining Eigenvalues and Eigenvectors</span>
+</div></article><p id="p-644">The term eigenvalue and eigenvector comes from the German word Eigenwert, meaning “proper value”.</p>
+<p id="p-645">Again, in \(\mathbb{R}^2\) (or \(\mathbb{R}^3\)), an eigenvector of \(A\) is a vector which is parallel to itself after transformation by \(A\text{.}\) More precisely, if \(\lambda &gt; 0\text{,}\) then \(A\vec{x}\) is parallel to \(\vec{x}\text{,}\) and if \(\lambda \l 0\text{,}\) then \(A\vec{x}\) is anti-parallel to \(\vec{x}\text{.}\)</p></section><section class="subsection" id="subsection-119"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.2</span> <span class="title">Determining Eigenvalues and Eigenvectors</span>
 </h3>
-<p id="p-627">Let \(A\) be an \(n \times n\) matrix, and consider the eigenvectors of \(A\text{.}\) Let \(\vec{x}\) be an eigenvector of \(A\text{,}\) with eigenvalue \(\lambda\text{.}\) Then, by definition, \(A\vec{x} = \lambda \vec{x}\text{.}\) Rearranging this equation,</p>
+<p id="p-646">Let \(A\) be an \(n \times n\) matrix, and consider the eigenvectors of \(A\text{.}\) Let \(\vec{x}\) be an eigenvector of \(A\text{,}\) with eigenvalue \(\lambda\text{.}\) Then, by definition, \(A\vec{x} = \lambda \vec{x}\text{.}\) Rearranging this equation,</p>
 <div class="displaymath">
 \begin{equation*}
 A\vec{x} - \lambda \vec{x} = \vec{0}
 \end{equation*}
 </div>
-<p id="p-628">The two terms on the left-hand side can be combined by writing \(\lambda \vec{x}\) as \(\lambda I_n \vec{x}\) (where \(I_n\) is the \(n \times n\) identity matrix), and “factoring out” \(\vec{x}\text{,}\)</p>
+<p id="p-647">The two terms on the left-hand side can be combined by writing \(\lambda \vec{x}\) as \(\lambda I_n \vec{x}\) (where \(I_n\) is the \(n \times n\) identity matrix), and “factoring out” \(\vec{x}\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 (A - \lambda I_n) \vec{x} = \vec{0}
 \end{equation*}
 </div>
-<p id="p-629">The expression \(A - \lambda I_n\) is a matrix, so this forms a homogeneous system of linear equations. Then, recall that a homogeneous system has a non-zero soloution (here, for \(\vec{x}\)) if and only if the coefficient matrix \(A - \lambda I_n\) is not invertible, which recall occurs when its determinant is equal to 0, or</p>
+<p id="p-648">The expression \(A - \lambda I_n\) is a matrix, so this forms a homogeneous system of linear equations. Then, recall that a homogeneous system has a non-zero soloution (here, for \(\vec{x}\)) if and only if the coefficient matrix \(A - \lambda I_n\) is not invertible, which recall occurs when its determinant is equal to 0, or</p>
 <div class="displaymath">
 \begin{equation*}
 \det{(A - \lambda I_n)} = 0
 \end{equation*}
 </div>
-<p id="p-630">We can reverse all of this reasoning. If \(\det{(A - \lambda I_n)} = 0\) for some particular choice of \(\lambda\text{,}\) then \((A - \lambda I_n) \vec{x} = \vec{0}\) has a non-zero solution, and so this scalar \(\lambda\) and solution \(\vec{x}\) are associated eigenvalue and eigenvector.</p>
-<p id="p-631">Thus, to determine eigenvalues, solve the equation \(\det{(A - \lambda I_n)} = 0\) for \(\lambda\text{.}\) Then, for each eigenvalue \(\lambda\text{,}\) to find an associated eigenvector, solve the homogeneous system \((A - \lambda I_n) \vec{x} = \vec{0}\) for a vector \(\vec{x}\text{.}\) In summary,</p>
-<article class="theorem theorem-like" id="theorem-46"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Determining eigenvalues and eigenvectors.</span>
+<p id="p-649">We can reverse all of this reasoning. If \(\det{(A - \lambda I_n)} = 0\) for some particular choice of \(\lambda\text{,}\) then \((A - \lambda I_n) \vec{x} = \vec{0}\) has a non-zero solution, and so this scalar \(\lambda\) and solution \(\vec{x}\) are associated eigenvalue and eigenvector.</p>
+<p id="p-650">Thus, to determine eigenvalues, solve the equation \(\det{(A - \lambda I_n)} = 0\) for \(\lambda\text{.}\) Then, for each eigenvalue \(\lambda\text{,}\) to find an associated eigenvector, solve the homogeneous system \((A - \lambda I_n) \vec{x} = \vec{0}\) for a vector \(\vec{x}\text{.}\) In summary,</p>
+<article class="theorem theorem-like" id="theorem-48"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Determining eigenvalues and eigenvectors.</span>
 </h6>
-<p id="p-632">Let \(A\) be an \(n \times n\) matrix. Then, \(\lambda \in \mathbb{R}\) is an eigenvalue of \(A\) if,</p>
+<p id="p-651">Let \(A\) be an \(n \times n\) matrix. Then, \(\lambda \in \mathbb{R}\) is an eigenvalue of \(A\) if,</p>
 <div class="displaymath">
 \begin{equation*}
 \det{(A - \lambda I_n)} = 0
 \end{equation*}
 </div>
-<p id="p-633">and, the eigenvectors associated with \(\lambda\) are the non-zero solutions for \(\vec{x}\) in the homogeneous system,</p>
+<p id="p-652">and, the eigenvectors associated with \(\lambda\) are the non-zero solutions for \(\vec{x}\) in the homogeneous system,</p>
 <div class="displaymath">
 \begin{equation*}
 (A - \lambda I_n) \vec{x} = \vec{0}
 \end{equation*}
-</div></article><p id="p-634">Note that the matrix \(A - \lambda I_n\) is just \(A\) with \(\lambda\) subtracted from each entry on the main diagonal.</p></section><section class="subsection" id="subsection-118"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.1.3</span> <span class="title">The Eigenspace</span>
+</div></article><p id="p-653">Note that the matrix \(A - \lambda I_n\) is just \(A\) with \(\lambda\) subtracted from each entry on the main diagonal.</p></section><section class="subsection" id="subsection-120"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.3</span> <span class="title">The Eigenspace</span>
 </h3>
-<p id="p-635">For an eigenvalue \(\lambda\text{,}\) the set of all solutions to the equation,</p>
+<p id="p-654">For an eigenvalue \(\lambda\text{,}\) the set of all solutions to the equation,</p>
 <div class="displaymath">
 \begin{equation*}
 (A - \lambda I_n) \vec{x} = \vec{0}
 \end{equation*}
 </div>
-<p id="p-636">is just the null space of the matrix \(A - \lambda I_n\text{.}\) In particular, this set is a subspace of \(\mathbb{R}\text{,}\) and is called the <dfn class="terminology">eigensapce</dfn> of \(A\) corresponding to \(\lambda\text{.}\)</p></section><section class="subsection" id="subsection-119"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.1.4</span> <span class="title">Computing Eigenvalues</span>
+<p id="p-655">is just the null space of the matrix \(A - \lambda I_n\text{.}\) In particular, this set is a subspace of \(\mathbb{R}\text{,}\) and is called the <dfn class="terminology">eigensapce</dfn> of \(A\) corresponding to \(\lambda\text{.}\)</p></section><section class="subsection" id="subsection-121"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.4</span> <span class="title">Computing Eigenvalues</span>
 </h3>
-<article class="theorem theorem-like" id="theorem-47"><h6 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.1.3</span><span class="period">.</span>
+<article class="theorem theorem-like" id="theorem-49"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">9.1.3</span><span class="period">.</span>
 </h6>
-<p id="p-637">The eigenvalues of a triangular matrix are the entries on its main diagonal.</p></article></section><section class="subsection" id="subsection-120"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">8.1.5</span> <span class="title">The Characteristic Equation</span>
+<p id="p-656">The eigenvalues of a triangular matrix are the entries on its main diagonal.</p></article></section><section class="subsection" id="subsection-122"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">9.1.5</span> <span class="title">The Characteristic Equation</span>
 </h3>
-<p id="p-638">Recall that eigenvalues are solutions \(\lambda\) to the equation \(\det{(A - \lambda I_n)} = 0\text{.}\) Then, evaluating a determinant involves some sum and products of the entries of the matrix, so in this case involves sums and products of expressions involving \(\lambda\text{.}\) In this way, the resulting equation is a polynomial equation in \(\lambda\text{.}\) In particular, it is an \(n\)th degree polynomial equation.</p>
+<p id="p-657">Recall that eigenvalues are solutions \(\lambda\) to the equation \(\det{(A - \lambda I_n)} = 0\text{.}\) Then, evaluating a determinant involves some sum and products of the entries of the matrix, so in this case involves sums and products of expressions involving \(\lambda\text{.}\) In this way, the resulting equation is a polynomial equation in \(\lambda\text{.}\) In particular, it is an \(n\)th degree polynomial equation.</p>
 <article class="definition definition-like" id="definition-60"><h6 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.4</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.4</span><span class="period">.</span>
 </h6>
-<p id="p-639">Let \(A\) be an \(n \times n\) matrix. Then, the <dfn class="terminology">characteristic polynomial</dfn> of \(A\text{,}\) is given by,</p>
+<p id="p-658">Let \(A\) be an \(n \times n\) matrix. Then, the <dfn class="terminology">characteristic polynomial</dfn> of \(A\text{,}\) is given by,</p>
 <div class="displaymath">
 \begin{equation*}
 p_A(\lambda) = \det{(A - \lambda I_n)}
 \end{equation*}
-</div></article><p id="p-640">Then, eigenvalues are precisely the roots of the characteristic polynomial, and the equation \(p_A(\lambda) = 0\) is called the <dfn class="terminology">characteristic euquation</dfn>.</p>
-<p id="p-641">Polynomial equations can be solved exactly for low degree polnomials, however, for even moderately large \(n\) (say \(n = 5\)), polynomial equations can't be solved exactly, in general. For these and larger systems, numerical root-finding methods are used to solve for eigenvalues approximately.</p>
-<p id="p-642">Also, for this reason, eigenvalues should not be computed by hand, except for possibly \(2 \times 2\) matrices, which result in quadratic equations. For even \(3 \times 3\) matrices, these lead to a cubic equation, which in general is difficult to solve by hand, unless the numbers are chosen precisely.</p></section></section></div></main>
+</div></article><p id="p-659">Then, eigenvalues are precisely the roots of the characteristic polynomial, and the equation \(p_A(\lambda) = 0\) is called the <dfn class="terminology">characteristic euquation</dfn>.</p>
+<p id="p-660">Polynomial equations can be solved exactly for low degree polnomials, however, for even moderately large \(n\) (say \(n = 5\)), polynomial equations can't be solved exactly, in general. For these and larger systems, numerical root-finding methods are used to solve for eigenvalues approximately.</p>
+<p id="p-661">Also, for this reason, eigenvalues should not be computed by hand, except for possibly \(2 \times 2\) matrices, which result in quadratic equations. For even \(3 \times 3\) matrices, these lead to a cubic equation, which in general is difficult to solve by hand, unless the numbers are chosen precisely.</p></section></section></div></main>
 </div>
 </body>
 </html>

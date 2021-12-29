@@ -58,7 +58,8 @@
         </theorem>
 
         <p>
-            Note that the pivot columns of <m>A</m> form a basis, not the pivot columns of the RREF of <m>A</m>.
+            Note that the pivot columns of <m>A</m> form a basis, not the pivot columns of the <em>RREF</em> of <m>A</m>. In fact, often the columns of the RREF of A will not be in the column space of <m>A</m>.
         </p>
+
     </subsection>
 </section>

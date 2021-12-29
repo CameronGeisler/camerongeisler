@@ -1,0 +1,326 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-28T16:50:29-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vector Equations of Lines</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\require{cancel}\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+    
+
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-linear-algebra.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-ITV.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-VAG.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-VEOP.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-ITV.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-VAG.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-VEOP.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL" class="active">Vector Equations of Lines</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-26.html" data-scroll="section-26">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-VEOL"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Vector Equations of Lines</span>
+</h2>
+<section class="introduction" id="introduction-9">Sets of vectors can be used to represent various geometric objects in 2 and 3 dimensions. First, we will consider using vectors to represent lines in \(\mathbb{R}^2\text{,}\) and then in \(\mathbb{R}^3\text{.}\)</section><section class="subsection" id="subsection-33"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.1</span> <span class="title">Intro to Vector Parametric Form of a Line in the Plane</span>
+</h3>
+<p id="p-138">Recall that in algebra, a line is given by a <dfn class="terminology">Cartesian equation</dfn>, e.g. of the form \(y = mx + b\text{,}\) where \(x, y\) are variables, and \(m, b\) are constants (<dfn class="terminology">slope-intercept form</dfn>). More precisely, a line is an (infinite) set of points in the plane. In particular, the line \(y = mx + b\) could be represented as the set,</p>
+<div class="displaymath">
+\begin{equation*}
+\set{(x,mx + b): x \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-139">That is, the set of all points of the form \((x,mx + b)\text{,}\) where \(x\) ranges over all real numbers. The number \(x\) here is called a <dfn class="terminology">parameter</dfn>, because it is a quantity which specifies each point on the line. Here, it happens to represent the \(x\)-coordinate of the line, but its label does not change the line. That is,</p>
+<div class="displaymath">
+\begin{equation*}
+\set{(x,mx + b): x \in \mathbb{R}} = \set{(t,mt + b): t \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-140">both represent the same set of points, and the same line. We typically represent parameters by \(t\text{.}\) Representing points in the plane as position vectors, this line can be written as the set of all vectors,</p>
+<div class="displaymath">
+\begin{equation*}
+\set{\begin{bmatrix} t \\ mt + b \end{bmatrix}: t \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-141">We can rewrite this vector in terms of the part which depends on the parameter \(t\) and that part which doesn't,</p>
+<div class="displaymath">
+\begin{equation*}
+\set{t \begin{bmatrix} 1 \\ m \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix}: t \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-142">Roughly, the \(y\)-intercept \(b\) specifies a "starting point" for the line, and the slope \(m\) specifies the "direction" the line is in (when moving 1 unit right, we move \(m\) units up).</p>
+<p id="p-143">Using the language of vectors, we can form a more vector focused form of a line.</p>
+<p id="p-144">Suppose we want a line to pass through the point \(\vec{r}_0 = (x_0, y_0)\text{.}\) This vector will act as a “starting point” for the line. Then, we specify another vector \(\vec{v} = (a,b)\text{,}\) which represents the direction from the starting point \(\vec{r}_0\) which we want the line to travel, called a <em class="emphasis">direction vector</em>. Note that a line goes in two opposite directions, so \(-\vec{v}\) would also work. Then, consider adding some multiple of \(\vec{v}\) to \(\vec{r}_0\text{.}\) Say, of the form,</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{r}_0 + t \vec{v} = \begin{bmatrix} x_0 \\ y_0 \end{bmatrix} + t \begin{bmatrix} a \\ b \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-145">where \(t \in \mathbb{R}\text{.}\) The resuling vectors, for varying \(t\text{,}\) trace out a line in the plane. As \(t\) runs from \(-\infty\) to \(\infty\text{,}\) the vectors sweep out the entire line. Then, we say that the set,</p>
+<div class="displaymath">
+\begin{equation*}
+\set{\vec{r}_0 + t \vec{v}: t \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-146">is the <em class="emphasis">vector parametric form</em> of the line.</p>
+<article class="theorem theorem-like" id="theorem-4"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h6>
+<p id="p-147">Consider a line through the point \(\vec{r}_0\text{,}\) in the direction of the non-zero vector \(\vec{v}\text{.}\) If \(\vec{r} = (x,y)\) is a point on the line, then the line has equation,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\vec{r} = \vec{r}_0 + t \vec{v}}
+\end{equation*}
+</div>
+<p id="p-148">which is called the <dfn class="terminology">vector parametric form</dfn>. The vector \(\vec{v}\) is called a <dfn class="terminology">direction vector</dfn> for the line.</p></article><p id="p-149">Note that the direction vector \(\vec{v}\) is not unique, because any other vector parallel to it would also specify the same line. Also, the point on the line is not unique, because we could have used any other point on the line.</p>
+<p id="p-150">Another way to think about this, is that \(\vec{r}\) is a point on the line if and only if \(\vec{r} - \vec{r}_0\) is parallel to \(\vec{v}\text{,}\) i.e. \(\vec{r} - \vec{r}_0 = t \vec{v}\text{,}\) which is an equivalent equation.</p>
+<p id="p-151">More explicitly, we can compare components,</p>
+<div class="displaymath">
+\begin{align*}
+\begin{bmatrix} x \\ y \end{bmatrix} \amp = \begin{bmatrix} x_0 \\ y_0 \end{bmatrix} + t \begin{bmatrix} a \\ b \end{bmatrix}\\
+\begin{bmatrix} x \\ y \end{bmatrix} \amp = \begin{bmatrix} x_0 + ta \\ y_0 + tb \end{bmatrix}
+\end{align*}
+</div>
+<p id="p-152">Then, by equating components, this results in the equations,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\begin{cases} x = x_0 + at \\ y = y_0 + bt \end{cases} \qquad -\infty \lt t \lt \infty}
+\end{equation*}
+</div>
+<p id="p-153">This is called the <dfn class="terminology">scalar parametric form of a line</dfn>. You may have encountered this form if you have studied parametric equations in pre-calculus or calculus.</p>
+<p id="p-154">Another method of specifying a line is to specify two points \(\vec{r}_0, \vec{r}_1\) on the line. This is because a direction vector for the line is the difference between the points, \(\vec{v} = \vec{r}_1 - \vec{r}_0\text{,}\) and one of the points (say \(\vec{r}_0\)) can be used as the starting point. Thus, the vector parametric form is,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\vec{r} = \vec{r}_0 + t (\vec{r}_1 - \vec{r}_0) \qquad -\infty \lt t \lt \infty}
+\end{equation*}
+</div>
+<p id="p-155">Notice that \(\vec{r}_0\) is on the line, corresponding to \(t = 0\text{,}\) and the point \(\vec{r}_1\) is on the line, corresponding to \(t = 1\text{.}\)</p></section><section class="subsection" id="subsection-34"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.2</span> <span class="title">Lines in \(\mathbb{R}^3\)</span>
+</h3>
+<p id="p-156">In \(\mathbb{R}^3\text{,}\) the equation of a line builds off the case for \(\mathbb{R}^2\text{.}\) Notice that in Cartesian coordinates, it is unclear how to extend the plane equation \(y = mx + b\text{,}\) to an equation in \(\mathbb{R}^3\) involving all of \(x, y, z\text{.}\)</p>
+<p id="p-157">Again, a line can be completely determined by a point (say \(\vec{r}_0 = (x_0, y_0, z_0) \in \mathbb{R}^3\)), and a vector (say \(\vec{v} = (a,b,c) \in \mathbb{R}^3\)).</p>
+<p id="p-158">Then, if \(\vec{r} = (x,y,z)\) is a point on the line, then \(\vec{r} - \vec{r}_0\) is parallel to \(\vec{v}\text{.}\) That is, \(\vec{r} - \vec{r}_0 = t \vec{v}\) for some \(t \in \mathbb{R}\text{.}\) Then, the line can be written as,</p>
+<article class="theorem theorem-like" id="theorem-5"><h6 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h6>
+<p id="p-159">Consider a line through the point \(\vec{r}_0\text{,}\) in the direction of the non-zero vector \(\vec{v}\text{.}\) If \(\vec{r} = (x,y,z)\) is a point on the line, then the line has equation,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\vec{r} = \vec{r}_0 + t \vec{v} \qquad -\infty \lt t \lt \infty}
+\end{equation*}
+</div>
+<p id="p-160">which is called the <dfn class="terminology">vector parametric form</dfn>. The vector \(\vec{v}\) is called a <dfn class="terminology">direction vector</dfn> for the line.</p></article><p id="p-161">Then, similarly, we can compare components, to obatin the scalar parametric form of a line,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\begin{cases} x = x_0 + at \\ y = y_0 + bt \\ z = z_0 + ct \end{cases} \qquad -\infty \lt t \lt \infty}
+\end{equation*}
+</div>
+<p id="p-162">Again, the direction vector \(\vec{v}\) and point \(\vec{r}_0\) are both not unique.</p>
+<p id="p-163">Similarly, we can use two points \(\vec{r}_0, \vec{r}_1\) to specify the line, given by,</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{r} = \vec{r}_0 + t (\vec{r}_1 - \vec{r}_0) \qquad -\infty \lt t \lt \infty
+\end{equation*}
+</div></section><section class="subsection" id="subsection-35"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.3</span> <span class="title">Cartesian Equation of a Line in \(\mathbb{R}^3\)</span>
+</h3>
+<p id="p-164">Using some algebraic manipulations, we can eliminate the parameter \(t\text{,}\) to write the equation of a line in Cartesian form. Recall that,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{cases} x = x_0 + at \\ y = y_0 + bt \\ z = z_0 + ct \end{cases} \qquad -\infty \lt t \lt \infty
+\end{equation*}
+</div>
+<p id="p-165">Then, solving for \(t\) in each equation,</p>
+<div class="displaymath">
+\begin{equation*}
+t = \frac{x - x_0}{a} \quad t = \frac{y - y_0}{b} \quad t = \frac{z - z_0}{c}
+\end{equation*}
+</div>
+<p id="p-166">For every \(t\text{,}\) the three quantities on the right-hand side of these equations must be equal. That is,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}}
+\end{equation*}
+</div>
+<p id="p-167">This is the Cartesian equation of a line in \(\mathbb{R}^3\text{.}\) Really, it is two equations, say,</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{x - x_0}{a} = \frac{y - y_0}{b} \qquad \text{and} \qquad \frac{y - y_0}{b} = \frac{z - z_0}{c}
+\end{equation*}
+</div></section><section class="subsection" id="subsection-36"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.4</span> <span class="title">Affine Combination Form of a Line</span>
+</h3>
+<p id="p-168">Let \(\vec{u}, \vec{v}\) be vectors. Then, consider the line segment connecting the two heads of the vectors in standard position. The <dfn class="terminology">midpoint</dfn> of this line segment is the point \(\frac{1}{2}(\vec{u} + \vec{v})\text{.}\) That is, the linear combination,</p>
+<div class="displaymath">
+\begin{equation*}
+\frac{1}{2} \vec{u} + \frac{1}{2} \vec{v}
+\end{equation*}
+</div>
+<p id="p-169">More generally, by varying the weights of this linear combination, but requiring that the weights sum to 1, we can reach every point along this line segment. Further, if we allow the weights to vary over all real numbers (but still require them to sum to 1), then we can access all points on the line extending in the direction of this segment. Equivalently, the line along \(\vec{b} - \vec{a}\text{.}\)</p>
+<p id="p-170">Then, if we are given two points \(\vec{u}, \vec{v}\) in the plane, we can form the line between them by considering the set of all linear combinations of the vectors, where the weights sum to 1. We specify this by denoting one weight by \(t\text{,}\) and the other weight by \(1-t\text{.}\) Then,</p>
+<div class="displaymath">
+\begin{equation*}
+\set{(1 - t) \vec{u} + t \vec{v}: t \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-171">Linear combinations where the weights sum to 1 are called <dfn class="terminology">affine combinations</dfn>.</p></section></section></div></main>
+</div>
+</body>
+</html>

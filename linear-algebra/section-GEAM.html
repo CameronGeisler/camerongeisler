@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-10-24T16:34:35-07:00       *-->
+<!--*       on 2021-12-28T16:50:28-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -123,14 +123,19 @@
 <li class="link">
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
-<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
 <li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
 <li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
 <li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
@@ -141,7 +146,7 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
 <li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
@@ -150,20 +155,20 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
 <li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-26.html" data-scroll="section-26">Vector Spaces and Subspaces</a></li></ul>
 </li>
 <li class="link">
-<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -180,23 +185,23 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Elementary Row Operation.</span>
 </h6>
 <ul class="disc">
-<li id="li-42">
-<dfn class="terminology">Interchange</dfn>. Interchange two rows in the matrix.</li>
 <li id="li-43">
-<dfn class="terminology">Scaling</dfn>. Multiply (or divide) an equation by a non-zero real number.</li>
+<dfn class="terminology">Interchange</dfn>. Interchange two rows in the matrix.</li>
 <li id="li-44">
+<dfn class="terminology">Scaling</dfn>. Multiply (or divide) an equation by a non-zero real number.</li>
+<li id="li-45">
 <dfn class="terminology">Replacement</dfn>. Add to one equation a multiple of another equation.</li>
 </ul>
 <p id="p-36">These row operations are denoted symbolically by,</p>
 <ul class="disc">
-<li id="li-45">\(R_i \leftrightarrow R_j\text{,}\) interchanging row \(i\) and row \(j\text{.}\)</li>
-<li id="li-46">\(\displaystyle kR_i \rightarrow R_i\)</li>
-<li id="li-47">\(\displaystyle R_i + k R_j \rightarrow R_i\)</li>
+<li id="li-46">\(R_i \leftrightarrow R_j\text{,}\) interchanging row \(i\) and row \(j\text{.}\)</li>
+<li id="li-47">\(\displaystyle kR_i \rightarrow R_i\)</li>
+<li id="li-48">\(\displaystyle R_i + k R_j \rightarrow R_i\)</li>
 </ul></article><p id="p-37">Performing Gaussian elimination with this matrix form removes the need of repeatedly writing the variables. This process on a matrix is also called <dfn class="terminology">row reduction</dfn>.</p>
 <ul class="disc">
-<li id="li-48">Two matrices are <dfn class="terminology">row equivalent</dfn> if one can be obtained from the other by a (finite) sequence of row oeprations.</li>
-<li id="li-49">A <dfn class="terminology">zero</dfn> row has only zeros. A <dfn class="terminology">non-zero</dfn> row is a row with at least one non-zero entry.</li>
-<li id="li-50">The <dfn class="terminology">leading entry</dfn> of a non-zero row is the left-most non-zero entry. It is also called the <dfn class="terminology">leading coefficient</dfn>, or <dfn class="terminology">pivot</dfn>.</li>
+<li id="li-49">Two matrices are <dfn class="terminology">row equivalent</dfn> if one can be obtained from the other by a (finite) sequence of row oeprations.</li>
+<li id="li-50">A <dfn class="terminology">zero</dfn> row has only zeros. A <dfn class="terminology">non-zero</dfn> row is a row with at least one non-zero entry.</li>
+<li id="li-51">The <dfn class="terminology">leading entry</dfn> of a non-zero row is the left-most non-zero entry. It is also called the <dfn class="terminology">leading coefficient</dfn>, or <dfn class="terminology">pivot</dfn>.</li>
 </ul></section><section class="subsection" id="subsection-13"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Row Echelon Form</span>
 </h3>
@@ -204,8 +209,8 @@
 <article class="definition definition-like" id="definition-11"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
 </h6>A matrix is in <dfn class="terminology">row echelon form</dfn> (or simply <dfn class="terminology">echelon form</dfn>, or <dfn class="terminology">REF</dfn>) if, <ol class="decimal">
-<li id="li-51">Any zero rows are the bottom of the matrix.</li>
-<li id="li-52">the leading entry of every non-zero row is always strictly to the right of any leading entry above it.</li>
+<li id="li-52">Any zero rows are the bottom of the matrix.</li>
+<li id="li-53">the leading entry of every non-zero row is always strictly to the right of any leading entry above it.</li>
 </ol></article><p id="p-39">Matrices in row echelon form have the broad form,</p>
 <div class="displaymath">
 \begin{equation*}
@@ -216,9 +221,9 @@
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \end{bmatrix}
 \end{equation*}
 </div>where the pivots \(a, b, c, d\) are non-zero numbers. Notice that, <ul class="disc">
-<li id="li-53">Every entry below a pivot is 0.</li>
-<li id="li-54">The leading entries are “staggered to the right” as we go down.</li>
-<li id="li-55">All zero rows are at the bottom.</li>
+<li id="li-54">Every entry below a pivot is 0.</li>
+<li id="li-55">The leading entries are “staggered to the right” as we go down.</li>
+<li id="li-56">All zero rows are at the bottom.</li>
 </ul>
 <p id="p-40">The terminology <em class="emphasis">echelon</em> is due to the step-like pattern of the non-zero entries of the matrix. The process of transforming a matrix into row echelon form is called <dfn class="terminology">row reduction</dfn>. In summary,</p>
 <div class="displaymath">
@@ -233,14 +238,14 @@
 </h3>
 <p id="p-41">Consider a matrix \(A\text{.}\) Broadly, row reduction involves going column by column, reducing the matrix to a simpler matrix at each step.</p>
 <ol class="decimal">
-<li id="li-56">First, determine the left-most non-zero column, which will be the first <em class="emphasis">pivot column</em>. In this column, choose a non-zero entry to be the <em class="emphasis">pivot entry</em>. If necessary, use a row exchange to positive the pivot at the top of the column.<div class="displaymath">
+<li id="li-57">First, determine the left-most non-zero column, which will be the first <em class="emphasis">pivot column</em>. In this column, choose a non-zero entry to be the <em class="emphasis">pivot entry</em>. If necessary, use a row exchange to positive the pivot at the top of the column.<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} \mid \amp \mid \amp a \amp \ast \amp \ast \amp \ast \\
 0 \amp 0 \amp \ast \amp \ast \amp \ast \amp \ast \\
 \mid \amp \mid \amp \ast \amp \ast \amp \ast \amp \ast \end{bmatrix}
 \end{equation*}
 </div>In terms of completing the algorithm, it doesn't matter which non-zero entry we select to be the pivot. For hand-computation, it is typically easier to select a 1 if that is available, as that will make the computations a bit more simple.</li>
-<li id="li-57">Use row replacement operations to create zeros in all positions below the pivot. That is, add multiples of the top row to rows below it as to remove all entries below the pivot entry.<div class="displaymath">
+<li id="li-58">Use row replacement operations to create zeros in all positions below the pivot. That is, add multiples of the top row to rows below it as to remove all entries below the pivot entry.<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} \mid \amp \mid \amp a \amp \ast \amp \ast \amp \ast \\
 0 \amp 0 \amp 0 \amp \ast \amp \ast \amp \ast \\
@@ -248,7 +253,7 @@
 \end{equation*}
 </div>
 </li>
-<li id="li-58">Repeat the previous steps with the remaining submatrix below and to the right of the pivot,<div class="displaymath">
+<li id="li-59">Repeat the previous steps with the remaining submatrix below and to the right of the pivot,<div class="displaymath">
 \begin{equation*}
 \begin{bmatrix}
 \mid \amp \mid \amp a \amp \ast \amp \ast \amp \ast \\
@@ -259,7 +264,7 @@
 </div>(In this way, row reduction is a recursive algorithm, as row reduction of a matrix depends on performing row reduction on some smaller matrix). Repeat this step until there are no more non-zero rows to modify.</li>
 </ol>
 <p id="p-42">Finally, to convert the matrix to RREF,</p>
-<ol class="decimal"><li id="li-59">Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation.</li></ol>
+<ol class="decimal"><li id="li-60">Starting with the right-most pivot, use replacement row operations to create zeros above each pivot. If a pivot is not 1, make it 1 using a scaling operation.</li></ol>
 <p id="p-43">Steps 1-3 to convert a matrix to REF is called the <dfn class="terminology">forward phase</dfn> of Gaussian elimination. Step 4 to convert it to the unique RREF is called the <dfn class="terminology">backwards phase</dfn>.</p></section><section class="subsection" id="subsection-15"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.4</span> <span class="title">Remark on Gaussian Elimination</span>
 </h3>
@@ -326,9 +331,9 @@ x \amp -3y \amp + z \amp = \amp 1 \\
 <article class="definition definition-like" id="definition-14"><h6 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
 </h6>A matrix is in <dfn class="terminology">reduced row echelon form</dfn> (<dfn class="terminology">RREF</dfn>) if, <ol class="decimal">
-<li id="li-60">The matrix is in REF.</li>
-<li id="li-61">Every pivot is 1.</li>
-<li id="li-62">Every pivot is the only non-zero entry in its column.</li>
+<li id="li-61">The matrix is in REF.</li>
+<li id="li-62">Every pivot is 1.</li>
+<li id="li-63">Every pivot is the only non-zero entry in its column.</li>
 </ol></article><p id="p-50">In short, RREF goes further than REF by requiring that every pivot is 1 (rather than just any number), and that there are all 0's below <em class="emphasis">and</em> above each pivot.</p>
 <article class="example example-like" id="example-5"><a data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h6 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.8</span><span class="period">.</span>
@@ -398,17 +403,17 @@ z \amp = \amp c \end{array}
 </div>
 <p id="p-58">If a linear system in consistent, then the solution set is either:</p>
 <ol class="decimal">
-<li id="li-63">A unique solution, if there are no free variables.</li>
-<li id="li-64">Infinitely many solutions, if there are at least one free variable.</li>
+<li id="li-64">A unique solution, if there are no free variables.</li>
+<li id="li-65">Infinitely many solutions, if there are at least one free variable.</li>
 </ol></article></section><section class="subsection" id="subsection-20"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.9</span> <span class="title">Summary of Solving Systems with Gaussian Elimination</span>
 </h3>
 <ol class="decimal">
-<li id="li-65">Determine the augmented matrix of the system \(\begin{bmatrix} A \mid b \end{bmatrix}\text{.}\)</li>
-<li id="li-66">Convert the matrix into an equivalent matrix in REF, using row reduction. If the system is inconsistent, then we are done.</li>
-<li id="li-67">If the system is consistent, then convert the matrix into RREF.</li>
-<li id="li-68">Write the system of equations corresponding to the matrix in RREF.</li>
-<li id="li-69">Solve for each basic variable in terms of any free variables.</li>
+<li id="li-66">Determine the augmented matrix of the system \(\begin{bmatrix} A \mid b \end{bmatrix}\text{.}\)</li>
+<li id="li-67">Convert the matrix into an equivalent matrix in REF, using row reduction. If the system is inconsistent, then we are done.</li>
+<li id="li-68">If the system is consistent, then convert the matrix into RREF.</li>
+<li id="li-69">Write the system of equations corresponding to the matrix in RREF.</li>
+<li id="li-70">Solve for each basic variable in terms of any free variables.</li>
 </ol></section><section class="subsection" id="subsection-21"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.10</span> <span class="title">Historical Note</span>
 </h3>

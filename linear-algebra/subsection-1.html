@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-10-24T16:34:35-07:00       *-->
+<!--*       on 2021-12-28T16:50:28-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -123,14 +123,19 @@
 <li class="link">
 <a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
 <li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
-<li><a href="section-VEOLAP.html" data-scroll="section-VEOLAP">Vector Equations of Lines and Planes</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
 <li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
 <li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
 <li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">4</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
 <li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
 <li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
 <li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
@@ -141,7 +146,7 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">5</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
 <li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
 <li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
 <li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
@@ -150,20 +155,20 @@
 </ul>
 </li>
 <li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">6</span> <span class="title">Determinants</span></a><ul>
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
 <li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
 <li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
 <li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">7</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-25.html" data-scroll="section-25">Vector Spaces and Subspaces</a></li></ul>
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-26.html" data-scroll="section-26">Vector Spaces and Subspaces</a></li></ul>
 </li>
 <li class="link">
-<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">8</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
 </li>
 <li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">9</span> <span class="title">Misc</span></a><ul>
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul>
 <li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
 <li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li>
 </ul>
@@ -176,22 +181,23 @@
 <p id="p-4">Linear algebra has a wide range of applications. The applications of linear algebra increase over time as computing power increases. Some applications of linear algebra include:</p>
 <ul class="disc">
 <li id="li-7">Applications to engineering, physics, biology, economics, and statistics.</li>
-<li id="li-8">Computer science, including computer graphics, and machine learning.</li>
-<li id="li-9">Oil exploration, ships searching for offshore oil deposits solve thousands of systems of linear equations every day. The seismic data for the equations are obtained from underwater shock waves created by explosions from air guns.</li>
-<li id="li-10">Linear programming, airlines scheduling flight crews, monitoring the location of aircraft.</li>
-<li id="li-11">Network flow (e.g. the internet, electrical networks, traffic flow, etc.), relies on linear algebra and linear systems of equations. Google's PageRank, ranking websites.</li>
-<li id="li-12">Chemistry, the geometry of molecules such as methane, balancing chemical equations as a system of equations.</li>
-<li id="li-13">Psychology, factor analysis.</li>
-<li id="li-14">pg. 1 Leontief economic analysis, ch.1.6 and 2.6, applications of linear algebra (in particular, systems of linear equations).</li>
-<li id="li-15">Robotics.</li>
-<li id="li-16">Applications to cryptography, using matrices.</li>
+<li id="li-8">Computer science, including computer graphics.</li>
+<li id="li-9">Applications to data science and machine learning.</li>
+<li id="li-10">Oil exploration, ships searching for offshore oil deposits solve thousands of systems of linear equations every day. The seismic data for the equations are obtained from underwater shock waves created by explosions from air guns.</li>
+<li id="li-11">Linear programming, airlines scheduling flight crews, monitoring the location of aircraft.</li>
+<li id="li-12">Network flow (e.g. the internet, electrical networks, traffic flow, etc.), relies on linear algebra and linear systems of equations. Google's PageRank, ranking websites.</li>
+<li id="li-13">Chemistry, the geometry of molecules such as methane, balancing chemical equations as a system of equations.</li>
+<li id="li-14">Psychology, factor analysis.</li>
+<li id="li-15">pg. 1 Leontief economic analysis, ch.1.6 and 2.6, applications of linear algebra (in particular, systems of linear equations).</li>
+<li id="li-16">Robotics.</li>
+<li id="li-17">Applications to cryptography, using matrices.</li>
 </ul>
 <p id="p-5">Linear algebra also provides the foundations for other advanced topics in mathematics, including:</p>
 <ul class="disc">
-<li id="li-17">Multi-variable calculus and vector calculus.</li>
-<li id="li-18">Differential equations (including partial differential equations).</li>
-<li id="li-19">Abstract algebra (a generalization of linear algebra).</li>
-<li id="li-20">Mathematical game theory.</li>
+<li id="li-18">Multi-variable calculus and vector calculus.</li>
+<li id="li-19">Differential equations (including partial differential equations).</li>
+<li id="li-20">Abstract algebra (a generalization of linear algebra).</li>
+<li id="li-21">Mathematical game theory.</li>
 </ul></section></div></main>
 </div>
 </body>

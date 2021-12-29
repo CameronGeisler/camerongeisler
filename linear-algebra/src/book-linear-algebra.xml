@@ -14,7 +14,7 @@
             These notes are based on,
             <ul>
                 <li>Linear Algebra and Its Applications (Lay).</li>
-                <li>MATH 223 Linear Algbra (University of British Columbia)</li>
+                <li>MATH 223 Linear Algebra (University of British Columbia)</li>
                 <li>CPSC 314 Computer Graphics (University of British Columbia)</li>
                 <li><url href="https://www.youtube.com/playlist?list=PLIljB45xT85BhzJ-oWNug1YtUjfWp1qAp">Wild Linear Algebra (Wildberger)</url></li>
                 <li><url href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra (Grant Sanderson)</url></li>
@@ -25,6 +25,7 @@
         <xi:include href="./chapter-ITLA.xml"/>
         <xi:include href="./chapter-SOLEAITM.xml"/>
         <xi:include href="./chapter-VAG.xml"/>
+        <xi:include href="./chapter-VALE.xml"/>
         <xi:include href="./chapter-MALT.xml"/>
         <xi:include href="./chapter-ITVS.xml"/>
         <xi:include href="./chapter-D.xml"/>

@@ -132,11 +132,46 @@
         </p>
 
         <definition>
-            <p>Let <m>\vec{v} \in \mathbb{R}^2, \vec{v} = (v_x, v_y)</m>. The <term>magnitude</term> (or <term>length</term>) of <m>\vec{v}</m> is defined by,</p>
+            <p>Let <m>\vec{v} \in \mathbb{R}^2, \vec{v} = (a, b)</m>. The <term>magnitude</term> (or <term>length</term>) of <m>\vec{v}</m> is defined by,</p>
             <me>
-                \boxed{\abs{\vec{v}} = \sqrt{v_x^2 + v_y^2}}
+                \boxed{\abs{\vec{v}} = \sqrt{a^2 + b^2}}
             </me>
         </definition>
+
+        <p>
+            It follows directly from this definition that <m>\abs{c \vec{v}} = \abs{c} \cdot \abs{v}</m> for a scalar <m>c</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Unit Vectors</title>
+        <p>
+            A vector is called a <term>unit vector</term> if it has magnitude equal to 1. Given a vector <m>\vec{v}</m>, there is a unit vector which is parallel to <m>\vec{v}</m>, namely,
+        </p>
+        <me>
+            \vec{u} = \frac{\vec{v}}{\abs{\vec{v}}}
+        </me>
+        <p>
+            Also, this vector is unique, because if a vector <m>\vec{u}</m> is a unit vector (<m>\abs{u} = 1</m>) and is in the direction of <m>\vec{v}</m> (<m>\vec{u} = c \vec{v}</m> for some <m>c > 0</m>), then it follows that <m>\vec{u}</m> is given by the above formula. This is because <m>\abs{\vec{u}} = 1</m>, but also <m>\abs{\vec{u}} = \abs{c \vec{v}} = \abs{c} \abs{\vec{v}} = c \abs{\vec{v}}</m>. Thus, <m>1 = c \abs{\vec{v}}</m>, and so <m>c = \frac{1}{\abs{\vec{v}}</m>.
+        </p>
+        <p>
+            Every direction is associcated with a unit vector. Further, every unit vector is associated with a particular direction, or angle. If <m>\vec{u} = (a,b)</m> is a unit vector, its terminal point is on the unit circle. Then, <m>\vec{u} = (\cos{\theta}, \sin{\theta})</m> where <m>\theta</m> is the angle from the direction of the positive x-axis to the direction of <m>\vec{u}</m>.
+        </p>
+        <p>
+            Then, a general vector <m>\vec{v}</m> can be written as,
+        </p>
+        <me>
+            \vec{v} = \abs{\vec{v}} \vec{u}
+        </me>
+        <p>
+            where <m>\vec{u}</m> is the unit vector in the direction of <m>\vec{v}</m>. Alternatively,
+        </p>
+        <me>
+            (x,y) = r (\cos{\theta}, \sin{\theta})
+        </me>
+        <p>
+            where <m>r = \sqrt{x^2 + y^2}</m> is the length from <m>(x,y)</m> to the origin, and <m>\theta</m> is the angle as above. This represents the vector <m>(x,y)</m> in polar coordinates. This may be familiar from pre-calculus or calculus.
+        </p>
     </subsection>
 
     <subsection>

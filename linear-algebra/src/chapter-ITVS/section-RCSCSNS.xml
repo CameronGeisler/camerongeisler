@@ -187,13 +187,16 @@
     <subsection>
         <title>Contrasting the Column and Null Space</title>
         <p>
+            The most basic difference between the column space and null space is that the column space is a set of output vectors in <m>\mathbb{R}^m</m>, whereas the null space is a set of input vectors in <m>\mathbb{R}^n</m>.
+        </p>
+        <p>
             The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em>implicitly</em>, whereas the column space is defined <em>explicitly</em>.
         </p>
         <p>
             Because the column space is defined explicitly, it is easy to construct elements of the column space, simply by specifing values for the coefficients. To determine an explicit description of <m>N(A)</m>, solve the homogeneous system <m>A\vec{x} = \vec{0}</m>, and write the solution set in parametric vector form. Then, recall that the solution set to a homogeneous system is always a span of vectors. Then, the null space can always be written explicitly as the span of some vectors.
         </p>
         <p>
-            On the other hand, because the null space is defined implicitly by a condition, it is easy to verify if a given vector <m>\vec{x}</m> is in the null space <m>N(A)</m>, simply by computing <m>A\vec{x}</m> and checking whether or not is is equal to the zero vector. To determine if <m>\vec{b} \in C(A)</m>, we have to consider the system of equations <m>A\vec{x} = \vec{b}</m>, and determine if there is a solution or not.
+            On the other hand, because the null space is defined implicitly by a condition, it is easy to verify if a given vector <m>\vec{x}</m> is in the null space <m>N(A)</m>, simply by computing <m>A\vec{x}</m> and checking whether or not it is equal to the zero vector. To determine if <m>\vec{b} \in C(A)</m>, we have to consider the system of equations <m>A\vec{x} = \vec{b}</m>, and determine if there is a solution or not.
         </p>
     </subsection>
 

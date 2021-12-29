@@ -21,7 +21,7 @@
             The determinant is also scaled by <m>k</m>.</li>
             <li>For row exchange, consider exchanging row 1 and 2,
                 <md>
-                    <mrow>\det{\begin{bmatrix} c \amp d \\ a \amp b \end{bmatrix} \amp = cb - ad</mrow>
+                    <mrow>\det{\begin{bmatrix} c \amp d \\ a \amp b \end{bmatrix}} \amp = cb - ad</mrow>
                     <mrow>\amp = -\brac{ad - bc} = -\det{A}</mrow>
                 </md>
             This row operations changes the sign of the determinant.
