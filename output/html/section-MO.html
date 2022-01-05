@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-05T10:27:32-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Matrix Operations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+    
+
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-MALT.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-ITLT.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-MALT.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-ITLT.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO" class="active">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-27.html" data-scroll="section-27">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul><li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-MO"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Matrix Operations</span>
+</h2>
+<section class="introduction" id="introduction-17">Recall that an \(m \times n\) matrix \(A\) is a rectangular array of real numbers with \(m\) rows and \(n\) columns,<div class="displaymath">
+\begin{equation*}
+A = \begin{bmatrix}
+a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
+a_{21} \amp a_{22} \amp \dots \amp a_{2n} \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
+\end{bmatrix}
+\end{equation*}
+</div>The \(j\)th column of \(A\) is the column vector \(\vec{a}_j\text{.}\) Then, the matrix can be written as,<div class="displaymath">
+\begin{equation*}
+A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
+\end{equation*}
+</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-67"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span>
+</h3>
+<article class="definition definition-like" id="definition-39"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span>
+</h4>Two matrices \(A\) and \(B\) are <dfn class="terminology">equal</dfn> if they have equal dimensions \(m \times n\text{,}\) and each corresponding entries are equal, i.e. \(a_{ij} = b_{ij}\) for all \(i, j\text{.}\)</article><article class="definition definition-like" id="definition-40"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix addition.</span>
+</h4>
+<p id="p-337">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{(A + B)_{ij} = \begin{bmatrix} a_{ij} + b_{ij} \end{bmatrix}}
+\end{equation*}
+</div></article><p id="p-338">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
+<p id="p-339">For \(2 \times 2\) matrices,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} + \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} + b_{11} \amp a_{12} + b_{12} \\ a_{21} + b_{21} \amp a_{22} + b_{22} \end{bmatrix}
+\end{equation*}
+</div>
+<article class="definition definition-like" id="definition-41"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar multiplication.</span>
+</h4> Let \(A\) be an \(m \times n\) matrix, \(k \in \mathbb{R}\) be a scalar. Then, \(kA\) is the matrix formed by multiplying each of the entries of \(A\) by \(k\text{,}\) or,<div class="displaymath">
+\begin{equation*}
+\boxed{(kA)_{ij} = kA_{ij}}
+\end{equation*}
+</div></article><p id="p-340">For \(2 \times 2\) matrices,</p>
+<div class="displaymath">
+\begin{equation*}
+k A = k \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} ka \amp kb \\ kc \amp kd \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-341">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of column vectors.</p>
+<ul class="disc">
+<li id="li-102"><p id="p-derived-li-102">The sum \(A + B\) is the matrix whose columns are the sums of the corresponding columns of \(A\) and \(B\text{,}\) or,<div class="displaymath">
+\begin{equation*}
+A + B = \begin{bmatrix} \vec{a}_1 + \vec{b}_1 \amp \vec{a}_2 + \vec{b}_2 \amp \cdots \amp \vec{a}_n + \vec{b}_n \end{bmatrix}
+\end{equation*}
+</div></p></li>
+<li id="li-103"><p id="p-derived-li-103">The scalar multiple \(kA\) is the matrix whose columns are the scalar multiples of vectors \(k \vec{a}_j\text{,}\) or,<div class="displaymath">
+\begin{equation*}
+kA = \begin{bmatrix} k \vec{a}_1 \amp k \vec{a}_2 \amp \cdots \amp k \vec{a}_n \end{bmatrix}
+\end{equation*}
+</div></p></li>
+</ul>
+<p id="p-342">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-68"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Properties of Matrix Addition</span>
+</h3>
+<article class="definition definition-like" id="definition-42"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span>
+</h4>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by O, or sometimes 0.</article><p id="p-343">The size of a zero matrix is usually clear from the context. The zero matrix has the property that,</p>
+<div class="displaymath">
+\begin{equation*}
+A + O = A
+\end{equation*}
+</div>
+<p id="p-344">i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. If \(0\) is used to denote the zero matrix, then note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p> Also, the zero matrix has the property that \(0 A = O\text{,}\) that is, the zero scalar multiple of any matrix is the zero matrix. <article class="theorem theorem-like" id="theorem-21"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span>
+</h4>
+<p id="p-345">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
+<ol class="decimal">
+<li id="li-104"><p id="p-derived-li-104"><em class="emphasis">Commutative property</em>.<div class="displaymath">
+\begin{equation*}
+A + B = B + A
+\end{equation*}
+</div></p></li>
+<li id="li-105"><p id="p-derived-li-105"><em class="emphasis">Associative property</em>.<div class="displaymath">
+\begin{equation*}
+(A + B) + C = A + (B + C)
+\end{equation*}
+</div></p></li>
+<li id="li-106"><p id="p-derived-li-106"><em class="emphasis">Additive identity property</em>.<div class="displaymath">
+\begin{equation*}
+A + 0 = A
+\end{equation*}
+</div></p></li>
+<li id="li-107"><p id="p-derived-li-107"><em class="emphasis">Additive inverse property</em>. For a matrix \(A\text{,}\) the matrix \(-A = \begin{bmatrix} -a_{ij} \end{bmatrix}\text{,}\) consisting of the additive inverses of the entires of \(A\text{,}\) is the <dfn class="terminology">additive inverse</dfn> of \(A\text{,}\) as,<div class="displaymath">
+\begin{equation*}
+A + (-A) = 0
+\end{equation*}
+</div></p></li>
+</ol></article><p id="p-346">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
+<p id="p-347">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
+<article class="theorem theorem-like" id="theorem-22"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
+</h4>
+<p id="p-348">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
+<ol class="decimal">
+<li id="li-108"><p id="p-derived-li-108"><em class="emphasis">Scalar distributes over matrix addition</em>.<div class="displaymath">
+\begin{equation*}
+r(A + B) = rA + rB
+\end{equation*}
+</div></p></li>
+<li id="li-109"><p id="p-derived-li-109"><em class="emphasis">Matrix distributes over scalar addition</em>.<div class="displaymath">
+\begin{equation*}
+(r + s)A = rA + sA
+\end{equation*}
+</div></p></li>
+<li id="li-110"><p id="p-derived-li-110"><em class="emphasis">Associativity of scalar multiplication</em>.<div class="displaymath">
+\begin{equation*}
+r(sA) = (rs)A
+\end{equation*}
+</div></p></li>
+</ol></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><ul class="disc"><li id="li-111"><p id="p-derived-li-111"><em class="emphasis">Proof of 1. for \(2 \times 2\) matrices</em>. Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}\text{.}\) Then,<div class="displaymath">
+\begin{align*}
+r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix} \amp = \begin{bmatrix} r(a + e) \amp r(b + f) \\ r(c + g) \amp r(d + h) \end{bmatrix}\\
+\amp = \begin{bmatrix} ra + re \amp rb + rf \\ rc + rg \amp rd + rh \end{bmatrix}\\
+\amp = \begin{bmatrix} ra \amp rb \\ rc \amp rd \end{bmatrix} + \begin{bmatrix} re \amp rf \\ rg \amp rh \end{bmatrix}\\
+\amp = r A + r B
+\end{align*}
+</div></p></li></ul></article></div></section></section></div></main>
+</div>
+</body>
+</html>

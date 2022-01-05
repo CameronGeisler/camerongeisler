@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-ITV">
+    <title>Introduction to Vectors</title>
+
+    <introduction>
+        Previously, we considered linear systems as strictly from the perspective of relationships between variables. Next, we will consider it from the perspective of <em>vectors</em>. Vectors are at the heart of linear algebra.
+    </introduction>
+
+    <subsection>
+        <title>Vectors</title>
+        <p>
+            The term <em>vector</em> is used widely in mathematics, physics, and computer science. There are a variety of definitions, ranging from specific and applied to mathematically abstract. For now, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <term>column matrix</term>, a matrix with dimensions <m>1 \times n</m>, i.e. a matrix with 1 row and <m>n</m> <q>columns</q>. Similarly, a <term>row vector</term> is a <m>m \times 1</m> matrix, a matrix which has 1 columns and <m>m</m> <q>rows</q>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Vectors in <m>\mathbb{R}^2</m></title>
+        <p>
+            First, we will consider vectors that contain two numbers, of the form,
+        </p>
+        <me>
+            \vec{v} = \begin{bmatrix} x \\ y \end{bmatrix}
+        </me>
+
+        <p>
+            The physics perspective on vectors views them as directed line segments. That is, line segments with a direction, typically represented by an arrow. The point where the vector arrow <q>starts</q> is called its <term>tail</term> (or <term>initial point</term>), and the point where it ends the <term>head</term> (or <term>terminal point</term>).
+        </p>
+
+        <p>
+            With this perspective, vectors don't change if they are moved around in the plane, that is, they are unaffected by translation. This geometric perspective isn't very computational. To bridge this difference, we make the convention of viewing vectors with their tails fixed at the origin <m>(0,0)</m>.
+        </p>
+
+        <definition>
+            A vector is in <term>standard position</term> if its initial point is at the origin.
+        </definition>
+
+        <p>
+            The advantage to this convention is that a vector in standard position is completely determined by its terminal point. In particular, if the terminal point of a vector is <m>(x,y)</m>, then this ordered pair can be used to specific the vector.
+        </p>
+
+        <definition>
+            The vector from the origin to a point <m>(x,y)</m> is called a <term>position vector</term> for the point <m>(x,y)</m>.
+        </definition>
+
+        <p>
+            Further, every point in the plane <m>(x,y)</m> can be represented by the orederd list of numbers, <m>\begin{bmatrix} x \\ y \end{bmatrix}</m>.
+        </p>
+
+        <p>
+            In this way, there is a <em>one-to-one correspondence</em> between geometric vectors, ordered pairs, and vectors. We <em>identify</em> a column vector with an ordered tuple of numbers. That is, we treat them as equivalent. For example,
+        </p>
+        <me>
+            \begin{bmatrix} 1 \\ -3 \end{bmatrix} \quad \text{is equivalent to} \quad (1,-3)
+        </me>
+        <p>
+            This correspondence allows us to write vectors horizontally, which is sometimes convenient because it takes up less space. On the other hand, for technical reasons, it will be necessary to keep the vertical convention.
+        </p>
+        <p>
+            The numbers contained in a vectors are called its <term>entries</term>, or <term>components</term>, or sometimes its <term>coordinates</term>.
+        </p>
+        <p>
+            The set of all vectors with two entries is denoted by <m>\mathbb{R}^2</m> (read <q>r-squared</q> or simply <q>r-two</q>). Again, this can be thought of as the set of all two-dimensional vectors (geometrically), the set of all ordered pairs <m>(a,b)</m>, or the set of all column matrices of the form <m>\begin{bmatrix} a \\ b \end{bmatrix}</m>.
+        </p>
+
+        <definition>
+            <p>Two vectors in <m>\mathbb{R}^2</m> are <term>equal</term> if their corresponding entries are equal.</p>
+        </definition>
+
+        <p>
+            Next, we define the fundamental operations for combining vectors: addition and scalar multiplication.
+        </p>
+
+        <definition>
+            <title>Addition of vectors</title>
+            <p>Let <m>\vec{u}, \vec{v}</m> be vectors in <m>\mathbb{R}^2</m>. Their <term>sum</term> <m>\vec{u} + \vec{v}</m> is the vector obtained by adding the corresponding entries of <m>\vec{u}</m> and <m>\vec{v}</m>. That is, for <m>\vec{u} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \vec{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}</m>,</p>
+            <me>
+                \boxed{\vec{u} + \vec{v} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \end{bmatrix}}
+            </me>
+        </definition>
+
+        <p>
+            Geometrically, the sum <m>\vec{u} + \vec{v}</m> is obtained by aligning the tail of <m>\vec{v}</m> with the head of <m>\vec{u}</m>. Then, the vector <m>\vec{u} + \vec{v}</m> is the arrow from the tail of <m>\vec{u}</m> to the head of <m>\vec{v}</m>.
+        </p>
+        <p>
+            Alternatively, if the tails of <m>\vec{u}</m> and <m>\vec{v}</m> are aligned together, and we form the parallelogram with sides <m>\vec{u}</m> and <m>\vec{v}</m>, then <m>\vec{u} + \vec{v}</m> is the vector formed by an arrow from their tails to the opposite vertex of the paralellogram.
+        </p>
+
+        <p>
+            Intuitively, if the vectors are thought of as representing motion, then <m>\vec{u} + \vec{v}</m> is the resulting motion after movement corresponding to <m>\vec{u}</m> and then <m>\vec{v}</m>.
+        </p>
+
+        <definition>
+            <title>Scalar multiplication of vectors</title>
+            <p>Let <m>\vec{u}</m> be a vector, <m>c \in \mathbb{R}</m>. Then, the <term>scalar multiple</term> of <m>\vec{u}</m> by <m>c</m>, <m>c\vec{u}</m>, is the vector obtained by multiply each entry of <m>\vec{u}</m> by <m>c</m>.</p>
+        </definition>
+
+        <p>
+            The number <m>c \in \mathbb{R}</m> is called a <term>scalar</term>. This is because, literally, multiplying a vector by a number <m>c</m> scales the length of the vector. Geometrically, if <m>c > 0</m>, then <m>c\vec{u}</m> is the vector with the same direction as <m>\vec{u}</m>, but scaled to be <m>c</m> times as long. If <m>c \le 0</m>, then <m>c\vec{u}</m> has the opposite direction as <m>\vec{u}</m>, and is also <m>c</m> times as long as <m>\vec{u}</m>.
+        </p>
+
+        <p>
+            In fact, this is just an extension of addition of real numbers, represented on a number line. This is because real numbers <m>a \in \mathbb{R}</m> can be thought of as 1-dimensional vectors <m>\begin{bmatrix} a \end{bmatrix}</m>.
+        </p>
+
+        <p>
+            We can also define vector subtraction in the natural way,
+        </p>
+        <me>
+            \vec{u} - \vec{v} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} - \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \end{bmatrix}
+        </me>
+        <p>
+            However, <m>\vec{u} - \vec{v}</m> is just <m>\vec{u} + (-1) \vec{v}</m>, that is, the sum of <m>\vec{u}</m> and the scalar multiple <m>-1\vec{v}</m>. In other words, subtraction is not really a fundamental operation, because it is defined in terms of the other operations addition and scalar multiplication.
+        </p>
+
+        <p>
+            For simplicity, the scalar multiple <m>-1\vec{u}</m> is written as <m>-\vec{u}</m>.
+        </p>
+        
+        <definition>
+            <p>The <term>zero vector</term> is the unique vector with no magnitude and no direction, and is denoted by <m>\vec{0}</m>.</p>
+        </definition>
+    </subsection>
+
+    <subsection>
+        <title>Magnitude of a Vector</title>
+        <p>
+            The <em>physics</em> definition of a vector is a quantity with magnitude and direction. The <term>magnitude</term> of a vector <m>\vec{v}</m> is denoted by <m>\abs{\vec{v}}</m>, or <m>\norm{\vec{v}}</m>. The first notation surrounds <m>\vec{v}</m> by <q>absolute value</q> bars, intuitively denoting magnitude.
+        </p>
+        <p>
+            Geometrically, the magnitude of a vector is the length of its directed line segment in the plane. That is, the distance from initial point to its terminal point. Consider a vector <m>\vec{v}</m> in the plane in standard position, with terminal point <m>(a,b)</m>. The magnitude of <m>\vec{v}</m> is the distance from the origin <m>(0,0)</m> to <m>(a,b)</m>, given by the distance formula in the plane.
+        </p>
+
+        <definition>
+            <p>Let <m>\vec{v} \in \mathbb{R}^2, \vec{v} = (a, b)</m>. The <term>magnitude</term> (or <term>length</term>) of <m>\vec{v}</m> is defined by,</p>
+            <me>
+                \boxed{\abs{\vec{v}} = \sqrt{a^2 + b^2}}
+            </me>
+        </definition>
+
+        <p>
+            It follows directly from this definition that <m>\abs{c \vec{v}} = \abs{c} \cdot \abs{v}</m> for a scalar <m>c</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Unit Vectors</title>
+        <p>
+            A vector is called a <term>unit vector</term> if it has magnitude equal to 1. Given a vector <m>\vec{v}</m>, there is a unit vector which is parallel to <m>\vec{v}</m>, namely,
+        </p>
+        <me>
+            \vec{u} = \frac{\vec{v}}{\abs{\vec{v}}}
+        </me>
+        <p>
+            Also, this vector is unique, because if a vector <m>\vec{u}</m> is a unit vector (<m>\abs{u} = 1</m>) and is in the direction of <m>\vec{v}</m> (<m>\vec{u} = c \vec{v}</m> for some <m>c > 0</m>), then it follows that <m>\vec{u}</m> is given by the above formula. This is because <m>\abs{\vec{u}} = 1</m>, but also <m>\abs{\vec{u}} = \abs{c \vec{v}} = \abs{c} \abs{\vec{v}} = c \abs{\vec{v}}</m>. Thus, <m>1 = c \abs{\vec{v}}</m>, and so <m>c = \frac{1}{\abs{\vec{v}}</m>.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>The Standard Basis Vectors</title>
+        <p>
+            In <m>\mathbb{R}^2</m>, there are two special vectors, typically denoted by <m>\ihat</m> and <m>\jhat</m>. They are defined by,
+        </p>
+        <me>
+            \ihat = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \jhat = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+        </me>
+        <p>
+            They are called the <term>standard basis vectors</term> in the plane. Then, any vector <m>\vec{v} = (x,y)</m> can be written in terms of a linear combination of these basis vectors,
+        </p>
+        <md>
+            <mrow>\begin{bmatrix} x \\ y \end{bmatrix} \amp = \begin{bmatrix} x \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ y \end{bmatrix}</mrow>
+            <mrow>\amp = x \begin{bmatrix} 1 \\ 0 \end{bmatrix} + y \begin{bmatrix} 0 \\ 1 \end{bmatrix}</mrow>
+            <mrow>\amp = x \ihat + y \jhat</mrow>
+        </md>
+        <p>
+            Intuitively, <q>basis</q> means <q>underlying support or foundation</q>. The standard basis vectors provide a simple foundation from which all vectors can be represented in terms of.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Vectors in <m>\mathbb{R}^3</m></title>
+
+        <p>
+            The algebra and geometry of vectors in the plane <m>\mathbb{R}^2</m> extends to 3D space. The set of vectors with three entries is denoted by <m>\mathbb{R}^3</m>.
+        </p>
+
+        <p>
+            Vectors in <m>\mathbb{R}^3</m> are <m>3 \times 1</m> column matrices, of the form,
+        </p>
+        <me>
+            \begin{bmatrix} x \\ y \\ z \end{bmatrix}
+        </me>
+        <p>
+            Again, these vectors can be represented geometrically as directed line segments, and as points in space <m>(x,y,z)</m>.
+        </p>
+
+        <p>
+            Similarly, we define addition and scalar multiplication in an analogous way.
+        </p>
+
+        <definition>
+            <title>Addition of vectors</title>
+            <p>Let <m>\vec{u} = (u_1, u_2, u_3), \vec{v} = (v_1, v_2, v_3)</m> be vectors in <m>\mathbb{R}^3</m>. Their <term>sum</term> <m>\vec{u} + \vec{v}</m> is given by,</p>
+            <me>
+                \boxed{\vec{u} + \vec{v} = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ u_3 + v_3 \end{bmatrix}}
+            </me>
+        </definition>
+
+        <definition>
+            <title>Scalar multiplication of vectors</title>
+            <p>Let <m>\vec{v} = (v_1, v_2, v_3)</m> be a vector in <m>\mathbb{R}^3</m>, <m>c \in \mathbb{R}</m>. Then, the <term>scalar multiple</term> of <m>\vec{v}</m> by <m>c</m>, <m>c\vec{v}</m>, is given by,</p>
+            <me>
+                \boxed{c\vec{v} = c \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} = \begin{bmatrix} cv_1 \\ cv_2 \\ cv_3 \end{bmatrix}}
+            </me>
+        </definition>
+
+        <p>
+            The magnitude of a vector in <m>\mathbb{R}^3</m> is again the distance from the origin <m>(0,0,0)</m> to its terminal point <m>(x,y,z)</m>.
+        </p>
+
+        <definition>
+            <p>Let <m>\vec{v} = (x,y,z) \in \mathbb{R}^3</m>. The <term>magnitude</term> (or <term>length</term>) of <m>\vec{v}</m> is defined by,</p>
+            <me>
+                \boxed{\abs{\vec{v}} = \sqrt{x^2 + y^2 + z^2}}
+            </me>
+        </definition>
+
+        <p>
+            The standard basis vectors in <m>\mathbb{R}^3</m> are denoted by <m>\ihat, \jhat, \khat</m>, given by,
+        </p>
+        <me>
+            \ihat = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \quad \jhat = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \quad \khat = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+        </me>
+        <p>
+            Similarly, any vector <m>\vec{v} = (x,y,z)</m> can be represented as a linear combination of these basis vectors, as,
+        </p>
+        <me>
+            \begin{bmatrix} x \\ y \\ z \end{bmatrix} = x \ihat + y \jhat + z \khat
+        </me>
+    </subsection>
+
+    <subsection>
+        <title>Vectors in <m>\mathbb{R}^n</m></title>
+        <p>
+            The algebra of vectors can be generalized to vectors with <m>n</m> elements, of the form,
+        </p>
+        <me>
+            \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+        </me>
+        <p>
+            Here, for <m>n > 3</m>, it is more difficult to consider vectors geomtrically as directed line segments. However, the algebra and mathematics are not lost.
+        </p>
+        <p>
+            The set of all ordered <m>n</m>-tuples of <m>n</m> real numbers is denoted by <m>\mathbb{R}^n</m> (read as <q>r-n</q>). Intuitively, this can be thought of as <q><m>n</m>-dimensional space</q>.
+        </p>
+
+        <p>
+            Again, we have the convention that,
+        </p>
+        <me>
+            (b_1, \dots, b_n) \quad \text{is equivalent to} \quad \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}
+        </me>
+
+        <p>
+            Note that <m>(b_1, \dots, b_n)</m> is not a row vector.
+        </p>
+
+        <p>
+            The definitions of equality, sum, and scalar multiple are analogous to that for <m>\mathbb{R}^2</m> and <m>\mathbb{R}^3</m>,
+        </p>
+        <ul>
+            <li>Vectors <m>\vec{u}, \vec{v}</m> in <m>\mathbb{R}^n</m> are <term>equal</term> if all of their corresponding entries are equal.</li>
+            <li>The <term>sum</term> <m>\vec{u} + \vec{v}</m> is obtained by adding entries componentwise.</li>
+            <li>The <term>scalar multiple</term> <m>c \vec{u}</m> is obtained by multiplying every entry of <m>\vec{u}</m> by <m>c</m>.</li>
+            <li>The <term>zero vector</term>, denoted by <m>\vec{0}</m>, is the unique vector with entries which are all zeros.</li>
+            <li>The magnitude of <m>\vec{v} = (v_1, \dots, v_n)</m> is given by,
+            <me>
+                \abs{\vec{v}} = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}
+            </me></li>
+        </ul>
+        <p>
+            In <m>\mathbb{R}^n</m>, the standard basis vectors are given by,
+        </p>
+        <md>
+            <mrow>\vec{e}_1 \amp = (1,0,0\dots,0)</mrow>
+            <mrow>\vec{e}_2 \amp = (0,1,0,\dots,0)</mrow>
+            <mrow>\vdots \amp</mrow>
+            <mrow>\vec{e}_n \amp = (0,0,0\dots,0,1)</mrow>
+        </md>
+        <p>
+            Then, every vector <m>\vec{x} = (x_1, \dots, x_n)</m> in <m>\mathbb{R}^n</m> can be written as a linear combination of these basis vectors, as,
+        </p>
+        <me>
+            \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = x_1 \vec{e}_1 + x_2 \vec{e}_2 + \dots + x_n \vec{e}_n
+        </me>
+    </subsection>
+
+    <subsection>
+        <title>Properties of Vector Arithmetic</title>
+        <p>
+            The arithmetic of vectors satisfies many of the familiar laws of arithmetic with numbers.
+        </p>
+
+        <theorem>
+            <title>Properties of vector arithmetic</title>
+            <p>
+                Let <m>\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^n</m> be vectors, <m>c, d \in \mathbb{R}</m>. Then,
+            </p>
+            <ol>
+                <li><term>Addition commutative</term>, <m>\vec{u} + \vec{v} = \vec{v} + \vec{u}</m>.</li>
+                <li><term>Addition associative</term>, <m>(\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})</m>.</li>
+                <li><term>Additive identity</term>, <m>\vec{u} + \vec{0} = \vec{0} + \vec{u} = \vec{u}</m>.</li>
+                <li><term>Additive inverse</term>, <m>\vec{u} + (-\vec{u}) = \vec{0}</m>.</li>
+                <li><term>Scalar multiplication associative</term>, <m>c(d\vec{u}) = (cd)\vec{u}</m>.</li>
+                <li><term>Scalar multiplication distributes over addition</term>, <m>c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}</m>.</li>
+                <li><term>Vectors distribute over addition</term>, <m>(c + d)\vec{u} + c\vec{u} + d\vec{u}</m>.</li>
+            </ol>
+        </theorem>
+
+        <p>
+            These properties all essentially follow from the corresponding properties of real numbers.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Linear Combinations of Vectors</title>
+
+        <p>
+            The fundamental operations combine to form linear combinations. Consider two vectors <m>\vec{u}, \vec{v}</m>. Adding them gives <m>\vec{u} + \vec{v}</m>. Multiplying them by (possibly different) scalars gives <m>a\vec{u}</m> and <m>b\vec{v}</m>. Combining these two operations, we get a <em>linear combination</em>,
+        </p>
+        <me>
+            a\vec{u} + b \vec{v}
+        </me>
+
+        <definition>
+            <p>Let <m>\vec{u}, \vec{v}</m> be vectors, <m>a, b \in \mathbb{R}</m> be scalars. Then, the vector given by,</p>
+            <me>
+                a\vec{u} + b\vec{v}
+            </me>
+            <p>is called a <term>linear combination</term> of <m>\vec{u}</m> and <m>\vec{v}</m>, with <term>weights</term> <m>a, b</m>.</p>
+        </definition>
+
+        <definition>
+            <p>
+                Let <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> be vectors, <m>a_1, a_2, \dots, a_n \in \mathbb{R}</m> be scalars. Then, the vector <m>\vec{v}</m> given by,
+                <me>
+                    \vec{v} = a_1 \vec{v}_1 + a_2 \vec{v}_2 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
+                </me>
+                is called a <term>linear combination</term> of <m>\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n</m> with <term>weights</term> <m>a_1, a_2, \dots, a_n</m>.
+            </p>
+        </definition>
+
+        <example>
+            Given any collection of vectors, the <term>trivial</term> linear combination is that with all weights being 0, i.e.,
+            <me>
+                0 \vec{v}_1 + 0 \vec{v}_2 + \dots + 0 \vec{v}_n = \vec{0}
+            </me>
+        </example>
+    </subsection>
+
+</section>

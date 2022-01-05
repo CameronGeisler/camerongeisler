@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-05T10:27:32-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Matrix Equations, Matrix-Vector Product</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+    
+
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-VES.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-VALE.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-SSOLE.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-VES.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-VALE.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-SSOLE.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP" class="active">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-27.html" data-scroll="section-27">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul><li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-MEMVP"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Matrix Equations, Matrix-Vector Product</span>
+</h2>
+<section class="introduction" id="introduction-14">Next, we will combine matrices and vectors, in order to write a system of linear equations as an equation relating matrices and vectors.</section><section class="subsection" id="subsection-55"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.1</span> <span class="title">Product of a Matrix with a Vector</span>
+</h3>
+<article class="definition definition-like" id="definition-36"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h4>Let \(A = \begin{bmatrix} a_{ij} \end{bmatrix}\) be an \(m \times n\) matrix, \(\vec{x} \in \mathbb{R}^n\) be a vector, \(\vec{x} = (x_1, \dots, x_n)\text{.}\) Then, the <dfn class="terminology">product</dfn> of \(A\) and \(\vec{x}\text{,}\) is the vector defined by,<div class="displaymath">
+\begin{equation*}
+\boxed{A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + a_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} = \begin{bmatrix} \sum_{k=1}^n a_{1k} x_k \\ \sum_{k=1}^n a_{2k} x_k \\ \vdots \\ \sum_{k=1}^n a_{mk} x_k \end{bmatrix}}
+\end{equation*}
+</div></article><p id="p-287">In general, to detemrine the \(i\)th entry of the vector \(A\vec{x}\text{,}\) compute the “product” of the \(i\)th row of \(A\text{,}\) and \(\vec{x}\text{,}\) as,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} a_{i1} \amp a_{i2} \amp \dots \amp a_{in} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} a_{i1} x_1 + a_{i2} x_2 + \dots + a_{in} x_n \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-288">This operation, of multiplying two vectors of matching lengths to produce a single number (in particular a row vector and a column vector), is called a <dfn class="terminology">dot product</dfn>, of the two vectors. More generally, for vectors \(\vec{a} = (a_1, \dots, a_n), \vec{b} = (b_1, \dots, b_n)\text{,}\)</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{\begin{bmatrix} a_1 \amp a_2 \amp \dots \amp a_n \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix} = a_1 b_1 + a_2 b_2 + \dots + a_n b_n}
+\end{equation*}
+</div></section><section class="subsection" id="subsection-56"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.2</span> <span class="title">Matrix Form of a Linear System</span>
+</h3>
+<p id="p-289">Multiplication of a matrix and a vector is precisely defined as to align with systems of equations. In particular, for the system of equations,</p>
+<div class="displaymath">
+\begin{alignat*}{3}
+a_{11}x_1 \amp + a_{12}x_2 \amp + \dots \amp + a_{1n}x_n \amp = b_1\\
+a_{21}x_1 \amp + a_{22}x_2 \amp + \dots \amp + a_{2n}x_n \amp = b_2\\
+\vdots \quad \amp \qquad \vdots \amp \amp \qquad \vdots \amp \vdots\\
+a_{m1}x_1 \amp + a_{m2}x_2 \amp + \dots \amp + a_{mn}x_n \amp = b_n
+\end{alignat*}
+</div>we define,<div class="displaymath">
+\begin{equation*}
+\underbrace{A = \begin{bmatrix}
+a_{11} \amp a_{12} \amp \dots \amp a_{1n} \\
+a_{21} \amp a_{22} \amp \dots \amp a_{2n} \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
+\end{bmatrix}}_{\text{matrix of coefficients}}
+\qquad
+\underbrace{\vec{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}}_{\text{vector of unknowns}} \qquad \underbrace{\vec{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}}_{\text{constant vector}}
+\end{equation*}
+</div>Then, the system can be represented compactly in the form \(A\vec{x} = \vec{b}\text{.}\) This matrix form captures all of the information of the linear system.</section><section class="subsection" id="subsection-57"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.3</span> <span class="title">Linear Combination Interpretation</span>
+</h3>
+<p id="p-290">From the previous definition of a matrix-vector product, we can expand out the product as,</p>
+<div class="displaymath">
+\begin{align*}
+A\vec{x} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \dots + x_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \dots + a_{mn} x_n \end{bmatrix} \amp = \begin{bmatrix} a_{11} x_1 \\ a_{21} x_1 \\ \vdots \\ a_{m1} x_1 \end{bmatrix} + \begin{bmatrix} a_{12} x_2 \\ a_{22} x_2 \\ \vdots \\ a_{m2} x_2 \end{bmatrix} + \dots + \begin{bmatrix} a_{1n} x_n \\ a_{2n} x_n \\ \vdots \\ a_{mn} x_n \end{bmatrix}\\
+\amp = x_1 \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{bmatrix} + x_2 \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{bmatrix} + \dots + x_n \begin{bmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn} x_n \end{bmatrix}
+\end{align*}
+</div> In this way, the product \(A\vec{x}\) is precisely a linear combination of the columns of \(A\text{,}\) with weights given by the entries of \(\vec{x}\text{.}\) In summary, <article class="theorem theorem-like" id="theorem-16"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
+</h4>
+<p id="p-291">The product \(A\vec{x}\) is the linear combination of the columns of \(A\) with the corresponding entries of \(\vec{x}\) as weights. More precisely, if \(A = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \cdots \amp \vec{a}_n \end{bmatrix}\text{,}\) and \(\vec{x} = (x_1, \dots, x_n)\text{,}\) then,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{A \vec{x} = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \cdots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = x_1 \vec{a}_1 + \dots + x_n \vec{a}_n}
+\end{equation*}
+</div></article></section><section class="subsection" id="subsection-58"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.4</span> <span class="title">Matrix Equations as Linear Systems</span>
+</h3>
+<p id="p-292">This provides yet another interpretation of linear systems.</p>
+<article class="theorem theorem-like" id="theorem-17"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
+</h4>
+<p id="p-293">Let \(A\) be an \(m \times n\) matrix with columns \(\vec{a}_1, \dots, \vec{a}_n\text{,}\) and let \(\vec{b} \in \mathbb{R}^m\text{.}\) Then, the matrix equation \(A\vec{x} = \vec{b}\) has precisely the same solution set as the system of linear equations whose augmented matrix is,</p>
+<div class="displaymath">
+\begin{equation*}
+\begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \amp \dots \amp \vec{a}_n \amp \vec{b} \end{bmatrix}
+\end{equation*}
+</div></article><article class="corollary theorem-like" id="corollary-3"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
+</h4>
+<p id="p-294">The equation \(A\vec{x} = \vec{b}\) has a solution if and only if \(\vec{b}\) is a linear combination of the columns of \(A\text{.}\)</p></article></section><section class="subsection" id="subsection-59"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.5</span> <span class="title">The Identity Matrix</span>
+</h3>
+<p id="p-295">Recall that for real numbers, multiplying a number by 1 results in the number being unchanged. We say that 1 is the <em class="emphasis">multiplicative identity</em> for real numbers, and that \(a \cdot 1 = a\) for all \(a \in \mathbb{R}\text{.}\) Similarly, we can define a matrix which, when multiplied by any vector, leaves it unchanged. This matrix is called an <em class="emphasis">identity matrix</em>.</p>
+<article class="definition definition-like" id="definition-37"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span>
+</h4>An <dfn class="terminology">identity matrix</dfn> is a square matrix with 1's along the main diagonal (from top left to bottom right) and 0's everywhere else. In particular, the \(n \times n\) identity matrix is denoted by \(I_n\text{,}\) and is given by,<div class="displaymath">
+\begin{equation*}
+I_n = \begin{bmatrix} 1 \amp 0 \amp \dots \amp 0 \\ 0 \amp 1 \amp \dots \amp 0 \\ \vdots \amp \vdots \amp \ddots \amp \vdots \\ 0 \amp 0 \amp \dots \amp 1 \end{bmatrix}
+\end{equation*}
+</div></article><p id="p-296">For example, the \(2 \times 2\) identity matrix \(I_2\) and the \(3 \times 3\) identity matrix \(I_3\) are given by,</p>
+<div class="displaymath">
+\begin{equation*}
+I_2 = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \qquad I_3 = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p id="p-297">The identity matrix acts as a <em class="emphasis">multiplicative identity</em>, in that it has the property that \(I_n \vec{x} = \vec{x}\) for all \(\vec{x} \in \mathbb{R}^n\text{.}\) Indeed, for example,</p>
+<div class="displaymath">
+\begin{equation*}
+I_2 \vec{x} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = x_1 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \vec{x}
+\end{equation*}
+</div></section><section class="subsection" id="subsection-60"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.6</span> <span class="title">Properties of the Matrix-Vector Product</span>
+</h3>
+<article class="theorem theorem-like" id="theorem-18"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span>
+</h4>
+<p id="p-298">Let \(A\) be an \(m \times n\) matrix, \(\vec{u}, \vec{v} \in \mathbb{R}^n\) be vectors, \(c \in \mathbb{R}\) be a scalar. Then,</p>
+<ol class="decimal">
+<li id="li-96"><p id="p-derived-li-96">\(\displaystyle A(\vec{u} + \vec{v}) = A\vec{u} + A\vec{v}\)</p></li>
+<li id="li-97"><p id="p-derived-li-97">\(\displaystyle A(c\vec{u}) = c(A\vec{u})\)</p></li>
+</ol></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="title">Proof of \(2 \times 2\) case.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"> Let \(A = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix}, \vec{u} = (u_1, u_2), \vec{v} = (v_1, v_2)\text{.}\) Then,<div class="displaymath">
+\begin{align*}
+A(\vec{u} + \vec{v}) \amp = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix} \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \end{bmatrix}\\
+\amp = (u_1 + v_1) \vec{a}_1 + (u_2 + v_2) \vec{a}_2\\
+\amp = u_1 \vec{a}_1 + v_1 \vec{a}_1 + u_2 \vec{a}_2 + v_2 \vec{a}_2\\
+\amp = \brac{u_1 \vec{a}_1 + u_2 \vec{a}_2} + \brac{v_1 \vec{a}_1 + v_2 \vec{a}_2}\\
+\amp = A\vec{u} + A\vec{v}
+\end{align*}
+</div>Also,<div class="displaymath">
+\begin{align*}
+A(c\vec{u}) \amp = \begin{bmatrix} \vec{a}_1 \amp \vec{a}_2 \end{bmatrix} \begin{bmatrix} cu_1 \\ cu_2 \end{bmatrix}\\
+\amp = cu_1 \vec{a}_1 + cu_2 \vec{a}_2\\
+\amp = c\brac{u_1 \vec{a}_1 + u_2 \vec{a}_2}\\
+\amp = c (A\vec{u})
+\end{align*}
+</div></article></div>
+<article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h4 class="heading"><span class="title">Proof of general case.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"> Let \(A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}, \vec{u} = (u_1, \dots, u_n), \vec{v} = (v_1, \dots, v_n)\text{.}\) Then,<div class="displaymath">
+\begin{align*}
+A(\vec{u} + \vec{v}) \amp = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} u_1 + v_1 \\ \vdots \\ u_n + v_n \end{bmatrix}\\
+\amp = (u_1 + v_1) \vec{a}_1 + \dots + (u_n + v_n) \vec{a}_n\\
+\amp = u_1 \vec{a}_1 + \dots + u_n \vec{a}_n + v_1 \vec{a}_1 + \dots + v_n \vec{a}_n\\
+\amp = A\vec{u} + A\vec{v}
+\end{align*}
+</div>Also,<div class="displaymath">
+\begin{align*}
+A(c\vec{u}) \amp = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix} \begin{bmatrix} cu_1 \\ \vdots \\ cu_n \end{bmatrix}\\
+\amp = cu_1 \vec{a}_1 + \dots + cu_n \vec{a}_n\\
+\amp = c\brac{u_1 \vec{a}_1 + \dots + u_n \vec{a}_n}\\
+\amp = c(A\vec{u})
+\end{align*}
+</div></article></div></section></section></div></main>
+</div>
+</body>
+</html>

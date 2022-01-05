@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-05T10:27:34-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Real Coordinate Spaces, Column Space and Null Space</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\renewcommand{\neg}{\sim}
+\newcommand{\brac}[1]{\left( #1 \right)}
+\newcommand{\eval}[1]{\left. #1 \right|}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\ihat}{\mathbf{\hat{\imath}}}
+\newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+\newcommand{\khat}{\mathbf{\hat{k}}}
+\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+    
+
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} 
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\Row}{Row}
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Null}{N}
+\DeclareMathOperator{\Image}{Im}
+\newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\colrk}{colrk}
+\DeclareMathOperator{\rowrk}{rowrk}
+\newcommand{\tr}[1]{tr\left( #1 \right)}
+\DeclareMathOperator{\matref}{ref}
+\DeclareMathOperator{\matrref}{rref}
+\DeclareMathOperator{\sol}{Sol}
+\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+
+\newcommand{\prob}[1]{P\left( #1 \right)}
+\newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+
+\renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-ITVS.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-ITVS.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-LI.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-ITVS.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-ITVS.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-LI.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
+<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
+<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
+<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
+<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
+<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
+<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
+<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
+<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
+<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
+<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
+<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
+<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
+<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
+<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
+<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
+<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
+<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
+<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
+<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS" class="active">Real Coordinate Spaces, Column Space and Null Space</a></li>
+<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
+<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
+<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
+<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
+<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
+<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
+<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-27.html" data-scroll="section-27">Vector Spaces and Subspaces</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+</li>
+<li class="link">
+<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul><li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-RCSCSNS"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Real Coordinate Spaces, Column Space and Null Space</span>
+</h2>
+<section class="introduction" id="introduction-24">Now, the “real” linear algebra. Applications of vector spaces in engineering, physics, and statistics.</section><section class="subsection" id="subsection-98"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.1</span> <span class="title">Introduction to Vector Spaces</span>
+</h3>
+<p id="p-523">A vector space is a space of vectors. Broadly, a “space” is a set of objects which satisfy some specific conditions. In particular, vector spaces are sets of vectors for which we can perform the fundamental operations for vectors: addition and scalar multiplication. That is, we can take linear combinations.</p>
+<p id="p-524">Slightly more precisely, a vector space is a set \(V\) of vectors for which adding any two vectors in \(V\) is a vector that is also in \(V\text{,}\) and the scalar multiple of any vector in \(V\) is also in \(V\text{.}\) In other words, adding and scaling vectors in the space “stays” in the space.</p>
+<article class="definition definition-like" id="definition-48"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
+</h4>
+<p id="p-525">A <dfn class="terminology">vector space</dfn> is a set of vectors \(V\) such that,</p>
+<ol class="decimal">
+<li id="li-126"><p id="p-derived-li-126">If \(\vec{u}, \vec{v} \in V\text{,}\) then \(\vec{u} + \vec{v} \in V\) also.</p></li>
+<li id="li-127"><p id="p-derived-li-127">If \(\vec{v} \in V\) and \(c \in \mathbb{R}\text{,}\) then \(c\vec{v} \in V\) also.</p></li>
+</ol></article><p id="p-526">This property that combining objects through some operation producing another object also within the set is called <dfn class="terminology">closure</dfn>. Then, a vector space is a set of vectors which is closed under addition and scalar multiplication. More compactly, we can say a vector space is <dfn class="terminology">closed under taking linear combinations</dfn>.</p>
+<article class="example example-like" id="example-34"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space \(\mathbb{R}^2\).</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><p id="p-527">The set \(\mathbb{R}^2\) of all vectors with two real number components, is a vector space.</p></article></div>
+<article class="example example-like" id="example-35"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space \(\mathbb{R}\).</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><p id="p-528">The real numbers \(\mathbb{R}\) can also be considered a vector space. The sum of two real numbers is a real number, and multiplying a real number by another real number is a real number.</p></article></div>
+<article class="example example-like" id="example-36"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space \(\mathbb{R}^n\).</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><p id="p-529">More generally, \(\mathbb{R}^n\) is a vector space.</p></article></div></section><section class="subsection" id="subsection-99"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.2</span> <span class="title">Subspaces</span>
+</h3>
+<p id="p-530">Many interesting vector spaces are subsets of other vectors spaces. This naturally leads to the concept of a vector subspace.</p>
+<p id="p-531">Let \(V\) be a vector space. Then, a subset \(U \subseteq V\) is a <dfn class="terminology">vector subspace</dfn> of \(V\) (or simply <dfn class="terminology">subspace</dfn>) if \(U\) is itself a vector space.</p>
+<p id="p-532">For now, most of the vector spaces we encounter will be subspaces of \(\mathbb{R}^n\text{,}\) for some \(n\text{.}\)</p>
+<article class="example example-like" id="example-37"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-37"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Subspaces of \(\mathbb{R}^2\).</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-37"><article class="example example-like"><p id="p-533">Consider the possible subspaces of \(\mathbb{R}^2\text{.}\) Let \(U \subseteq \mathbb{R}^2\) be a subspace. First, notice that if \(\vec{v} \in U\) is any vector, then \(0 \vec{v} = \vec{0}\) is also in \(U\text{,}\) because \(U\) is closed under scalar multiplication. Thus, any subspace of \(\mathbb{R}^2\) must contain the zero vector. Indeed, the vector space containing only the zero vector \(U = \set{\vec{0}}\) is a vector space. This can be trivially verified, since any scalar multiple of \(\vec{0}\) is \(\vec{0}\text{,}\) and any sum of \(\vec{0}\) is \(\vec{0}\text{.}\)</p>
+<p id="p-534">Then, suppose \(U\) contains any non-zero vector \(\vec{d} \neq \vec{0}\text{.}\) Then, \(U\) must also contain all scalar multiples of \(\vec{d}\text{.}\) Thus, \(U\) must contain the line parallel to \(\vec{d}\) and through the origin. Indeed, this set, which is a line in \(\mathbb{R}^2\text{,}\) or the span of \(\vec{d}\text{,}\) is a vector space.</p>
+<div class="displaymath">
+\begin{equation*}
+U = \span{\vec{d}} = \set{c \vec{d}: c \in \mathbb{R}}
+\end{equation*}
+</div>
+<p id="p-535">Indeed, if \(\vec{u}, \vec{v} \in U\text{,}\) then they are both scalar multiples of \(\vec{d}\text{.}\) Then, \(\vec{u} = a \vec{d}, \vec{v} = b \vec{d}\) for some scalars \(a, b \in \mathbb{R}\text{.}\) Then, \(\vec{u} + \vec{v} = a\vec{d} + b\vec{d} = (a + b) \vec{d}\) is also a scalar multiple of \(\vec{d}\text{,}\) and so is also in \(U\text{.}\) Also, for any scalar \(c\text{,}\) \(c\vec{v} = (cb) \vec{v}\) is also a scalar multiple of \(\vec{d}\text{,}\) and so is in \(U\text{.}\) Thus, \(U\) is a vector space.</p>
+<p id="p-536">Next, suppose that \(U\) contains another vector which is not parallel to \(\vec{d}\text{,}\) say these two vectors are now called \(\vec{v}_1\) and \(\vec{v}_2\text{.}\) Then, their span is a vector space. In this case, it makes up the entire plane \(\mathbb{R}^2\text{.}\)</p>
+<p id="p-537">In summary, the possible subspaces of \(\mathbb{R}^2\) are a single point (the origin), a line through the origin, and the entire plane.</p></article></div>
+<article class="example example-like" id="example-38"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-38"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Subspaces of \(\mathbb{R}^3\).</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-38"><article class="example example-like"><p id="p-538">The possible subspaces of \(\mathbb{R}^3\) are a single point (the origin), a line through the origin, a plane through the origin, or the entire 3D space.</p></article></div></section><section class="subsection" id="subsection-100"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.3</span> <span class="title">Spans of Vectors as a Subspace</span>
+</h3>
+<p id="p-539">Almost by definition, the span of vectors in \(\mathbb{R}^n\) is a subspace of \(\mathbb{R}^n\text{.}\) Let \(\vec{v}_1, \vec{v}_2 \in \mathbb{R}^n\text{.}\) Then, consider \(H = \Span{\vec{v}_1, \vec{v}_2}\text{.}\) For \(\vec{u}, \vec{v} \in H\text{,}\) \(\vec{u} = s_1 \vec{v}_1 + s_2 \vec{v}_2\) and \(\vec{v} = t_1 \vec{v}_1 + t_2 \vec{v}_2\) for some scalars \(s_1, s_2, t_1, t_2\text{.}\) Then,</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{u} + \vec{v} = (s_1 + t_1) \vec{v}_1 + (s_2 + t_2) \vec{v}_2
+\end{equation*}
+</div>
+<p id="p-540">so \(\vec{u} + \vec{v}\) is a linear combination of \(\vec{v}_1, \vec{v}_2\text{,}\) and so \(\vec{u} + \vec{v} \in H\text{.}\) Also, for a scalar \(c \in \mathbb{R}\text{,}\) \(c\vec{u} = c(s_1 \vec{v}_1 + s_2 \vec{v}) = (cs_1) \vec{v}_1 + (cs_2) \vec{v}_2\text{,}\) and so \(c\vec{u} \in H\) also.</p>
+<p id="p-541">More generally,</p>
+<article class="definition definition-like" id="definition-49"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.7</span><span class="period">.</span>
+</h4>For a collection of vectors \(\vec{v}_1, \dots, \vec{v}_p \in \mathbb{R}^n\text{,}\) their span \(\Span{\vec{v}_1, \dots, \vec{v}_p}\) is a subspace of \(\mathbb{R}^n\text{.}\) Then, \(\Span{\vec{v}_1, \dots, \vec{v}_p}\) is called the <dfn class="terminology">subspace spanned by</dfn>\(\vec{v}_1, \dots, \vec{v}_p\text{.}\)</article><p id="p-542">Conversely, if \(H = \Span{\vec{v}_1, \dots, \vec{v}_p}\text{,}\) then the subspace \(H\) is <dfn class="terminology">spanned</dfn> by \(\vec{v}_1, \dots, \vec{v}_p\text{.}\)</p>
+<p id="p-543">Also, the subspace \(\Span{\vec{v}_1, \dots, \vec{v}_p}\) is the smallest subspace of \(\mathbb{R}^n\) which contains the vectors \(\vec{v}_1, \dots, \vec{v}_p\text{.}\) Intuitively, if \(H\) is a subspace that contains \(\vec{v}_1, \dots, \vec{v}_p\text{,}\) then at minimum, \(H\) must contain all of the linear combinations of these vectors. If we stop there, we form precisely the span of these vectors.</p></section><section class="subsection" id="subsection-101"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.4</span> <span class="title">Vector Spaces of \(\mathbb{R}^n\)</span>
+</h3>
+<p id="p-544">Every vector space (and subspace) must contain the zero vector \(\vec{0}\text{.}\)</p></section><section class="subsection" id="subsection-102"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.5</span> <span class="title">Intersection of Subspaces is a Subspace</span>
+</h3></section><section class="subsection" id="subsection-103"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.6</span> <span class="title">The Column Space</span>
+</h3>
+<p id="p-545">Subspaces often arise in connection with some matrix \(A\text{.}\) The two most important ways to construct subspaces are called the column space and null space, of a matrix.</p>
+<article class="definition definition-like" id="definition-50"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.8</span><span class="period">.</span>
+</h4>
+<p id="p-546">The <dfn class="terminology">column space</dfn> of a matrix \(A\) is the set of all linear combinations of the column vectors of \(A\text{.}\) More precisely, if \(A\) is an \(m \times n\) matrix, \(A = \begin{bmatrix} \vec{a}_1 \amp \dots \amp \vec{a}_n \end{bmatrix}\text{,}\) then the column space, denoted by \(C(A)\text{,}\) is defined by,</p>
+<div class="displaymath">
+\begin{equation*}
+\boxed{C(A) = \Span{\vec{a}_1, \dots, \vec{a}_n}}
+\end{equation*}
+</div></article><p id="p-547">The column space of an \(m \times n\) matrix \(A\) is a subspace of \(\mathbb{R}^m\) (since the column vectors are vectors in \(\mathbb{R}^m\)).</p>
+<p id="p-548">Recall that \(\vec{b}\) is in the span of \(\vec{a}_1, \dots, \vec{a}_n\) if and only if the linear system \(A\vec{x} = \vec{b}\) has a solution. Then, the column space is equiavlently the set of all vectors \(\vec{b}\) such that \(A\vec{x} = \vec{b}\) has a solution. Conversely, \(A\vec{x} = \vec{b}\) has a solution precisely when \(\vec{b}\) is in the column space of \(A\text{.}\)</p></section><section class="subsection" id="subsection-104"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.7</span> <span class="title">The Null Space</span>
+</h3>
+<article class="definition definition-like" id="definition-51"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.9</span><span class="period">.</span>
+</h4>
+<p id="p-549">Let \(A\) be an \(n \times m\) matrix. Then, the <dfn class="terminology">null space</dfn> of \(A\text{,}\) \(N(A)\text{,}\) is the set of all solutions to the homogeneous system \(A\vec{x} = \vec{0}\text{.}\) In other words, it is the set of all vectors \(\vec{x}\) such that \(A\vec{x} = \vec{0}\text{,}\) or</p>
+<div class="displaymath">
+\begin{equation*}
+N(A) = \set{\vec{x} \in \mathbb{R}^n : A\vec{x} = \vec{0}}
+\end{equation*}
+</div></article><p id="p-550">Certainly, the zero vector \(\vec{0} \in N(A)\text{,}\) because \(A\vec{0} = \vec{0}\) for any matrix \(A\text{.}\)</p>
+<article class="theorem theorem-like" id="theorem-41"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.10</span><span class="period">.</span>
+</h4>
+<p id="p-551">The null space is a subspace. More precisely, if \(A\) is an \(n \times m\) matrix, then \(N(A)\) is a subspace of \(\mathbb{R}^n\text{.}\)</p></article><article class="hiddenproof" id="proof-20"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof"><p id="p-552">Let \(\vec{x}, \vec{y} \in N(A), c \in \mathbb{R}\text{.}\) Then, \(A\vec{x} = \vec{0}\) and \(A\vec{y} = \vec{0}\text{.}\) Then,</p>
+<div class="displaymath">
+\begin{align*}
+A(\vec{x} + \vec{y}) \amp = A\vec{x} + A\vec{y}\\
+\amp = \vec{0} + \vec{0}\\
+\amp = \vec{0}
+\end{align*}
+</div>
+<p id="p-553">and so \(\vec{x} + \vec{y} \in N(A)\text{.}\) Also,</p>
+<div class="displaymath">
+\begin{align*}
+A(c\vec{x}) \amp = c(A\vec{x})\\
+\amp = c \cdot \vec{0}\\
+\amp = \vec{0}
+\end{align*}
+</div>
+<p id="p-554">and so \(c\vec{x} \in N(A)\text{.}\) Thus, \(N(A)\) is a subspace.</p></article></div>
+<p id="p-555">The null space is special, because for a general matrix \(A\) and vector \(\vec{b}\text{,}\) the set of all solutions \(\vec{x}\) such that \(A\vec{x} = \vec{b}\) is not a vector space (i.e. if \(\vec{b} \neq \vec{0}\)). For example, because \(\vec{0}\) is not a solution and so is not in the solution set. Graphically, the solution set may be a line or plane which does not go through the origin.</p></section><section class="subsection" id="subsection-105"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.1.8</span> <span class="title">Contrasting the Column and Null Space</span>
+</h3>
+<p id="p-556">The most basic difference between the column space and null space is that the column space is a set of output vectors in \(\mathbb{R}^m\text{,}\) whereas the null space is a set of input vectors in \(\mathbb{R}^n\text{.}\)</p>
+<p id="p-557">The null space is defined by specifying a condition for which its vectors must satisfy. On the other hand, the column space is defined by specifying how to construct each vector by linear combinations. For this reason, the null space is said to be defined <em class="emphasis">implicitly</em>, whereas the column space is defined <em class="emphasis">explicitly</em>.</p>
+<p id="p-558">Because the column space is defined explicitly, it is easy to construct elements of the column space, simply by specifing values for the coefficients. To determine an explicit description of \(N(A)\text{,}\) solve the homogeneous system \(A\vec{x} = \vec{0}\text{,}\) and write the solution set in parametric vector form. Then, recall that the solution set to a homogeneous system is always a span of vectors. Then, the null space can always be written explicitly as the span of some vectors.</p>
+<p id="p-559">On the other hand, because the null space is defined implicitly by a condition, it is easy to verify if a given vector \(\vec{x}\) is in the null space \(N(A)\text{,}\) simply by computing \(A\vec{x}\) and checking whether or not it is equal to the zero vector. To determine if \(\vec{b} \in C(A)\text{,}\) we have to consider the system of equations \(A\vec{x} = \vec{b}\text{,}\) and determine if there is a solution or not.</p></section></section></div></main>
+</div>
+</body>
+</html>

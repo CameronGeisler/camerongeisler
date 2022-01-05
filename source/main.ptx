@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the main file of the pretext template book provided -->
+<!-- by the `pretext new book` command.  The main.ptx here always-->
+<!-- starts with <pretext> tags.  In this example, the main file -->
+<!-- just imports other .ptx files which contain content. Open   -->
+<!-- those files to see more pretext features                    -->
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <!-- we first include a file which contains the docinfo element: -->
+    <xi:include href="./docinfo.ptx" />
+
+    <!-- The <book> tags wrap all the content.  Change the @xml:id   -->
+    <!-- to some short (non-spaced) description of your book         -->
+    <book xml:id="book" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <!-- The book needs a title and can have a subtitle  -->
+        <title>Linear Algebra Notes</title>
+        <!-- <subtitle></subtitle> -->
+
+        <introduction>
+            These notes are roughly based on:
+            <ul>
+                <li>Linear Algebra and Its Applications (Lay).</li>
+                <li>MATH 223 Linear Algebra (University of British Columbia)</li>
+                <li><url href="https://www.youtube.com/playlist?list=PLIljB45xT85BhzJ-oWNug1YtUjfWp1qAp">Wild Linear Algebra (Norman Wildberger)</url></li>
+                <li><url href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra (Grant Sanderson)</url></li>
+                <li><url href="https://www.youtube.com/playlist?list=PL221E2BBF13BECF6C">MIT 18.06 Linear Algebra (Gilbert Strang)</url></li>
+                <li>CPSC 314 Computer Graphics (University of British Columbia)</li>
+            </ul>
+        </introduction>
+        <!-- Now we include files containing each main devision.       -->
+
+        <!-- First a frontmatter for prefaces and such. Maybe comment  -->
+        <!-- out for now and write this when the book is more complete -->
+        <!-- <xi:include href="./frontmatter.ptx" /> -->
+
+        <!-- The first chapter will be bare bones to illustrate the    -->
+        <!-- possible structure of the book.  Once you know what the   -->
+        <!-- title of the chapter is, rename the file something based  -->
+        <!-- on the title (ch-shorttitle.ptx) both here and on disk    -->
+        <xi:include href="./chapter-ITLA.xml"/>
+        <xi:include href="./chapter-SOLEAITM.xml"/>
+        <xi:include href="./chapter-VAG.xml"/>
+        <xi:include href="./chapter-VALE.xml"/>
+        <xi:include href="./chapter-MALT.xml"/>
+        <xi:include href="./chapter-ITVS.xml"/>
+        <xi:include href="./chapter-D.xml"/>
+        <xi:include href="./chapter-GVS.xml"/>
+        <xi:include href="./chapter-EAE.xml"/>
+        
+        <xi:include href="./chapter-MISC.xml"/>
+        <!-- Of course you will want to add more chapters as you proceed-->
+    </book>
+</pretext>

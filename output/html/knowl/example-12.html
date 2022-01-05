@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-05T10:27:36-08:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">4.1.8</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="title">Two vectors in \(\mathbb{R}^2\).</span>
+</h4>
+<p>Consider two vectors \(\vec{u}, \vec{v}\) in \(\mathbb{R}^2\text{.}\) Then, by definition,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\Span{\vec{u}, \vec{v}} = \set{a \vec{u} + b \vec{v}: a, b \in \mathbb{R}}
+\end{equation*}
+</div>
+<p>First, suppose that \(\vec{u}, \vec{v} \neq \vec{0}\) are non-zero. If \(\vec{u}, \vec{v}\) are not parallel, then it turns out that the span of \(\vec{u}\) and \(\vec{v}\) is all of \(\mathbb{R}^2\text{,}\) i.e. the entire plane. That is, every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\vec{u}, \vec{v}\text{.}\)</p>
+<p>For example, a familiar case is for the standard basis vectors \(\ihat, \jhat\text{.}\) These vectors are not parallel (they are perpendicular), so,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\Span{\ihat, \jhat} = \set{a \cdot \ihat + b \cdot \jhat : a, b \in \mathbb{R}}
+\end{equation*}
+</div>
+<p>and we know that every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\ihat\) and \(\jhat\text{.}\)</p>
+<p>If \(\vec{u}, \vec{v}\) are parallel, that is, either vector is a scalar multiple of the other, then the span of \(\vec{u}, \vec{v}\) is a line (in the plane). Intuitively, the second vector doesn't “add” any new additional possible vectors. More precisely, if say \(\vec{u} = k \vec{v}\text{,}\) then,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{align*}
+a\vec{u} + b\vec{v} \amp = ak \vec{v} + b \vec{v}\\
+\amp = (ak + b) \vec{v}
+\end{align*}
+</div>
+<p>That is, any linear combination of \(\vec{u}\) and \(\vec{v}\) is really just a multiple of \(\vec{v}\text{.}\) Conversely, any multiple of \(\vec{v}\) can be written as \(a\vec{u} + b \vec{v}\) for some weights \(a, b\text{.}\) All of this reasoning can be oriented in the opposite direction, to say that all linear combinations \(a\vec{u} + b\vec{v}\) are just a multiple of \(\vec{u}\text{.}\) That is,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+\begin{equation*}
+\Span{\vec{u}, \vec{v}} = \Span{\vec{v}} = \Span{\vec{u}}
+\end{equation*}
+</div>
+<p>In the most extremely pathological case, if \(\vec{u}, \vec{v}\) are both the zero vector, then their span is just the zero vector, i.e. a single point.</p></article><span class="incontext"><a href="section-VES.html#example-12">in-context</a></span>
+</body>
+</html>

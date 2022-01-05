@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The docinfo block is the analogue to the latex preamble -->
+<!-- This is where you can define macros and other book-wide -->
+<!--  settings.                                              -->
+<docinfo xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!-- The next three lines are likely for mature projects only: -->
+
+<!-- <brandlogo url="" source="images/cover.png"/> -->
+<!-- <covers front="images/front.pdf" back="images/back.pdf"/> -->
+<!-- <document-id>unique-book-id</document-id> -->
+
+<!-- macros for defining latex math shortcuts. It is good practice  -->
+<!-- to define these semantically, so that the macro relates to what-->
+<!-- it defines.                                                    -->
+<macros>
+    <!-- %% Math -->
+    \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+    \newcommand{\set}[1]{\left\{ #1 \right\}}
+    \renewcommand{\neg}{\sim}
+    \newcommand{\brac}[1]{\left( #1 \right)}
+    \newcommand{\eval}[1]{\left. #1 \right|}
+
+    <!-- %% Vectors -->
+    \renewcommand{\vec}[1]{\mathbf{#1}}
+    \newcommand{\ihat}{\mathbf{\hat{\imath}}}
+    \newcommand{\jhat}{\mathbf{\hat{\jmath}}}
+    \newcommand{\khat}{\mathbf{\hat{k}}}
+    \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
+    \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+
+        
+    <!-- %% Linear algebra -->
+    \newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{#1}{c}|c@{}}}{\end{array}\right]} %% for augmented matrix
+    \DeclareMathOperator{\Ker}{Ker}
+    \DeclareMathOperator{\nullity}{nullity}
+    \DeclareMathOperator{\Row}{Row}
+    \DeclareMathOperator{\Col}{Col}
+    \DeclareMathOperator{\Null}{N}
+    \DeclareMathOperator{\Image}{Im}
+    \newcommand{\Span}[1]{\text{Span}\left(#1 \right)}
+    \DeclareMathOperator{\rank}{rank}
+    \DeclareMathOperator{\colrk}{colrk}
+    \DeclareMathOperator{\rowrk}{rowrk}
+    \newcommand{\tr}[1]{tr\left( #1 \right)}
+    \DeclareMathOperator{\matref}{ref}
+    \DeclareMathOperator{\matrref}{rref}
+    \DeclareMathOperator{\sol}{Sol}
+    \newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+    \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+    
+    <!-- %% Statistics -->
+    \newcommand{\prob}[1]{P\left( #1 \right)}
+    \newcommand{\overbar}[1]{\mkern 1.5mu \overline {\mkern-1.5mu#1 \mkern-1.5mu} \mkern 1.5mu}
+    
+    \renewcommand{\frame}[1]{\tilde{\underline{\vec{#1}}}}
+</macros>
+
+<latex-preamble>
+  \usepackage{cancel}
+  <!-- \usepackage{systeme} -->
+</latex-preamble>
+
+<!-- If you put any latex-image elements you can include preambles  -->
+<!-- for those in the next element.                                 -->
+<latex-image-preamble>
+  \usepackage{tikz, pgfplots}
+  \usetikzlibrary{positioning,matrix,arrows}
+  \usetikzlibrary{shapes,decorations,shadows,fadings,patterns}
+  \usetikzlibrary{decorations.markings} 
+</latex-image-preamble>
+
+<!-- It is possible to rename elements using the tags below -->
+  <rename element="investigation" xml:lang="en-US">Puzzle</rename>
+  <rename element="assemblage" xml:lang="en-US">Summary</rename>
+
+<!-- Specify the default type of cross reference:           -->
+  <cross-references text="type-global" />
+  
+</docinfo>
