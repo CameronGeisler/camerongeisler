@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-05T10:27:33-08:00       *-->
+<!--*       on 2022-01-13T16:19:39-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -176,50 +176,50 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-ITLT"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Intro to Linear Transformations</span>
 </h2>
-<section class="introduction" id="introduction-18">Another benefit of the matrix form \(A\vec{x} = \vec{b}\) of a linear system is that it allows us to view a matrix \(A\) as an object that “acts” on a vector \(\vec{x}\) to produce a new vector \(A\vec{x}\text{.}\) This is analogous to how a function \(f(x)\)“acts” on the number \(x\) to produce the output \(f(x)\text{.}\) This new perspective on a matrix is called a <em class="emphasis">transformation</em>, and it is a generalization of a real-valued function \(f(x)\text{,}\) developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an \(n\) real number inputs (a vector in \(\mathbb{R}^n\)), and an \(m\) real number output (a vector in \(\mathbb{R}^m\)).</section><section class="subsection" id="subsection-69"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-18">Another benefit of the matrix form \(A\vec{x} = \vec{b}\) of a linear system is that it allows us to view a matrix \(A\) as an object that “acts” on a vector \(\vec{x}\) to produce a new vector \(A\vec{x}\text{.}\) This is analogous to how a function \(f(x)\)“acts” on the number \(x\) to produce the output \(f(x)\text{.}\) This new perspective on a matrix is called a <em class="emphasis">transformation</em>, and it is a generalization of a real-valued function \(f(x)\text{,}\) developed in pre-calculus. A real-valued function has a single real number input and a single real number output. A transformation has an \(n\) real number inputs (a vector in \(\mathbb{R}^n\)), and an \(m\) real number output (a vector in \(\mathbb{R}^m\)).</section><section class="subsection" id="subsection-74"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.2.1</span> <span class="title">Transformations</span>
 </h3>
 <article class="definition definition-like" id="definition-43"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
 </h4>A <dfn class="terminology">transformation</dfn> (or <dfn class="terminology">mapping</dfn>) \(T\) form \(\mathbb{R}^n\) to \(\mathbb{R}^m\) is a rule which assigns to each vector \(\vec{x} \in \mathbb{R}^n\) a vector \(T(\vec{x})\) in \(\mathbb{R}^m\text{.}\) <ul class="disc">
-<li id="li-112"><p id="p-derived-li-112">The set \(\mathbb{R}^n\) is called the domain of \(T\) (more generally, a subset of \(\mathbb{R}^n\text{,}\) denoted by \(D(T)\)), and \(\mathbb{R}^m\) is called the <dfn class="terminology">codomain</dfn> of \(T\)</p></li>
-<li id="li-113"><p id="p-derived-li-113">For \(\vec{x} \in \mathbb{R}^n\text{,}\) the vector \(T(\vec{x})\) is called the <dfn class="terminology">image</dfn> of \(\vec{x}\text{.}\)</p></li>
-<li id="li-114"><p id="p-derived-li-114">The <dfn class="terminology">range</dfn> of \(T\) is the set of all images \(T(\vec{x})\text{.}\)</p></li>
-</ul></article><p id="p-349">The term “transformation” or “mapping” is used, however the concept is basically the same as the familiar function.</p>
-<p id="p-350">Intuitively, a transformation \(T\) can be understood in terms of the “movement” of mapping one vector to another. More generally, \(T\) maps its domain \(\mathbb{R}^n\) to its range, and this can be thought of as moving all possible input vectors to their corresponding output vectors. In particular, in \(\mathbb{R}^2\) can be thought of as a transformation in the sense of geometry, a way of changing the shape of some objects in some way (translation, rotation, stretching, expansion and compression, etc.).</p>
-<p id="p-351">If \(A\) is an \(m \times n\) matrix, then matrix multiplication by \(A\) is a transformation. In particular, the map \(T(\vec{x}) = A\vec{x}\) is a transformation from \(\mathbb{R}^n\) to \(\mathbb{R}^m\text{.}\)</p></section><section class="subsection" id="subsection-70"><h3 class="heading hide-type">
+<li id="li-115"><p id="p-derived-li-115">The set \(\mathbb{R}^n\) is called the domain of \(T\) (more generally, a subset of \(\mathbb{R}^n\text{,}\) denoted by \(D(T)\)), and \(\mathbb{R}^m\) is called the <dfn class="terminology">codomain</dfn> of \(T\)</p></li>
+<li id="li-116"><p id="p-derived-li-116">For \(\vec{x} \in \mathbb{R}^n\text{,}\) the vector \(T(\vec{x})\) is called the <dfn class="terminology">image</dfn> of \(\vec{x}\text{.}\)</p></li>
+<li id="li-117"><p id="p-derived-li-117">The <dfn class="terminology">range</dfn> of \(T\) is the set of all images \(T(\vec{x})\text{.}\)</p></li>
+</ul></article><p id="p-359">The term “transformation” or “mapping” is used, however the concept is basically the same as the familiar function.</p>
+<p id="p-360">Intuitively, a transformation \(T\) can be understood in terms of the “movement” of mapping one vector to another. More generally, \(T\) maps its domain \(\mathbb{R}^n\) to its range, and this can be thought of as moving all possible input vectors to their corresponding output vectors. In particular, in \(\mathbb{R}^2\) can be thought of as a transformation in the sense of geometry, a way of changing the shape of some objects in some way (translation, rotation, stretching, expansion and compression, etc.).</p>
+<p id="p-361">If \(A\) is an \(m \times n\) matrix, then matrix multiplication by \(A\) is a transformation. In particular, the map \(T(\vec{x}) = A\vec{x}\) is a transformation from \(\mathbb{R}^n\) to \(\mathbb{R}^m\text{.}\)</p></section><section class="subsection" id="subsection-75"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.2.2</span> <span class="title">Linear Transformations</span>
 </h3>
-<p id="p-352">In linear algebra, we only consider transformations with a particular “linear” property, called “linear transformations”. Recall that if \(A\) is an \(m \times n\) matrix, and \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) then,</p>
+<p id="p-362">In linear algebra, we only consider transformations with a particular “linear” property, called “linear transformations”. Recall that if \(A\) is an \(m \times n\) matrix, and \(\vec{x}, \vec{y} \in \mathbb{R}^n\text{,}\) then,</p>
 <div class="displaymath">
 \begin{equation*}
 A(\vec{x} + \vec{y}) = A\vec{x} + A\vec{y} \quad \text{and} \quad A(c\vec{x}) = cA\vec{x}
 \end{equation*}
 </div>
-<p id="p-353">These properties together make matrix multiplication a so-called “linear” transformation.</p>
+<p id="p-363">These properties together make matrix multiplication a so-called “linear” transformation.</p>
 <article class="definition definition-like" id="definition-44"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
 </h4>A transformation \(T\) is <dfn class="terminology">linear</dfn> if, <ol class="decimal">
-<li id="li-115"><p id="p-derived-li-115">\(T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})\) for all \(\vec{x}, \vec{y} \in D(T)\text{.}\)</p></li>
-<li id="li-116"><p id="p-derived-li-116">\(T(c \vec{x}) = c T(\vec{x})\) for all \(c \in \mathbb{R}, \vec{x} \in D(T)\text{.}\)</p></li>
-</ol></article><p id="p-354">Intuitively, property 2 means that if you scale the input by a factor of \(c\text{,}\) then the output will be correspondingly scaled by \(c\text{.}\)</p>
-<p id="p-355">Linear transformations are said to be <dfn class="terminology">operation preserving</dfn>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding \(\vec{x} + \vec{y}\) in \(\mathbb{R}^n\) and then applying \(T\) is equivalent to applying \(T\) to \(\vec{x}\) and \(\vec{y}\) and then adding their result in \(\mathbb{R}^m\text{.}\)</p>
-<p id="p-356">With this definition, every matrix transformation is a linear transformation.</p>
+<li id="li-118"><p id="p-derived-li-118">\(T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})\) for all \(\vec{x}, \vec{y} \in D(T)\text{.}\)</p></li>
+<li id="li-119"><p id="p-derived-li-119">\(T(c \vec{x}) = c T(\vec{x})\) for all \(c \in \mathbb{R}, \vec{x} \in D(T)\text{.}\)</p></li>
+</ol></article><p id="p-364">Intuitively, property 2 means that if you scale the input by a factor of \(c\text{,}\) then the output will be correspondingly scaled by \(c\text{.}\)</p>
+<p id="p-365">Linear transformations are said to be <dfn class="terminology">operation preserving</dfn>, in particular preserving the operations of addition and scalar multiplication. This is because for a linear map, adding \(\vec{x} + \vec{y}\) in \(\mathbb{R}^n\) and then applying \(T\) is equivalent to applying \(T\) to \(\vec{x}\) and \(\vec{y}\) and then adding their result in \(\mathbb{R}^m\text{.}\)</p>
+<p id="p-366">With this definition, every matrix transformation is a linear transformation.</p>
 <article class="theorem theorem-like" id="theorem-23"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Maps 0 to 0.</span>
 </h4>
-<p id="p-357">If \(T\) is a linear transformation, then \(T(\vec{0}) = \vec{0}\text{.}\)</p></article><article class="hiddenproof" id="proof-9"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof">By linearity, \(T(\vec{0}) = T(0\vec{x}) = 0 \cdot T(\vec{x}) = \vec{0}\text{.}\)</article></div>
-<p id="p-358">Geometrically, a transformation is linear if it maps all (straight) lines to lines, and fixes the origin. Linear transformations have the property that grid lines remain parallel and evenly spaced.</p>
+<p id="p-367">If \(T\) is a linear transformation, then \(T(\vec{0}) = \vec{0}\text{.}\)</p></article><article class="hiddenproof" id="proof-9"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof">By linearity, \(T(\vec{0}) = T(0\vec{x}) = 0 \cdot T(\vec{x}) = \vec{0}\text{.}\)</article></div>
+<p id="p-368">Geometrically, a transformation is linear if it maps all (straight) lines to lines, and fixes the origin. Linear transformations have the property that grid lines remain parallel and evenly spaced.</p>
 <article class="theorem theorem-like" id="theorem-24"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">General linear property.</span>
 </h4>
-<p id="p-359">Let \(T\) be a linear transformation, \(\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}\text{.}\) Then,</p>
+<p id="p-369">Let \(T\) be a linear transformation, \(\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{T(a_1 \vec{v}_1 + \dots + a_n \vec{v}_n) = a_1 T(\vec{v}_1) + \dots + a_n T(\vec{v}_n)}
 \end{equation*}
 </div>
-<p id="p-360">More compactly,</p>
+<p id="p-370">More compactly,</p>
 <div class="displaymath">
 \begin{equation*}
 T\brac{\sum_{k=1}^n a_k \vec{v}_k} = \sum_{k=1}^n a_k T(\vec{v}_k)

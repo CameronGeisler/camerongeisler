@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-05T10:27:34-08:00       *-->
+<!--*       on 2022-01-13T16:19:40-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -176,117 +176,117 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-CS"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.5</span> <span class="title">Coordinate Systems</span>
 </h2>
-<section class="subsection" id="subsection-112"><h3 class="heading hide-type">
+<section class="subsection" id="subsection-117"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.5.1</span> <span class="title">Coordinate Systems</span>
 </h3>
-<p id="p-605">Recall that a basis is a spanning set, in that every vector can be written as some linear combination of basis vectors. In addition, bases are useful because it turns out that every vector in a subspace \(H\) can be written <em class="emphasis">uniquely</em> as a linear combination of a basis of \(H\text{.}\)</p>
+<p id="p-615">Recall that a basis is a spanning set, in that every vector can be written as some linear combination of basis vectors. In addition, bases are useful because it turns out that every vector in a subspace \(H\) can be written <em class="emphasis">uniquely</em> as a linear combination of a basis of \(H\text{.}\)</p>
 <article class="theorem theorem-like" id="theorem-50"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Unique Representation theorem.</span>
 </h4>\(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_p}\)\(H\text{.}\)\(\vec{x} \in H\text{,}\)\(c_1, \dots, c_p\)<div class="displaymath">
 \begin{equation*}
 \vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><p id="p-606">Suppose that \(\vec{x}\) has two representations as linear combinations of \(\mathcal{B}\text{,}\) say \(\vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p\) and \(\vec{x} = d_1 \vec{b}_1 + \dots + d_p \vec{b}_p\text{.}\) Then, subtracting these two representations,</p>
+</div></article><article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><p id="p-616">Suppose that \(\vec{x}\) has two representations as linear combinations of \(\mathcal{B}\text{,}\) say \(\vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p\) and \(\vec{x} = d_1 \vec{b}_1 + \dots + d_p \vec{b}_p\text{.}\) Then, subtracting these two representations,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{0} = \vec{x} - \vec{x} = (c_1 - d_1) \vec{b}_1 + \dots + (c_p - d_p) \vec{b}_p
 \end{equation*}
 </div>
-<p id="p-607">Then, since \(\mathcal{B}\) is linearly independent, every weight must be equal to 0. Thus, \(c_i - d_i = 0\) for every \(i\text{,}\) or \(c_i = d_i\) for every \(i\text{.}\) That is, the representations are the same.</p></article></div>
+<p id="p-617">Then, since \(\mathcal{B}\) is linearly independent, every weight must be equal to 0. Thus, \(c_i - d_i = 0\) for every \(i\text{,}\) or \(c_i = d_i\) for every \(i\text{.}\) That is, the representations are the same.</p></article></div>
 <article class="definition definition-like" id="definition-57"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.5.2</span><span class="period">.</span>
 </h4>
-<p id="p-608">Let \(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_p}\) be a basis of a subspace \(H\text{.}\) Then, for \(\vec{x} \in H\text{,}\) the <dfn class="terminology">coordinates of \(\vec{x}\) relative to the basis</dfn> \(\mathcal{B}\) are the weights \(c_1, \dots, c_p\) such that \(\vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p\text{,}\) and the vector,</p>
+<p id="p-618">Let \(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_p}\) be a basis of a subspace \(H\text{.}\) Then, for \(\vec{x} \in H\text{,}\) the <dfn class="terminology">coordinates of \(\vec{x}\) relative to the basis</dfn> \(\mathcal{B}\) are the weights \(c_1, \dots, c_p\) such that \(\vec{x} = c_1 \vec{b}_1 + \dots + c_p \vec{b}_p\text{,}\) and the vector,</p>
 <div class="displaymath">
 \begin{equation*}
 [\vec{x}]_{\mathcal{B}} = \begin{bmatrix} c_1 \\ \vdots \\ c_p \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-609">is called the <dfn class="terminology">coordinate vector of \(\vec{x}\) relative to \(\mathcal{B}\)</dfn>.</p></article><p id="p-610">Intuitively, the coordinates of a vector \(\vec{x}\) are a “name” for \(\vec{x}\) that uniquely identifies it among all vectors in \(H\text{.}\) In this way, each basis acts as a different naming system. Alternatively, different bases can be thought of as different reference frames or different points of view on a given vector.</p>
-<p id="p-611">Then, consider the question of how to deterine the coordinates of a vector \(\vec{x}\text{,}\) given its coordinates in the standard basis.</p>
+<p id="p-619">is called the <dfn class="terminology">coordinate vector of \(\vec{x}\) relative to \(\mathcal{B}\)</dfn>.</p></article><p id="p-620">Intuitively, the coordinates of a vector \(\vec{x}\) are a “name” for \(\vec{x}\) that uniquely identifies it among all vectors in \(H\text{.}\) In this way, each basis acts as a different naming system. Alternatively, different bases can be thought of as different reference frames or different points of view on a given vector.</p>
+<p id="p-621">Then, consider the question of how to deterine the coordinates of a vector \(\vec{x}\text{,}\) given its coordinates in the standard basis.</p>
 <article class="example example-like" id="example-49"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-49"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Motivating example.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><p id="p-612">Consider \(\mathbb{R}^2\text{,}\) and the basis \(\mathcal{B} = \set{\vec{b}_1, \vec{b}_2}\text{,}\) where \(\vec{b}_1 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}, \vec{b}_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}\text{.}\) Consider the vector \(\vec{x} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}\) (in the standard basis coordinates), and consider the coordinates of this vector in the basis \(\mathcal{B}\text{.}\) The coordinates \(c_1, c_2\) of \(\vec{x}\) relative to \(\mathcal{B}\text{,}\) by definition, satisfy the equation,</p>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-49"><article class="example example-like"><p id="p-622">Consider \(\mathbb{R}^2\text{,}\) and the basis \(\mathcal{B} = \set{\vec{b}_1, \vec{b}_2}\text{,}\) where \(\vec{b}_1 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}, \vec{b}_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}\text{.}\) Consider the vector \(\vec{x} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}\) (in the standard basis coordinates), and consider the coordinates of this vector in the basis \(\mathcal{B}\text{.}\) The coordinates \(c_1, c_2\) of \(\vec{x}\) relative to \(\mathcal{B}\text{,}\) by definition, satisfy the equation,</p>
 <div class="displaymath">
 \begin{equation*}
 c_1 \begin{bmatrix} 2 \\ 1 \end{bmatrix} + c_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-613">Or, in matrix form,</p>
+<p id="p-623">Or, in matrix form,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} 2 \amp -1 \\ 1 \amp 1 \end{bmatrix} \begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-614">Then, determining \(c_1, c_2\) involves solving this linear system, for example either by using row operations, or using inverse matrices. Using either method, the solution is \(c_1 = 3, c_2 = 2\text{,}\) and so \(\vec{x} = 3 \vec{b}_1 + 2\vec{b}_2\text{,}\) and,</p>
+<p id="p-624">Then, determining \(c_1, c_2\) involves solving this linear system, for example either by using row operations, or using inverse matrices. Using either method, the solution is \(c_1 = 3, c_2 = 2\text{,}\) and so \(\vec{x} = 3 \vec{b}_1 + 2\vec{b}_2\text{,}\) and,</p>
 <div class="displaymath">
 \begin{equation*}
 [\vec{x}]_{\mathcal{B}} = \begin{bmatrix} 3 \\ 2 \end{bmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-615">More generally, in \(\mathbb{R}^n\text{,}\) let \(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_n}\) be a basis, and let \(\vec{x}\) be a vector (specified in the standard basis). Then, if \([\vec{x}]_{\mathcal{B}} = c_1 \vec{b}_1 + \dots + c_n \vec{b}_n\text{,}\) then by definition,</p>
+<p id="p-625">More generally, in \(\mathbb{R}^n\text{,}\) let \(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_n}\) be a basis, and let \(\vec{x}\) be a vector (specified in the standard basis). Then, if \([\vec{x}]_{\mathcal{B}} = c_1 \vec{b}_1 + \dots + c_n \vec{b}_n\text{,}\) then by definition,</p>
 <div class="displaymath">
 \begin{equation*}
 c_1 \vec{b}_1 + \dots + c_n \vec{b}_n = \vec{x}
 \end{equation*}
 </div>
-<p id="p-616">In other words, the following equation holds,</p>
+<p id="p-626">In other words, the following equation holds,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix} [\vec{x}]_{\mathcal{B}} = \vec{x}
 \end{equation*}
 </div>
-<p id="p-617">The matrix \(\begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix}\) is denoted by \(P_{\mathcal{B}}\text{,}\) and is called the <dfn class="terminology">change-of-coordinates matrix</dfn> from \(\mathcal{B}\) to the standard basis in \(\mathbb{R}^n\text{.}\) Then,</p>
+<p id="p-627">The matrix \(\begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix}\) is denoted by \(P_{\mathcal{B}}\text{,}\) and is called the <dfn class="terminology">change-of-coordinates matrix</dfn> from \(\mathcal{B}\) to the standard basis in \(\mathbb{R}^n\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{\vec{x} = P_{\mathcal{B}} [\vec{x}]_{\mathcal{B}}}
 \end{equation*}
 </div>
-<p id="p-618">i.e. left-multiplication by \(P_{\mathcal{B}}\) converts the coordinate vector \([\vec{x}]_{\mathcal{B}}\) into \(\vec{x}\text{.}\) Conversely, the columns of \(P_{\mathcal{B}}\) form a basis of \(\mathbb{R}^n\) (by assumption), so \(P_{\mathcal{B}}\) is invertible. Then,</p>
+<p id="p-628">i.e. left-multiplication by \(P_{\mathcal{B}}\) converts the coordinate vector \([\vec{x}]_{\mathcal{B}}\) into \(\vec{x}\text{.}\) Conversely, the columns of \(P_{\mathcal{B}}\) form a basis of \(\mathbb{R}^n\) (by assumption), so \(P_{\mathcal{B}}\) is invertible. Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{[\vec{x}]_{\mathcal{B}} = P_{\mathcal{B}}^{-1} \vec{x}}
 \end{equation*}
 </div>
-<p id="p-619">i.e. left-multiplication by the inverse of the change-of-coordinates matrix \(P_{\mathcal{B}}^{-1}\) converts \(\vec{x}\) to its coordinate vector \([\vec{x}]_{\mathcal{B}}\text{.}\)</p></section><section class="subsection" id="subsection-113"><h3 class="heading hide-type">
+<p id="p-629">i.e. left-multiplication by the inverse of the change-of-coordinates matrix \(P_{\mathcal{B}}^{-1}\) converts \(\vec{x}\) to its coordinate vector \([\vec{x}]_{\mathcal{B}}\text{.}\)</p></section><section class="subsection" id="subsection-118"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.5.2</span> <span class="title">Change of Basis</span>
 </h3>
-<p id="p-620">Different bases may be useful for different purposes. It is useful to understand how to convert a vector from one coordinate system using one basis, to another coordinate system with another basis.</p>
+<p id="p-630">Different bases may be useful for different purposes. It is useful to understand how to convert a vector from one coordinate system using one basis, to another coordinate system with another basis.</p>
 <article class="example example-like" id="example-50"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-50"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Motivating example: Two bases in \(\mathbb{R}^2\).</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like"><p id="p-621">Consider two bases, \(\mathcal{B} = \set{\vec{b}_1, \vec{b}_2}, \mathcal{C} = \set{\vec{c}_1, \vec{c}_2}\text{,}\) and let \(\vec{x}\) have coordinates \([\vec{x}]_{\mathcal{B}} = (3,1)\text{.}\) Then, consider the coordinates of \(\vec{x}\) with respect to \(\mathcal{C}\text{,}\) say \([\vec{x}]_{\mathcal{C}} = (a_1, a_2)\text{.}\) Then, by definition,</p>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-50"><article class="example example-like"><p id="p-631">Consider two bases, \(\mathcal{B} = \set{\vec{b}_1, \vec{b}_2}, \mathcal{C} = \set{\vec{c}_1, \vec{c}_2}\text{,}\) and let \(\vec{x}\) have coordinates \([\vec{x}]_{\mathcal{B}} = (3,1)\text{.}\) Then, consider the coordinates of \(\vec{x}\) with respect to \(\mathcal{C}\text{,}\) say \([\vec{x}]_{\mathcal{C}} = (a_1, a_2)\text{.}\) Then, by definition,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{x} = 3\vec{b}_1 + \vec{b}_2
 \end{equation*}
 </div>
-<p id="p-622">and,</p>
+<p id="p-632">and,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{x} = a_1 \vec{c}_1 + a_2 \vec{c}_2
 \end{equation*}
 </div>
-<p id="p-623">Again, the goal is to solve for \(a_1, a_2\text{.}\) The key here is that we need to know how to represent the \(\mathcal{B}\) basis vectors \(\vec{b}_1, \vec{b}_2\) in terms of the “new” basis vectors \(\vec{c}_1, \vec{c}_2\text{.}\) For this example, suppose that \(\vec{b}_1 = 4\vec{c}_1 + \vec{c}_2\) and \(\vec{b}_2 = -6 \vec{c}_1 + \vec{c}_2\text{.}\) Then, to determine \(\vec{x}\) in terms of \(\vec{c}_1, \vec{c}_2\text{,}\) we can substitute the relation between \(\vec{b}_1, \vec{b}_2\) and \(\vec{c}_1, \vec{c}_2\text{,}\)</p>
+<p id="p-633">Again, the goal is to solve for \(a_1, a_2\text{.}\) The key here is that we need to know how to represent the \(\mathcal{B}\) basis vectors \(\vec{b}_1, \vec{b}_2\) in terms of the “new” basis vectors \(\vec{c}_1, \vec{c}_2\text{.}\) For this example, suppose that \(\vec{b}_1 = 4\vec{c}_1 + \vec{c}_2\) and \(\vec{b}_2 = -6 \vec{c}_1 + \vec{c}_2\text{.}\) Then, to determine \(\vec{x}\) in terms of \(\vec{c}_1, \vec{c}_2\text{,}\) we can substitute the relation between \(\vec{b}_1, \vec{b}_2\) and \(\vec{c}_1, \vec{c}_2\text{,}\)</p>
 <div class="displaymath">
 \begin{align*}
 \vec{x} \amp = 3(4\vec{c}_1 + \vec{c}_2) + (-6 \vec{c}_1 + \vec{c}_2)\\
 \vec{x} \amp = 6 \vec{c}_1 + 4\vec{c}_2 \amp\amp \text{collecting like terms}
 \end{align*}
 </div>
-<p id="p-624">Thus,</p>
+<p id="p-634">Thus,</p>
 <div class="displaymath">
 \begin{equation*}
 [\vec{x}]_{\mathcal{C}} = \begin{bmatrix} 6 \\ 4 \end{bmatrix}
 \end{equation*}
 </div></article></div>
-<p id="p-625">More generally, let \([\vec{x}]_{\mathcal{B}} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\text{,}\) and let,</p>
+<p id="p-635">More generally, let \([\vec{x}]_{\mathcal{B}} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\text{,}\) and let,</p>
 <div class="displaymath">
 \begin{align*}
 \vec{b}_1 \amp = a_{11} \vec{c}_1 + a_{12} \vec{c}_2\\
 \vec{b}_2 \amp = a_{21} \vec{c}_1 + a_{22} \vec{c}_2
 \end{align*}
 </div>
-<p id="p-626">Then,</p>
+<p id="p-636">Then,</p>
 <div class="displaymath">
 \begin{align*}
 \vec{x} \amp = x_1 \vec{b}_1 + x_2 \vec{b}_2\\
@@ -294,47 +294,47 @@ c_1 \vec{b}_1 + \dots + c_n \vec{b}_n = \vec{x}
 \amp = (a_{11} x_1 + a_{12} x_2) \vec{c}_1 + (a_{21} x_1 + a_{22} x_2) \vec{c}_2
 \end{align*}
 </div>
-<p id="p-627">Thus,</p>
+<p id="p-637">Thus,</p>
 <div class="displaymath">
 \begin{equation*}
 [\vec{x}]_{\mathcal{C}} = \begin{bmatrix} a_{11} x_1 + a_{12} x_2 \\ a_{21} x_1 + a_{22} x_2 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-628">Notice that this can be decomposed in terms of a matrix-vector product,</p>
+<p id="p-638">Notice that this can be decomposed in terms of a matrix-vector product,</p>
 <div class="displaymath">
 \begin{equation*}
 [\vec{x}]_{\mathcal{C}} = \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-629">Denoting this matrix by \(P_{\mathcal{B} \rightarrow \mathcal{C}}\text{,}\)</p>
+<p id="p-639">Denoting this matrix by \(P_{\mathcal{B} \rightarrow \mathcal{C}}\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 [\vec{x}]_{\mathcal{C}} = P_{\mathcal{B} \rightarrow \mathcal{C}} [\vec{x}]_{\mathcal{B}}
 \end{equation*}
 </div>
-<p id="p-630">Here, \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) is a matrix which converts vectors in \(\mathcal{B}\) coordinates to \(\mathcal{C}\) coordinates (hence the subscript \(\mathcal{B} \rightarrow \mathcal{C}\)). Also, the columns of \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) are the coordinates of the basis vectors of \(\mathcal{B}\) in terms of \(\mathcal{C}\) coordinates.</p>
-<p id="p-631">This generalizes to vectors in \(\mathbb{R}^n\text{.}\)</p>
+<p id="p-640">Here, \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) is a matrix which converts vectors in \(\mathcal{B}\) coordinates to \(\mathcal{C}\) coordinates (hence the subscript \(\mathcal{B} \rightarrow \mathcal{C}\)). Also, the columns of \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) are the coordinates of the basis vectors of \(\mathcal{B}\) in terms of \(\mathcal{C}\) coordinates.</p>
+<p id="p-641">This generalizes to vectors in \(\mathbb{R}^n\text{.}\)</p>
 <article class="theorem theorem-like" id="theorem-51"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Change of basis.</span>
 </h4>
-<p id="p-632">Let \(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_n}, \mathcal{C} = \set{\vec{c}_1, \dots, \vec{c}_n}\) be bases of \(\mathbb{R}^n\text{.}\) Then, there is a unique \(n \times n\) matrix \(P_{\mathcal{B} \rightarrow \mathcal{C}}\text{,}\) called the <dfn class="terminology">change-of-coordinates matrix from \(\mathcal{B}\) to \(\mathcal{C}\)</dfn>, such that,</p>
+<p id="p-642">Let \(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_n}, \mathcal{C} = \set{\vec{c}_1, \dots, \vec{c}_n}\) be bases of \(\mathbb{R}^n\text{.}\) Then, there is a unique \(n \times n\) matrix \(P_{\mathcal{B} \rightarrow \mathcal{C}}\text{,}\) called the <dfn class="terminology">change-of-coordinates matrix from \(\mathcal{B}\) to \(\mathcal{C}\)</dfn>, such that,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{[\vec{x}]_{\mathcal{C}} = P_{\mathcal{B} \rightarrow \mathcal{C}} [\vec{x}]_{\mathcal{B}}}
 \end{equation*}
 </div>
-<p id="p-633">Further, the columns of \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) are the coordinates vectors of the basis \(\mathcal{B}\) with respect to \(\mathcal{C}\text{,}\)</p>
+<p id="p-643">Further, the columns of \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) are the coordinates vectors of the basis \(\mathcal{B}\) with respect to \(\mathcal{C}\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 P_{\mathcal{B} \rightarrow \mathcal{C}} = \begin{bmatrix} [\vec{b}_1]_{\mathcal{C}} \amp [\vec{b}_2]_{\mathcal{C}} \amp \dots \amp [\vec{b}_n]_{\mathcal{C}} \end{bmatrix}
 \end{equation*}
-</div></article><p id="p-634">The matrix \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) is invertible, because its columns form a collection of \(n\) linearly independent vectors, because they are coordinate vectors of the linearly independent set \(\mathcal{B}\text{.}\) Then,</p>
+</div></article><p id="p-644">The matrix \(P_{\mathcal{B} \rightarrow \mathcal{C}}\) is invertible, because its columns form a collection of \(n\) linearly independent vectors, because they are coordinate vectors of the linearly independent set \(\mathcal{B}\text{.}\) Then,</p>
 <div class="displaymath">
 \begin{equation*}
 \brac{P_{\mathcal{B} \rightarrow \mathcal{C}}}^{-1} [\vec{x}]_{\mathcal{C}} = [\vec{x}]_{\mathcal{B}}
 \end{equation*}
 </div>
-<p id="p-635">Notice that this is a generalization of the previous matrix which converted from the standard basis \(\mathcal{B}\) to \(\mathcal{E} = \set{\vec{e}_1, \dots, \vec{e}_n}\text{.}\) By above, the change-of-coordinates matrix \(P_{\mathcal{B} \rightarrow \mathcal{E}}\) has columns given by the coordinates of the basis \(\mathcal{B}\) with respect to the standard basis \(\mathcal{E}\text{.}\) Since \(\mathcal{B}\) is given in terms of the standard basis, we have that,</p>
+<p id="p-645">Notice that this is a generalization of the previous matrix which converted from the standard basis \(\mathcal{B}\) to \(\mathcal{E} = \set{\vec{e}_1, \dots, \vec{e}_n}\text{.}\) By above, the change-of-coordinates matrix \(P_{\mathcal{B} \rightarrow \mathcal{E}}\) has columns given by the coordinates of the basis \(\mathcal{B}\) with respect to the standard basis \(\mathcal{E}\text{.}\) Since \(\mathcal{B}\) is given in terms of the standard basis, we have that,</p>
 <div class="displaymath">
 \begin{equation*}
 P_{\mathcal{B} \rightarrow \mathcal{E}} = \begin{bmatrix} \vec{b}_1 \amp \vec{b}_2 \amp \dots \amp \vec{b}_n \end{bmatrix}

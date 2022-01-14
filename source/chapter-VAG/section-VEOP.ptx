@@ -30,10 +30,10 @@
         <p>
             This can be written more simply by expanding, and collecting the constant terms,
         </p>
-        <me>
+        <md>
             <mrow>ax - ax_0 + by - by_0 \amp = 0</mrow>
             <mrow>ax + by \amp = ax_0 + by_0</mrow>
-        </me>
+        </md>
         <p>
             You may recognize this as the standard form of a line, typically written as <m>ax + by = c</m>. Also, in linear algebra, we prefer this form, because it connects to the form of a linear equation in terms of a linear system.
         </p>
@@ -74,6 +74,7 @@
         </p>
 
         <theorem>
+            <title>Equation of a plane</title>
             <p>Let <m>\vec{r}_0 = (x_0, y_0, z_0)</m> be a point, <m>\vec{n} = (a,b,c)</m> be a non-zero vector. Then, the equation of the plane through <m>\vec{r}_0</m> and perpendicular to <m>\vec{n}</m> has equation,</p>
             <me>
                 \vec{n} \bullet (\vec{r} - \vec{r}_0) = 0
@@ -138,5 +139,59 @@
             \vec{n} = \brac{\vec{r}_1 - \vec{r}_0} \times \brac{\vec{r}_2 - \vec{r}_0}
         </me>
     </subsection>
+
+    <subsection>
+        <title>Summary</title>
+        <p>
+            In summary, a plane can be defined by,
+        </p>
+        <ul>
+            <li>A point and a vector perpendicular to the plane.</li>
+            <li>Two vectors, that are not parallel.</li>
+            <li>Three points, which are not collinear.</li>
+        </ul>
+    </subsection>
+
+    <subsection>
+        <title>Planes Parallel to the Coordinate Planes</title>
+        <p>
+            In <m>\mathbb{R}^3</m>, the <term>coordinate planes</term> are the planes spanned by the axes, the <m>xy</m>-plane, <m>xz</m>-plane, and the <m>yz</m>-plane.
+        </p>
+        <p>
+            For example, the <m>xy</m>-plane is the set of all points with <m>z</m>-coordinate equal to 0, and so it's Cartesian equation is <m>z = 0</m>. Similarly, the <m>yz</m>-plane and <m>xz</m>-plane have equations <m>x = 0</m> and <m>y = 0</m>, respectively.
+        </p>
+        <p>
+            Slightly more generally, the equations <m>x = a</m>, <m>y = a</m>, and <m>z = a</m>, for some <m>a</m>, represent a plane parallel to the coordinate planes, but <m>a</m> units above or below.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Intersecting Planes</title>
+        <p>
+            In almost all cases, two planes will intersect, and this intersection will be a line. Let <m>a_1 x + b_1 y + c_1 z \amp = d_1</m> and <m>a_2 x + b_2 y + c_2 z \amp = d_2</m> be the equation of two planes, with normal vectors <m>\vec{n}_1 = \veciii{a_1}{b_1}{c_1}, \vec{n}_2 = \veciii{a_2}{b_2}{c_2}</m>. Then, the line of intersection will be perpendicular to both normal vectors <m>\vec{n}_1</m> and <m>\vec{n}_2</m>. Thus, it will be parallel to their cross product. In other words, <m>\vec{v} = \vec{n}_1 \times \vec{n}_2</m> is a direction vector for the line of intersection.
+        </p>
+        <p>
+            Then, it is sufficient to find a single point on the line. To do this, we can solve the system of equations,
+        </p>
+        <md>
+            <mrow>a_1 x + b_1 y + c_1 z \amp = d_1</mrow>
+            <mrow>a_2 x + b_2 y + c_2 z \amp = d_2</mrow>
+        </md>
+        <p>
+            This is a system with 3 variables and only 2 equations, so we expect there to be infinitely many solutions. In this case, we only need a single solution, so it is easiest to choose a convenient value (typically letting <m>x = 0</m>, <m>y = 0</m>, or <m>z = 0</m> in the two equations, and solving for the other two variables, resulting a solution, say <m>\vec{r}_0</m>. Then, the vector parametric equation of the line is,
+        </p>
+        <me>
+            \vec{r} = \vec{r}_0 + t \vec{v}
+        </me>
+    </subsection>
+
+    <subsection>
+        <title>Parallel Planes</title>
+        <p>
+            Two planes are parallel if their normal vectors are parallel (or anti-parallel). If two planes are parallel, then they don't intersect.
+        </p>
+
+    </subsection>
+
 
 </section>

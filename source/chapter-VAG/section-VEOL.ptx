@@ -4,7 +4,7 @@
     <title>Vector Equations of Lines</title>
 
     <introduction>
-        Sets of vectors can be used to represent various geometric objects in 2 and 3 dimensions. First, we will consider using vectors to represent lines in <m>\mathbb{R}^2</m>, and then in <m>\mathbb{R}^3</m>.
+        Sets of vectors can be used to represent various geometric objects in 2 and 3 dimensions. First, we will consider using vectors to represent lines in <m>\mathbb{R}^2</m>, and then in <m>\mathbb{R}^3</m>. In <m>\mathbb{R}^2</m>, it is simpler to represent lines in Cartesian form, using its slope and <m>y</m>-intercept, for example. However, in 3D, lines do not have a <q>slope</q> or <q><m>y</m>-intercept</q>, in the same sense. Then, the vector form will make describing lines in 3D much easier.
     </introduction>
 
     <subsection>
@@ -92,6 +92,22 @@
         <p>
             Notice that <m>\vec{r}_0</m> is on the line, corresponding to <m>t = 0</m>, and the point <m>\vec{r}_1</m> is on the line, corresponding to <m>t = 1</m>.
         </p>
+    </subsection>
+
+    <subsection>
+        <title>Lines Using Two Points</title>
+        <p>
+            Recall that a line can also be specified using two points <m>(x_1, y_1), (x_2, y_2)</m>. Then, a direction vector is the vector that is the difference of the points, as vectors,
+        </p>
+        <me>
+            \vec{v} = \vecii{x_2 - x_1}{y_2-y_1}
+        </me>
+        <p>
+            Then, using the point <m>\vec{r}_0 = (x_1, y_1)</m> as a refernce point, the vector parametric equation of the line is again <m>\vec{r} = \vec{r}_0 + t \vec{v}</m>. Or, in scalar parametric form,
+        </p>
+        <me>
+            \begin{cases} x = x_1 + t(x_2 - x_1) \\ y = y_1 + t(y_2 - y_1) \end{cases} \qquad -\infty \lt t \lt \infty
+        </me>
     </subsection>
 
     <subsection>

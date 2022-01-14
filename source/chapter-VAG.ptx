@@ -6,9 +6,9 @@
 
         </introduction>
         
-        <xi:include href="./chapter-VAG/section-ITV.xml"/>
-        <xi:include href="./chapter-VAG/section-VEOL.xml"/>
-        <xi:include href="./chapter-VAG/section-DP.xml"/>
-        <xi:include href="./chapter-VAG/section-VEOP.xml"/>
+        <xi:include href="./chapter-VAG/section-ITV.ptx"/>
+        <xi:include href="./chapter-VAG/section-VEOL.ptx"/>
+        <xi:include href="./chapter-VAG/section-DP.ptx"/>
+        <xi:include href="./chapter-VAG/section-VEOP.ptx"/>
 
 </chapter>

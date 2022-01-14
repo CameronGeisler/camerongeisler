@@ -6,8 +6,8 @@
 
         </introduction>
 
-        <xi:include href="./chapter-VALE/section-VES.xml"/>
-        <xi:include href="./chapter-VALE/section-MEMVP.xml"/>
-        <xi:include href="./chapter-VALE/section-SSOLE.xml"/>
+        <xi:include href="./chapter-VALE/section-VES.ptx"/>
+        <xi:include href="./chapter-VALE/section-MEMVP.ptx"/>
+        <xi:include href="./chapter-VALE/section-SSOLE.ptx"/>
 
 </chapter>

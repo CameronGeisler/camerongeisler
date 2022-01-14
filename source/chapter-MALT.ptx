@@ -6,11 +6,11 @@
 
         </introduction>
 
-        <xi:include href="./chapter-MALT/section-MO.xml"/>
-        <xi:include href="./chapter-MALT/section-ITLT.xml"/>
-        <xi:include href="./chapter-MALT/section-MALT.xml"/>
-        <xi:include href="./chapter-MALT/section-LTITP.xml"/>
-        <xi:include href="./chapter-MALT/section-MM.xml"/>
-        <xi:include href="./chapter-MALT/section-EM.xml"/>
-        <xi:include href="./chapter-MALT/section-IOAM.xml"/>
+        <xi:include href="./chapter-MALT/section-MO.ptx"/>
+        <xi:include href="./chapter-MALT/section-ITLT.ptx"/>
+        <xi:include href="./chapter-MALT/section-MALT.ptx"/>
+        <xi:include href="./chapter-MALT/section-LTITP.ptx"/>
+        <xi:include href="./chapter-MALT/section-MM.ptx"/>
+        <xi:include href="./chapter-MALT/section-EM.ptx"/>
+        <xi:include href="./chapter-MALT/section-IOAM.ptx"/>
 </chapter>

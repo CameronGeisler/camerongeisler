@@ -80,7 +80,7 @@
         </definition>
 
         <p>
-            Geometrically, the sum <m>\vec{u} + \vec{v}</m> is obtained by aligning the tail of <m>\vec{v}</m> with the head of <m>\vec{u}</m>. Then, the vector <m>\vec{u} + \vec{v}</m> is the arrow from the tail of <m>\vec{u}</m> to the head of <m>\vec{v}</m>.
+            Geometrically, the sum <m>\vec{u} + \vec{v}</m> is obtained by aligning the tail of <m>\vec{v}</m> with the head of <m>\vec{u}</m>. Then, the vector <m>\vec{u} + \vec{v}</m> is the arrow from the tail of <m>\vec{u}</m> to the head of <m>\vec{v}</m>. This is called the <term>parallelogram rule for addition</term>, or the <term>tail-to-tip method</term>.
         </p>
         <p>
             Alternatively, if the tails of <m>\vec{u}</m> and <m>\vec{v}</m> are aligned together, and we form the parallelogram with sides <m>\vec{u}</m> and <m>\vec{v}</m>, then <m>\vec{u} + \vec{v}</m> is the vector formed by an arrow from their tails to the opposite vertex of the paralellogram.
@@ -139,7 +139,7 @@
         </definition>
 
         <p>
-            It follows directly from this definition that <m>\abs{c \vec{v}} = \abs{c} \cdot \abs{v}</m> for a scalar <m>c</m>.
+            It follows directly from this definition that <m>\abs{c \vec{v}} = \abs{c} \cdot \abs{\vec{v}}</m> for a scalar <m>c</m>.
         </p>
     </subsection>
 
@@ -152,7 +152,7 @@
             \vec{u} = \frac{\vec{v}}{\abs{\vec{v}}}
         </me>
         <p>
-            Also, this vector is unique, because if a vector <m>\vec{u}</m> is a unit vector (<m>\abs{u} = 1</m>) and is in the direction of <m>\vec{v}</m> (<m>\vec{u} = c \vec{v}</m> for some <m>c > 0</m>), then it follows that <m>\vec{u}</m> is given by the above formula. This is because <m>\abs{\vec{u}} = 1</m>, but also <m>\abs{\vec{u}} = \abs{c \vec{v}} = \abs{c} \abs{\vec{v}} = c \abs{\vec{v}}</m>. Thus, <m>1 = c \abs{\vec{v}}</m>, and so <m>c = \frac{1}{\abs{\vec{v}}</m>.
+            Also, this vector is unique, because if a vector <m>\vec{u}</m> is a unit vector (<m>\abs{u} = 1</m>) and is in the direction of <m>\vec{v}</m> (<m>\vec{u} = c \vec{v}</m> for some <m>c > 0</m>), then it follows that <m>\vec{u}</m> is given by the above formula. This is because <m>\abs{\vec{u}} = 1</m>, but also <m>\abs{\vec{u}} = \abs{c \vec{v}} = \abs{c} \abs{\vec{v}} = c \abs{\vec{v}}</m>. Thus, <m>1 = c \abs{\vec{v}}</m>, and so <m>c = \frac{1}{\abs{\vec{v}}}</m>.
         </p>
     </subsection>
 

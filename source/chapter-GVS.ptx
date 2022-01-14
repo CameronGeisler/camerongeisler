@@ -6,5 +6,5 @@
 
         </introduction>
         
-        <xi:include href="./chapter-GVS/section-VSAS.xml"/>
+        <xi:include href="./chapter-GVS/section-VSAS.ptx"/>
 </chapter>

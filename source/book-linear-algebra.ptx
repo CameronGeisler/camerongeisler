@@ -22,17 +22,17 @@
             </ul>
         </introduction>
         
-        <xi:include href="./chapter-ITLA.xml"/>
-        <xi:include href="./chapter-SOLEAITM.xml"/>
-        <xi:include href="./chapter-VAG.xml"/>
-        <xi:include href="./chapter-VALE.xml"/>
-        <xi:include href="./chapter-MALT.xml"/>
-        <xi:include href="./chapter-ITVS.xml"/>
-        <xi:include href="./chapter-D.xml"/>
-        <xi:include href="./chapter-GVS.xml"/>
-        <xi:include href="./chapter-EAE.xml"/>
+        <xi:include href="./chapter-ITLA.ptx"/>
+        <xi:include href="./chapter-SOLEAITM.ptx"/>
+        <xi:include href="./chapter-VAG.ptx"/>
+        <xi:include href="./chapter-VALE.ptx"/>
+        <xi:include href="./chapter-MALT.ptx"/>
+        <xi:include href="./chapter-ITVS.ptx"/>
+        <xi:include href="./chapter-D.ptx"/>
+        <xi:include href="./chapter-GVS.ptx"/>
+        <xi:include href="./chapter-EAE.ptx"/>
         
-        <xi:include href="./chapter-MISC.xml"/>
+        <xi:include href="./chapter-MISC.ptx"/>
 
     </book>
 </pretext>

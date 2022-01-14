@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-05T10:27:32-08:00       *-->
+<!--*       on 2022-01-13T16:19:38-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -176,86 +176,87 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-VEOP"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Vector Equations of Planes</span>
 </h2>
-<section class="introduction" id="introduction-11"><p id="p-225">In \(\mathbb{R}^3\text{,}\) we can also form a plane. However, it is not immediately clear how to form the Cartesian equation of a plane in space. Recall that a line is defined by a point, and a slope or direction. However, planes do not have a clear notion of slope, because the inclination of a plane depends on the direction you are travelling.</p>
-<p id="p-226">First, we will consider the equation of a line in \(\mathbb{R}^2\text{,}\) from the perspective of perpendicularity, and the dot product. Then, this reasoning will generalize to a plane in \(\mathbb{R}^3\text{.}\)</p></section><section class="subsection" id="subsection-47"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-11"><p id="p-227">In \(\mathbb{R}^3\text{,}\) we can also form a plane. However, it is not immediately clear how to form the Cartesian equation of a plane in space. Recall that a line is defined by a point, and a slope or direction. However, planes do not have a clear notion of slope, because the inclination of a plane depends on the direction you are travelling.</p>
+<p id="p-228">First, we will consider the equation of a line in \(\mathbb{R}^2\text{,}\) from the perspective of perpendicularity, and the dot product. Then, this reasoning will generalize to a plane in \(\mathbb{R}^3\text{.}\)</p></section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.1</span> <span class="title">Standard Form of a Line, and Normal Vectors</span>
 </h3>
-<p id="p-227">Recall that previously, we specified a line using a point on the line \(\vec{r}_0\text{,}\) and a direction vector \(\vec{v}\text{.}\) Alternatively, we could have instead specified a vector that is perpendicular to the line \(\vec{n}\text{,}\) called a normal vector. Then, for any point \(\vec{r}\) on the line, it has the property that \(\vec{r} - \vec{r}_0\) is perpendicular to \(\vec{n}\) (previously, recall \(\vec{r} - \vec{r}_0\) was <em class="emphasis">parallel</em> to \(\vec{v}\)). Using dot products, this means that,</p>
+<p id="p-229">Recall that previously, we specified a line using a point on the line \(\vec{r}_0\text{,}\) and a direction vector \(\vec{v}\text{.}\) Alternatively, we could have instead specified a vector that is perpendicular to the line \(\vec{n}\text{,}\) called a normal vector. Then, for any point \(\vec{r}\) on the line, it has the property that \(\vec{r} - \vec{r}_0\) is perpendicular to \(\vec{n}\) (previously, recall \(\vec{r} - \vec{r}_0\) was <em class="emphasis">parallel</em> to \(\vec{v}\)). Using dot products, this means that,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{n} \bullet (\vec{r} - \vec{r}_0) = 0
 \end{equation*}
 </div>
-<p id="p-228">This is another form of the equation of a line. If \(\vec{r} = (x,y), \vec{r} = (x_0, y_0)\text{,}\) and \(\vec{n} = (a,b)\text{,}\) then this is equiavlent to,</p>
+<p id="p-230">This is another form of the equation of a line. If \(\vec{r} = (x,y), \vec{r} = (x_0, y_0)\text{,}\) and \(\vec{n} = (a,b)\text{,}\) then this is equiavlent to,</p>
 <div class="displaymath">
 \begin{align*}
 (a,b) \bullet (x - x_0, y - y_0) \amp = 0\\
 a(x - x_0) + b(y - y_0) \amp = 0
 \end{align*}
 </div>
-<p id="p-229">This can be written more simply by expanding, and collecting the constant terms,</p>
+<p id="p-231">This can be written more simply by expanding, and collecting the constant terms,</p>
 <div class="displaymath">
-\begin{equation*}
-
-\end{equation*}
+\begin{align*}
+ax - ax_0 + by - by_0 \amp = 0\\
+ax + by \amp = ax_0 + by_0
+\end{align*}
 </div>
-<p id="p-230">You may recognize this as the standard form of a line, typically written as \(ax + by = c\text{.}\) Also, in linear algebra, we prefer this form, because it connects to the form of a linear equation in terms of a linear system.</p>
-<p id="p-231">Conversely, the line \(ax + by = c\) has normal vector \(\vec{n} = (a,b)\text{.}\)</p></section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
+<p id="p-232">You may recognize this as the standard form of a line, typically written as \(ax + by = c\text{.}\) Also, in linear algebra, we prefer this form, because it connects to the form of a linear equation in terms of a linear system.</p>
+<p id="p-233">Conversely, the line \(ax + by = c\) has normal vector \(\vec{n} = (a,b)\text{.}\)</p></section><section class="subsection" id="subsection-49"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.2</span> <span class="title">Planes in \(\mathbb{R}^3\)</span>
 </h3>
-<p id="p-232">In a similar way, it turns out that a plane can be specified using a point on the plane, and a vector pointing out of the plane, again called a <dfn class="terminology">normal vector</dfn>. Let \(\vec{r}_0 = (x_0, y_0, z_0)\) be a point in space, and let \(\vec{n} = (a,b,c)\) be a normal vector for the plane. Then, for any point \(\vec{r} = (x,y,z)\) on the plane, it has the property that \(\vec{r} - \vec{r}_0\text{,}\) which is a vector that line parallel to the plane, is perpendicular to \(\vec{n}\text{.}\)</p>
+<p id="p-234">In a similar way, it turns out that a plane can be specified using a point on the plane, and a vector pointing out of the plane, again called a <dfn class="terminology">normal vector</dfn>. Let \(\vec{r}_0 = (x_0, y_0, z_0)\) be a point in space, and let \(\vec{n} = (a,b,c)\) be a normal vector for the plane. Then, for any point \(\vec{r} = (x,y,z)\) on the plane, it has the property that \(\vec{r} - \vec{r}_0\text{,}\) which is a vector that line parallel to the plane, is perpendicular to \(\vec{n}\text{.}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{n} \bullet (\vec{r} - \vec{r}_0) = 0
 \end{equation*}
 </div>
-<p id="p-233">This is the equation of the plane in vector form. Notice that this is the same as the equation of a line, except the vectors involved have 3 coordinates instead of 2. In terms of Cartesian coordinates,</p>
+<p id="p-235">This is the equation of the plane in vector form. Notice that this is the same as the equation of a line, except the vectors involved have 3 coordinates instead of 2. In terms of Cartesian coordinates,</p>
 <div class="displaymath">
 \begin{equation*}
 a(x - x_0) + b(y - y_0) + c(z - z_0) = 0
 \end{equation*}
 </div>
-<p id="p-234">Again, expanding, and collecting the constant terms, we get,</p>
+<p id="p-236">Again, expanding, and collecting the constant terms, we get,</p>
 <div class="displaymath">
 \begin{align*}
 ax - ax_0 + by - by_0 + cz - cz_0 \amp = 0\\
 ax + by + cz = ax_0 + by_0 + cz_0
 \end{align*}
 </div>
-<p id="p-235">Then, this can be written in the standard form,</p>
+<p id="p-237">Then, this can be written in the standard form,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{ax + by + cz = d}
 \end{equation*}
 </div>
-<p id="p-236">where \(d = ax_0 + by_0 + cz_0\) (or \(d = \vec{n} \bullet \vec{r}_0\)). Notice the similarities to the standard form of a line, \(ax + by = c\text{.}\) Conversely, given the equation of a plane \(ax + by + cz = d\text{,}\) the normal vector can be simply read off as \((a,b,c)\text{.}\) Of course, the normal vector of a plane is not unique, as any multiple of \((a,b,c)\) is also a normal vector of the plane.</p>
+<p id="p-238">where \(d = ax_0 + by_0 + cz_0\) (or \(d = \vec{n} \bullet \vec{r}_0\)). Notice the similarities to the standard form of a line, \(ax + by = c\text{.}\) Conversely, given the equation of a plane \(ax + by + cz = d\text{,}\) the normal vector can be simply read off as \((a,b,c)\text{.}\) Of course, the normal vector of a plane is not unique, as any multiple of \((a,b,c)\) is also a normal vector of the plane.</p>
 <article class="theorem theorem-like" id="theorem-13"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Equation of a plane.</span>
 </h4>
-<p id="p-237">Let \(\vec{r}_0 = (x_0, y_0, z_0)\) be a point, \(\vec{n} = (a,b,c)\) be a non-zero vector. Then, the equation of the plane through \(\vec{r}_0\) and perpendicular to \(\vec{n}\) has equation,</p>
+<p id="p-239">Let \(\vec{r}_0 = (x_0, y_0, z_0)\) be a point, \(\vec{n} = (a,b,c)\) be a non-zero vector. Then, the equation of the plane through \(\vec{r}_0\) and perpendicular to \(\vec{n}\) has equation,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{n} \bullet (\vec{r} - \vec{r}_0) = 0
 \end{equation*}
 </div>
-<p id="p-238">Or,</p>
+<p id="p-240">Or,</p>
 <div class="displaymath">
 \begin{equation*}
 ax + by + cz = d
 \end{equation*}
 </div>
-<p id="p-239">where \(d = \vec{n} \bullet \vec{r}_0\text{.}\) Conversely, the graph of the equation \(ax + by + cz = d\) is a plane perpendicular to \(\vec{n} = (a,b,c)\text{,}\) provided that \(a, b, c \neq 0\text{.}\)</p></article><p id="p-240">If at least of the the scalars \(a,b,c\) are non-zero, then the equation represents a plane. Otherwise, the normal vector is the zero vector, and the equation becomes \(0 = 0\text{,}\) representing all of \(\mathbb{R}^3\text{.}\)</p>
-<p id="p-241">There exists exactly one plane passing through \(\vec{r}_0\) that is perpendicular to \(\vec{n}\text{.}\)</p>
-<p id="p-242">From another perspective, by first starting with all points \((x,y,z)\) in 3-dimensional space \(\mathbb{R}^3\text{,}\) and then by requiring the constraint equation \(ax + by + cz = d\text{,}\) this constraint generally acts to reduce the number of degrees of freedom by 1, i.e. the result is a 2-dimensional object. It turns out that if this equation is linear (like the equation of a plane is), then the result will be a 2-dimensional <em class="emphasis">flat</em> surface, i.e. a plane. Similarly, in \(\mathbb{R}^2\text{,}\) a single linear equation reduces the 2-dimensional plane to a 1-dimensional line.</p></section><section class="subsection" id="subsection-49"><h3 class="heading hide-type">
+<p id="p-241">where \(d = \vec{n} \bullet \vec{r}_0\text{.}\) Conversely, the graph of the equation \(ax + by + cz = d\) is a plane perpendicular to \(\vec{n} = (a,b,c)\text{,}\) provided that \(a, b, c \neq 0\text{.}\)</p></article><p id="p-242">If at least of the the scalars \(a,b,c\) are non-zero, then the equation represents a plane. Otherwise, the normal vector is the zero vector, and the equation becomes \(0 = 0\text{,}\) representing all of \(\mathbb{R}^3\text{.}\)</p>
+<p id="p-243">There exists exactly one plane passing through \(\vec{r}_0\) that is perpendicular to \(\vec{n}\text{.}\)</p>
+<p id="p-244">From another perspective, by first starting with all points \((x,y,z)\) in 3-dimensional space \(\mathbb{R}^3\text{,}\) and then by requiring the constraint equation \(ax + by + cz = d\text{,}\) this constraint generally acts to reduce the number of degrees of freedom by 1, i.e. the result is a 2-dimensional object. It turns out that if this equation is linear (like the equation of a plane is), then the result will be a 2-dimensional <em class="emphasis">flat</em> surface, i.e. a plane. Similarly, in \(\mathbb{R}^2\text{,}\) a single linear equation reduces the 2-dimensional plane to a 1-dimensional line.</p></section><section class="subsection" id="subsection-50"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.3</span> <span class="title">Planes Using Two Vectors: Cross Product</span>
 </h3>
-<p id="p-243">Another way of specifying a plane is to specify a point \(\vec{r}_0\) on the plane, and two non-parallel (non-zero) vectors \(\vec{v}_1, \vec{v}_2\text{.}\) Then, a normal vector to this plane is the cross product \(\vec{v}_1 \times \vec{v}_2\text{.}\)</p></section><section class="subsection" id="subsection-50"><h3 class="heading hide-type">
+<p id="p-245">Another way of specifying a plane is to specify a point \(\vec{r}_0\) on the plane, and two non-parallel (non-zero) vectors \(\vec{v}_1, \vec{v}_2\text{.}\) Then, a normal vector to this plane is the cross product \(\vec{v}_1 \times \vec{v}_2\text{.}\)</p></section><section class="subsection" id="subsection-51"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.4</span> <span class="title">Parametric Equation of a Plane</span>
 </h3>
-<p id="p-244">Similarly to lines, we can specify a plane in parametric form. Consider a point on the plane \(\vec{r}_0\)</p></section><section class="subsection" id="subsection-51"><h3 class="heading hide-type">
+<p id="p-246">Similarly to lines, we can specify a plane in parametric form. Consider a point on the plane \(\vec{r}_0\)</p></section><section class="subsection" id="subsection-52"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.5</span> <span class="title">Planes Using 3 Points</span>
 </h3>
-<p id="p-245">Yet another method to specify a plane is to specify 3 distinct points on the plane. If the points are \((a_{11}, a_{12}, a_{13}), (a_{21}, a_{22}, a_{23}), (a_{31}, a_{32}, a_{33})\text{,}\) then a plane containing these three points, of the form \(ax + by + cz = d\text{,}\) must satisfy the system,</p>
+<p id="p-247">Yet another method to specify a plane is to specify 3 distinct points on the plane. If the points are \((a_{11}, a_{12}, a_{13}), (a_{21}, a_{22}, a_{23}), (a_{31}, a_{32}, a_{33})\text{,}\) then a plane containing these three points, of the form \(ax + by + cz = d\text{,}\) must satisfy the system,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{array}{rrrrr}
@@ -265,14 +266,46 @@ aa_{31} \amp + ba_{32} \amp + ca_{33} \amp = \amp d
 \end{array}
 \end{equation*}
 </div>
-<p id="p-246">This is a linear system in the 4 variables \(a, b, c, d\text{.}\) Here, there are 4 unknowns, and only 3 equations, so we expect that there are more than one solution. Performing row reduction, we can solve the system, and determine the coefficients of the plane's equation.</p>
-<p id="p-247">This works, as long as the points are not colinear.</p>
-<p id="p-248">Another method, which uses vectors, is to directly determine the normal vector. Recall that if we a point \(\vec{r}_0\) on the plane, and two vectors such that \(\vec{r}_0 + \vec{v}_1\) and \(\vec{r}_0 + \vec{v}_2\) are on the plane, then the cross product \(\vec{v}_1 \times \vec{v}_2\) is a normal vector of the plane. Let \(\vec{r}_0, \vec{r}_1, \vec{r}_2\) be the 3 points. Then, we can use one point (say, \(\vec{r}_0\)) as the starting point. Then, the two points \(\vec{r}_1 - \vec{r}_0\) and \(\vec{r}_2 - \vec{r}_0\) are vectors which are parallel to the plane. Then, their cross product is a normal vector for the plane,</p>
+<p id="p-248">This is a linear system in the 4 variables \(a, b, c, d\text{.}\) Here, there are 4 unknowns, and only 3 equations, so we expect that there are more than one solution. Performing row reduction, we can solve the system, and determine the coefficients of the plane's equation.</p>
+<p id="p-249">This works, as long as the points are not colinear.</p>
+<p id="p-250">Another method, which uses vectors, is to directly determine the normal vector. Recall that if we a point \(\vec{r}_0\) on the plane, and two vectors such that \(\vec{r}_0 + \vec{v}_1\) and \(\vec{r}_0 + \vec{v}_2\) are on the plane, then the cross product \(\vec{v}_1 \times \vec{v}_2\) is a normal vector of the plane. Let \(\vec{r}_0, \vec{r}_1, \vec{r}_2\) be the 3 points. Then, we can use one point (say, \(\vec{r}_0\)) as the starting point. Then, the two points \(\vec{r}_1 - \vec{r}_0\) and \(\vec{r}_2 - \vec{r}_0\) are vectors which are parallel to the plane. Then, their cross product is a normal vector for the plane,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{n} = \brac{\vec{r}_1 - \vec{r}_0} \times \brac{\vec{r}_2 - \vec{r}_0}
 \end{equation*}
-</div></section></section></div></main>
+</div></section><section class="subsection" id="subsection-53"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.6</span> <span class="title">Summary</span>
+</h3>
+<p id="p-251">In summary, a plane can be defined by,</p>
+<ul class="disc">
+<li id="li-96"><p id="p-derived-li-96">A point and a vector perpendicular to the plane.</p></li>
+<li id="li-97"><p id="p-derived-li-97">Two vectors, that are not parallel.</p></li>
+<li id="li-98"><p id="p-derived-li-98">Three points, which are not collinear.</p></li>
+</ul></section><section class="subsection" id="subsection-54"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.7</span> <span class="title">Planes Parallel to the Coordinate Planes</span>
+</h3>
+<p id="p-252">In \(\mathbb{R}^3\text{,}\) the <dfn class="terminology">coordinate planes</dfn> are the planes spanned by the axes, the \(xy\)-plane, \(xz\)-plane, and the \(yz\)-plane.</p>
+<p id="p-253">For example, the \(xy\)-plane is the set of all points with \(z\)-coordinate equal to 0, and so it's Cartesian equation is \(z = 0\text{.}\) Similarly, the \(yz\)-plane and \(xz\)-plane have equations \(x = 0\) and \(y = 0\text{,}\) respectively.</p>
+<p id="p-254">Slightly more generally, the equations \(x = a\text{,}\) \(y = a\text{,}\) and \(z = a\text{,}\) for some \(a\text{,}\) represent a plane parallel to the coordinate planes, but \(a\) units above or below.</p></section><section class="subsection" id="subsection-55"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.8</span> <span class="title">Intersecting Planes</span>
+</h3>
+<p id="p-255">In almost all cases, two planes will intersect, and this intersection will be a line. Let \(a_1 x + b_1 y + c_1 z \amp = d_1\) and \(a_2 x + b_2 y + c_2 z \amp = d_2\) be the equation of two planes, with normal vectors \(\vec{n}_1 = \veciii{a_1}{b_1}{c_1}, \vec{n}_2 = \veciii{a_2}{b_2}{c_2}\text{.}\) Then, the line of intersection will be perpendicular to both normal vectors \(\vec{n}_1\) and \(\vec{n}_2\text{.}\) Thus, it will be parallel to their cross product. In other words, \(\vec{v} = \vec{n}_1 \times \vec{n}_2\) is a direction vector for the line of intersection.</p>
+<p id="p-256">Then, it is sufficient to find a single point on the line. To do this, we can solve the system of equations,</p>
+<div class="displaymath">
+\begin{align*}
+a_1 x + b_1 y + c_1 z \amp = d_1\\
+a_2 x + b_2 y + c_2 z \amp = d_2
+\end{align*}
+</div>
+<p id="p-257">This is a system with 3 variables and only 2 equations, so we expect there to be infinitely many solutions. In this case, we only need a single solution, so it is easiest to choose a convenient value (typically letting \(x = 0\text{,}\) \(y = 0\text{,}\) or \(z = 0\) in the two equations, and solving for the other two variables, resulting a solution, say \(\vec{r}_0\text{.}\) Then, the vector parametric equation of the line is,</p>
+<div class="displaymath">
+\begin{equation*}
+\vec{r} = \vec{r}_0 + t \vec{v}
+\end{equation*}
+</div></section><section class="subsection" id="subsection-56"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.4.9</span> <span class="title">Parallel Planes</span>
+</h3>
+<p id="p-258">Two planes are parallel if their normal vectors are parallel (or anti-parallel). If two planes are parallel, then they don't intersect.</p></section></section></div></main>
 </div>
 </body>
 </html>

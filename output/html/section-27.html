@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-05T10:27:34-08:00       *-->
+<!--*       on 2022-01-13T16:19:41-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -176,54 +176,54 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-27"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title">Vector Spaces and Subspaces</span>
 </h2>
-<section class="introduction" id="introduction-31"><p id="p-681">Previously, we defined a vector space broadly as a set which is closed under addition and scalar multiplication. This definition works to identify \(\mathbb{R}^n\) as a vector space, however, vector spaces are actually more general than just for collections of real numbers.</p>
-<p id="p-682">The vector space \(\mathbb{R}^n\text{,}\) and its operations of addition and scalar multiplication satisfy certain basic and simple properties. In fact, many other mathematical objects, such as matrices, polynomials, and functions, also satisfy these properties, given suitable definitions of addition and scalar multiplication. This leads to the more abstract definition of a vector space, that encapsulates all of these ideas.</p></section><section class="subsection" id="subsection-123"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-31"><p id="p-691">Previously, we defined a vector space broadly as a set which is closed under addition and scalar multiplication. This definition works to identify \(\mathbb{R}^n\) as a vector space, however, vector spaces are actually more general than just for collections of real numbers.</p>
+<p id="p-692">The vector space \(\mathbb{R}^n\text{,}\) and its operations of addition and scalar multiplication satisfy certain basic and simple properties. In fact, many other mathematical objects, such as matrices, polynomials, and functions, also satisfy these properties, given suitable definitions of addition and scalar multiplication. This leads to the more abstract definition of a vector space, that encapsulates all of these ideas.</p></section><section class="subsection" id="subsection-128"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.1.1</span> <span class="title">Vector Spaces</span>
 </h3>
 <article class="definition definition-like" id="definition-61"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.1</span><span class="period">.</span>
 </h4>A <dfn class="terminology">vector space</dfn> is a non-empty set \(V\) of objects, called <dfn class="terminology">vectors</dfn>, on which are defined two operations, called <dfn class="terminology">addition</dfn> and <dfn class="terminology">scalar multiplication</dfn> by <dfn class="terminology">scalars</dfn> (real numbers), that satisfy the following axioms. For all vectors \(\vec{u}, \vec{v}, \vec{w} \in V\text{,}\) and all scalars \(c, d \in \mathbb{R}\text{,}\) <ol class="decimal">
-<li id="li-140"><p id="p-derived-li-140"><dfn class="terminology">Closure under addition and scalar multiplication</dfn>, the sum of \(\vec{u}\) and \(\vec{v}\text{,}\) \(\vec{u} + \vec{v}\text{,}\) is in \(V\text{,}\) and the scalar multiple of \(\vec{u}\text{,}\) \(c\vec{u}\text{,}\) is in \(V\)</p></li>
-<li id="li-141"><p id="p-derived-li-141"><dfn class="terminology">Associativity</dfn>, \((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\text{.}\)</p></li>
-<li id="li-142"><p id="p-derived-li-142"><dfn class="terminology">Commutativity</dfn>, \(\vec{u} + \vec{v} = \vec{v} + \vec{u}\text{.}\)</p></li>
-<li id="li-143"><p id="p-derived-li-143"><dfn class="terminology">Additive identity</dfn>, there exists a <dfn class="terminology">zero</dfn> vector \(\vec{0}\) such that \(\vec{u} + \vec{0} = \vec{u}\text{.}\)</p></li>
-<li id="li-144"><p id="p-derived-li-144"><dfn class="terminology">Additive inverse</dfn>, for every \(\vec{u} \in V\text{,}\) there exists a vector \(-\vec{u} \in V\) such that \(\vec{u} + (-\vec{u}) = \vec{0}\text{.}\)</p></li>
-<li id="li-145"><p id="p-derived-li-145"><dfn class="terminology">Associativity of scalar multiplication</dfn>, \(c(d\vec{u}) = (cd) \vec{u}\text{.}\)</p></li>
-<li id="li-146"><p id="p-derived-li-146"><dfn class="terminology">Scalar multiplication distributes over addition</dfn>, \(c(\vec{u} + \vec{v}) = c\vec{u} + c \vec{v}\text{.}\)</p></li>
-<li id="li-147"><p id="p-derived-li-147"><dfn class="terminology">Vector distributes over scalar addition</dfn>, \((c + d) \vec{u} = c\vec{u} + d \vec{u}\text{.}\)</p></li>
-<li id="li-148"><p id="p-derived-li-148"><dfn class="terminology">Multiplicative identity</dfn>, \(1 \vec{u} = \vec{u}\text{.}\)</p></li>
-</ol></article><p id="p-683">Strictly speaking, this definition is for a <em class="emphasis">real</em> vector space. We could also consider a complex vector space, where the scalars are complex numbers rather than real numbers.</p>
+<li id="li-143"><p id="p-derived-li-143"><dfn class="terminology">Closure under addition and scalar multiplication</dfn>, the sum of \(\vec{u}\) and \(\vec{v}\text{,}\) \(\vec{u} + \vec{v}\text{,}\) is in \(V\text{,}\) and the scalar multiple of \(\vec{u}\text{,}\) \(c\vec{u}\text{,}\) is in \(V\)</p></li>
+<li id="li-144"><p id="p-derived-li-144"><dfn class="terminology">Associativity</dfn>, \((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\text{.}\)</p></li>
+<li id="li-145"><p id="p-derived-li-145"><dfn class="terminology">Commutativity</dfn>, \(\vec{u} + \vec{v} = \vec{v} + \vec{u}\text{.}\)</p></li>
+<li id="li-146"><p id="p-derived-li-146"><dfn class="terminology">Additive identity</dfn>, there exists a <dfn class="terminology">zero</dfn> vector \(\vec{0}\) such that \(\vec{u} + \vec{0} = \vec{u}\text{.}\)</p></li>
+<li id="li-147"><p id="p-derived-li-147"><dfn class="terminology">Additive inverse</dfn>, for every \(\vec{u} \in V\text{,}\) there exists a vector \(-\vec{u} \in V\) such that \(\vec{u} + (-\vec{u}) = \vec{0}\text{.}\)</p></li>
+<li id="li-148"><p id="p-derived-li-148"><dfn class="terminology">Associativity of scalar multiplication</dfn>, \(c(d\vec{u}) = (cd) \vec{u}\text{.}\)</p></li>
+<li id="li-149"><p id="p-derived-li-149"><dfn class="terminology">Scalar multiplication distributes over addition</dfn>, \(c(\vec{u} + \vec{v}) = c\vec{u} + c \vec{v}\text{.}\)</p></li>
+<li id="li-150"><p id="p-derived-li-150"><dfn class="terminology">Vector distributes over scalar addition</dfn>, \((c + d) \vec{u} = c\vec{u} + d \vec{u}\text{.}\)</p></li>
+<li id="li-151"><p id="p-derived-li-151"><dfn class="terminology">Multiplicative identity</dfn>, \(1 \vec{u} = \vec{u}\text{.}\)</p></li>
+</ol></article><p id="p-693">Strictly speaking, this definition is for a <em class="emphasis">real</em> vector space. We could also consider a complex vector space, where the scalars are complex numbers rather than real numbers.</p>
 <article class="example example-like" id="example-51"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-51"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.2</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-51"><article class="example example-like"><p id="p-684">The coordinate spaces \(\mathbb{R}^n\) are the motivating example of a vector space. The examples from \(\mathbb{R}^2\) and \(\mathbb{R}^3\) will provide intuition for more abstract spaces.</p></article></div>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-51"><article class="example example-like"><p id="p-694">The coordinate spaces \(\mathbb{R}^n\) are the motivating example of a vector space. The examples from \(\mathbb{R}^2\) and \(\mathbb{R}^3\) will provide intuition for more abstract spaces.</p></article></div>
 <article class="example example-like" id="example-52"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-52"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Arrows in Space.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-52"><article class="example example-like"><p id="p-685">Consider the set \(V\) of all arrows (directed line segments) in 2-dimensional space. Two arrows are defined to be equal if and only if they have the same length and point in the same direction. Define addition by the parallelogram rule. For \(\vec{v} \in V\) and scalar \(c \in \mathbb{R}\text{,}\) define scalar multiplication \(c\vec{v}\) as the arrow with length \(\abs{c}\) times the length of \(\vec{v}\text{,}\) pointing in the same direction as \(c \geq 0\) and otherwise pointing in the opposire direction. Then, \(V\) is a vector space. The zero vector is an arrow with 0 length. The negative of \(\vec{v}\) is \((-1)\vec{v}\text{.}\) Then, the vector space axioms can be verified using geometry. Similarly, the set of all arrows in 3-dimensional space is also a vector space.</p></article></div>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-52"><article class="example example-like"><p id="p-695">Consider the set \(V\) of all arrows (directed line segments) in 2-dimensional space. Two arrows are defined to be equal if and only if they have the same length and point in the same direction. Define addition by the parallelogram rule. For \(\vec{v} \in V\) and scalar \(c \in \mathbb{R}\text{,}\) define scalar multiplication \(c\vec{v}\) as the arrow with length \(\abs{c}\) times the length of \(\vec{v}\text{,}\) pointing in the same direction as \(c \geq 0\) and otherwise pointing in the opposire direction. Then, \(V\) is a vector space. The zero vector is an arrow with 0 length. The negative of \(\vec{v}\) is \((-1)\vec{v}\text{.}\) Then, the vector space axioms can be verified using geometry. Similarly, the set of all arrows in 3-dimensional space is also a vector space.</p></article></div>
 <article class="example example-like" id="example-53"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-53"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Doubly infinite sequences.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-53"><article class="example example-like"><p id="p-686">Consider the set \(\mathcal{S}\) of doubly infinite sequences, of the form,</p>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-53"><article class="example example-like"><p id="p-696">Consider the set \(\mathcal{S}\) of doubly infinite sequences, of the form,</p>
 <div class="displaymath">
 \begin{equation*}
 \set{x_n} = (\dots, x_{-2}, x_{-1}, x_0, x_1, x_2, \dots)
 \end{equation*}
 </div>
-<p id="p-687">If \(\set{x_n}, \set{y_n}\) are two elements of \(\mathcal{S}\text{,}\) then the sum \(\set{x_n} + \set{y_n}\) is the sequence \(\set{x_n + y_n}\) forming by adding corresponding elements of \(\set{x_n}\) and \(\set{y_n}\text{.}\) The scalar multiple \(c \set{x_n}\) is the sequence \(\set{cx_n}\text{.}\) Then, \(\mathcal{S}\) is a vector space. The set \(\mathcal{S}\) is called the set of <dfn class="terminology">signals</dfn>, because each element \(\set{x_n}\) represent the measurement of a signal at discrete times. For example, in engineering, electrical signal, mechanical signal, optimal signal, etc.</p></article></div></section><section class="subsection" id="subsection-124"><h3 class="heading hide-type">
+<p id="p-697">If \(\set{x_n}, \set{y_n}\) are two elements of \(\mathcal{S}\text{,}\) then the sum \(\set{x_n} + \set{y_n}\) is the sequence \(\set{x_n + y_n}\) forming by adding corresponding elements of \(\set{x_n}\) and \(\set{y_n}\text{.}\) The scalar multiple \(c \set{x_n}\) is the sequence \(\set{cx_n}\text{.}\) Then, \(\mathcal{S}\) is a vector space. The set \(\mathcal{S}\) is called the set of <dfn class="terminology">signals</dfn>, because each element \(\set{x_n}\) represent the measurement of a signal at discrete times. For example, in engineering, electrical signal, mechanical signal, optimal signal, etc.</p></article></div></section><section class="subsection" id="subsection-129"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.1.2</span> <span class="title">Subspaces</span>
 </h3>
-<p id="p-688"></p></section><section class="subsection" id="subsection-125"><h3 class="heading hide-type">
+<p id="p-698"></p></section><section class="subsection" id="subsection-130"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.1.3</span> <span class="title">Subspace Spanned by a Set</span>
 </h3>
-<p id="p-689">First, we define analogous notions for an arbitrary vector space. Let \(V\) be a vector space.</p>
+<p id="p-699">First, we define analogous notions for an arbitrary vector space. Let \(V\) be a vector space.</p>
 <article class="definition definition-like" id="definition-62"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.5</span><span class="period">.</span>
 </h4>
-<p id="p-690">Let \(\vec{v}_1, \dots, \vec{v}_n \in V\) be vectors, \(a_1, \dots, a_p \in \mathbb{R}\) be scalars. Then, the vector \(\vec{v}\) given by,</p>
+<p id="p-700">Let \(\vec{v}_1, \dots, \vec{v}_n \in V\) be vectors, \(a_1, \dots, a_p \in \mathbb{R}\) be scalars. Then, the vector \(\vec{v}\) given by,</p>
 <div class="displaymath">
 \begin{equation*}
 \vec{v} = a_1 \vec{v}_1 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
 \end{equation*}
 </div>
-<p id="p-691">is called a <dfn class="terminology">linear combination</dfn> of \(\vec{v}_1, \dots, \vec{v}_n \in V\) with <dfn class="terminology">weights</dfn> \(a_1, \dots, a_n\text{.}\)</p></article><article class="definition definition-like" id="definition-63"><h4 class="heading">
+<p id="p-701">is called a <dfn class="terminology">linear combination</dfn> of \(\vec{v}_1, \dots, \vec{v}_n \in V\) with <dfn class="terminology">weights</dfn> \(a_1, \dots, a_n\text{.}\)</p></article><article class="definition definition-like" id="definition-63"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.6</span><span class="period">.</span>
 </h4>Let \(\vec{v}_1, \dots, \vec{v}_n \in V\) be vectors. The <dfn class="terminology">span</dfn> of \(\vec{v}_1, \dots, \vec{v}_n\text{,}\) denoted by \(\Span{\vec{v}_1, \dots, \vec{v}_n}\text{,}\) is the set of all linear combinations of \(\vec{v}_1, \dots, \vec{v}_n\text{.}\) In other words,<div class="displaymath">
 \begin{equation*}
@@ -232,34 +232,34 @@
 </div></article><article class="theorem theorem-like" id="theorem-55"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Span is a subspace.</span>
 </h4>
-<p id="p-692">Let \(\vec{v}_1, \dots, \vec{v}_n \in V\text{.}\) Then, \(\Span{\vec{v}_1, \dots, \vec{v}_n}\) is a subspace of \(V\text{.}\)</p></article><p id="p-693">Then, the set \(\Span{\vec{v}_1, \dots, \vec{v}_n}\) is called the <dfn class="terminology">subspace spanned</dfn> (or <dfn class="terminology">generated</dfn>) by \(\set{\vec{v}_1, \dots, \vec{v}_n}\text{.}\) For any subspace \(H\) of \(V\text{,}\) a set \(\set{\vec{v}_1, \dots, \vec{v}_n}\) of vectors in \(H\) is called a <dfn class="terminology">spanning</dfn> (or <dfn class="terminology">generating</dfn>) <dfn class="terminology">set</dfn> if \(H = \Span{\vec{v}_1, \dots, \vec{v}_n}\text{.}\)</p></section><section class="subsection" id="subsection-126"><h3 class="heading hide-type">
+<p id="p-702">Let \(\vec{v}_1, \dots, \vec{v}_n \in V\text{.}\) Then, \(\Span{\vec{v}_1, \dots, \vec{v}_n}\) is a subspace of \(V\text{.}\)</p></article><p id="p-703">Then, the set \(\Span{\vec{v}_1, \dots, \vec{v}_n}\) is called the <dfn class="terminology">subspace spanned</dfn> (or <dfn class="terminology">generated</dfn>) by \(\set{\vec{v}_1, \dots, \vec{v}_n}\text{.}\) For any subspace \(H\) of \(V\text{,}\) a set \(\set{\vec{v}_1, \dots, \vec{v}_n}\) of vectors in \(H\) is called a <dfn class="terminology">spanning</dfn> (or <dfn class="terminology">generating</dfn>) <dfn class="terminology">set</dfn> if \(H = \Span{\vec{v}_1, \dots, \vec{v}_n}\text{.}\)</p></section><section class="subsection" id="subsection-131"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.1.4</span> <span class="title">Polynomial Spaces</span>
 </h3>
-<p id="p-694">Certain sets of polynomials also act as a vector space. For \(n = 0, 1, 2, \dots\text{,}\) let \(\mathcal{P}_n\) be the set of all polynomials of degree at most \(n\text{,}\)</p>
+<p id="p-704">Certain sets of polynomials also act as a vector space. For \(n = 0, 1, 2, \dots\text{,}\) let \(\mathcal{P}_n\) be the set of all polynomials of degree at most \(n\text{,}\)</p>
 <div class="displaymath">
 \begin{equation*}
 \mathcal{P}_n = \set{a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n: a_k \in \mathbb{R}}
 \end{equation*}
 </div>
-<p id="p-695">Here, the <dfn class="terminology">degree</dfn> of a polynomial is its highest power of \(x\text{,}\) with a non-zero coefficient. For the polynomial \(p(x) = 0\) with all coefficients equal to 0 (the zero polynomial), its degree is defined to be \(-\infty\) (so it is lower than any \(n\)).</p>
-<p id="p-696">Then, for \(p(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n, q(x) = b_0 + b_1 x + b_2 x^2 + \dots + b_n x^n\) are elements in \(\mathcal{P}_n\text{,}\) then their sum \(p + q\) is defined by adding corresponding components,</p>
+<p id="p-705">Here, the <dfn class="terminology">degree</dfn> of a polynomial is its highest power of \(x\text{,}\) with a non-zero coefficient. For the polynomial \(p(x) = 0\) with all coefficients equal to 0 (the zero polynomial), its degree is defined to be \(-\infty\) (so it is lower than any \(n\)).</p>
+<p id="p-706">Then, for \(p(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n, q(x) = b_0 + b_1 x + b_2 x^2 + \dots + b_n x^n\) are elements in \(\mathcal{P}_n\text{,}\) then their sum \(p + q\) is defined by adding corresponding components,</p>
 <div class="displaymath">
 \begin{equation*}
 
 \end{equation*}
 </div>
-<p id="p-697">For a scalar \(c \in \mathbb{R}\text{,}\) the scalar multiple \(cp\) is given by,</p>
+<p id="p-707">For a scalar \(c \in \mathbb{R}\text{,}\) the scalar multiple \(cp\) is given by,</p>
 <div class="displaymath">
 \begin{equation*}
 (cp)(x) = c p(x) = ca_0 + (ca_1)x + \dots + (ca_n)x^n
 \end{equation*}
 </div>
-<p id="p-698">In linear algebra, polynomials are thought of as primarily being objects, or expressions, and not as polynomial <em class="emphasis">functions</em>, with an input \(x\) and an ouput \(p(x)\text{.}\)</p>
-<p id="p-699">Polynomial spaces have applications in statistical trend analysis of data.</p>
-<p id="p-700">Note that the set of all polynomials of degree \(n\) is <em class="emphasis">not</em> a vector space, because subtracting two polynomials of degree \(n\) and with the same leading coefficient, results in a polynomial which does not have degree \(n\) (it is has degree less than \(n\)). Thus, the set is not closed under addition.</p></section><section class="subsection" id="subsection-127"><h3 class="heading hide-type">
+<p id="p-708">In linear algebra, polynomials are thought of as primarily being objects, or expressions, and not as polynomial <em class="emphasis">functions</em>, with an input \(x\) and an ouput \(p(x)\text{.}\)</p>
+<p id="p-709">Polynomial spaces have applications in statistical trend analysis of data.</p>
+<p id="p-710">Note that the set of all polynomials of degree \(n\) is <em class="emphasis">not</em> a vector space, because subtracting two polynomials of degree \(n\) and with the same leading coefficient, results in a polynomial which does not have degree \(n\) (it is has degree less than \(n\)). Thus, the set is not closed under addition.</p></section><section class="subsection" id="subsection-132"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.1.5</span> <span class="title">Function Spaces</span>
 </h3>
-<p id="p-701">Let \(V\) be the set of all real-valued functions defined on a set \(D\) (typically, \(D\) is the set of real numbers of some interval on the real line). Two functions are equal if and only if their values are equal for every \(x \in D\text{.}\) For \(f, g \in V\text{,}\) their sum \(f + g\) is defined by \((f + g)(x) = f(x) + g(x)\text{.}\) For a scalar \(c \in \mathbb{R}\text{,}\) the scalar multiple is defined as \((cf)(x) = cf(x)\text{.}\) Then, \(V\) is a vector space. The zero vector is the zero function, the function which is identically zero, i.e. \(f(x) = 0\) for every \(x \in D\text{.}\) The negative of \(f\) is \((-1)f\text{.}\)</p></section></section></div></main>
+<p id="p-711">Let \(V\) be the set of all real-valued functions defined on a set \(D\) (typically, \(D\) is the set of real numbers of some interval on the real line). Two functions are equal if and only if their values are equal for every \(x \in D\text{.}\) For \(f, g \in V\text{,}\) their sum \(f + g\) is defined by \((f + g)(x) = f(x) + g(x)\text{.}\) For a scalar \(c \in \mathbb{R}\text{,}\) the scalar multiple is defined as \((cf)(x) = cf(x)\text{.}\) Then, \(V\) is a vector space. The zero vector is the zero function, the function which is identically zero, i.e. \(f(x) = 0\) for every \(x \in D\text{.}\) The negative of \(f\) is \((-1)f\text{.}\)</p></section></section></div></main>
 </div>
 </body>
 </html>

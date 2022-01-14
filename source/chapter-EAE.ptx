@@ -6,5 +6,5 @@
 
         </introduction>
         
-        <xi:include href="./chapter-EAE/section-EAE.xml"/>
+        <xi:include href="./chapter-EAE/section-EAE.ptx"/>
 </chapter>

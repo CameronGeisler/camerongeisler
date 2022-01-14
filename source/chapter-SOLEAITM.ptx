@@ -8,9 +8,10 @@
             </p>
         </introduction>
 
-        <xi:include href="./chapter-SOLEAITM/section-SOLE.xml"/>
-        <xi:include href="./chapter-SOLEAITM/section-ITSSGE.xml"/>
-        <xi:include href="./chapter-SOLEAITM/section-ITMAMOAS.xml"/>
-        <xi:include href="./chapter-SOLEAITM/section-GEAM.xml"/>
+        <xi:include href="./chapter-SOLEAITM/section-SOLE.ptx"/>
+        <xi:include href="./chapter-SOLEAITM/section-ITSSGE.ptx"/>
+        <xi:include href="./chapter-SOLEAITM/section-ITMAMOAS.ptx"/>
+        <xi:include href="./chapter-SOLEAITM/section-GEAM.ptx"/>
+        <!-- <xi:include href="./chapter-SOLEAITM/section-AOLS.ptx"/> -->
 
 </chapter>

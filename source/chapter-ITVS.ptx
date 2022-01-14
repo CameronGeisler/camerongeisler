@@ -6,9 +6,9 @@
 
         </introduction>
         
-        <xi:include href="./chapter-ITVS/section-RCSCSNS.xml"/>
-        <xi:include href="./chapter-ITVS/section-LI.xml"/>
-        <xi:include href="./chapter-ITVS/section-B.xml"/>
-        <xi:include href="./chapter-ITVS/section-DAR.xml"/>
-        <xi:include href="./chapter-ITVS/section-CS.xml"/>
+        <xi:include href="./chapter-ITVS/section-RCSCSNS.ptx"/>
+        <xi:include href="./chapter-ITVS/section-LI.ptx"/>
+        <xi:include href="./chapter-ITVS/section-B.ptx"/>
+        <xi:include href="./chapter-ITVS/section-DAR.ptx"/>
+        <xi:include href="./chapter-ITVS/section-CS.ptx"/>
 </chapter>

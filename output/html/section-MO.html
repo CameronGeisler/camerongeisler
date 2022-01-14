@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-05T10:27:32-08:00       *-->
+<!--*       on 2022-01-13T16:19:39-08:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -189,7 +189,7 @@ a_{m1} \amp a_{n2} \amp \dots \amp a_{mn}
 \begin{equation*}
 A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
 \end{equation*}
-</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-67"><h3 class="heading hide-type">
+</div>The arithmetic of vectors naturally extends to the more general matrices. Recall that a vector can be thought of as a particular type of matrix.</section><section class="subsection" id="subsection-72"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span>
 </h3>
 <article class="definition definition-like" id="definition-39"><h4 class="heading">
@@ -197,13 +197,13 @@ A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
 </h4>Two matrices \(A\) and \(B\) are <dfn class="terminology">equal</dfn> if they have equal dimensions \(m \times n\text{,}\) and each corresponding entries are equal, i.e. \(a_{ij} = b_{ij}\) for all \(i, j\text{.}\)</article><article class="definition definition-like" id="definition-40"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix addition.</span>
 </h4>
-<p id="p-337">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
+<p id="p-347">Let \(A, B\) be \(m \times n\) matrices (of the same dimension). Then, the <dfn class="terminology">sum</dfn> of \(A\) and \(B\text{,}\) is the matrix formed by adding the corresponding entries of \(A\) and \(B\text{.}\) In other words,</p>
 <div class="displaymath">
 \begin{equation*}
 \boxed{(A + B)_{ij} = \begin{bmatrix} a_{ij} + b_{ij} \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-338">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
-<p id="p-339">For \(2 \times 2\) matrices,</p>
+</div></article><p id="p-348">Note that addition is only defined for matrices that have equal dimensions. Subtraction of matrices is defined similarly.</p>
+<p id="p-349">For \(2 \times 2\) matrices,</p>
 <div class="displaymath">
 \begin{equation*}
 \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} + \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} = \begin{bmatrix} a_{11} + b_{11} \amp a_{12} + b_{12} \\ a_{21} + b_{21} \amp a_{22} + b_{22} \end{bmatrix}
@@ -215,84 +215,84 @@ A = \begin{bmatrix} \vec{a}_1 \amp \cdots \amp \vec{a}_n \end{bmatrix}
 \begin{equation*}
 \boxed{(kA)_{ij} = kA_{ij}}
 \end{equation*}
-</div></article><p id="p-340">For \(2 \times 2\) matrices,</p>
+</div></article><p id="p-350">For \(2 \times 2\) matrices,</p>
 <div class="displaymath">
 \begin{equation*}
 k A = k \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = \begin{bmatrix} ka \amp kb \\ kc \amp kd \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-341">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of column vectors.</p>
+<p id="p-351">The previous definitions focussed on the considering matrices entry-wise (that is, entry-by-entry). The operations for a matrix can also be thought of in terms of column vectors.</p>
 <ul class="disc">
-<li id="li-102"><p id="p-derived-li-102">The sum \(A + B\) is the matrix whose columns are the sums of the corresponding columns of \(A\) and \(B\text{,}\) or,<div class="displaymath">
+<li id="li-105"><p id="p-derived-li-105">The sum \(A + B\) is the matrix whose columns are the sums of the corresponding columns of \(A\) and \(B\text{,}\) or,<div class="displaymath">
 \begin{equation*}
 A + B = \begin{bmatrix} \vec{a}_1 + \vec{b}_1 \amp \vec{a}_2 + \vec{b}_2 \amp \cdots \amp \vec{a}_n + \vec{b}_n \end{bmatrix}
 \end{equation*}
 </div></p></li>
-<li id="li-103"><p id="p-derived-li-103">The scalar multiple \(kA\) is the matrix whose columns are the scalar multiples of vectors \(k \vec{a}_j\text{,}\) or,<div class="displaymath">
+<li id="li-106"><p id="p-derived-li-106">The scalar multiple \(kA\) is the matrix whose columns are the scalar multiples of vectors \(k \vec{a}_j\text{,}\) or,<div class="displaymath">
 \begin{equation*}
 kA = \begin{bmatrix} k \vec{a}_1 \amp k \vec{a}_2 \amp \cdots \amp k \vec{a}_n \end{bmatrix}
 \end{equation*}
 </div></p></li>
 </ul>
-<p id="p-342">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-68"><h3 class="heading hide-type">
+<p id="p-352">In a similar way as vectors, \((-1)A\) is denoted by \(-A\text{,}\) and also subtraction of matrices \(A - B\) is just \(A + (-1)B\text{.}\)</p></section><section class="subsection" id="subsection-73"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Properties of Matrix Addition</span>
 </h3>
 <article class="definition definition-like" id="definition-42"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span>
-</h4>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by O, or sometimes 0.</article><p id="p-343">The size of a zero matrix is usually clear from the context. The zero matrix has the property that,</p>
+</h4>An \(m \times n\) matrix whose entries are all zero is called a <dfn class="terminology">zero matrix</dfn>, and is typically denoted by O, or sometimes 0.</article><p id="p-353">The size of a zero matrix is usually clear from the context. The zero matrix has the property that,</p>
 <div class="displaymath">
 \begin{equation*}
 A + O = A
 \end{equation*}
 </div>
-<p id="p-344">i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. If \(0\) is used to denote the zero matrix, then note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p> Also, the zero matrix has the property that \(0 A = O\text{,}\) that is, the zero scalar multiple of any matrix is the zero matrix. <article class="theorem theorem-like" id="theorem-21"><h4 class="heading">
+<p id="p-354">i.e. it is the <dfn class="terminology">additive identity</dfn> for the set of all \(n \times m\) matrices. If \(0\) is used to denote the zero matrix, then note it is clear in this equation that 0 is a matrix, since a matrix \(A\) cannot be added to the number 0.</p> Also, the zero matrix has the property that \(0 A = O\text{,}\) that is, the zero scalar multiple of any matrix is the zero matrix. <article class="theorem theorem-like" id="theorem-21"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span>
 </h4>
-<p id="p-345">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
+<p id="p-355">Let \(A, B, C\) be \(m \times n\) matrices, \(0\) be the \(m \times n\) zero matrix. Then, addition has the following properties:</p>
 <ol class="decimal">
-<li id="li-104"><p id="p-derived-li-104"><em class="emphasis">Commutative property</em>.<div class="displaymath">
+<li id="li-107"><p id="p-derived-li-107"><em class="emphasis">Commutative property</em>.<div class="displaymath">
 \begin{equation*}
 A + B = B + A
 \end{equation*}
 </div></p></li>
-<li id="li-105"><p id="p-derived-li-105"><em class="emphasis">Associative property</em>.<div class="displaymath">
+<li id="li-108"><p id="p-derived-li-108"><em class="emphasis">Associative property</em>.<div class="displaymath">
 \begin{equation*}
 (A + B) + C = A + (B + C)
 \end{equation*}
 </div></p></li>
-<li id="li-106"><p id="p-derived-li-106"><em class="emphasis">Additive identity property</em>.<div class="displaymath">
+<li id="li-109"><p id="p-derived-li-109"><em class="emphasis">Additive identity property</em>.<div class="displaymath">
 \begin{equation*}
 A + 0 = A
 \end{equation*}
 </div></p></li>
-<li id="li-107"><p id="p-derived-li-107"><em class="emphasis">Additive inverse property</em>. For a matrix \(A\text{,}\) the matrix \(-A = \begin{bmatrix} -a_{ij} \end{bmatrix}\text{,}\) consisting of the additive inverses of the entires of \(A\text{,}\) is the <dfn class="terminology">additive inverse</dfn> of \(A\text{,}\) as,<div class="displaymath">
+<li id="li-110"><p id="p-derived-li-110"><em class="emphasis">Additive inverse property</em>. For a matrix \(A\text{,}\) the matrix \(-A = \begin{bmatrix} -a_{ij} \end{bmatrix}\text{,}\) consisting of the additive inverses of the entires of \(A\text{,}\) is the <dfn class="terminology">additive inverse</dfn> of \(A\text{,}\) as,<div class="displaymath">
 \begin{equation*}
 A + (-A) = 0
 \end{equation*}
 </div></p></li>
-</ol></article><p id="p-346">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
-<p id="p-347">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
+</ol></article><p id="p-356">The associative property means that sums of three or more matrices can be written without brackets, for example \(A + B + C\text{.}\)</p>
+<p id="p-357">Matrix addition also follows the natural laws when combined with scalar multiplication.</p>
 <article class="theorem theorem-like" id="theorem-22"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
 </h4>
-<p id="p-348">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
+<p id="p-358">Let \(A, B\) be \(m \times n\) matrices, \(r, s \in \mathbb{R}\) be scalars. Then,</p>
 <ol class="decimal">
-<li id="li-108"><p id="p-derived-li-108"><em class="emphasis">Scalar distributes over matrix addition</em>.<div class="displaymath">
+<li id="li-111"><p id="p-derived-li-111"><em class="emphasis">Scalar distributes over matrix addition</em>.<div class="displaymath">
 \begin{equation*}
 r(A + B) = rA + rB
 \end{equation*}
 </div></p></li>
-<li id="li-109"><p id="p-derived-li-109"><em class="emphasis">Matrix distributes over scalar addition</em>.<div class="displaymath">
+<li id="li-112"><p id="p-derived-li-112"><em class="emphasis">Matrix distributes over scalar addition</em>.<div class="displaymath">
 \begin{equation*}
 (r + s)A = rA + sA
 \end{equation*}
 </div></p></li>
-<li id="li-110"><p id="p-derived-li-110"><em class="emphasis">Associativity of scalar multiplication</em>.<div class="displaymath">
+<li id="li-113"><p id="p-derived-li-113"><em class="emphasis">Associativity of scalar multiplication</em>.<div class="displaymath">
 \begin{equation*}
 r(sA) = (rs)A
 \end{equation*}
 </div></p></li>
-</ol></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><ul class="disc"><li id="li-111"><p id="p-derived-li-111"><em class="emphasis">Proof of 1. for \(2 \times 2\) matrices</em>. Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}\text{.}\) Then,<div class="displaymath">
+</ol></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><ul class="disc"><li id="li-114"><p id="p-derived-li-114"><em class="emphasis">Proof of 1. for \(2 \times 2\) matrices</em>. Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}, B = \begin{bmatrix} e \amp f \\ g \amp h \end{bmatrix}\text{.}\) Then,<div class="displaymath">
 \begin{align*}
 r(A + B) = r \begin{bmatrix} a + e \amp b + f \\ c + g \amp d + h \end{bmatrix} \amp = \begin{bmatrix} r(a + e) \amp r(b + f) \\ r(c + g) \amp r(d + h) \end{bmatrix}\\
 \amp = \begin{bmatrix} ra + re \amp rb + rf \\ rc + rg \amp rd + rh \end{bmatrix}\\
