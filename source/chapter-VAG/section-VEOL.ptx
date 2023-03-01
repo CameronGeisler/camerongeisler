@@ -59,7 +59,7 @@
             <me>
                 \boxed{\vec{r} = \vec{r}_0 + t \vec{v}}
             </me>
-            <p>which is called the <term>vector parametric form</term>. The vector <m>\vec{v}</m> is called a <term>direction vector</term> for the line.</p>
+            <p>which is called the <term>vector parametric form</term>. The vector <m>\vec{v}</m> is called a <term>direction vector</term> for the line. In other words, a point <m>\vec{r}</m> is on the line if and only if there exists a number <m>t</m> such that <m>\vec{r} = \vec{r}_0 + t \vec{v}</m>.</p>
         </theorem>
         <p>
             Note that the direction vector <m>\vec{v}</m> is not unique, because any other vector parallel to it would also specify the same line. Also, the point on the line is not unique, because we could have used any other point on the line.
@@ -100,7 +100,7 @@
             Recall that a line can also be specified using two points <m>(x_1, y_1), (x_2, y_2)</m>. Then, a direction vector is the vector that is the difference of the points, as vectors,
         </p>
         <me>
-            \vec{v} = \vecii{x_2 - x_1}{y_2-y_1}
+            \vec{v} = \vecii{x_2 - x_1}{y_2 - y_1}
         </me>
         <p>
             Then, using the point <m>\vec{r}_0 = (x_1, y_1)</m> as a refernce point, the vector parametric equation of the line is again <m>\vec{r} = \vec{r}_0 + t \vec{v}</m>. Or, in scalar parametric form,
@@ -129,7 +129,7 @@
             <p>which is called the <term>vector parametric form</term>. The vector <m>\vec{v}</m> is called a <term>direction vector</term> for the line.</p>
         </theorem>
         <p>
-            Then, similarly, we can compare components, to obatin the scalar parametric form of a line,
+            Then, similarly, we can compare components, to obtain the scalar parametric form of a line,
         </p>
         <me>
             \boxed{\begin{cases} x = x_0 + at \\ y = y_0 + bt \\ z = z_0 + ct \end{cases} \qquad -\infty \lt t \lt \infty}

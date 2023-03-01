@@ -159,12 +159,24 @@
     <subsection>
         <title>Solving Systems with Inverse Matrices</title>
 
+        <p>
+            Inverse matrices also provide a conceptually intuitive method of solving a linear system <m>A\vec{x} = \vec{b}</m>. If the coefficient matrix <m>A</m> is invertible, then multiplying both sides of the equation on the left by <m>A^{-1}</m>, we can solve for <m>\vec{x}</m>,
+        </p>
+        <md>
+            <mrow>A^{-1} (A \vec{x}) \amp = A^{-1} \vec{b}</mrow>
+            <mrow>I \vec{x} \amp = A^{-1} \vec{b}</mrow>
+            <mrow>\vec{x} \amp = A^{-1} \vec{b}</mrow>
+        </md>
+        <p>
+            Thus, <m>\vec{x} = A^{-1} \vec{b}</m> is the unique solution to the equation. This leads to the following theorem.
+        </p>
+
         <theorem>
             <p>Let <m>A</m> be an <m>n \times n</m> matrix. If <m>A</m> is invertible, then the matrix equation <m>A\vec{x} = \vec{b}</m> has a unique soloution (for any <m>\vec{b} \in \mathbb{R}^n</m>), given by the vector <m>\vec{x} = A^{-1} \vec{b}</m>.</p>
         </theorem>
 
         <p>
-            Intuitively, this comes from multiplying both sides of the equation <m>A\vec{x} = \vec{b}</m> on the left by <m>A^{-1}</m>, to get <m>A^{-1}A \vec{x} = A^{-1} \vec{b}</m>. Then, <m>A^{-1} A = I_n</m> and <m>I_n \vec{x} = \vec{x}</m>, so the equation becomes <m>\vec{x} = A^{-1} \vec{b}</m>. The uniqueness follows from the fact that matrix inverses are unique.
+            Intuitively, the uniqueness follows from the fact that matrix inverses are unique.
         </p>
         <proof>
             First, indeed <m>\vec{x} = A^{-1} \vec{b}</m> is a solution, as
@@ -174,10 +186,10 @@
             so it indeed satisfies the equation. For uniqueness, let <m>\vec{u}</m> be any solution, so that <m>A\vec{u} = \vec{b}</m>. Then, multiplying on the left by <m>A^{-1}</m>, <m>A^{-1} A \vec{u} = A^{-1} \vec{b}</m>, or <m>I_n \vec{u} = A^{-1} \vec{b}</m>, and so <m>\vec{u} = A^{-1} \vec{b}</m>.
         </proof>
         <p>
-            The formula <m>\vec{x} = A^{-1} \vec{b}</m> is rarely used in practice to solve a system of equations. This is because row reduction is almost always faster, especially for large systems, for which computing inverses is very time-consuming. A possible exception is for systems of two equations in two unknowns.
+            However, the formula <m>\vec{x} = A^{-1} \vec{b}</m> is is rarely used in practice to solve a system of equations. This is because, especially for large systems, computing inverses is very time-consuming. The alternative method of row reduction is much faster. A possible exception is for systems of two equations in two unknowns.
         </p>
         <p>
-            Instead, the importance of this theorem is that says that invertibility guarentees a unique solution.
+            Instead, the importance of this theorem is conceptual, because it provides the condition of invertibility that guarentees a unique solution.
         </p>
         <!-- <p>
             If the coefficient matrix does not have an inverse, then...

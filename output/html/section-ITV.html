@@ -1,56 +1,184 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:38-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US">
-<head>
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Introduction to Vectors</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>window.MathJax = {
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra Notes">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
   },
   options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
   },
   chtml: {
-    scale: 0.88,
+    scale: 0.98,
     mtextInheritFont: true
   },
   loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="chapter-VAG.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter-VAG.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="section-VEOL.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
@@ -61,8 +189,8 @@
 \newcommand{\ihat}{\mathbf{\hat{\imath}}}
 \newcommand{\jhat}{\mathbf{\hat{\jmath}}}
 \newcommand{\khat}{\mathbf{\hat{k}}}
-\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
-\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+\newcommand{\vecii}[2]{\left\lt #1, #2 \right\gt}
+\newcommand{\veciii}[3]{\left\lt #1, #2, #3 \right\gt}
 
     
 
@@ -81,7 +209,7 @@
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
 \DeclareMathOperator{\sol}{Sol}
-\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\inp}[2]{\left\lt #1, #2 \right\gt}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
 
@@ -92,269 +220,537 @@
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
-\)</div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
-<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
-<p class="byline"></p>
-</div>
-</div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chapter-VAG.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-VAG.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-VEOL.html" title="Next">Next</a></span></div>
-</div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-VAG.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-VAG.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-VEOL.html" title="Next">Next</a>
-</div>
-</div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="chapter-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="subsection-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Applications of Linear Algebra</span></a></div></li></ul>
 </li>
-<li class="link">
-<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
-<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
-<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
-<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
-<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+<li>
+<div class="toc-item"><a href="chapter-SOLEAITM.html" class="internal"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-SOLE.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Systems of Linear Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-SOLE.html#subsection-2" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Motivation: Systems of Two Linear Equations In Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-SOLE.html#subsection-3" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Introduction to Systems of Linear Equations</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
-<li><a href="section-ITV.html" data-scroll="section-ITV" class="active">Introduction to Vectors</a></li>
-<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
-<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
-<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+<li>
+<div class="toc-item"><a href="section-ITSSGE.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Intro to Solving Systems, Gaussian Elimination</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-4" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Existence and Uniqueness</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-5" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Triangular Systems, Back-Substitution</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-6" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Gaussian Elimination, Elementary Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-7" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Remark on Elementary Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Solving Systems of Two Equations in Two Variables</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
-<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+<li>
+<div class="toc-item"><a href="section-ITMAMOAS.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Introduction to Matrices, Augmented Matrix of a System</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITMAMOAS.html#subsection-9" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITMAMOAS.html#subsection-10" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Augmented Matrix of a System</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
-<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
-<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
-<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
-<li><a href="section-IOAM.html" data-scroll="section-IOAM">Inverse of a Matrix</a></li>
+<li>
+<div class="toc-item"><a href="section-GEAM.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Gaussian Elimination and Matrices</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-11" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Elementary Row Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-12" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-13" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Summary of Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-14" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Remark on Gaussian Elimination</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-15" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Systems with Infinitely Many Solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-16" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Systems with No Solution</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-17" class="internal"><span class="codenumber">2.4.7</span> <span class="title">Reduced Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-18" class="internal"><span class="codenumber">2.4.8</span> <span class="title">Existence and Uniqueness, Summary</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-19" class="internal"><span class="codenumber">2.4.9</span> <span class="title">Summary of Solving Systems with Gaussian Elimination</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-20" class="internal"><span class="codenumber">2.4.10</span> <span class="title">Historical Note</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-21" class="internal"><span class="codenumber">2.4.11</span> <span class="title">Number of Operations for Row Reduction (Flops)</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-22" class="internal"><span class="codenumber">2.4.12</span> <span class="title">Computing Note</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#exercises-1" class="internal"><span class="codenumber">2.4.13</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
-<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
-<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
-<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
-<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
-<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
-<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+<li>
+<div class="toc-item"><a href="chapter-VAG.html" class="internal"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a></div>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="section-ITV.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITV.html#subsection-23" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-24" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-25" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Magnitude of a Vector</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-26" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Unit Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-27" class="internal"><span class="codenumber">3.1.5</span> <span class="title">The Standard Basis Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-28" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-29" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-30" class="internal"><span class="codenumber">3.1.8</span> <span class="title">Properties of Vector Arithmetic</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-31" class="internal"><span class="codenumber">3.1.9</span> <span class="title">Linear Combinations of Vectors</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-27.html" data-scroll="section-27">Vector Spaces and Subspaces</a></li></ul>
+<li>
+<div class="toc-item"><a href="section-VEOL.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Vector Equations of Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-32" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Intro to Vector Parametric Form of a Line in the Plane</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-33" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Lines Using Two Points</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-34" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Lines in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-35" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Cartesian Equation of a Line in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-36" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Affine Combination Form of a Line</span></a></div></li>
+</ul>
 </li>
-<li class="link">
-<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+<li>
+<div class="toc-item"><a href="section-DP.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-DP.html#subsection-37" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Vector Direction</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-38" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Dot Product of Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-39" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Properties of the Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-40" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Angle Between Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-41" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Alternate Characterization for the Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-42" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Computing the Angle Between Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-43" class="internal"><span class="codenumber">3.3.7</span> <span class="title">Dot Product and Parallel-ness</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-44" class="internal"><span class="codenumber">3.3.8</span> <span class="title">Dot Product for Vectors in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-45" class="internal"><span class="codenumber">3.3.9</span> <span class="title">Dot Product for Vectors in <span class="process-math">\(\mathbb{R}^n\)</span> (Inner Product)</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-46" class="internal"><span class="codenumber">3.3.10</span> <span class="title">Pythagorean Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-47" class="internal"><span class="codenumber">3.3.11</span> <span class="title">Angle Between Vectors</span></a></div></li>
+</ul>
 </li>
-<li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul><li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li></ul>
+<li>
+<div class="toc-item"><a href="section-VEOP.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Vector Equations of Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-48" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Standard Form of a Line, and Normal Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-49" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Planes in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-50" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Planes Using Two Vectors: Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-51" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Parametric Equation of a Plane</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-52" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Planes Using 3 Points</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-53" class="internal"><span class="codenumber">3.4.6</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-54" class="internal"><span class="codenumber">3.4.7</span> <span class="title">Planes Parallel to the Coordinate Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-55" class="internal"><span class="codenumber">3.4.8</span> <span class="title">Intersecting Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-56" class="internal"><span class="codenumber">3.4.9</span> <span class="title">Parallel Planes</span></a></div></li>
+</ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-ITV"><h2 class="heading hide-type">
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-VALE.html" class="internal"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-VES.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Vector Equations, Span</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-VES.html#subsection-57" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Vector Equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-VES.html#subsection-58" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Introduction to Span of Vectors in <span class="process-math">\(\mathbb{R}^2, \mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VES.html#subsection-59" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Span of <span class="process-math">\(n\)</span> Vectors</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-MEMVP.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrix Equations, Matrix-Vector Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-60" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Product of a Matrix with a Vector</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-61" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Matrix Form of a Linear System</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-62" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Linear Combination Interpretation</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-63" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Matrix Equations as Linear Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-64" class="internal"><span class="codenumber">4.2.5</span> <span class="title">The Identity Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-65" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Properties of the Matrix-Vector Product</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-SSOLE.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Solution Sets of Linear Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-66" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Homogeneous Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-67" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Non-homogeneous Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-68" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Solving a Consistent System in Parametric Vector Form</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-69" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Intersection of Two Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-70" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Equation of Line as Intersection of Two Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-71" class="internal"><span class="codenumber">4.3.6</span> <span class="title">Intersection of Three Planes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-MALT.html" class="internal"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-MO.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Matrix Operations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MO.html#subsection-72" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MO.html#subsection-73" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Properties of Matrix Addition</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-ITLT.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Intro to Linear Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITLT.html#subsection-74" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITLT.html#subsection-75" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-MALT.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Matrices and Linear Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MALT.html#subsection-76" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Linear Transformations and Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-MALT.html#subsection-77" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Linear Transformations and Linear Systems</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-LTITP.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Transformations in the Plane</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-78" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Linear Transformations in the Plane</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-79" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Reflections</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-80" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Stretching (Contraction/Expansion) and Dilation</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-81" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Rotation Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-82" class="internal"><span class="codenumber">5.4.5</span> <span class="title">General Rotations</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-83" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Linear Transformations Revisited</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-84" class="internal"><span class="codenumber">5.4.7</span> <span class="title">Glide Reflection</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-MM.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Matrix Multiplication</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MM.html#subsection-85" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-86" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Matrix Multiplication as a Dot Product (Entry-by-Entry)</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-87" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Row Perspective of the Matrix-Vector Product and Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-88" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Properties of Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-89" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Matrix Multiplication is Not Commutative</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-90" class="internal"><span class="codenumber">5.5.6</span> <span class="title">The Identity Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-91" class="internal"><span class="codenumber">5.5.7</span> <span class="title">Matrix Operations with <span class="process-math">\(1 \times 1\)</span> Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-92" class="internal"><span class="codenumber">5.5.8</span> <span class="title">Matrix Multiplication by Blocks (Partitioned Matrices)</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-EM.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Elementary Matrices</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-EM.html#subsection-93" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-EM.html#subsection-94" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Permutation Matrices for Row Exchanges</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-IOAM.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Inverse of a Matrix</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-95" class="internal"><span class="codenumber">5.7.1</span> <span class="title">Inverse of a Square Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-96" class="internal"><span class="codenumber">5.7.2</span> <span class="title">Matrix Inverses and Linear Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-97" class="internal"><span class="codenumber">5.7.3</span> <span class="title">Computing the Inverse of a Matrix (<span class="process-math">\(1 \times 1\)</span> and <span class="process-math">\(2 \times 2\)</span> Cases)</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-98" class="internal"><span class="codenumber">5.7.4</span> <span class="title">Solving Systems with Inverse Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-99" class="internal"><span class="codenumber">5.7.5</span> <span class="title">Inverses of Larger Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-100" class="internal"><span class="codenumber">5.7.6</span> <span class="title">Matrix Inverses and Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-101" class="internal"><span class="codenumber">5.7.7</span> <span class="title">Inverse of a <span class="process-math">\(3 \times 3\)</span> Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-102" class="internal"><span class="codenumber">5.7.8</span> <span class="title">Properties of Inverse Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#exercises-2" class="internal"><span class="codenumber">5.7.9</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-ITVS.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-RCSCSNS.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Real Coordinate Spaces, Column Space and Null Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-103" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Introduction to Vector Spaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-104" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Subspaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-105" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Spans of Vectors as a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-106" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Vector Spaces of <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-107" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Intersection of Subspaces is a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-108" class="internal"><span class="codenumber">6.1.6</span> <span class="title">The Column Space</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-109" class="internal"><span class="codenumber">6.1.7</span> <span class="title">The Null Space</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-110" class="internal"><span class="codenumber">6.1.8</span> <span class="title">Contrasting the Column and Null Space</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-LI.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Linear Independence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="section-LI.html#subsection-111" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Linear Independence</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-B.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Basis of a Vector Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-B.html#subsection-112" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Basis of a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-B.html#subsection-113" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Basis of the Column Space</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-DAR.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dimension and Rank</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-DAR.html#subsection-114" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Dimension of a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-DAR.html#subsection-115" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Rank of a Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-DAR.html#subsection-116" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Rank and the Invertible Matrix Theorem</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-CS.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Coordinate Systems</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-CS.html#subsection-117" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Coordinate Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-CS.html#subsection-118" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Change of Basis</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-D.html" class="internal"><span class="codenumber">7</span> <span class="title">Determinants</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-ITD.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction to Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITD.html#subsection-119" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITD.html#subsection-120" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Determinants of <span class="process-math">\(3 \times 3\)</span> Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITD.html#subsection-121" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Determinants of Larger Matrices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-CR.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Cramer's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-CR.html#subsection-122" class="internal"><span class="codenumber">7.2.1</span> <span class="title">The <span class="process-math">\(3 \times 3\)</span> Case</span></a></div></li>
+<li><div class="toc-item"><a href="section-CR.html#subsection-123" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Cramer's Rule</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-POD.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Properties of Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-POD.html#subsection-124" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Determinants and Row Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#subsection-125" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Evaluating Determinants of Higher Order</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#subsection-126" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Determinants and Invertibility</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#subsection-127" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Number of Operations for Computing Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#exercises-3" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-GVS.html" class="internal"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="section-27.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Vector Spaces and Subspaces</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-27.html#subsection-128" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Vector Spaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-129" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Subspaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-130" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Subspace Spanned by a Set</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-131" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Polynomial Spaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-132" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Function Spaces</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-EAE.html" class="internal"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="section-EAE.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-EAE.html#subsection-133" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-134" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Determining Eigenvalues and Eigenvectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-135" class="internal"><span class="codenumber">9.1.3</span> <span class="title">The Eigenspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-136" class="internal"><span class="codenumber">9.1.4</span> <span class="title">Computing Eigenvalues</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-137" class="internal"><span class="codenumber">9.1.5</span> <span class="title">The Characteristic Equation</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-MISC.html" class="internal"><span class="codenumber">10</span> <span class="title">Misc</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="section-LU.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Matrix Factorizations, LU Factorziation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-LU.html#subsection-138" class="internal"><span class="codenumber">10.1.1</span> <span class="title">LU Factorization</span></a></div></li>
+<li><div class="toc-item"><a href="section-LU.html#subsection-139" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Performing LU Factorization</span></a></div></li>
+<li><div class="toc-item"><a href="section-LU.html#subsection-140" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Algorithm for LU Factorization</span></a></div></li>
+<li><div class="toc-item"><a href="section-LU.html#subsection-141" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Number of Operations for LU Factorization</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-ITV"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Introduction to Vectors</span>
 </h2>
-<section class="introduction" id="introduction-8">Previously, we considered linear systems as strictly from the perspective of relationships between variables. Next, we will consider it from the perspective of <em class="emphasis">vectors</em>. Vectors are at the heart of linear algebra.</section><section class="subsection" id="subsection-24"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-8">Previously, we considered linear systems as strictly from the perspective of relationships between variables. Next, we will consider it from the perspective of <em class="emphasis">vectors</em>. Vectors are at the heart of linear algebra.</section><section class="subsection" id="subsection-23"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.1</span> <span class="title">Vectors</span>
 </h3>
-<p id="p-77">The term <em class="emphasis">vector</em> is used widely in mathematics, physics, and computer science. There are a variety of definitions, ranging from specific and applied to mathematically abstract. For now, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <dfn class="terminology">column matrix</dfn>, a matrix with dimensions \(1 \times n\text{,}\) i.e. a matrix with 1 row and \(n\) “columns”. Similarly, a <dfn class="terminology">row vector</dfn> is a \(m \times 1\) matrix, a matrix which has 1 columns and \(m\) “rows”.</p></section><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Vectors in \(\mathbb{R}^2\)</span>
+<div class="para" id="p-81">The term <em class="emphasis">vector</em> is used widely in mathematics, physics, and computer science. There are a variety of definitions, ranging from specific and applied to mathematically abstract. For now, a vector will simply mean an ordered list of real numbers. In linear algebra, we represent vectors most commonly as a <dfn class="terminology">column matrix</dfn>, a matrix with dimensions <span class="process-math">\(1 \times n\text{,}\)</span> i.e. a matrix with 1 row and <span class="process-math">\(n\)</span> “columns”. Similarly, a <dfn class="terminology">row vector</dfn> is a <span class="process-math">\(m \times 1\)</span> matrix, a matrix which has 1 columns and <span class="process-math">\(m\)</span> “rows”.</div></section><section class="subsection" id="subsection-24"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^2\)</span></span>
 </h3>
-<p id="p-78">First, we will consider vectors that contain two numbers, of the form,</p>
-<div class="displaymath">
+<div class="para" id="p-82">First, we will consider vectors that contain two numbers, of the form,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{v} = \begin{bmatrix} x \\ y \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-79">The physics perspective on vectors views them as directed line segments. That is, line segments with a direction, typically represented by an arrow. The point where the vector arrow “starts” is called its <dfn class="terminology">tail</dfn> (or <dfn class="terminology">initial point</dfn>), and the point where it ends the <dfn class="terminology">head</dfn> (or <dfn class="terminology">terminal point</dfn>).</p>
-<p id="p-80">With this perspective, vectors don't change if they are moved around in the plane, that is, they are unaffected by translation. This geometric perspective isn't very computational. To bridge this difference, we make the convention of viewing vectors with their tails fixed at the origin \((0,0)\text{.}\)</p>
+<div class="para" id="p-83">The physics perspective on vectors views them as directed line segments. That is, line segments with a direction, typically represented by an arrow. The point where the vector arrow “starts” is called its <dfn class="terminology">tail</dfn> (or <dfn class="terminology">initial point</dfn>), and the point where it ends the <dfn class="terminology">head</dfn> (or <dfn class="terminology">terminal point</dfn>).</div>
+<div class="para" id="p-84">With this perspective, vectors don't change if they are moved around in the plane, that is, they are unaffected by translation. This geometric perspective isn't very computational. To bridge this difference, we make the convention of viewing vectors with their tails fixed at the origin <span class="process-math">\((0,0)\text{.}\)</span>
+</div>
 <article class="definition definition-like" id="definition-15"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
-</h4>A vector is in <dfn class="terminology">standard position</dfn> if its initial point is at the origin.</article><p id="p-81">The advantage to this convention is that a vector in standard position is completely determined by its terminal point. In particular, if the terminal point of a vector is \((x,y)\text{,}\) then this ordered pair can be used to specific the vector.</p>
+</h4>A vector is in <dfn class="terminology">standard position</dfn> if its initial point is at the origin.</article><div class="para" id="p-85">The advantage to this convention is that a vector in standard position is completely determined by its terminal point. In particular, if the terminal point of a vector is <span class="process-math">\((x,y)\text{,}\)</span> then this ordered pair can be used to specific the vector.</div>
 <article class="definition definition-like" id="definition-16"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
-</h4>The vector from the origin to a point \((x,y)\) is called a <dfn class="terminology">position vector</dfn> for the point \((x,y)\text{.}\)</article><p id="p-82">Further, every point in the plane \((x,y)\) can be represented by the orederd list of numbers, \(\begin{bmatrix} x \\ y \end{bmatrix}\text{.}\)</p>
-<p id="p-83">In this way, there is a <em class="emphasis">one-to-one correspondence</em> between geometric vectors, ordered pairs, and vectors. We <em class="emphasis">identify</em> a column vector with an ordered tuple of numbers. That is, we treat them as equivalent. For example,</p>
-<div class="displaymath">
+</h4>The vector from the origin to a point <span class="process-math">\((x,y)\)</span> is called a <dfn class="terminology">position vector</dfn> for the point <span class="process-math">\((x,y)\text{.}\)</span></article><div class="para" id="p-86">Further, every point in the plane <span class="process-math">\((x,y)\)</span> can be represented by the orederd list of numbers, <span class="process-math">\(\begin{bmatrix} x \\ y \end{bmatrix}\text{.}\)</span>
+</div>
+<div class="para" id="p-87">In this way, there is a <em class="emphasis">one-to-one correspondence</em> between geometric vectors, ordered pairs, and vectors. We <em class="emphasis">identify</em> a column vector with an ordered tuple of numbers. That is, we treat them as equivalent. For example,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} 1 \\ -3 \end{bmatrix} \quad \text{is equivalent to} \quad (1,-3)
 \end{equation*}
 </div>
-<p id="p-84">This correspondence allows us to write vectors horizontally, which is sometimes convenient because it takes up less space. On the other hand, for technical reasons, it will be necessary to keep the vertical convention.</p>
-<p id="p-85">The numbers contained in a vectors are called its <dfn class="terminology">entries</dfn>, or <dfn class="terminology">components</dfn>, or sometimes its <dfn class="terminology">coordinates</dfn>.</p>
-<p id="p-86">The set of all vectors with two entries is denoted by \(\mathbb{R}^2\) (read “r-squared” or simply “r-two”). Again, this can be thought of as the set of all two-dimensional vectors (geometrically), the set of all ordered pairs \((a,b)\text{,}\) or the set of all column matrices of the form \(\begin{bmatrix} a \\ b \end{bmatrix}\text{.}\)</p>
+<div class="para" id="p-88">This correspondence allows us to write vectors horizontally, which is sometimes convenient because it takes up less space. On the other hand, for technical reasons, it will be necessary to keep the vertical convention.</div>
+<div class="para" id="p-89">The numbers contained in a vectors are called its <dfn class="terminology">entries</dfn>, or <dfn class="terminology">components</dfn>, or sometimes its <dfn class="terminology">coordinates</dfn>.</div>
+<div class="para" id="p-90">The set of all vectors with two entries is denoted by <span class="process-math">\(\mathbb{R}^2\)</span> (read “r-squared” or simply “r-two”). Again, this can be thought of as the set of all two-dimensional vectors (geometrically), the set of all ordered pairs <span class="process-math">\((a,b)\text{,}\)</span> or the set of all column matrices of the form <span class="process-math">\(\begin{bmatrix} a \\ b \end{bmatrix}\text{.}\)</span>
+</div>
 <article class="definition definition-like" id="definition-17"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
 </h4>
-<p id="p-87">Two vectors in \(\mathbb{R}^2\) are <dfn class="terminology">equal</dfn> if their corresponding entries are equal.</p></article><p id="p-88">Next, we define the fundamental operations for combining vectors: addition and scalar multiplication.</p>
+<div class="para" id="p-91">Two vectors in <span class="process-math">\(\mathbb{R}^2\)</span> are <dfn class="terminology">equal</dfn> if their corresponding entries are equal.</div></article><div class="para" id="p-92">Next, we define the fundamental operations for combining vectors: addition and scalar multiplication.</div>
 <article class="definition definition-like" id="definition-18"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Addition of vectors.</span>
-</h4>
-<p id="p-89">Let \(\vec{u}, \vec{v}\) be vectors in \(\mathbb{R}^2\text{.}\) Their <dfn class="terminology">sum</dfn> \(\vec{u} + \vec{v}\) is the vector obtained by adding the corresponding entries of \(\vec{u}\) and \(\vec{v}\text{.}\) That is, for \(\vec{u} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \vec{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}\text{,}\)</p>
-<div class="displaymath">
+</h4> <div class="para" id="p-93">Let <span class="process-math">\(\vec{u}, \vec{v}\)</span> be vectors in <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> Their <dfn class="terminology">sum</dfn> <span class="process-math">\(\vec{u} + \vec{v}\)</span> is the vector obtained by adding the corresponding entries of <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\text{.}\)</span> That is, for <span class="process-math">\(\vec{u} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix}, \vec{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \boxed{\vec{u} + \vec{v} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-90">Geometrically, the sum \(\vec{u} + \vec{v}\) is obtained by aligning the tail of \(\vec{v}\) with the head of \(\vec{u}\text{.}\) Then, the vector \(\vec{u} + \vec{v}\) is the arrow from the tail of \(\vec{u}\) to the head of \(\vec{v}\text{.}\) This is called the <dfn class="terminology">parallelogram rule for addition</dfn>, or the <dfn class="terminology">tail-to-tip method</dfn>.</p>
-<p id="p-91">Alternatively, if the tails of \(\vec{u}\) and \(\vec{v}\) are aligned together, and we form the parallelogram with sides \(\vec{u}\) and \(\vec{v}\text{,}\) then \(\vec{u} + \vec{v}\) is the vector formed by an arrow from their tails to the opposite vertex of the paralellogram.</p>
-<p id="p-92">Intuitively, if the vectors are thought of as representing motion, then \(\vec{u} + \vec{v}\) is the resulting motion after movement corresponding to \(\vec{u}\) and then \(\vec{v}\text{.}\)</p>
+</div></article><div class="para" id="p-94">Geometrically, the sum <span class="process-math">\(\vec{u} + \vec{v}\)</span> is obtained by aligning the tail of <span class="process-math">\(\vec{v}\)</span> with the head of <span class="process-math">\(\vec{u}\text{.}\)</span> Then, the vector <span class="process-math">\(\vec{u} + \vec{v}\)</span> is the arrow from the tail of <span class="process-math">\(\vec{u}\)</span> to the head of <span class="process-math">\(\vec{v}\text{.}\)</span> This is called the <dfn class="terminology">parallelogram rule for addition</dfn>, or the <dfn class="terminology">tail-to-tip method</dfn>.</div>
+<div class="para" id="p-95">Alternatively, if the tails of <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\)</span> are aligned together, and we form the parallelogram with sides <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\text{,}\)</span> then <span class="process-math">\(\vec{u} + \vec{v}\)</span> is the vector formed by an arrow from their tails to the opposite vertex of the paralellogram.</div>
+<div class="para" id="p-96">Intuitively, if the vectors are thought of as representing motion, then <span class="process-math">\(\vec{u} + \vec{v}\)</span> is the resulting motion after movement corresponding to <span class="process-math">\(\vec{u}\)</span> and then <span class="process-math">\(\vec{v}\text{.}\)</span>
+</div>
 <article class="definition definition-like" id="definition-19"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar multiplication of vectors.</span>
-</h4>
-<p id="p-93">Let \(\vec{u}\) be a vector, \(c \in \mathbb{R}\text{.}\) Then, the <dfn class="terminology">scalar multiple</dfn> of \(\vec{u}\) by \(c\text{,}\) \(c\vec{u}\text{,}\) is the vector obtained by multiply each entry of \(\vec{u}\) by \(c\text{.}\)</p></article><p id="p-94">The number \(c \in \mathbb{R}\) is called a <dfn class="terminology">scalar</dfn>. This is because, literally, multiplying a vector by a number \(c\) scales the length of the vector. Geometrically, if \(c &gt; 0\text{,}\) then \(c\vec{u}\) is the vector with the same direction as \(\vec{u}\text{,}\) but scaled to be \(c\) times as long. If \(c \le 0\text{,}\) then \(c\vec{u}\) has the opposite direction as \(\vec{u}\text{,}\) and is also \(c\) times as long as \(\vec{u}\text{.}\)</p>
-<p id="p-95">In fact, this is just an extension of addition of real numbers, represented on a number line. This is because real numbers \(a \in \mathbb{R}\) can be thought of as 1-dimensional vectors \(\begin{bmatrix} a \end{bmatrix}\text{.}\)</p>
-<p id="p-96">We can also define vector subtraction in the natural way,</p>
-<div class="displaymath">
+</h4> <div class="para" id="p-97">Let <span class="process-math">\(\vec{u}\)</span> be a vector, <span class="process-math">\(c \in \mathbb{R}\text{.}\)</span> Then, the <dfn class="terminology">scalar multiple</dfn> of <span class="process-math">\(\vec{u}\)</span> by <span class="process-math">\(c\text{,}\)</span> <span class="process-math">\(c\vec{u}\text{,}\)</span> is the vector obtained by multiply each entry of <span class="process-math">\(\vec{u}\)</span> by <span class="process-math">\(c\text{.}\)</span>
+</div></article><div class="para" id="p-98">The number <span class="process-math">\(c \in \mathbb{R}\)</span> is called a <dfn class="terminology">scalar</dfn>. This is because, literally, multiplying a vector by a number <span class="process-math">\(c\)</span> scales the length of the vector. Geometrically, if <span class="process-math">\(c &gt; 0\text{,}\)</span> then <span class="process-math">\(c\vec{u}\)</span> is the vector with the same direction as <span class="process-math">\(\vec{u}\text{,}\)</span> but scaled to be <span class="process-math">\(c\)</span> times as long. If <span class="process-math">\(c \le 0\text{,}\)</span> then <span class="process-math">\(c\vec{u}\)</span> has the opposite direction as <span class="process-math">\(\vec{u}\text{,}\)</span> and is also <span class="process-math">\(c\)</span> times as long as <span class="process-math">\(\vec{u}\text{.}\)</span>
+</div>
+<div class="para" id="p-99">In fact, this is just an extension of addition of real numbers, represented on a number line. This is because real numbers <span class="process-math">\(a \in \mathbb{R}\)</span> can be thought of as 1-dimensional vectors <span class="process-math">\(\begin{bmatrix} a \end{bmatrix}\text{.}\)</span>
+</div>
+<div class="para" id="p-100">We can also define vector subtraction in the natural way,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{u} - \vec{v} = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} - \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-97">However, \(\vec{u} - \vec{v}\) is just \(\vec{u} + (-1) \vec{v}\text{,}\) that is, the sum of \(\vec{u}\) and the scalar multiple \(-1\vec{v}\text{.}\) In other words, subtraction is not really a fundamental operation, because it is defined in terms of the other operations addition and scalar multiplication.</p>
-<p id="p-98">For simplicity, the scalar multiple \(-1\vec{u}\) is written as \(-\vec{u}\text{.}\)</p>
+<div class="para" id="p-101">However, <span class="process-math">\(\vec{u} - \vec{v}\)</span> is just <span class="process-math">\(\vec{u} + (-1) \vec{v}\text{,}\)</span> that is, the sum of <span class="process-math">\(\vec{u}\)</span> and the scalar multiple <span class="process-math">\(-1\vec{v}\text{.}\)</span> In other words, subtraction is not really a fundamental operation, because it is defined in terms of the other operations addition and scalar multiplication.</div>
+<div class="para" id="p-102">For simplicity, the scalar multiple <span class="process-math">\(-1\vec{u}\)</span> is written as <span class="process-math">\(-\vec{u}\text{.}\)</span>
+</div>
 <article class="definition definition-like" id="definition-20"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
 </h4>
-<p id="p-99">The <dfn class="terminology">zero vector</dfn> is the unique vector with no magnitude and no direction, and is denoted by \(\vec{0}\text{.}\)</p></article></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
+<div class="para" id="p-103">The <dfn class="terminology">zero vector</dfn> is the unique vector with no magnitude and no direction, and is denoted by <span class="process-math">\(\vec{0}\text{.}\)</span>
+</div></article></section><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.3</span> <span class="title">Magnitude of a Vector</span>
 </h3>
-<p id="p-100">The <em class="emphasis">physics</em> definition of a vector is a quantity with magnitude and direction. The <dfn class="terminology">magnitude</dfn> of a vector \(\vec{v}\) is denoted by \(\abs{\vec{v}}\text{,}\) or \(\norm{\vec{v}}\text{.}\) The first notation surrounds \(\vec{v}\) by “absolute value” bars, intuitively denoting magnitude.</p>
-<p id="p-101">Geometrically, the magnitude of a vector is the length of its directed line segment in the plane. That is, the distance from initial point to its terminal point. Consider a vector \(\vec{v}\) in the plane in standard position, with terminal point \((a,b)\text{.}\) The magnitude of \(\vec{v}\) is the distance from the origin \((0,0)\) to \((a,b)\text{,}\) given by the distance formula in the plane.</p>
+<div class="para" id="p-104">The <em class="emphasis">physics</em> definition of a vector is a quantity with magnitude and direction. The <dfn class="terminology">magnitude</dfn> of a vector <span class="process-math">\(\vec{v}\)</span> is denoted by <span class="process-math">\(\abs{\vec{v}}\text{,}\)</span> or <span class="process-math">\(\norm{\vec{v}}\text{.}\)</span> The first notation surrounds <span class="process-math">\(\vec{v}\)</span> by “absolute value” bars, intuitively denoting magnitude.</div>
+<div class="para" id="p-105">Geometrically, the magnitude of a vector is the length of its directed line segment in the plane. That is, the distance from initial point to its terminal point. Consider a vector <span class="process-math">\(\vec{v}\)</span> in the plane in standard position, with terminal point <span class="process-math">\((a,b)\text{.}\)</span> The magnitude of <span class="process-math">\(\vec{v}\)</span> is the distance from the origin <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((a,b)\text{,}\)</span> given by the distance formula in the plane.</div>
 <article class="definition definition-like" id="definition-21"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
 </h4>
-<p id="p-102">Let \(\vec{v} \in \mathbb{R}^2, \vec{v} = (a, b)\text{.}\) The <dfn class="terminology">magnitude</dfn> (or <dfn class="terminology">length</dfn>) of \(\vec{v}\) is defined by,</p>
-<div class="displaymath">
+<div class="para" id="p-106">Let <span class="process-math">\(\vec{v} \in \mathbb{R}^2, \vec{v} = (a, b)\text{.}\)</span> The <dfn class="terminology">magnitude</dfn> (or <dfn class="terminology">length</dfn>) of <span class="process-math">\(\vec{v}\)</span> is defined by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \boxed{\abs{\vec{v}} = \sqrt{a^2 + b^2}}
 \end{equation*}
-</div></article><p id="p-103">It follows directly from this definition that \(\abs{c \vec{v}} = \abs{c} \cdot \abs{\vec{v}}\) for a scalar \(c\text{.}\)</p></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
+</div></article><div class="para" id="p-107">It follows directly from this definition that <span class="process-math">\(\abs{c \vec{v}} = \abs{c} \cdot \abs{\vec{v}}\)</span> for a scalar <span class="process-math">\(c\text{.}\)</span>
+</div></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.4</span> <span class="title">Unit Vectors</span>
 </h3>
-<p id="p-104">A vector is called a <dfn class="terminology">unit vector</dfn> if it has magnitude equal to 1. Given a vector \(\vec{v}\text{,}\) there is a unit vector which is parallel to \(\vec{v}\text{,}\) namely,</p>
-<div class="displaymath">
+<div class="para" id="p-108">A vector is called a <dfn class="terminology">unit vector</dfn> if it has magnitude equal to 1. Given a vector <span class="process-math">\(\vec{v}\text{,}\)</span> there is a unit vector which is parallel to <span class="process-math">\(\vec{v}\text{,}\)</span> namely,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{u} = \frac{\vec{v}}{\abs{\vec{v}}}
 \end{equation*}
 </div>
-<p id="p-105">Also, this vector is unique, because if a vector \(\vec{u}\) is a unit vector (\(\abs{u} = 1\)) and is in the direction of \(\vec{v}\) (\(\vec{u} = c \vec{v}\) for some \(c &gt; 0\)), then it follows that \(\vec{u}\) is given by the above formula. This is because \(\abs{\vec{u}} = 1\text{,}\) but also \(\abs{\vec{u}} = \abs{c \vec{v}} = \abs{c} \abs{\vec{v}} = c \abs{\vec{v}}\text{.}\) Thus, \(1 = c \abs{\vec{v}}\text{,}\) and so \(c = \frac{1}{\abs{\vec{v}}}\text{.}\)</p></section><section class="subsection" id="subsection-28"><h3 class="heading hide-type">
+<div class="para" id="p-109">Also, this vector is unique, because if a vector <span class="process-math">\(\vec{u}\)</span> is a unit vector (<span class="process-math">\(\abs{u} = 1\)</span>) and is in the direction of <span class="process-math">\(\vec{v}\)</span> (<span class="process-math">\(\vec{u} = c \vec{v}\)</span> for some <span class="process-math">\(c &gt; 0\)</span>), then it follows that <span class="process-math">\(\vec{u}\)</span> is given by the above formula. This is because <span class="process-math">\(\abs{\vec{u}} = 1\text{,}\)</span> but also <span class="process-math">\(\abs{\vec{u}} = \abs{c \vec{v}} = \abs{c} \abs{\vec{v}} = c \abs{\vec{v}}\text{.}\)</span> Thus, <span class="process-math">\(1 = c \abs{\vec{v}}\text{,}\)</span> and so <span class="process-math">\(c = \frac{1}{\abs{\vec{v}}}\text{.}\)</span>
+</div></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.5</span> <span class="title">The Standard Basis Vectors</span>
 </h3>
-<p id="p-106">In \(\mathbb{R}^2\text{,}\) there are two special vectors, typically denoted by \(\ihat\) and \(\jhat\text{.}\) They are defined by,</p>
-<div class="displaymath">
+<div class="para" id="p-110">In <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> there are two special vectors, typically denoted by <span class="process-math">\(\ihat\)</span> and <span class="process-math">\(\jhat\text{.}\)</span> They are defined by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \ihat = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \jhat = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-107">They are called the <dfn class="terminology">standard basis vectors</dfn> in the plane. Then, any vector \(\vec{v} = (x,y)\) can be written in terms of a linear combination of these basis vectors,</p>
-<div class="displaymath">
+<div class="para" id="p-111">They are called the <dfn class="terminology">standard basis vectors</dfn> in the plane. Then, any vector <span class="process-math">\(\vec{v} = (x,y)\)</span> can be written in terms of a linear combination of these basis vectors,</div>
+<div class="displaymath process-math" id="md-12">
 \begin{align*}
 \begin{bmatrix} x \\ y \end{bmatrix} \amp = \begin{bmatrix} x \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ y \end{bmatrix}\\
 \amp = x \begin{bmatrix} 1 \\ 0 \end{bmatrix} + y \begin{bmatrix} 0 \\ 1 \end{bmatrix}\\
 \amp = x \ihat + y \jhat
 \end{align*}
 </div>
-<p id="p-108">Intuitively, “basis” means “underlying support or foundation”. The standard basis vectors provide a simple foundation from which all vectors can be represented in terms of.</p></section><section class="subsection" id="subsection-29"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.1.6</span> <span class="title">Vectors in \(\mathbb{R}^3\)</span>
+<div class="para" id="p-112">Intuitively, “basis” means “underlying support or foundation”. The standard basis vectors provide a simple foundation from which all vectors can be represented in terms of.</div></section><section class="subsection" id="subsection-28"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.6</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^3\)</span></span>
 </h3>
-<p id="p-109">The algebra and geometry of vectors in the plane \(\mathbb{R}^2\) extends to 3D space. The set of vectors with three entries is denoted by \(\mathbb{R}^3\text{.}\)</p>
-<p id="p-110">Vectors in \(\mathbb{R}^3\) are \(3 \times 1\) column matrices, of the form,</p>
-<div class="displaymath">
+<div class="para" id="p-113">The algebra and geometry of vectors in the plane <span class="process-math">\(\mathbb{R}^2\)</span> extends to 3D space. The set of vectors with three entries is denoted by <span class="process-math">\(\mathbb{R}^3\text{.}\)</span>
+</div>
+<div class="para" id="p-114">Vectors in <span class="process-math">\(\mathbb{R}^3\)</span> are <span class="process-math">\(3 \times 1\)</span> column matrices, of the form,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} x \\ y \\ z \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-111">Again, these vectors can be represented geometrically as directed line segments, and as points in space \((x,y,z)\text{.}\)</p>
-<p id="p-112">Similarly, we define addition and scalar multiplication in an analogous way.</p>
+<div class="para" id="p-115">Again, these vectors can be represented geometrically as directed line segments, and as points in space <span class="process-math">\((x,y,z)\text{.}\)</span>
+</div>
+<div class="para" id="p-116">Similarly, we define addition and scalar multiplication in an analogous way.</div>
 <article class="definition definition-like" id="definition-22"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Addition of vectors.</span>
-</h4>
-<p id="p-113">Let \(\vec{u} = (u_1, u_2, u_3), \vec{v} = (v_1, v_2, v_3)\) be vectors in \(\mathbb{R}^3\text{.}\) Their <dfn class="terminology">sum</dfn> \(\vec{u} + \vec{v}\) is given by,</p>
-<div class="displaymath">
+</h4> <div class="para" id="p-117">Let <span class="process-math">\(\vec{u} = (u_1, u_2, u_3), \vec{v} = (v_1, v_2, v_3)\)</span> be vectors in <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> Their <dfn class="terminology">sum</dfn> <span class="process-math">\(\vec{u} + \vec{v}\)</span> is given by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \boxed{\vec{u} + \vec{v} = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ u_3 + v_3 \end{bmatrix}}
 \end{equation*}
 </div></article><article class="definition definition-like" id="definition-23"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Scalar multiplication of vectors.</span>
-</h4>
-<p id="p-114">Let \(\vec{v} = (v_1, v_2, v_3)\) be a vector in \(\mathbb{R}^3\text{,}\) \(c \in \mathbb{R}\text{.}\) Then, the <dfn class="terminology">scalar multiple</dfn> of \(\vec{v}\) by \(c\text{,}\) \(c\vec{v}\text{,}\) is given by,</p>
-<div class="displaymath">
+</h4> <div class="para" id="p-118">Let <span class="process-math">\(\vec{v} = (v_1, v_2, v_3)\)</span> be a vector in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> <span class="process-math">\(c \in \mathbb{R}\text{.}\)</span> Then, the <dfn class="terminology">scalar multiple</dfn> of <span class="process-math">\(\vec{v}\)</span> by <span class="process-math">\(c\text{,}\)</span> <span class="process-math">\(c\vec{v}\text{,}\)</span> is given by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \boxed{c\vec{v} = c \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} = \begin{bmatrix} cv_1 \\ cv_2 \\ cv_3 \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-115">The magnitude of a vector in \(\mathbb{R}^3\) is again the distance from the origin \((0,0,0)\) to its terminal point \((x,y,z)\text{.}\)</p>
+</div></article><div class="para" id="p-119">The magnitude of a vector in <span class="process-math">\(\mathbb{R}^3\)</span> is again the distance from the origin <span class="process-math">\((0,0,0)\)</span> to its terminal point <span class="process-math">\((x,y,z)\text{.}\)</span>
+</div>
 <article class="definition definition-like" id="definition-24"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.10</span><span class="period">.</span>
 </h4>
-<p id="p-116">Let \(\vec{v} = (x,y,z) \in \mathbb{R}^3\text{.}\) The <dfn class="terminology">magnitude</dfn> (or <dfn class="terminology">length</dfn>) of \(\vec{v}\) is defined by,</p>
-<div class="displaymath">
+<div class="para" id="p-120">Let <span class="process-math">\(\vec{v} = (x,y,z) \in \mathbb{R}^3\text{.}\)</span> The <dfn class="terminology">magnitude</dfn> (or <dfn class="terminology">length</dfn>) of <span class="process-math">\(\vec{v}\)</span> is defined by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \boxed{\abs{\vec{v}} = \sqrt{x^2 + y^2 + z^2}}
 \end{equation*}
-</div></article><p id="p-117">The standard basis vectors in \(\mathbb{R}^3\) are denoted by \(\ihat, \jhat, \khat\text{,}\) given by,</p>
-<div class="displaymath">
+</div></article><div class="para" id="p-121">The standard basis vectors in <span class="process-math">\(\mathbb{R}^3\)</span> are denoted by <span class="process-math">\(\ihat, \jhat, \khat\text{,}\)</span> given by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \ihat = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \quad \jhat = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \quad \khat = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-118">Similarly, any vector \(\vec{v} = (x,y,z)\) can be represented as a linear combination of these basis vectors, as,</p>
-<div class="displaymath">
+<div class="para" id="p-122">Similarly, any vector <span class="process-math">\(\vec{v} = (x,y,z)\)</span> can be represented as a linear combination of these basis vectors, as,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} x \\ y \\ z \end{bmatrix} = x \ihat + y \jhat + z \khat
 \end{equation*}
-</div></section><section class="subsection" id="subsection-30"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">3.1.7</span> <span class="title">Vectors in \(\mathbb{R}^n\)</span>
+</div></section><section class="subsection" id="subsection-29"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.7</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^n\)</span></span>
 </h3>
-<p id="p-119">The algebra of vectors can be generalized to vectors with \(n\) elements, of the form,</p>
-<div class="displaymath">
+<div class="para" id="p-123">The algebra of vectors can be generalized to vectors with <span class="process-math">\(n\)</span> elements, of the form,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-120">Here, for \(n &gt; 3\text{,}\) it is more difficult to consider vectors geomtrically as directed line segments. However, the algebra and mathematics are not lost.</p>
-<p id="p-121">The set of all ordered \(n\)-tuples of \(n\) real numbers is denoted by \(\mathbb{R}^n\) (read as “r-n”). Intuitively, this can be thought of as “\(n\)-dimensional space”.</p>
-<p id="p-122">Again, we have the convention that,</p>
-<div class="displaymath">
+<div class="para" id="p-124">Here, for <span class="process-math">\(n &gt; 3\text{,}\)</span> it is more difficult to consider vectors geomtrically as directed line segments. However, the algebra and mathematics are not lost.</div>
+<div class="para" id="p-125">The set of all ordered <span class="process-math">\(n\)</span>-tuples of <span class="process-math">\(n\)</span> real numbers is denoted by <span class="process-math">\(\mathbb{R}^n\)</span> (read as “r-n”). Intuitively, this can be thought of as “<span class="process-math">\(n\)</span>-dimensional space”.</div>
+<div class="para" id="p-126">Again, we have the convention that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 (b_1, \dots, b_n) \quad \text{is equivalent to} \quad \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-123">Note that \((b_1, \dots, b_n)\) is not a row vector.</p>
-<p id="p-124">The definitions of equality, sum, and scalar multiple are analogous to that for \(\mathbb{R}^2\) and \(\mathbb{R}^3\text{,}\)</p>
+<div class="para" id="p-127">Note that <span class="process-math">\((b_1, \dots, b_n)\)</span> is not a row vector.</div>
+<div class="para" id="p-128">The definitions of equality, sum, and scalar multiple are analogous to that for <span class="process-math">\(\mathbb{R}^2\)</span> and <span class="process-math">\(\mathbb{R}^3\text{,}\)</span>
+</div>
 <ul class="disc">
-<li id="li-71"><p id="p-derived-li-71">Vectors \(\vec{u}, \vec{v}\) in \(\mathbb{R}^n\) are <dfn class="terminology">equal</dfn> if all of their corresponding entries are equal.</p></li>
-<li id="li-72"><p id="p-derived-li-72">The <dfn class="terminology">sum</dfn> \(\vec{u} + \vec{v}\) is obtained by adding entries componentwise.</p></li>
-<li id="li-73"><p id="p-derived-li-73">The <dfn class="terminology">scalar multiple</dfn> \(c \vec{u}\) is obtained by multiplying every entry of \(\vec{u}\) by \(c\text{.}\)</p></li>
-<li id="li-74"><p id="p-derived-li-74">The <dfn class="terminology">zero vector</dfn>, denoted by \(\vec{0}\text{,}\) is the unique vector with entries which are all zeros.</p></li>
-<li id="li-75"><p id="p-derived-li-75">The magnitude of \(\vec{v} = (v_1, \dots, v_n)\) is given by,<div class="displaymath">
+<li id="li-70"><div class="para" id="p-derived-li-70">Vectors <span class="process-math">\(\vec{u}, \vec{v}\)</span> in <span class="process-math">\(\mathbb{R}^n\)</span> are <dfn class="terminology">equal</dfn> if all of their corresponding entries are equal.</div></li>
+<li id="li-71"><div class="para" id="p-derived-li-71">The <dfn class="terminology">sum</dfn> <span class="process-math">\(\vec{u} + \vec{v}\)</span> is obtained by adding entries componentwise.</div></li>
+<li id="li-72"><div class="para" id="p-derived-li-72">The <dfn class="terminology">scalar multiple</dfn> <span class="process-math">\(c \vec{u}\)</span> is obtained by multiplying every entry of <span class="process-math">\(\vec{u}\)</span> by <span class="process-math">\(c\text{.}\)</span>
+</div></li>
+<li id="li-73"><div class="para" id="p-derived-li-73">The <dfn class="terminology">zero vector</dfn>, denoted by <span class="process-math">\(\vec{0}\text{,}\)</span> is the unique vector with entries which are all zeros.</div></li>
+<li id="li-74"><div class="para" id="p-derived-li-74">The magnitude of <span class="process-math">\(\vec{v} = (v_1, \dots, v_n)\)</span> is given by,<div class="displaymath process-math">
 \begin{equation*}
 \abs{\vec{v}} = \sqrt{v_1^2 + v_2^2 + \dots + v_n^2}
 \end{equation*}
-</div></p></li>
+</div>
+</div></li>
 </ul>
-<p id="p-125">In \(\mathbb{R}^n\text{,}\) the standard basis vectors are given by,</p>
-<div class="displaymath">
+<div class="para" id="p-129">In <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> the standard basis vectors are given by,</div>
+<div class="displaymath process-math" id="md-13">
 \begin{align*}
 \vec{e}_1 \amp = (1,0,0\dots,0)\\
 \vec{e}_2 \amp = (0,1,0,\dots,0)\\
@@ -362,32 +758,46 @@
 \vec{e}_n \amp = (0,0,0\dots,0,1)
 \end{align*}
 </div>
-<p id="p-126">Then, every vector \(\vec{x} = (x_1, \dots, x_n)\) in \(\mathbb{R}^n\) can be written as a linear combination of these basis vectors, as,</p>
-<div class="displaymath">
+<div class="para" id="p-130">Then, every vector <span class="process-math">\(\vec{x} = (x_1, \dots, x_n)\)</span> in <span class="process-math">\(\mathbb{R}^n\)</span> can be written as a linear combination of these basis vectors, as,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = x_1 \vec{e}_1 + x_2 \vec{e}_2 + \dots + x_n \vec{e}_n
 \end{equation*}
-</div></section><section class="subsection" id="subsection-31"><h3 class="heading hide-type">
+</div></section><section class="subsection" id="subsection-30"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.8</span> <span class="title">Properties of Vector Arithmetic</span>
 </h3>
-<p id="p-127">The arithmetic of vectors satisfies many of the familiar laws of arithmetic with numbers.</p>
+<div class="para" id="p-131">The arithmetic of vectors satisfies many of the familiar laws of arithmetic with numbers.</div>
 <article class="theorem theorem-like" id="theorem-3"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of vector arithmetic.</span>
 </h4>
-<p id="p-128">Let \(\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^n\) be vectors, \(c, d \in \mathbb{R}\text{.}\) Then,</p>
+<div class="para" id="p-132">Let <span class="process-math">\(\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^n\)</span> be vectors, <span class="process-math">\(c, d \in \mathbb{R}\text{.}\)</span> Then,</div>
 <ol class="decimal">
-<li id="li-76"><p id="p-derived-li-76"><dfn class="terminology">Addition commutative</dfn>, \(\vec{u} + \vec{v} = \vec{v} + \vec{u}\text{.}\)</p></li>
-<li id="li-77"><p id="p-derived-li-77"><dfn class="terminology">Addition associative</dfn>, \((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\text{.}\)</p></li>
-<li id="li-78"><p id="p-derived-li-78"><dfn class="terminology">Additive identity</dfn>, \(\vec{u} + \vec{0} = \vec{0} + \vec{u} = \vec{u}\text{.}\)</p></li>
-<li id="li-79"><p id="p-derived-li-79"><dfn class="terminology">Additive inverse</dfn>, \(\vec{u} + (-\vec{u}) = \vec{0}\text{.}\)</p></li>
-<li id="li-80"><p id="p-derived-li-80"><dfn class="terminology">Scalar multiplication associative</dfn>, \(c(d\vec{u}) = (cd)\vec{u}\text{.}\)</p></li>
-<li id="li-81"><p id="p-derived-li-81"><dfn class="terminology">Scalar multiplication distributes over addition</dfn>, \(c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\text{.}\)</p></li>
-<li id="li-82"><p id="p-derived-li-82"><dfn class="terminology">Vectors distribute over addition</dfn>, \((c + d)\vec{u} + c\vec{u} + d\vec{u}\text{.}\)</p></li>
-</ol></article><p id="p-129">These properties all essentially follow from the corresponding properties of real numbers.</p></section><section class="subsection" id="subsection-32"><h3 class="heading hide-type">
+<li id="li-75"><div class="para" id="p-derived-li-75">
+<dfn class="terminology">Addition commutative</dfn>, <span class="process-math">\(\vec{u} + \vec{v} = \vec{v} + \vec{u}\text{.}\)</span>
+</div></li>
+<li id="li-76"><div class="para" id="p-derived-li-76">
+<dfn class="terminology">Addition associative</dfn>, <span class="process-math">\((\vec{u} + \vec{v}) + \vec{w} = \vec{u} + (\vec{v} + \vec{w})\text{.}\)</span>
+</div></li>
+<li id="li-77"><div class="para" id="p-derived-li-77">
+<dfn class="terminology">Additive identity</dfn>, <span class="process-math">\(\vec{u} + \vec{0} = \vec{0} + \vec{u} = \vec{u}\text{.}\)</span>
+</div></li>
+<li id="li-78"><div class="para" id="p-derived-li-78">
+<dfn class="terminology">Additive inverse</dfn>, <span class="process-math">\(\vec{u} + (-\vec{u}) = \vec{0}\text{.}\)</span>
+</div></li>
+<li id="li-79"><div class="para" id="p-derived-li-79">
+<dfn class="terminology">Scalar multiplication associative</dfn>, <span class="process-math">\(c(d\vec{u}) = (cd)\vec{u}\text{.}\)</span>
+</div></li>
+<li id="li-80"><div class="para" id="p-derived-li-80">
+<dfn class="terminology">Scalar multiplication distributes over addition</dfn>, <span class="process-math">\(c(\vec{u} + \vec{v}) = c\vec{u} + c\vec{v}\text{.}\)</span>
+</div></li>
+<li id="li-81"><div class="para" id="p-derived-li-81">
+<dfn class="terminology">Vectors distribute over addition</dfn>, <span class="process-math">\((c + d)\vec{u} + c\vec{u} + d\vec{u}\text{.}\)</span>
+</div></li>
+</ol></article><div class="para" id="p-133">These properties all essentially follow from the corresponding properties of real numbers.</div></section><section class="subsection" id="subsection-31"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.9</span> <span class="title">Linear Combinations of Vectors</span>
 </h3>
-<p id="p-130">The fundamental operations combine to form linear combinations. Consider two vectors \(\vec{u}, \vec{v}\text{.}\) Adding them gives \(\vec{u} + \vec{v}\text{.}\) Multiplying them by (possibly different) scalars gives \(a\vec{u}\) and \(b\vec{v}\text{.}\) Combining these two operations, we get a <em class="emphasis">linear combination</em>,</p>
-<div class="displaymath">
+<div class="para" id="p-134">The fundamental operations combine to form linear combinations. Consider two vectors <span class="process-math">\(\vec{u}, \vec{v}\text{.}\)</span> Adding them gives <span class="process-math">\(\vec{u} + \vec{v}\text{.}\)</span> Multiplying them by (possibly different) scalars gives <span class="process-math">\(a\vec{u}\)</span> and <span class="process-math">\(b\vec{v}\text{.}\)</span> Combining these two operations, we get a <em class="emphasis">linear combination</em>,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 a\vec{u} + b \vec{v}
 \end{equation*}
@@ -395,28 +805,40 @@ a\vec{u} + b \vec{v}
 <article class="definition definition-like" id="definition-25"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.12</span><span class="period">.</span>
 </h4>
-<p id="p-131">Let \(\vec{u}, \vec{v}\) be vectors, \(a, b \in \mathbb{R}\) be scalars. Then, the vector given by,</p>
-<div class="displaymath">
+<div class="para" id="p-135">Let <span class="process-math">\(\vec{u}, \vec{v}\)</span> be vectors, <span class="process-math">\(a, b \in \mathbb{R}\)</span> be scalars. Then, the vector given by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 a\vec{u} + b\vec{v}
 \end{equation*}
 </div>
-<p id="p-132">is called a <dfn class="terminology">linear combination</dfn> of \(\vec{u}\) and \(\vec{v}\text{,}\) with <dfn class="terminology">weights</dfn> \(a, b\text{.}\)</p></article><article class="definition definition-like" id="definition-26"><h4 class="heading">
+<div class="para" id="p-136">is called a <dfn class="terminology">linear combination</dfn> of <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\text{,}\)</span> with <dfn class="terminology">weights</dfn> <span class="process-math">\(a, b\text{.}\)</span>
+</div></article><article class="definition definition-like" id="definition-26"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.13</span><span class="period">.</span>
 </h4>
-<p id="p-133">Let \(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\) be vectors, \(a_1, a_2, \dots, a_n \in \mathbb{R}\) be scalars. Then, the vector \(\vec{v}\) given by,</p>
-<div class="displaymath">
+<div class="para logical" id="p-137">
+<div class="para">Let <span class="process-math">\(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\)</span> be vectors, <span class="process-math">\(a_1, a_2, \dots, a_n \in \mathbb{R}\)</span> be scalars. Then, the vector <span class="process-math">\(\vec{v}\)</span> given by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \vec{v} = a_1 \vec{v}_1 + a_2 \vec{v}_2 + \dots + a_n \vec{v}_n = \sum_{i=1}^n a_i \vec{v}_i
 \end{equation*}
 </div>
-<p class="continuation">is called a <dfn class="terminology">linear combination</dfn> of \(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\) with <dfn class="terminology">weights</dfn> \(a_1, a_2, \dots, a_n\text{.}\)</p></article><article class="example example-like" id="example-8"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h4 class="heading">
+<div class="para">is called a <dfn class="terminology">linear combination</dfn> of <span class="process-math">\(\vec{v}_1, \vec{v}_2, \dots, \vec{v}_n \in \mathbb{R}^n\)</span> with <dfn class="terminology">weights</dfn> <span class="process-math">\(a_1, a_2, \dots, a_n\text{.}\)</span>
+</div>
+</div></article><article class="example example-like" id="example-8"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-8"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.14</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like">Given any collection of vectors, the <dfn class="terminology">trivial</dfn> linear combination is that with all weights being 0, i.e.,<div class="displaymath">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-8"><article class="example example-like">Given any collection of vectors, the <dfn class="terminology">trivial</dfn> linear combination is that with all weights being 0, i.e.,<div class="displaymath process-math">
 \begin{equation*}
 0 \vec{v}_1 + 0 \vec{v}_2 + \dots + 0 \vec{v}_n = \vec{0}
 \end{equation*}
-</div></article></div></section></section></div></main>
+</div></article></div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="chapter-VAG.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="section-VEOL.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
 </div>
 </body>
 </html>

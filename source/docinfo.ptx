@@ -27,8 +27,8 @@
     \newcommand{\ihat}{\mathbf{\hat{\imath}}}
     \newcommand{\jhat}{\mathbf{\hat{\jmath}}}
     \newcommand{\khat}{\mathbf{\hat{k}}}
-    \newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
-    \newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+    \newcommand{\vecii}[2]{\left\lt #1, #2 \right\gt}
+    \newcommand{\veciii}[3]{\left\lt #1, #2, #3 \right\gt}
 
         
     <!-- %% Linear algebra -->
@@ -47,7 +47,7 @@
     \DeclareMathOperator{\matref}{ref}
     \DeclareMathOperator{\matrref}{rref}
     \DeclareMathOperator{\sol}{Sol}
-    \newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+    \newcommand{\inp}[2]{\left\lt #1, #2 \right\gt}
     \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
     
     <!-- %% Statistics -->

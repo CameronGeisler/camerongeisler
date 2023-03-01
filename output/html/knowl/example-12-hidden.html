@@ -2,9 +2,6 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:42-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -13,32 +10,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body><article class="example example-like"><p>Consider two vectors \(\vec{u}, \vec{v}\) in \(\mathbb{R}^2\text{.}\) Then, by definition,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<body class="ignore-math"><article class="example example-like"> <div class="para">Consider two vectors <span class="process-math">\(\vec{u}, \vec{v}\)</span> in <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> Then, by definition,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \Span{\vec{u}, \vec{v}} = \set{a \vec{u} + b \vec{v}: a, b \in \mathbb{R}}
 \end{equation*}
 </div>
-<p>First, suppose that \(\vec{u}, \vec{v} \neq \vec{0}\) are non-zero. If \(\vec{u}, \vec{v}\) are not parallel, then it turns out that the span of \(\vec{u}\) and \(\vec{v}\) is all of \(\mathbb{R}^2\text{,}\) i.e. the entire plane. That is, every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\vec{u}, \vec{v}\text{.}\)</p>
-<p>For example, a familiar case is for the standard basis vectors \(\ihat, \jhat\text{.}\) These vectors are not parallel (they are perpendicular), so,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<div class="para">First, suppose that <span class="process-math">\(\vec{u}, \vec{v} \neq \vec{0}\)</span> are non-zero. If <span class="process-math">\(\vec{u}, \vec{v}\)</span> are not parallel, then it turns out that the span of <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\)</span> is all of <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> i.e. the entire plane. That is, every vector in <span class="process-math">\(\mathbb{R}^2\)</span> can be written as a linear combination of <span class="process-math">\(\vec{u}, \vec{v}\text{.}\)</span>
+</div> <div class="para">For example, a familiar case is for the standard basis vectors <span class="process-math">\(\ihat, \jhat\text{.}\)</span> These vectors are not parallel (they are perpendicular), so,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \Span{\ihat, \jhat} = \set{a \cdot \ihat + b \cdot \jhat : a, b \in \mathbb{R}}
 \end{equation*}
 </div>
-<p>and we know that every vector in \(\mathbb{R}^2\) can be written as a linear combination of \(\ihat\) and \(\jhat\text{.}\)</p>
-<p>If \(\vec{u}, \vec{v}\) are parallel, that is, either vector is a scalar multiple of the other, then the span of \(\vec{u}, \vec{v}\) is a line (in the plane). Intuitively, the second vector doesn't “add” any new additional possible vectors. More precisely, if say \(\vec{u} = k \vec{v}\text{,}\) then,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<div class="para">and we know that every vector in <span class="process-math">\(\mathbb{R}^2\)</span> can be written as a linear combination of <span class="process-math">\(\ihat\)</span> and <span class="process-math">\(\jhat\text{.}\)</span>
+</div> <div class="para">If <span class="process-math">\(\vec{u}, \vec{v}\)</span> are parallel, that is, either vector is a scalar multiple of the other, then the span of <span class="process-math">\(\vec{u}, \vec{v}\)</span> is a line (in the plane). Intuitively, the second vector doesn't “add” any new additional possible vectors. More precisely, if say <span class="process-math">\(\vec{u} = k \vec{v}\text{,}\)</span> then,</div>
+<div class="displaymath process-math">
 \begin{align*}
 a\vec{u} + b\vec{v} \amp = ak \vec{v} + b \vec{v}\\
 \amp = (ak + b) \vec{v}
 \end{align*}
 </div>
-<p>That is, any linear combination of \(\vec{u}\) and \(\vec{v}\) is really just a multiple of \(\vec{v}\text{.}\) Conversely, any multiple of \(\vec{v}\) can be written as \(a\vec{u} + b \vec{v}\) for some weights \(a, b\text{.}\) All of this reasoning can be oriented in the opposite direction, to say that all linear combinations \(a\vec{u} + b\vec{v}\) are just a multiple of \(\vec{u}\text{.}\) That is,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<div class="para">That is, any linear combination of <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\)</span> is really just a multiple of <span class="process-math">\(\vec{v}\text{.}\)</span> Conversely, any multiple of <span class="process-math">\(\vec{v}\)</span> can be written as <span class="process-math">\(a\vec{u} + b \vec{v}\)</span> for some weights <span class="process-math">\(a, b\text{.}\)</span> All of this reasoning can be oriented in the opposite direction, to say that all linear combinations <span class="process-math">\(a\vec{u} + b\vec{v}\)</span> are just a multiple of <span class="process-math">\(\vec{u}\text{.}\)</span> That is,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \Span{\vec{u}, \vec{v}} = \Span{\vec{v}} = \Span{\vec{u}}
 \end{equation*}
 </div>
-<p>In the most extremely pathological case, if \(\vec{u}, \vec{v}\) are both the zero vector, then their span is just the zero vector, i.e. a single point.</p></article></body>
+<div class="para">In the most extremely pathological case, if <span class="process-math">\(\vec{u}, \vec{v}\)</span> are both the zero vector, then their span is just the zero vector, i.e. a single point.</div></article></body>
 </html>

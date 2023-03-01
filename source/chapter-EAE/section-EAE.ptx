@@ -4,12 +4,6 @@
     <title>Eigenvalues and Eigenvectors</title>
     <introduction>
         <p>
-            Dissect the action of a linear transformation <m>\vec{x} \mapsto A\vec{x}</m> into elements which are easily visualized.
-        </p>
-        <p>
-            Eigenvalues and eigenvectors have applications in pure and applied mathematics, and appear in settings far more general than we consider here. Applications to differential equations and continuous dynamical systems, physics and chemistry.
-        </p>
-        <p>
             Consider a linear transformation in <m>\mathbb{R}^2</m>. In general, such a trasformation will perform some kind of stretch, rotation, and/or reflection to an input vector. However, sometimes, there are particular vectors <m>\vec{x}</m> for which the transformation only scales the vector, say to <m>\lambda \vec{x}</m> (here, <m>\lambda</m> is the Greek letter lambda). In <m>\mathbb{R}^2</m>, this means that the output vector is parallel to the input. In matrix form, this means that,
         </p>
         <me>
@@ -37,7 +31,7 @@
         </p>
 
         <p>
-            Again, in <m>\mathbb{R}^2</m> (or <m>\mathbb{R}^3</m>), an eigenvector of <m>A</m> is a vector which is parallel to itself after transformation by <m>A</m>. More precisely, if <m>\lambda > 0</m>, then <m>A\vec{x}</m> is parallel to <m>\vec{x}</m>, and if <m>\lambda \l 0</m>, then <m>A\vec{x}</m> is anti-parallel to <m>\vec{x}</m>.
+            Again, in <m>\mathbb{R}^2</m> (or <m>\mathbb{R}^3</m>), an eigenvector of <m>A</m> is a vector which is parallel to itself after transformation by <m>A</m>. More precisely, if <m>\lambda > 0</m>, then <m>A\vec{x}</m> is parallel to <m>\vec{x}</m>, and if <m>\lambda \lt 0</m>, then <m>A\vec{x}</m> is anti-parallel to <m>\vec{x}</m>.
         </p>
 
     </subsection>
@@ -57,13 +51,13 @@
             (A - \lambda I_n) \vec{x} = \vec{0}
         </me>
         <p>
-            The expression <m>A - \lambda I_n</m> is a matrix, so this forms a homogeneous system of linear equations. Then, recall that a homogeneous system has a non-zero soloution (here, for <m>\vec{x}</m>) if and only if the coefficient matrix <m>A - \lambda I_n</m> is not invertible, which recall occurs when its determinant is equal to 0, or
+            The expression <m>A - \lambda I_n</m> is a matrix, so this forms a homogeneous system of linear equations. Then, recall that a homogeneous system has a non-zero soloution (here, for <m>\vec{x}</m>) if and only if the coefficient matrix <m>A - \lambda I_n</m> is not invertible, which recall occurs when its determinant is equal to 0, or,
         </p>
         <me>
             \det{(A - \lambda I_n)} = 0
         </me>
         <p>
-            We can reverse all of this reasoning. If <m>\det{(A - \lambda I_n)} = 0</m> for some particular choice of <m>\lambda</m>, then <m>(A - \lambda I_n) \vec{x} = \vec{0}</m> has a non-zero solution, and so this scalar <m>\lambda</m> and solution <m>\vec{x}</m> are associated eigenvalue and eigenvector.
+            We can reverse all of this reasoning. If <m>\det{(A - \lambda I_n)} = 0</m> for some particular choice of <m>\lambda</m>, then <m>(A - \lambda I_n) \vec{x} = \vec{0}</m> has a non-zero solution, and so this scalar <m>\lambda</m> and solution vector <m>\vec{x}</m> form an associated eigenvalue and eigenvector.
         </p>
         <p>
             Thus, to determine eigenvalues, solve the equation <m>\det{(A - \lambda I_n)} = 0</m> for <m>\lambda</m>. Then, for each eigenvalue <m>\lambda</m>, to find an associated eigenvector, solve the homogeneous system <m>(A - \lambda I_n) \vec{x} = \vec{0}</m> for a vector <m>\vec{x}</m>. In summary,
@@ -81,7 +75,7 @@
         </theorem>
 
         <p>
-            Note that the matrix <m>A - \lambda I_n</m> is just <m>A</m> with <m>\lambda</m> subtracted from each entry on the main diagonal.
+            Note that the matrix <m>A - \lambda I_n</m> is just the matrix <m>A</m>, with <m>\lambda</m> subtracted from each entry on the main diagonal.
         </p>
     </subsection>
 
@@ -99,34 +93,126 @@
     </subsection>
 
     <subsection>
-        <title>Computing Eigenvalues</title>
+        <title>Eigenvalues of Triangular Matrices</title>
 
         <theorem>
             <p>The eigenvalues of a triangular matrix are the entries on its main diagonal.</p>
         </theorem>
+        <p>
+            This follows from the fact that the determinant of a triangular matrix is the product of the entries on its main diagonal.
+        </p>
+        <proof>
+            <p>
+                Consider,
+            </p>
+            <md>
+                <mrow> A - \lambda I_n \amp = \begin{bmatrix} a_{11} - \lambda \amp \amp \amp</mrow>
+                <mrow>\amp a_{22} - \lambda \amp \amp</mrow>
+                <mrow>\amp \amp \ddots \amp</mrow>
+                <mrow>\amp \amp \amp a_{nn} - \lambda \end{bmatrix}</mrow>
+            </md>
+            <p>
+                Then, the characteristic polynomial is given by,
+            </p>
+            <me>
+                \det(A - \lambda I_n) = (a_{11} - \lambda)(a_{22} - \lambda) \cdots (a_{nn} - \lambda)
+            </me>
+            <p>
+                of which the roots are clearly <m>a_{11}, a_{22}, \dots, a_{nn}</m>.
+            </p>
+        </proof>
     </subsection>
 
     <subsection>
         <title>The Characteristic Equation</title>
         <p>
-            Recall that eigenvalues are solutions <m>\lambda</m> to the equation <m>\det{(A - \lambda I_n)} = 0</m>. Then, evaluating a determinant involves some sum and products of the entries of the matrix, so in this case involves sums and products of expressions involving <m>\lambda</m>. In this way, the resulting equation is a polynomial equation in <m>\lambda</m>. In particular, it is an <m>n</m>th degree polynomial equation.
+            Recall that eigenvalues are solutions <m>\lambda</m> to the equation <m>\det{(A - \lambda I_n)} = 0</m>. TThe matrix <m>A - \lambda I_n</m> is a matrix with entries that are numbers and expressions with the variable <m>\lambda</m>, so its determinant involves some sums and products of the entries of the matrix, so in this case involves sums and products of expressions involving <m>\lambda</m>. The resulting expression is a polynomial in the variable <m>\lambda</m>. This is called the <em>characteristic polynomial</em>, and the resulting equation is called the <em>characteristic equation</em>. In particular, it turns out it will be an <m>n</m>th degree polynomial.
         </p>
         <definition>
             <p>Let <m>A</m> be an <m>n \times n</m> matrix. Then, the <term>characteristic polynomial</term> of <m>A</m>, is given by,</p>
             <me>
                 p_A(\lambda) = \det{(A - \lambda I_n)}
             </me>
+            <p>
+                Also, the equation <m>p_A(\lambda) = 0</m> is called the <term>characteristic equation</term>.
+            </p>
         </definition>
 
         <p>
-            Then, eigenvalues are precisely the roots of the characteristic polynomial, and the equation <m>p_A(\lambda) = 0</m> is called the <term>characteristic euquation</term>.
+            Then, the eigenvalues of a matrix are precisely the roots of its characteristic polynomial. The degree of the characteristic polynomial is equal to <m>n</m>, the size of the matrix <m>A</m>.
         </p>
         <p>
-            Polynomial equations can be solved exactly for low degree polnomials, however, for even moderately large <m>n</m> (say <m>n = 5</m>), polynomial equations can't be solved exactly, in general. For these and larger systems, numerical root-finding methods are used to solve for eigenvalues approximately.
+            Polynomial equations can be solved exactly for low degree polnomials, however, for even moderately large <m>n</m> (say <m>n = 5</m>), polynomial equations can't be solved exactly, in general. In general, determining the roots of a degree 5 polynomial (or higher) is difficult or impossible to do analytically. Thus, determining eigenvalues is difficult to do analytically, in general.
+        </p>
+        <p>
+            In applications, eigenvalues are approximated using numerical methods. For these and larger systems, numerical root-finding methods are used to solve for eigenvalues approximately. This is not the most efficient method to determine eigenvalues.
         </p>
         <p>
             Also, for this reason, eigenvalues should not be computed by hand, except for possibly <m>2 \times 2</m> matrices, which result in quadratic equations. For even <m>3 \times 3</m> matrices, these lead to a cubic equation, which in general is difficult to solve by hand, unless the numbers are chosen precisely.
         </p>
+        <p>
+            In addition, a characteristic polynomial can have complex roots. Recall from the fundamental theorem of algebra that every <m>n</m>th degree polynomial has <m>n</m> complex roots. So, an <m>n \times n</m> matrix has <m>n</m> complex eigenvalues.
+        </p>
+    </subsection>
+
+    <subsection>
+        <title>Eigenvalues of <m>2 \times 2</m> Matrices</title>
+        <p>
+            Consider the <m>2 \times 2</m> case. Let,
+        </p>
+        <me>
+            A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+        </me>
+        <p>
+            Then, the characteristic polynomial is,
+        </p>
+        <md>
+            <mrow>p_A(\lambda) = \det{\brac{\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}} - \lambda \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}} \amp = \det{\begin{bmatrix} a - \lambda \amp b \\ c \amp d - \lambda \end{bmatrix}}</mrow>
+            <mrow>\amp = (a - \lambda)(d - \lambda) - bc</mrow>
+            <mrow>\amp = ad - a\lambda - d\lambda + \lambda^2 - bc</mrow>
+            <mrow>\amp = \lambda^2 - (a + d) \lambda + ad - bc</mrow>
+        </md>
+        <p>
+            Thus, the characteristic polynomial is given by,
+        </p>
+        <me>
+            p_A(\lambda) = \lambda^2 - (a + d) \lambda + ad - bc
+        </me>
+        <p>
+            Notice that <m>a + d</m> is the trace of the matrix <m>A</m>, <m>\tr{A}</m>, and <m>ad - bc</m> is the determinant of <m>A</m>, <m>\det{A}</m>. For brevity, we will denote these by <m>T</m> and <m>D</m>, respectively. Then, the eigenvalues are the solutions of the equation,
+        </p>
+        <me>
+            \lambda^2 - (a + d) \lambda + ad - bc = 0
+        </me>
+        <p>
+            Then, solving using the quadratic formula, the eigenvalues are,
+        </p>
+        <md>
+            <mrow>\lambda \amp = \frac{-(-T) \pm \sqrt{(-T)^2 - 4(1)(D)}}{2(1)}</mrow>
+            <mrow>\amp = \frac{T \pm \sqrt{T^2 - 4D}}{2}</mrow>
+        </md>
+        <p>
+            In summary,
+        </p>
+        <theorem>
+            <title>Eigenvalues of <m>2 \times 2</m> matrices</title>
+            <p>
+                Let <m>A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m> be a <m>2 \times 2</m> matrix. Then, the characteristic polynomial is given by,
+            </p>
+            <me>
+                p_A(\lambda) = \lambda^2 - T \lambda + D
+            </me>
+            <p>
+                and the eigenvalues are given by,
+            </p>
+            <me>
+                \lambda = \frac{T \pm \sqrt{T^2 - 4D}}{2}
+            </me>
+            <p>
+                where <m>T = \tr{A} = a + d</m> and <m>D = \det{A} = ad - bc</m>.
+            </p>
+        </theorem>
+
     </subsection>
     
 </section>

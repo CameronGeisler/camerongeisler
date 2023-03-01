@@ -2,9 +2,6 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:41-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -13,9 +10,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
+<body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Note that in \(m \times n\text{,}\) the number of rows is specified first, then the number of columns.</p>
-<span class="incontext"><a href="section-ITMAMOAS.html#p-31">in-context</a></span>
+<div class="para logical">
+<div class="para">Consider a system of two equations in two unknowns,</div>
+<div class="displaymath process-math">
+\begin{align*}
+a x_1 + b x_2 \amp = y_1 \\
+c x_1 + d x_2 \amp = y_2 
+\end{align*}
+</div>
+<div class="para">Here, we have relabelled variables for simplicity. The variables here are <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{,}\)</span> and the coefficients are <span class="process-math">\(a, b, c, d, y_1, y_2\text{.}\)</span> Using elimination, we can solve this system. For example, to eliminate <span class="process-math">\(x_1\)</span> in the second equation, subtract <span class="process-math">\(c\)</span> times the first equation to <span class="process-math">\(a\)</span> times the second equation. The resulting equation is,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(ad - bc) x_2 = a y_2 - c y_1
+\end{equation*}
+</div>
+<div class="para">Then, we can solve for <span class="process-math">\(x_2\)</span> by dividing both sides by <span class="process-math">\(ad - bc\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_2 = \frac{1}{ad - bc} \brac{a y_2 - c y_1}
+\end{equation*}
+</div>
+<div class="para">This is the unique solution for <span class="process-math">\(x_2\text{,}\)</span> provided that <span class="process-math">\(ad - bc \neq 0\text{.}\)</span> Similarly, starting from the original system,</div>
+<div class="displaymath process-math">
+\begin{align*}
+a x_1 + b x_2 \amp = y_1 \\
+c x_1 + d x_2 \amp = y_2 
+\end{align*}
+</div>
+<div class="para">We can eliminate <span class="process-math">\(x_2\)</span> in the second equation by subtracting <span class="process-math">\(d\)</span> times the first equation from <span class="process-math">\(b\)</span> times the second equation. The resulting equation is,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(ad - bc) x_1 = d y_1 - b y_2
+\end{equation*}
+</div>
+<div class="para">Then, similarly, solving for <span class="process-math">\(x_1\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_1 = \frac{1}{ad - bc} \brac{d y_1 - b y_2}
+\end{equation*}
+</div>
+<div class="para">Again, provided that <span class="process-math">\(ad - bc \neq 0\text{.}\)</span> For simplicity, we will denote <span class="process-math">\(\Delta = ad - bc\)</span> (this will be revisited later). Then, if <span class="process-math">\(\Delta \neq 0\text{,}\)</span> the unique solution is,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y) = \brac{\frac{1}{\Delta} \brac{d y_1 - b y_2}, \frac{1}{\Delta} \brac{a y_2 - c y_1}}
+\end{equation*}
+</div>
+<div class="para">Note that this unique solution only exists if <span class="process-math">\(\Delta \neq 0\text{.}\)</span> If <span class="process-math">\(\Delta = 0\text{,}\)</span> then there may be infinitely many solutions, or no solution.</div>
+</div>
+<span class="incontext"><a href="section-ITSSGE.html#p-31" class="internal">in-context</a></span>
 </body>
 </html>

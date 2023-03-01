@@ -1,56 +1,184 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:40-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US">
-<head>
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Inverse of a Matrix</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>window.MathJax = {
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra Notes">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
   },
   options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
   },
   chtml: {
-    scale: 0.88,
+    scale: 0.98,
     mtextInheritFont: true
   },
   loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
 </head>
-<body class="pretext-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
+<p class="byline"></p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-EM.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="chapter-MALT.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="chapter-ITVS.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
 \renewcommand{\neg}{\sim}
 \newcommand{\brac}[1]{\left( #1 \right)}
@@ -61,8 +189,8 @@
 \newcommand{\ihat}{\mathbf{\hat{\imath}}}
 \newcommand{\jhat}{\mathbf{\hat{\jmath}}}
 \newcommand{\khat}{\mathbf{\hat{k}}}
-\newcommand{\vecii}[2]{\left\le #1, #2 \right\ge}
-\newcommand{\veciii}[3]{\left\le #1, #2, #3 \right\ge}
+\newcommand{\vecii}[2]{\left\lt #1, #2 \right\gt}
+\newcommand{\veciii}[3]{\left\lt #1, #2, #3 \right\gt}
 
     
 
@@ -81,7 +209,7 @@
 \DeclareMathOperator{\matref}{ref}
 \DeclareMathOperator{\matrref}{rref}
 \DeclareMathOperator{\sol}{Sol}
-\newcommand{\inp}[2]{\left\le #1, #2 \right\ge}
+\newcommand{\inp}[2]{\left\lt #1, #2 \right\gt}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 
 
@@ -92,154 +220,411 @@
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
-\)</div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
-<h1 class="heading"><a href="book.html"><span class="title">Linear Algebra Notes</span></a></h1>
-<p class="byline"></p>
-</div>
-</div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-EM.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-ITVS.html" title="Next">Next</a></span></div>
-</div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-EM.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-MALT.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-ITVS.html" title="Next">Next</a>
-</div>
-</div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link">
-<a href="chapter-1.html" data-scroll="chapter-1"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a><ul><li><a href="subsection-1.html" data-scroll="subsection-1">Applications of Linear Algebra</a></li></ul>
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="chapter-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Linear Algebra</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="subsection-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Applications of Linear Algebra</span></a></div></li></ul>
 </li>
-<li class="link">
-<a href="chapter-SOLEAITM.html" data-scroll="chapter-SOLEAITM"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a><ul>
-<li><a href="section-SOLE.html" data-scroll="section-SOLE">Systems of Linear Equations</a></li>
-<li><a href="section-ITSSGE.html" data-scroll="section-ITSSGE">Intro to Solving Systems, Gaussian Elimination</a></li>
-<li><a href="section-ITMAMOAS.html" data-scroll="section-ITMAMOAS">Introduction to Matrices, Augmented Matrix of a System</a></li>
-<li><a href="section-GEAM.html" data-scroll="section-GEAM">Gaussian Elimination and Matrices</a></li>
+<li>
+<div class="toc-item"><a href="chapter-SOLEAITM.html" class="internal"><span class="codenumber">2</span> <span class="title">Systems of Linear Equations and Introduction to Matrices</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-SOLE.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Systems of Linear Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-SOLE.html#subsection-2" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Motivation: Systems of Two Linear Equations In Two Variables</span></a></div></li>
+<li><div class="toc-item"><a href="section-SOLE.html#subsection-3" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Introduction to Systems of Linear Equations</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-VAG.html" data-scroll="chapter-VAG"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a><ul>
-<li><a href="section-ITV.html" data-scroll="section-ITV">Introduction to Vectors</a></li>
-<li><a href="section-VEOL.html" data-scroll="section-VEOL">Vector Equations of Lines</a></li>
-<li><a href="section-DP.html" data-scroll="section-DP">The Dot Product</a></li>
-<li><a href="section-VEOP.html" data-scroll="section-VEOP">Vector Equations of Planes</a></li>
+<li>
+<div class="toc-item"><a href="section-ITSSGE.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Intro to Solving Systems, Gaussian Elimination</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-4" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Existence and Uniqueness</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-5" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Triangular Systems, Back-Substitution</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-6" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Gaussian Elimination, Elementary Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-7" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Remark on Elementary Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITSSGE.html#subsection-8" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Solving Systems of Two Equations in Two Variables</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-VALE.html" data-scroll="chapter-VALE"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a><ul>
-<li><a href="section-VES.html" data-scroll="section-VES">Vector Equations, Span</a></li>
-<li><a href="section-MEMVP.html" data-scroll="section-MEMVP">Matrix Equations, Matrix-Vector Product</a></li>
-<li><a href="section-SSOLE.html" data-scroll="section-SSOLE">Solution Sets of Linear Equations</a></li>
+<li>
+<div class="toc-item"><a href="section-ITMAMOAS.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Introduction to Matrices, Augmented Matrix of a System</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITMAMOAS.html#subsection-9" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITMAMOAS.html#subsection-10" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Augmented Matrix of a System</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-MALT.html" data-scroll="chapter-MALT"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a><ul>
-<li><a href="section-MO.html" data-scroll="section-MO">Matrix Operations</a></li>
-<li><a href="section-ITLT.html" data-scroll="section-ITLT">Intro to Linear Transformations</a></li>
-<li><a href="section-MALT.html" data-scroll="section-MALT">Matrices and Linear Transformations</a></li>
-<li><a href="section-LTITP.html" data-scroll="section-LTITP">Linear Transformations in the Plane</a></li>
-<li><a href="section-MM.html" data-scroll="section-MM">Matrix Multiplication</a></li>
-<li><a href="section-EM.html" data-scroll="section-EM">Elementary Matrices</a></li>
-<li><a href="section-IOAM.html" data-scroll="section-IOAM" class="active">Inverse of a Matrix</a></li>
+<li>
+<div class="toc-item"><a href="section-GEAM.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Gaussian Elimination and Matrices</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-11" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Elementary Row Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-12" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-13" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Summary of Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-14" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Remark on Gaussian Elimination</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-15" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Systems with Infinitely Many Solutions</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-16" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Systems with No Solution</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-17" class="internal"><span class="codenumber">2.4.7</span> <span class="title">Reduced Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-18" class="internal"><span class="codenumber">2.4.8</span> <span class="title">Existence and Uniqueness, Summary</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-19" class="internal"><span class="codenumber">2.4.9</span> <span class="title">Summary of Solving Systems with Gaussian Elimination</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-20" class="internal"><span class="codenumber">2.4.10</span> <span class="title">Historical Note</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-21" class="internal"><span class="codenumber">2.4.11</span> <span class="title">Number of Operations for Row Reduction (Flops)</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#subsection-22" class="internal"><span class="codenumber">2.4.12</span> <span class="title">Computing Note</span></a></div></li>
+<li><div class="toc-item"><a href="section-GEAM.html#exercises-1" class="internal"><span class="codenumber">2.4.13</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-ITVS.html" data-scroll="chapter-ITVS"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a><ul>
-<li><a href="section-RCSCSNS.html" data-scroll="section-RCSCSNS">Real Coordinate Spaces, Column Space and Null Space</a></li>
-<li><a href="section-LI.html" data-scroll="section-LI">Linear Independence</a></li>
-<li><a href="section-B.html" data-scroll="section-B">Basis of a Vector Space</a></li>
-<li><a href="section-DAR.html" data-scroll="section-DAR">Dimension and Rank</a></li>
-<li><a href="section-CS.html" data-scroll="section-CS">Coordinate Systems</a></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-D.html" data-scroll="chapter-D"><span class="codenumber">7</span> <span class="title">Determinants</span></a><ul>
-<li><a href="section-ITD.html" data-scroll="section-ITD">Introduction to Determinants</a></li>
-<li><a href="section-CR.html" data-scroll="section-CR">Cramer's Rule</a></li>
-<li><a href="section-POD.html" data-scroll="section-POD">Properties of Determinants</a></li>
+<li>
+<div class="toc-item"><a href="chapter-VAG.html" class="internal"><span class="codenumber">3</span> <span class="title">Vectors and Geometry</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-ITV.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to Vectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITV.html#subsection-23" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-24" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^2\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-25" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Magnitude of a Vector</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-26" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Unit Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-27" class="internal"><span class="codenumber">3.1.5</span> <span class="title">The Standard Basis Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-28" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-29" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Vectors in <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-30" class="internal"><span class="codenumber">3.1.8</span> <span class="title">Properties of Vector Arithmetic</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITV.html#subsection-31" class="internal"><span class="codenumber">3.1.9</span> <span class="title">Linear Combinations of Vectors</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="chapter-GVS.html" data-scroll="chapter-GVS"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a><ul><li><a href="section-27.html" data-scroll="section-27">Vector Spaces and Subspaces</a></li></ul>
+<li>
+<div class="toc-item"><a href="section-VEOL.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Vector Equations of Lines</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-32" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Intro to Vector Parametric Form of a Line in the Plane</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-33" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Lines Using Two Points</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-34" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Lines in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-35" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Cartesian Equation of a Line in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOL.html#subsection-36" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Affine Combination Form of a Line</span></a></div></li>
+</ul>
 </li>
-<li class="link">
-<a href="chapter-EAE.html" data-scroll="chapter-EAE"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul><li><a href="section-EAE.html" data-scroll="section-EAE">Eigenvalues and Eigenvectors</a></li></ul>
+<li>
+<div class="toc-item"><a href="section-DP.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Dot Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-DP.html#subsection-37" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Vector Direction</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-38" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Dot Product of Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-39" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Properties of the Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-40" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Angle Between Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-41" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Alternate Characterization for the Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-42" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Computing the Angle Between Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-43" class="internal"><span class="codenumber">3.3.7</span> <span class="title">Dot Product and Parallel-ness</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-44" class="internal"><span class="codenumber">3.3.8</span> <span class="title">Dot Product for Vectors in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-45" class="internal"><span class="codenumber">3.3.9</span> <span class="title">Dot Product for Vectors in <span class="process-math">\(\mathbb{R}^n\)</span> (Inner Product)</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-46" class="internal"><span class="codenumber">3.3.10</span> <span class="title">Pythagorean Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="section-DP.html#subsection-47" class="internal"><span class="codenumber">3.3.11</span> <span class="title">Angle Between Vectors</span></a></div></li>
+</ul>
 </li>
-<li class="link">
-<a href="chapter-MISC.html" data-scroll="chapter-MISC"><span class="codenumber">10</span> <span class="title">Misc</span></a><ul><li><a href="section-LU.html" data-scroll="section-LU">Matrix Factorizations, LU Factorziation</a></li></ul>
+<li>
+<div class="toc-item"><a href="section-VEOP.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Vector Equations of Planes</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-48" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Standard Form of a Line, and Normal Vectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-49" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Planes in <span class="process-math">\(\mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-50" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Planes Using Two Vectors: Cross Product</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-51" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Parametric Equation of a Plane</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-52" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Planes Using 3 Points</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-53" class="internal"><span class="codenumber">3.4.6</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-54" class="internal"><span class="codenumber">3.4.7</span> <span class="title">Planes Parallel to the Coordinate Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-55" class="internal"><span class="codenumber">3.4.8</span> <span class="title">Intersecting Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-VEOP.html#subsection-56" class="internal"><span class="codenumber">3.4.9</span> <span class="title">Parallel Planes</span></a></div></li>
+</ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-IOAM"><h2 class="heading hide-type">
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-VALE.html" class="internal"><span class="codenumber">4</span> <span class="title">Vectors and Linear Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-VES.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Vector Equations, Span</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-VES.html#subsection-57" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Vector Equations</span></a></div></li>
+<li><div class="toc-item"><a href="section-VES.html#subsection-58" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Introduction to Span of Vectors in <span class="process-math">\(\mathbb{R}^2, \mathbb{R}^3\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-VES.html#subsection-59" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Span of <span class="process-math">\(n\)</span> Vectors</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-MEMVP.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Matrix Equations, Matrix-Vector Product</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-60" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Product of a Matrix with a Vector</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-61" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Matrix Form of a Linear System</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-62" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Linear Combination Interpretation</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-63" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Matrix Equations as Linear Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-64" class="internal"><span class="codenumber">4.2.5</span> <span class="title">The Identity Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-MEMVP.html#subsection-65" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Properties of the Matrix-Vector Product</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-SSOLE.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Solution Sets of Linear Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-66" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Homogeneous Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-67" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Non-homogeneous Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-68" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Solving a Consistent System in Parametric Vector Form</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-69" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Intersection of Two Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-70" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Equation of Line as Intersection of Two Planes</span></a></div></li>
+<li><div class="toc-item"><a href="section-SSOLE.html#subsection-71" class="internal"><span class="codenumber">4.3.6</span> <span class="title">Intersection of Three Planes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-MALT.html" class="internal"><span class="codenumber">5</span> <span class="title">Matrices and Linear Transformations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-MO.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Matrix Operations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MO.html#subsection-72" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Matrix Equality, Addition, Subtraction, and Scalar Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MO.html#subsection-73" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Properties of Matrix Addition</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-ITLT.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Intro to Linear Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITLT.html#subsection-74" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITLT.html#subsection-75" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-MALT.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Matrices and Linear Transformations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MALT.html#subsection-76" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Linear Transformations and Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-MALT.html#subsection-77" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Linear Transformations and Linear Systems</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-LTITP.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Transformations in the Plane</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-78" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Linear Transformations in the Plane</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-79" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Reflections</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-80" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Stretching (Contraction/Expansion) and Dilation</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-81" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Rotation Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-82" class="internal"><span class="codenumber">5.4.5</span> <span class="title">General Rotations</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-83" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Linear Transformations Revisited</span></a></div></li>
+<li><div class="toc-item"><a href="section-LTITP.html#subsection-84" class="internal"><span class="codenumber">5.4.7</span> <span class="title">Glide Reflection</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-MM.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Matrix Multiplication</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-MM.html#subsection-85" class="internal"><span class="codenumber">5.5.1</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-86" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Matrix Multiplication as a Dot Product (Entry-by-Entry)</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-87" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Row Perspective of the Matrix-Vector Product and Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-88" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Properties of Matrix Multiplication</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-89" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Matrix Multiplication is Not Commutative</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-90" class="internal"><span class="codenumber">5.5.6</span> <span class="title">The Identity Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-91" class="internal"><span class="codenumber">5.5.7</span> <span class="title">Matrix Operations with <span class="process-math">\(1 \times 1\)</span> Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-MM.html#subsection-92" class="internal"><span class="codenumber">5.5.8</span> <span class="title">Matrix Multiplication by Blocks (Partitioned Matrices)</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-EM.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Elementary Matrices</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-EM.html#subsection-93" class="internal"><span class="codenumber">5.6.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-EM.html#subsection-94" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Permutation Matrices for Row Exchanges</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="section-IOAM.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Inverse of a Matrix</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-95" class="internal"><span class="codenumber">5.7.1</span> <span class="title">Inverse of a Square Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-96" class="internal"><span class="codenumber">5.7.2</span> <span class="title">Matrix Inverses and Linear Transformations</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-97" class="internal"><span class="codenumber">5.7.3</span> <span class="title">Computing the Inverse of a Matrix (<span class="process-math">\(1 \times 1\)</span> and <span class="process-math">\(2 \times 2\)</span> Cases)</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-98" class="internal"><span class="codenumber">5.7.4</span> <span class="title">Solving Systems with Inverse Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-99" class="internal"><span class="codenumber">5.7.5</span> <span class="title">Inverses of Larger Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-100" class="internal"><span class="codenumber">5.7.6</span> <span class="title">Matrix Inverses and Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-101" class="internal"><span class="codenumber">5.7.7</span> <span class="title">Inverse of a <span class="process-math">\(3 \times 3\)</span> Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#subsection-102" class="internal"><span class="codenumber">5.7.8</span> <span class="title">Properties of Inverse Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-IOAM.html#exercises-2" class="internal"><span class="codenumber">5.7.9</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-ITVS.html" class="internal"><span class="codenumber">6</span> <span class="title">Introduction to Vector Spaces</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-RCSCSNS.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Real Coordinate Spaces, Column Space and Null Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-103" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Introduction to Vector Spaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-104" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Subspaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-105" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Spans of Vectors as a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-106" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Vector Spaces of <span class="process-math">\(\mathbb{R}^n\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-107" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Intersection of Subspaces is a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-108" class="internal"><span class="codenumber">6.1.6</span> <span class="title">The Column Space</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-109" class="internal"><span class="codenumber">6.1.7</span> <span class="title">The Null Space</span></a></div></li>
+<li><div class="toc-item"><a href="section-RCSCSNS.html#subsection-110" class="internal"><span class="codenumber">6.1.8</span> <span class="title">Contrasting the Column and Null Space</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-LI.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Linear Independence</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="section-LI.html#subsection-111" class="internal"><span class="codenumber">6.2.1</span> <span class="title">Linear Independence</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-B.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Basis of a Vector Space</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-B.html#subsection-112" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Basis of a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-B.html#subsection-113" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Basis of the Column Space</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-DAR.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Dimension and Rank</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-DAR.html#subsection-114" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Dimension of a Subspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-DAR.html#subsection-115" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Rank of a Matrix</span></a></div></li>
+<li><div class="toc-item"><a href="section-DAR.html#subsection-116" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Rank and the Invertible Matrix Theorem</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-CS.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Coordinate Systems</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-CS.html#subsection-117" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Coordinate Systems</span></a></div></li>
+<li><div class="toc-item"><a href="section-CS.html#subsection-118" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Change of Basis</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-D.html" class="internal"><span class="codenumber">7</span> <span class="title">Determinants</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="section-ITD.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction to Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-ITD.html#subsection-119" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITD.html#subsection-120" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Determinants of <span class="process-math">\(3 \times 3\)</span> Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="section-ITD.html#subsection-121" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Determinants of Larger Matrices</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-CR.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Cramer's Rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-CR.html#subsection-122" class="internal"><span class="codenumber">7.2.1</span> <span class="title">The <span class="process-math">\(3 \times 3\)</span> Case</span></a></div></li>
+<li><div class="toc-item"><a href="section-CR.html#subsection-123" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Cramer's Rule</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="section-POD.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Properties of Determinants</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-POD.html#subsection-124" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Determinants and Row Operations</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#subsection-125" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Evaluating Determinants of Higher Order</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#subsection-126" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Determinants and Invertibility</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#subsection-127" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Number of Operations for Computing Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="section-POD.html#exercises-3" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-GVS.html" class="internal"><span class="codenumber">8</span> <span class="title">General Vector Spaces</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="section-27.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Vector Spaces and Subspaces</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-27.html#subsection-128" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Vector Spaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-129" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Subspaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-130" class="internal"><span class="codenumber">8.1.3</span> <span class="title">Subspace Spanned by a Set</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-131" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Polynomial Spaces</span></a></div></li>
+<li><div class="toc-item"><a href="section-27.html#subsection-132" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Function Spaces</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-EAE.html" class="internal"><span class="codenumber">9</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="section-EAE.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-EAE.html#subsection-133" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-134" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Determining Eigenvalues and Eigenvectors</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-135" class="internal"><span class="codenumber">9.1.3</span> <span class="title">The Eigenspace</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-136" class="internal"><span class="codenumber">9.1.4</span> <span class="title">Computing Eigenvalues</span></a></div></li>
+<li><div class="toc-item"><a href="section-EAE.html#subsection-137" class="internal"><span class="codenumber">9.1.5</span> <span class="title">The Characteristic Equation</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="chapter-MISC.html" class="internal"><span class="codenumber">10</span> <span class="title">Misc</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="section-LU.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Matrix Factorizations, LU Factorziation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-LU.html#subsection-138" class="internal"><span class="codenumber">10.1.1</span> <span class="title">LU Factorization</span></a></div></li>
+<li><div class="toc-item"><a href="section-LU.html#subsection-139" class="internal"><span class="codenumber">10.1.2</span> <span class="title">Performing LU Factorization</span></a></div></li>
+<li><div class="toc-item"><a href="section-LU.html#subsection-140" class="internal"><span class="codenumber">10.1.3</span> <span class="title">Algorithm for LU Factorization</span></a></div></li>
+<li><div class="toc-item"><a href="section-LU.html#subsection-141" class="internal"><span class="codenumber">10.1.4</span> <span class="title">Number of Operations for LU Factorization</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-IOAM"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.7</span> <span class="title">Inverse of a Matrix</span>
 </h2>
-<section class="introduction" id="introduction-22"><p id="p-471">Recall that for real numbers, the <em class="emphasis">inverse</em> (or <em class="emphasis">multiplicative inverse</em>, or <em class="emphasis">reciprocal</em> of \(a \in \mathbb{R}\) is the number \(b\) such that ab = 1. We denote \(b\) by \(\frac{1}{a}\) or \(a^{-1}\text{.}\) For example, the multiplicative inverse of \(3\) is \(3^{-1} = \frac{1}{3}\text{,}\) because \(3 \cdot \frac{1}{3} = \frac{1}{3} \cdot 3 = 1\text{.}\) Also, inverses only exist for non-zero real numbers.</p>
-<p id="p-472">For matrices, we can define an analogous notion of inverse. However, unlike real number multiplication, matrix multiplication is not commutative. Further, for both sides of the product to be defined, the matrices involved must be square. So, most often, we focus on inverses of square matrices. Also, similarly, the inverse of a matrix will only exist if the matrix is “non-zero” in some sense.</p></section><section class="subsection" id="subsection-95"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-22"><div class="para" id="p-477">Recall that for real numbers, the <em class="emphasis">inverse</em> (or <em class="emphasis">multiplicative inverse</em>, or <em class="emphasis">reciprocal</em> of <span class="process-math">\(a \in \mathbb{R}\)</span> is the number <span class="process-math">\(b\)</span> such that ab = 1. We denote <span class="process-math">\(b\)</span> by <span class="process-math">\(\frac{1}{a}\)</span> or <span class="process-math">\(a^{-1}\text{.}\)</span> For example, the multiplicative inverse of <span class="process-math">\(3\)</span> is <span class="process-math">\(3^{-1} = \frac{1}{3}\text{,}\)</span> because <span class="process-math">\(3 \cdot \frac{1}{3} = \frac{1}{3} \cdot 3 = 1\text{.}\)</span> Also, inverses only exist for non-zero real numbers.</div> <div class="para" id="p-478">For matrices, we can define an analogous notion of inverse. However, unlike real number multiplication, matrix multiplication is not commutative. Further, for both sides of the product to be defined, the matrices involved must be square. So, most often, we focus on inverses of square matrices. Also, similarly, the inverse of a matrix will only exist if the matrix is “non-zero” in some sense.</div></section><section class="subsection" id="subsection-95"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.7.1</span> <span class="title">Inverse of a Square Matrix</span>
 </h3>
 <article class="definition definition-like" id="definition-47"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.7.1</span><span class="period">.</span>
-</h4>An \(n \times n\) square matrix \(A\) is <dfn class="terminology">invertible</dfn> if there exists an \(n \times n\) matrix \(B\) such that \(AB = BA = I_n\text{.}\) Then, \(B\) is called the <dfn class="terminology">inverse</dfn> of \(A\text{,}\) and is denoted by \(B = A^{-1}\text{.}\)</article><article class="theorem theorem-like" id="theorem-32"><h4 class="heading">
+</h4>An <span class="process-math">\(n \times n\)</span> square matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">invertible</dfn> if there exists an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(AB = BA = I_n\text{.}\)</span> Then, <span class="process-math">\(B\)</span> is called the <dfn class="terminology">inverse</dfn> of <span class="process-math">\(A\text{,}\)</span> and is denoted by <span class="process-math">\(B = A^{-1}\text{.}\)</span></article><article class="theorem theorem-like" id="theorem-33"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.2</span><span class="period">.</span>
 </h4>
-<p id="p-473">If a square matrix \(A\) is invertible, then its inverse is unique.</p></article><article class="hiddenproof" id="proof-12"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof">If \(B\) and \(C\) are both inverses of \(A\text{,}\) then \(AB = BA = I_n\) and \(AC = CA = I_n\text{.}\) Then,<div class="displaymath">
+<div class="para" id="p-479">If a square matrix <span class="process-math">\(A\)</span> is invertible, then its inverse is unique.</div></article><article class="hiddenproof" id="proof-12"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof">If <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> are both inverses of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(AB = BA = I_n\)</span> and <span class="process-math">\(AC = CA = I_n\text{.}\)</span> Then,<div class="displaymath process-math">
 \begin{equation*}
 B = BI_n = B(AC) = (BA)C = I_n C = C
 \end{equation*}
-</div>Thus, \(B = C\text{.}\)</article></div>
-<p id="p-474">Thus, the inverse of a matrix \(A\text{,}\) if it exists, is well-defined, and so is denoted by \(A^{-1}\text{.}\) It has the property that,</p>
-<div class="displaymath">
+</div>Thus, <span class="process-math">\(B = C\text{.}\)</span></article></div>
+<div class="para" id="p-480">Thus, the inverse of a matrix <span class="process-math">\(A\text{,}\)</span> if it exists, is well-defined, and so is denoted by <span class="process-math">\(A^{-1}\text{.}\)</span> It has the property that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 AA^{-1} = A^{-1} A = I_n
 \end{equation*}
 </div>
-<p id="p-475">A matrix which is not invertible is sometimes called <dfn class="terminology">singular</dfn>, and a matrix which is invertible is called <dfn class="terminology">non-singular</dfn>.</p>
-<p id="p-476">To verify that  matrix \(B\) is the inverse of \(A\text{,}\) we can multiply \(B\) by \(A\) and verify that the result is the identity matrix. Further, for a square matrix \(A\text{,}\) \(AB = I_n\) if and only if \(BA = I_n\text{,}\) so it is sufficient to only compute one of the two products \(AB\) or \(BA\text{.}\)</p>
-<article class="theorem theorem-like" id="theorem-33"><h4 class="heading">
+<div class="para" id="p-481">A matrix which is not invertible is sometimes called <dfn class="terminology">singular</dfn>, and a matrix which is invertible is called <dfn class="terminology">non-singular</dfn>.</div>
+<div class="para" id="p-482">To verify that  matrix <span class="process-math">\(B\)</span> is the inverse of <span class="process-math">\(A\text{,}\)</span> we can multiply <span class="process-math">\(B\)</span> by <span class="process-math">\(A\)</span> and verify that the result is the identity matrix. Further, for a square matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(AB = I_n\)</span> if and only if <span class="process-math">\(BA = I_n\text{,}\)</span> so it is sufficient to only compute one of the two products <span class="process-math">\(AB\)</span> or <span class="process-math">\(BA\text{.}\)</span>
+</div>
+<article class="theorem theorem-like" id="theorem-34"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.3</span><span class="period">.</span>
 </h4>
-<p id="p-477">Let \(A, B\) be \(n \times n\) square matrices. Then, \(AB = I_n\) if and only if \(BA = I_n\text{.}\)</p></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><p id="p-478">EXERCISE.</p></article></div></section><section class="subsection" id="subsection-96"><h3 class="heading hide-type">
+<div class="para" id="p-483">Let <span class="process-math">\(A, B\)</span> be <span class="process-math">\(n \times n\)</span> square matrices. Then, <span class="process-math">\(AB = I_n\)</span> if and only if <span class="process-math">\(BA = I_n\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para" id="p-484">EXERCISE.</div></article></div></section><section class="subsection" id="subsection-96"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.7.2</span> <span class="title">Matrix Inverses and Linear Transformations</span>
 </h3>
-<p id="p-479">Considering a matrix \(A\) as a linear transformation, its inverse \(A^{-1}\) is the inverse linear transformation in the sense of the inverse of a function. That is, its composition with \(A\) results in the identity transformation. This is quite literally encoded in the definition \(AA^{-1} = I_n\text{.}\) In the language of linear transformations (or functions), the inverse \(A^{-1}\) is the linear transformation such that for every vector \(\vec{x} \in \mathbb{R}^n\text{,}\)</p>
-<div class="displaymath">
+<div class="para" id="p-485">Considering a matrix <span class="process-math">\(A\)</span> as a linear transformation, its inverse <span class="process-math">\(A^{-1}\)</span> is the inverse linear transformation in the sense of the inverse of a function. That is, its composition with <span class="process-math">\(A\)</span> results in the identity transformation. This is quite literally encoded in the definition <span class="process-math">\(AA^{-1} = I_n\text{.}\)</span> In the language of linear transformations (or functions), the inverse <span class="process-math">\(A^{-1}\)</span> is the linear transformation such that for every vector <span class="process-math">\(\vec{x} \in \mathbb{R}^n\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A^{-1}(A\vec{x}) = A^{-1} A \vec{x} = I_n\vec{x} = \vec{x}
 \end{equation*}
 </div>
-<p id="p-480">The parentheses are to emphasize the function composition.</p></section><section class="subsection" id="subsection-97"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.7.3</span> <span class="title">Computing the Inverse of a Matrix (\(1 \times 1\) and \(2 \times 2\) Cases)</span>
+<div class="para" id="p-486">The parentheses are to emphasize the function composition.</div></section><section class="subsection" id="subsection-97"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.7.3</span> <span class="title">Computing the Inverse of a Matrix (<span class="process-math">\(1 \times 1\)</span> and <span class="process-math">\(2 \times 2\)</span> Cases)</span>
 </h3>
-<p id="p-481">The next natural question is: how do you compute the inverse of a matrix? It turns out that it is non-trivial, especially for large matrices. First, start with the simplest case, of a \(1 \times 1\) matrix \(A = \begin{bmatrix} a \end{bmatrix}\text{.}\) We want to find the matrix \(B = \begin{bmatrix} b \end{bmatrix}\) such that,</p>
-<div class="displaymath">
+<div class="para" id="p-487">The next natural question is: how do you compute the inverse of a matrix? It turns out that it is non-trivial, especially for large matrices. First, start with the simplest case, of a <span class="process-math">\(1 \times 1\)</span> matrix <span class="process-math">\(A = \begin{bmatrix} a \end{bmatrix}\text{.}\)</span> We want to find the matrix <span class="process-math">\(B = \begin{bmatrix} b \end{bmatrix}\)</span> such that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 AB = \begin{bmatrix} a \end{bmatrix} \begin{bmatrix} b \end{bmatrix} = \begin{bmatrix} ab \end{bmatrix} = \begin{bmatrix} 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-482">In other words, \(ab = 1\text{.}\) Clearly, the entry \(b\) should be \(b = \frac{1}{a}\text{,}\) provided that \(a \neq 0\text{.}\) Thus,</p>
-<div class="displaymath">
+<div class="para" id="p-488">In other words, <span class="process-math">\(ab = 1\text{.}\)</span> Clearly, the entry <span class="process-math">\(b\)</span> should be <span class="process-math">\(b = \frac{1}{a}\text{,}\)</span> provided that <span class="process-math">\(a \neq 0\text{.}\)</span> Thus,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} a \end{bmatrix}^{-1} = \begin{bmatrix} \frac{1}{a} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-483">and \(A\) is invertible if and only if \(a \neq 0\text{.}\)</p>
-<p id="p-484">Next, consider a \(2 \times 2\) matrix, of the form \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\text{.}\) We want to find a matrix, say of the form \(B = \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix}\text{,}\) such that,</p>
-<div class="displaymath">
+<div class="para" id="p-489">and <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(a \neq 0\text{.}\)</span>
+</div>
+<div class="para" id="p-490">Next, consider a <span class="process-math">\(2 \times 2\)</span> matrix, of the form <span class="process-math">\(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\text{.}\)</span> We want to find a matrix, say of the form <span class="process-math">\(B = \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix}\text{,}\)</span> such that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-485">By the definition of matrix multiplication, this is equivalent to,</p>
-<div class="displaymath">
+<div class="para" id="p-491">By the definition of matrix multiplication, this is equivalent to,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} ax_{11} + bx_{21} \amp ax_{12} + bx_{22} \\ cx_{11} + dx_{21} \amp cx_{12} + dx_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-486">Equating entries, this is equivalent to the system of 4 equations,</p>
-<div class="displaymath">
+<div class="para" id="p-492">Equating entries, this is equivalent to the system of 4 equations,</div>
+<div class="displaymath process-math" id="md-54">
 \begin{align*}
 ax_{11} \amp + bx_{21} \amp \amp \amp = 1\\
 \amp \amp a_{12} \amp + bx_{22} \amp = 0\\
@@ -247,225 +632,248 @@ cx_{11} \amp + dx_{21} \amp \amp \amp = 0\\
 \amp \amp cx_{12} \amp + dx_{22} \amp = 1
 \end{align*}
 </div>
-<p id="p-487">That is, finding the inverse of a \(2 \times 2\) matrix is equivalent to solving this system of 4 equations in 4 unknowns. The augmented matrix is,</p>
-<div class="displaymath">
+<div class="para" id="p-493">That is, finding the inverse of a <span class="process-math">\(2 \times 2\)</span> matrix is equivalent to solving this system of 4 equations in 4 unknowns. The augmented matrix is,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} a \amp b \amp 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp a \amp b \amp 0 \\ c \amp d \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp c \amp d \amp 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-488">Converting this matrix to RREF,</p>
-<div class="displaymath">
+<div class="para" id="p-494">Converting this matrix to RREF,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} 1 \amp 0 \amp 0 \amp 0 \amp \frac{d}{ad - bc} \\ 0 \amp 1 \amp 0 \amp 0 \amp -\frac{c}{ad - bc} \\ 0 \amp 0 \amp 1 \amp 0 \amp -\frac{b}{ad - bc} \\ 0 \amp 0 \amp 0 \amp 1 \amp \frac{a}{ad - bc} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-489">provided that \(ad - bc \neq 0\text{.}\) Thus, the inverse matrix is,</p>
-<div class="displaymath">
+<div class="para" id="p-495">provided that <span class="process-math">\(ad - bc \neq 0\text{.}\)</span> Thus, the inverse matrix is,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} x_{11} \amp x_{21} \\ x_{12} \amp x_{22} \end{bmatrix} = \begin{bmatrix} \frac{d}{ad - bc} \amp -\frac{b}{ad - bc} \\ -\frac{c}{ad - bc} \amp \frac{a}{ad - bc} \end{bmatrix} = \frac{1}{ad - bc} \begin{bmatrix} d \amp -c \\ -b \amp a \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-490">In summary,</p>
-<article class="theorem theorem-like" id="theorem-34"><h4 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.4</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse of \(2 \times 2\) matrix.</span>
+<div class="para" id="p-496">In summary,</div>
+<article class="theorem theorem-like" id="theorem-35"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.4</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse of <span class="process-math">\(2 \times 2\)</span> matrix.</span>
 </h4>
-<p id="p-491">Let \(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\) be a \(2 \times 2\) matrix. If \(ad - bc \neq 0\text{,}\) then \(A\) is invertible, and its inverse is given by,</p>
-<div class="displaymath">
+<div class="para" id="p-497">Let <span class="process-math">\(A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\)</span> be a <span class="process-math">\(2 \times 2\)</span> matrix. If <span class="process-math">\(ad - bc \neq 0\text{,}\)</span> then <span class="process-math">\(A\)</span> is invertible, and its inverse is given by,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \boxed{A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix}}
 \end{equation*}
-</div></article><p id="p-492">Intuitively, \(A^{-1}\) is obtained from \(A\) by exchanging the diagonal entries, negating the “off-diagonal” entries, and dividing by \(ad - bc\text{.}\)</p>
-<article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><p id="p-493">The previously explained steps could be considered a “derivation”, but a proof of this formula only requires that we verify that \(A^{-1} A = I_2\) using matrix multiplication. Indeed,</p>
-<div class="displaymath">
+</div></article><div class="para" id="p-498">Intuitively, <span class="process-math">\(A^{-1}\)</span> is obtained from <span class="process-math">\(A\)</span> by exchanging the diagonal entries, negating the “off-diagonal” entries, and dividing by <span class="process-math">\(ad - bc\text{.}\)</span>
+</div>
+<article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><div class="para" id="p-499">The previously explained steps could be considered a “derivation”, but a proof of this formula only requires that we verify that <span class="process-math">\(A^{-1} A = I_2\)</span> using matrix multiplication. Indeed,</div>
+<div class="displaymath process-math" id="md-55">
 \begin{align*}
 A^{-1} A \amp = \frac{1}{ad - bc} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}\\
 \amp = \frac{1}{ad - bc} \begin{bmatrix} ad - bc \amp 0 \\ 0 \amp ad - bc \end{bmatrix}\\
 \amp = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix} = I_2
 \end{align*}
 </div></article></div>
-<p id="p-494">If \(ad - bc = 0\text{,}\) then the matrix \(A\) does not have an inverse.</p></section><section class="subsection" id="subsection-98"><h3 class="heading hide-type">
+<div class="para" id="p-500">If <span class="process-math">\(ad - bc = 0\text{,}\)</span> then the matrix <span class="process-math">\(A\)</span> does not have an inverse.</div></section><section class="subsection" id="subsection-98"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.7.4</span> <span class="title">Solving Systems with Inverse Matrices</span>
 </h3>
-<article class="theorem theorem-like" id="theorem-35"><h4 class="heading">
+<div class="para" id="p-501">Inverse matrices also provide a conceptually intuitive method of solving a linear system <span class="process-math">\(A\vec{x} = \vec{b}\text{.}\)</span> If the coefficient matrix <span class="process-math">\(A\)</span> is invertible, then multiplying both sides of the equation on the left by <span class="process-math">\(A^{-1}\text{,}\)</span> we can solve for <span class="process-math">\(\vec{x}\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="md-56">
+\begin{align*}
+A^{-1} (A \vec{x}) \amp = A^{-1} \vec{b}\\
+I \vec{x} \amp = A^{-1} \vec{b}\\
+\vec{x} \amp = A^{-1} \vec{b}
+\end{align*}
+</div>
+<div class="para" id="p-502">Thus, <span class="process-math">\(\vec{x} = A^{-1} \vec{b}\)</span> is the unique solution to the equation. This leads to the following theorem.</div>
+<article class="theorem theorem-like" id="theorem-36"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.5</span><span class="period">.</span>
 </h4>
-<p id="p-495">Let \(A\) be an \(n \times n\) matrix. If \(A\) is invertible, then the matrix equation \(A\vec{x} = \vec{b}\) has a unique soloution (for any \(\vec{b} \in \mathbb{R}^n\)), given by the vector \(\vec{x} = A^{-1} \vec{b}\text{.}\)</p></article><p id="p-496">Intuitively, this comes from multiplying both sides of the equation \(A\vec{x} = \vec{b}\) on the left by \(A^{-1}\text{,}\) to get \(A^{-1}A \vec{x} = A^{-1} \vec{b}\text{.}\) Then, \(A^{-1} A = I_n\) and \(I_n \vec{x} = \vec{x}\text{,}\) so the equation becomes \(\vec{x} = A^{-1} \vec{b}\text{.}\) The uniqueness follows from the fact that matrix inverses are unique.</p>
-<article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof">First, indeed \(\vec{x} = A^{-1} \vec{b}\) is a solution, as<div class="displaymath">
+<div class="para" id="p-503">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. If <span class="process-math">\(A\)</span> is invertible, then the matrix equation <span class="process-math">\(A\vec{x} = \vec{b}\)</span> has a unique soloution (for any <span class="process-math">\(\vec{b} \in \mathbb{R}^n\)</span>), given by the vector <span class="process-math">\(\vec{x} = A^{-1} \vec{b}\text{.}\)</span>
+</div></article><div class="para" id="p-504">Intuitively, the uniqueness follows from the fact that matrix inverses are unique.</div>
+<article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof">First, indeed <span class="process-math">\(\vec{x} = A^{-1} \vec{b}\)</span> is a solution, as<div class="displaymath process-math">
 \begin{equation*}
 A(A^{-1} \vec{b}) = (AA^{-1}) \vec{b} = I_n \vec{b} = \vec{b}
 \end{equation*}
-</div>so it indeed satisfies the equation. For uniqueness, let \(\vec{u}\) be any solution, so that \(A\vec{u} = \vec{b}\text{.}\) Then, multiplying on the left by \(A^{-1}\text{,}\) \(A^{-1} A \vec{u} = A^{-1} \vec{b}\text{,}\) or \(I_n \vec{u} = A^{-1} \vec{b}\text{,}\) and so \(\vec{u} = A^{-1} \vec{b}\text{.}\)</article></div>
-<p id="p-497">The formula \(\vec{x} = A^{-1} \vec{b}\) is rarely used in practice to solve a system of equations. This is because row reduction is almost always faster, especially for large systems, for which computing inverses is very time-consuming. A possible exception is for systems of two equations in two unknowns.</p>
-<p id="p-498">Instead, the importance of this theorem is that says that invertibility guarentees a unique solution.</p>
+</div>so it indeed satisfies the equation. For uniqueness, let <span class="process-math">\(\vec{u}\)</span> be any solution, so that <span class="process-math">\(A\vec{u} = \vec{b}\text{.}\)</span> Then, multiplying on the left by <span class="process-math">\(A^{-1}\text{,}\)</span> <span class="process-math">\(A^{-1} A \vec{u} = A^{-1} \vec{b}\text{,}\)</span> or <span class="process-math">\(I_n \vec{u} = A^{-1} \vec{b}\text{,}\)</span> and so <span class="process-math">\(\vec{u} = A^{-1} \vec{b}\text{.}\)</span></article></div>
+<div class="para" id="p-505">However, the formula <span class="process-math">\(\vec{x} = A^{-1} \vec{b}\)</span> is is rarely used in practice to solve a system of equations. This is because, especially for large systems, computing inverses is very time-consuming. The alternative method of row reduction is much faster. A possible exception is for systems of two equations in two unknowns.</div>
+<div class="para" id="p-506">Instead, the importance of this theorem is conceptual, because it provides the condition of invertibility that guarentees a unique solution.</div>
 <article class="example example-like" id="example-32"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-32"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.7.6</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">Recall that previously, we solved the \(2 \times 2\) system,<div class="displaymath">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-32"><article class="example example-like">Recall that previously, we solved the <span class="process-math">\(2 \times 2\)</span> system,<div class="displaymath process-math" id="md-57">
 \begin{align*}
 a x_1 + b x_2 \amp = y_1 \\
 c x_1 + d x_2 \amp = y_2 
 \end{align*}
-</div>In matrix form,<div class="displaymath">
+</div>In matrix form,<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
 \end{equation*}
-</div>which has a unique solution,<div class="displaymath">
+</div>which has a unique solution,<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} \frac{1}{\Delta} \brac{d y_1 - b y_2} \\ \frac{1}{\Delta} \brac{a y_2 - c y_1} \end{bmatrix}
 \end{equation*}
-</div>provided that \(\Delta = ad - bc \neq 0\text{.}\) Notice that this unique solution is the product of the inverse of \(A\) and the constant vector,<div class="displaymath">
+</div>provided that <span class="process-math">\(\Delta = ad - bc \neq 0\text{.}\)</span> Notice that this unique solution is the product of the inverse of <span class="process-math">\(A\)</span> and the constant vector,<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \frac{1}{\Delta} \begin{bmatrix} d \amp -b \\ -c \amp a \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
 \end{equation*}
 </div></article></div></section><section class="subsection" id="subsection-99"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.7.5</span> <span class="title">Inverses of Larger Matrices</span>
 </h3>
-<p id="p-499">The reasoning used to determine the inverse of a \(2 \times 2\) matrix involved solving a linear system with 4 equations and 4 variables. Using a slightly different perspective, it can be discovered how to generalize this reasoning to higher dimensions.</p>
-<p id="p-500">Again, consider the matrix equation,</p>
-<div class="displaymath">
+<div class="para" id="p-507">The reasoning used to determine the inverse of a <span class="process-math">\(2 \times 2\)</span> matrix involved solving a linear system with 4 equations and 4 variables. Using a slightly different perspective, it can be discovered how to generalize this reasoning to higher dimensions.</div>
+<div class="para" id="p-508">Again, consider the matrix equation,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \amp x_{12} \\ x_{21} \amp x_{22} \end{bmatrix} = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-501">where the variables are \(x_{11}, x_{12}, x_{21}, x_{22}\text{.}\) If we consider the perspective of multiplication as linear combinations of the columns of \(A\text{,}\) the product on the left-hand side is,</p>
-<div class="displaymath">
+<div class="para" id="p-509">where the variables are <span class="process-math">\(x_{11}, x_{12}, x_{21}, x_{22}\text{.}\)</span> If we consider the perspective of multiplication as linear combinations of the columns of <span class="process-math">\(A\text{,}\)</span> the product on the left-hand side is,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \\ x_{21} \end{bmatrix} \amp \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{12} \\ x_{22} \end{bmatrix}\end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-502">So, the matrix equation requries that,</p>
-<div class="displaymath">
+<div class="para" id="p-510">So, the matrix equation requries that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{11} \\ x_{21} \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \qquad \text{and} \qquad \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} \begin{bmatrix} x_{21} \\ x_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-503">These are two linear systems, each with two equations and two unknowns each, and corresponding augmented matrices,</p>
-<div class="displaymath">
+<div class="para" id="p-511">These are two linear systems, each with two equations and two unknowns each, and corresponding augmented matrices,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \left[\begin{array}{cc|c} a \amp b \amp 1 \\ c \amp d \amp 0 \end{array}\right] \qquad \text{and} \qquad \left[\begin{array}{cc|c} a \amp b \amp 0 \\ c \amp d \amp 1 \end{array}\right]
 \end{equation*}
 </div>
-<p id="p-504">At first, this seems just as complicated as a single system with 4 equations and 4 unknowns. However, the insight is that the coefficient matrix for the systems are the same. Thus, the elementary row operations used to solve one system will be the same as that used to solve the other. In this way, we can augment the systems together, and work with the augmented matrix,</p>
-<div class="displaymath">
+<div class="para" id="p-512">At first, this seems just as complicated as a single system with 4 equations and 4 unknowns. However, the insight is that the coefficient matrix for the systems are the same. Thus, the elementary row operations used to solve one system will be the same as that used to solve the other. In this way, we can augment the systems together, and work with the augmented matrix,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \left[\begin{array}{cc|cc} a \amp b \amp 1 \amp 0 \\ c \amp d \amp 0 \amp 1 \end{array}\right]
 \end{equation*}
 </div>
-<p id="p-505">That is, \(\begin{bmatrix} A \amp I_2 \end{bmatrix}\text{.}\) Then, after performing row reduction, the resulting matrix should be of the form,</p>
-<div class="displaymath">
+<div class="para" id="p-513">That is, <span class="process-math">\(\begin{bmatrix} A \amp I_2 \end{bmatrix}\text{.}\)</span> Then, after performing row reduction, the resulting matrix should be of the form,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \left[\begin{array}{cc|cc} 1 \amp 0 \amp \ast \amp \ast \\ 0 \amp 1 \amp \ast \amp \ast \end{array}\right]
 \end{equation*}
 </div>
-<p id="p-506">Then, the entries of \(A^{-1}\) will be precisely the entires on the right-hand side of the augmented matrix. If \(A\) turns out to be not invertible (in the \(2 \times 2\) case, if \(ad - bc = 0\)), then the left-hand side of the augmented matrix will not reduce to \(I_2\text{,}\) but instead have some zero rows, indicating that the system of equations used to find the inverse doesn't have a solution.</p>
-<p id="p-507">All of the previous reasoning applies to general \(n \times n\) matrix \(A\text{.}\) If the inverse is say \(B = \begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix}\text{,}\) then in this case, the equation \(AB = I_n\) is equivalent to the \(n\) linear systems,</p>
-<div class="displaymath">
+<div class="para" id="p-514">Then, the entries of <span class="process-math">\(A^{-1}\)</span> will be precisely the entires on the right-hand side of the augmented matrix. If <span class="process-math">\(A\)</span> turns out to be not invertible (in the <span class="process-math">\(2 \times 2\)</span> case, if <span class="process-math">\(ad - bc = 0\)</span>), then the left-hand side of the augmented matrix will not reduce to <span class="process-math">\(I_2\text{,}\)</span> but instead have some zero rows, indicating that the system of equations used to find the inverse doesn't have a solution.</div>
+<div class="para" id="p-515">All of the previous reasoning applies to general <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span> If the inverse is say <span class="process-math">\(B = \begin{bmatrix} \vec{b}_1 \amp \dots \amp \vec{b}_n \end{bmatrix}\text{,}\)</span> then in this case, the equation <span class="process-math">\(AB = I_n\)</span> is equivalent to the <span class="process-math">\(n\)</span> linear systems,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A\vec{b}_1 = \vec{e}_1 \qquad A\vec{b}_2 = \vec{e}_2 \quad \dots \quad A\vec{b}_n = \vec{e}_n
 \end{equation*}
 </div>
-<p id="p-508">each with \(n\) equations and \(n\) unknowns. These systems can be combined and solved together, by row reducing the augmented matrix formed by augmented the identity matrix onto the right-hand side,</p>
-<div class="displaymath">
+<div class="para" id="p-516">each with <span class="process-math">\(n\)</span> equations and <span class="process-math">\(n\)</span> unknowns. These systems can be combined and solved together, by row reducing the augmented matrix formed by augmented the identity matrix onto the right-hand side,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} A \mid I_n \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-509">Then, if \(A\) reduces to \(I_n\text{,}\) then \(A^{-1}\) is the resulting matrix on the right-hand side.</p>
-<p id="p-510">In summary, we get an algorithm for computing matrix inverses, using row reduction. To find the inverse of \(A\text{,}\) convert it to RREF using row reduction, and then perform the same row reduction steps (in the same order) on \(I_n\text{,}\) and the result is \(A^{-1}\text{.}\) These two steps are combined by performing row reduction on the augmented matrix \(\begin{bmatrix} A \mid I_n \end{bmatrix}\text{.}\)</p>
-<article class="theorem theorem-like" id="theorem-36"><h4 class="heading">
+<div class="para" id="p-517">Then, if <span class="process-math">\(A\)</span> reduces to <span class="process-math">\(I_n\text{,}\)</span> then <span class="process-math">\(A^{-1}\)</span> is the resulting matrix on the right-hand side.</div>
+<div class="para" id="p-518">In summary, we get an algorithm for computing matrix inverses, using row reduction. To find the inverse of <span class="process-math">\(A\text{,}\)</span> convert it to RREF using row reduction, and then perform the same row reduction steps (in the same order) on <span class="process-math">\(I_n\text{,}\)</span> and the result is <span class="process-math">\(A^{-1}\text{.}\)</span> These two steps are combined by performing row reduction on the augmented matrix <span class="process-math">\(\begin{bmatrix} A \mid I_n \end{bmatrix}\text{.}\)</span>
+</div>
+<article class="theorem theorem-like" id="theorem-37"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.7</span><span class="period">.</span>
 </h4>
-<p id="p-511">To determine the inverse of a square matrix \(A\text{,}\)</p>
+<div class="para" id="p-519">To determine the inverse of a square matrix <span class="process-math">\(A\text{,}\)</span>
+</div>
 <ol class="decimal">
-<li id="li-125"><p id="p-derived-li-125">Form the augmented matrix \(\begin{bmatrix} A \mid I \end{bmatrix}\text{.}\)</p></li>
-<li id="li-126"><p id="p-derived-li-126">Convert the augmented matrix to RREF using Gauss-Jordan elimination.</p></li>
-<li id="li-127"><p id="p-derived-li-127">If \(A\) is row equivalent to \(I\text{,}\) then the augmented matrix in RREF will be of the form \(\begin{bmatrix} I \mid B \end{bmatrix}\text{.}\) Then, \(B = A^{-1}\) is the inverse.</p></li>
-<li id="li-128"><p id="p-derived-li-128">Otherwise, if \(A\) is not row equivalent to \(A\text{,}\) then \(A\) does not have an inverse.</p></li>
-</ol></article><p id="p-512">In short,</p>
-<div class="displaymath">
+<li id="li-124"><div class="para" id="p-derived-li-124">Form the augmented matrix <span class="process-math">\(\begin{bmatrix} A \mid I \end{bmatrix}\text{.}\)</span>
+</div></li>
+<li id="li-125"><div class="para" id="p-derived-li-125">Convert the augmented matrix to RREF using Gauss-Jordan elimination.</div></li>
+<li id="li-126"><div class="para" id="p-derived-li-126">If <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I\text{,}\)</span> then the augmented matrix in RREF will be of the form <span class="process-math">\(\begin{bmatrix} I \mid B \end{bmatrix}\text{.}\)</span> Then, <span class="process-math">\(B = A^{-1}\)</span> is the inverse.</div></li>
+<li id="li-127"><div class="para" id="p-derived-li-127">Otherwise, if <span class="process-math">\(A\)</span> is not row equivalent to <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\)</span> does not have an inverse.</div></li>
+</ol></article><div class="para" id="p-520">In short,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \begin{bmatrix} A \mid I_n \end{bmatrix} \longrightarrow \begin{bmatrix} I_n \amp A^{-1} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-513">After using this procedure, the result can be verified by checking that \(AA^{-1} = I\text{.}\)</p>
-<p id="p-514">This procedure is a fast method for determining the inverse of a matrix, especially for large matrices. This is because it essentially just involves row reduction.</p></section><section class="subsection" id="subsection-100"><h3 class="heading hide-type">
+<div class="para" id="p-521">After using this procedure, the result can be verified by checking that <span class="process-math">\(AA^{-1} = I\text{.}\)</span>
+</div>
+<div class="para" id="p-522">This procedure is a fast method for determining the inverse of a matrix, especially for large matrices. This is because it essentially just involves row reduction.</div></section><section class="subsection" id="subsection-100"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.7.6</span> <span class="title">Matrix Inverses and Elementary Matrices</span>
 </h3>
-<p id="p-515">The previous reasoning can be generalized and made more precise using elementary matrices.</p>
-<p id="p-516">Suppose that \(A \sim I_n\text{,}\) that is, there is a sequence of elementary row operations that converts \(A\) to \(I_n\text{.}\) In other words, there are a sequence of elementary matrices \(E_1, \dots, E_p\) (say there are \(p\) steps) such that,</p>
-<div class="displaymath">
+<div class="para" id="p-523">The previous reasoning can be generalized and made more precise using elementary matrices.</div>
+<div class="para" id="p-524">Suppose that <span class="process-math">\(A \sim I_n\text{,}\)</span> that is, there is a sequence of elementary row operations that converts <span class="process-math">\(A\)</span> to <span class="process-math">\(I_n\text{.}\)</span> In other words, there are a sequence of elementary matrices <span class="process-math">\(E_1, \dots, E_p\)</span> (say there are <span class="process-math">\(p\)</span> steps) such that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A \sim E_1 A \sim E_2 (E_1 A) \sim \cdots \sim E_p(E_{p-1} \cdots E_1 A) = I_n
 \end{equation*}
-</div>In other words,<div class="displaymath">
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 E_p E_{p-1} \cdots E_2 E_1 A = I_n
 \end{equation*}
-</div>In other words, the matrix \(E_p \cdots E_1\) multiplies with \(A\) to produce the identity matrix. Thus, by definition, \(A^{-1} = E_p \cdots E_1\text{.}\) <p id="p-517">In other words, \(A^{-1}\) is formed by multiplying the sequence of elementary matrices used to convert \(A\) to \(I_n\text{.}\) This is equivalently \(A^{-1} = E_p \cdots E_1 I_n\text{,}\) i.e. \(A^{-1}\) is obtained by applying the row operations \(E_1, \dots, E_p\) successively to \(I_n\text{,}\) in the same sequence requried to transform \(A\) to \(I_n\text{.}\)</p>
-<p id="p-518">In fact, the converse is also true. If \(A\) is invertible, then \(A\) is row equivalent to \(I_n\text{.}\) In summary,</p>
-<article class="theorem theorem-like" id="theorem-37"><h4 class="heading">
+</div>
+<span class="process-math">\(E_p \cdots E_1\)</span><span class="process-math">\(A\)</span><span class="process-math">\(A^{-1} = E_p \cdots E_1\text{.}\)</span><div class="para" id="p-525">In other words, <span class="process-math">\(A^{-1}\)</span> is formed by multiplying the sequence of elementary matrices used to convert <span class="process-math">\(A\)</span> to <span class="process-math">\(I_n\text{.}\)</span> This is equivalently <span class="process-math">\(A^{-1} = E_p \cdots E_1 I_n\text{,}\)</span> i.e. <span class="process-math">\(A^{-1}\)</span> is obtained by applying the row operations <span class="process-math">\(E_1, \dots, E_p\)</span> successively to <span class="process-math">\(I_n\text{,}\)</span> in the same sequence requried to transform <span class="process-math">\(A\)</span> to <span class="process-math">\(I_n\text{.}\)</span>
+</div>
+<div class="para" id="p-526">In fact, the converse is also true. If <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{.}\)</span> In summary,</div>
+<article class="theorem theorem-like" id="theorem-38"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.8</span><span class="period">.</span><span class="space"> </span><span class="title">Invertible if and only if row equivalent to the identity matrix.</span>
 </h4>
-<p id="p-519">An \(n \times n\) matrix \(A\) is invertible if and only if \(A\) is row equivalent to \(I_n\text{,}\) and in this case, any sequence of row operations that reduces \(A\) to \(I_n\) also transforms \(I_n\) into \(A^{-1}\text{.}\)</p></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><p id="p-520">If \(A\) is invertible, then the equation \(A\vec{x} = \vec{b}\) has a solution for every \(\vec{b}\text{,}\) and \(A\) has a pivot position in every row (\(n\) rows). Since \(A\) is square (in particular has \(n\) columns), this implies that the pivot positions are on the main diagonal. Thus, the RREF of \(A\) is \(I_n\text{,}\) or \(A \sim I_n\text{.}\)</p></article></div></section><section class="subsection" id="subsection-101"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.7.7</span> <span class="title">Inverse of a \(3 \times 3\) Matrix</span>
+<div class="para" id="p-527">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{,}\)</span> and in this case, any sequence of row operations that reduces <span class="process-math">\(A\)</span> to <span class="process-math">\(I_n\)</span> also transforms <span class="process-math">\(I_n\)</span> into <span class="process-math">\(A^{-1}\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><div class="para" id="p-528">If <span class="process-math">\(A\)</span> is invertible, then the equation <span class="process-math">\(A\vec{x} = \vec{b}\)</span> has a solution for every <span class="process-math">\(\vec{b}\text{,}\)</span> and <span class="process-math">\(A\)</span> has a pivot position in every row (<span class="process-math">\(n\)</span> rows). Since <span class="process-math">\(A\)</span> is square (in particular has <span class="process-math">\(n\)</span> columns), this implies that the pivot positions are on the main diagonal. Thus, the RREF of <span class="process-math">\(A\)</span> is <span class="process-math">\(I_n\text{,}\)</span> or <span class="process-math">\(A \sim I_n\text{.}\)</span>
+</div></article></div></section><section class="subsection" id="subsection-101"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.7.7</span> <span class="title">Inverse of a <span class="process-math">\(3 \times 3\)</span> Matrix</span>
 </h3>
-<p id="p-521">The explicit formula for a \(3 \times 3\) matrix is more difficult to determine. Consider a \(3 \times 3\) matrix \(A\text{,}\)</p>
-<div class="displaymath">
+<div class="para" id="p-529">The explicit formula for a <span class="process-math">\(3 \times 3\)</span> matrix is more difficult to determine. Consider a <span class="process-math">\(3 \times 3\)</span> matrix <span class="process-math">\(A\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
 A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-522">Using the process of row reduction on a \(3 \times 3\) matrix, the formula turns out to be,</p>
+<div class="para" id="p-530">Using the process of row reduction on a <span class="process-math">\(3 \times 3\)</span> matrix, the formula turns out to be,</div>
 <article class="example example-like" id="example-33"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.7.9</span><span class="period">.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><p id="p-523">Derivation (FINISH).</p></article></div>
-<div class="displaymath">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><div class="para" id="p-531">Derivation (FINISH).</div></article></div>
+<div class="displaymath process-math">
 \begin{equation*}
 A^{-1} = \frac{1}{\Delta} \begin{bmatrix} a_{22} a_{33} - a_{23} a_{32} \amp -(a_{12} a_{33} - a_{32} a_{13}) \amp a_{12} a_{23} - a_{22} a_{13} \\ -(a_{21} a_{33} - a_{23} a_{31}) \amp a_{11} a_{33} - a_{13} a_{21} \amp -(a_{11} a_{23} - a_{13} a_{21}) \\ a_{21} a_{32} - a_{22} a_{31} \amp -(a_{11} a_{32} - a_{12} a_{31}) \amp a_{11} a_{22} - a_{12} a_{21} \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-524">where,</p>
-<div class="displaymath">
+<div class="para" id="p-532">where,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 \Delta = a_{11} a_{22} a_{33} - a_{11} a_{32} a_{23} + a_{12} a_{23} a_{32} - a_{12} a_{21} a_{33} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31}
 \end{equation*}
 </div>
-<p id="p-525">Then, \(A\) is invertible if and only if \(\Delta \neq 0\text{.}\) This explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after considering the later topic of determinants.</p></section><section class="subsection" id="subsection-102"><h3 class="heading hide-type">
+<div class="para" id="p-533">Then, <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\Delta \neq 0\text{.}\)</span> This explicit formula is not to be memorized. There are many patterns in the entries of this matrix, but the full insight can only be understood after considering the later topic of determinants.</div></section><section class="subsection" id="subsection-102"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.7.8</span> <span class="title">Properties of Inverse Matrices</span>
 </h3>
-<article class="theorem theorem-like" id="theorem-38"><h4 class="heading">
+<article class="theorem theorem-like" id="theorem-39"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.10</span><span class="period">.</span>
 </h4>
-<p id="p-526">If \(A\) is invertible, then \(A^{-1}\) is invertible, and the inverse of \(A^{-1}\) is \(A\text{,}\) or</p>
-<div class="displaymath">
+<div class="para" id="p-534">If <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A^{-1}\)</span> is invertible, and the inverse of <span class="process-math">\(A^{-1}\)</span> is <span class="process-math">\(A\text{,}\)</span> or</div>
+<div class="displaymath process-math">
 \begin{equation*}
 (A^{-1})^{-1} = A
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-17"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof">By definition, the inverse of \(A^{-1}\) is the matrix \(B\) such that \(A^{-1} B = BA^{-1} = I_n\text{.}\) Clearly, \(A\) satisfies this, as \(A^{-1} A = A A^{-1} = I_n\text{.}\)</article></div>
-<article class="theorem theorem-like" id="theorem-39"><h4 class="heading">
+</div></article><article class="hiddenproof" id="proof-17"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof">By definition, the inverse of <span class="process-math">\(A^{-1}\)</span> is the matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(A^{-1} B = BA^{-1} = I_n\text{.}\)</span> Clearly, <span class="process-math">\(A\)</span> satisfies this, as <span class="process-math">\(A^{-1} A = A A^{-1} = I_n\text{.}\)</span></article></div>
+<article class="theorem theorem-like" id="theorem-40"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.11</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse of a product.</span>
 </h4>
-<p id="p-527">If \(A, B\) are \(n \times n\) invertible matrices, then their product \(AB\) is invertible, and the inverse of \(AB\) is the product of the inverses of \(A\) and \(B\) in reverse order. In other words,</p>
-<div class="displaymath">
+<div class="para" id="p-535">If <span class="process-math">\(A, B\)</span> are <span class="process-math">\(n \times n\)</span> invertible matrices, then their product <span class="process-math">\(AB\)</span> is invertible, and the inverse of <span class="process-math">\(AB\)</span> is the product of the inverses of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> in reverse order. In other words,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 (AB)^{-1} = B^{-1} A^{-1}
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><div class="displaymath">
+</div></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><div class="displaymath process-math">
 \begin{equation*}
 (AB)(B^{-1} A^{-1}) = A(BB^{-1})A^{-1} = A I_n A^{-1} = AA^{-1} = I_n
 \end{equation*}
-</div>Thus, \((AB)^{-1} = B^{-1}A^{-1}\text{.}\)</article></div>
-<p id="p-528">Intuitively, considering matrices \(A, B\) as linear transformations, this statement follow from the fact that the inverse of a composition of functions is the composition of the inverse functions in reverse order, or \((f \circ g)^{-1} = g^{-1} \circ f^{-1}\text{.}\)</p>
-<p id="p-529">This property can be generalized,</p>
-<article class="theorem theorem-like" id="theorem-40"><h4 class="heading">
+</div>Thus, <span class="process-math">\((AB)^{-1} = B^{-1}A^{-1}\text{.}\)</span></article></div>
+<div class="para" id="p-536">Intuitively, considering matrices <span class="process-math">\(A, B\)</span> as linear transformations, this statement follow from the fact that the inverse of a composition of functions is the composition of the inverse functions in reverse order, or <span class="process-math">\((f \circ g)^{-1} = g^{-1} \circ f^{-1}\text{.}\)</span>
+</div>
+<div class="para" id="p-537">This property can be generalized,</div>
+<article class="theorem theorem-like" id="theorem-41"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.7.12</span><span class="period">.</span><span class="space"> </span><span class="title">Generalized inverse of a product.</span>
 </h4>
-<p id="p-530">If \(A_1, A_2, \dots, A_n\) are invertible \(n \times n\) matrices, then their product \(A_1 A_2 \cdots A_n\) is invertible, and the inverse is the product of their inverses in reverse order,</p>
-<div class="displaymath">
+<div class="para" id="p-538">If <span class="process-math">\(A_1, A_2, \dots, A_n\)</span> are invertible <span class="process-math">\(n \times n\)</span> matrices, then their product <span class="process-math">\(A_1 A_2 \cdots A_n\)</span> is invertible, and the inverse is the product of their inverses in reverse order,</div>
+<div class="displaymath process-math">
 \begin{equation*}
 (A_1 \cdots A_n)^{-1} = A_n^{-1} \cdots A_1^{-1}
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-19"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof"><p id="p-531">Intuitively, the inverses will “cancel out” from inside out,</p>
-<div class="displaymath">
+</div></article><article class="hiddenproof" id="proof-19"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof"><div class="para" id="p-539">Intuitively, the inverses will “cancel out” from inside out,</div>
+<div class="displaymath process-math" id="md-58">
 \begin{align*}
 \amp (A_1 A_2 \cdots A_{n-1} A_n)(A_n^{-1} A_{n-1}^{-1} \cdots A_2^{-1} A_1^{-1})\\
 \amp = A_1 A_2 \cdots A_{n-1} (A_n A_n^{-1}) A_{n-1}^{-1} \cdots A_2^{-1} A_1^{-1}\\
@@ -476,10 +884,18 @@ A^{-1} = \frac{1}{\Delta} \begin{bmatrix} a_{22} a_{33} - a_{23} a_{32} \amp -(a
 \amp = I_n
 \end{align*}
 </div>
-<p id="p-532">A more precise argument uses mathematical induction.</p></article></div></section><section class="exercises" id="exercises-2"><h3 class="heading hide-type">
+<div class="para" id="p-540">A more precise argument uses mathematical induction.</div></article></div></section><section class="exercises" id="exercises-2"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">5.7.9</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-3"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>In Python, implement a program to compute the inverse of an arbitrary square matrix, using row reduction.</article></section></section></div></main>
+<article class="exercise exercise-like" id="exercise-3"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>In Python, implement a program to compute the inverse of an arbitrary square matrix, using row reduction.</article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-EM.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="chapter-ITVS.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
 </div>
 </body>
 </html>

@@ -55,19 +55,19 @@
         </definition>
 
         <p>
-            Note that we are using <q>functional notation</q> <m>\det{A}</m> for the determinant of <m>A</m>, treating <q><m>\det</m></q> as a function with argument <q><m>A</m></q>. When writing the matrix explcitly, we could write,
+            The notation <m>\det{A}</m> represents the determinant <m>\det</m> as a function, with argument <m>A</m>. That is, the determinant can be thought of as a function whose input is a (square) matrix, and output is a number. When writing the matrix explcitly, we could write,
         </p>
         <me>
             \det{\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}} = ad - bc
         </me>
         <p>
-            Determinants are also denoted with vertical bars, as
+            Determinants are also denoted with vertical bars, as, <m>\abs{A} = ad - bc</m>, or more explicitly,
         </p>
         <me>
             \begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc
         </me>
         <p>
-            Intuitively, this can be thought of in some sense as a <q>magnitude</q> of the matrix, as we will see later.
+            Intuitively, these vertical bars are like absolute value bars, because it turns out that the determinant of a matrix can be thought of in some sense as a <q>magnitude</q> or <q>size</q> of the matrix, as we will see later.
         </p>
     </subsection>
 

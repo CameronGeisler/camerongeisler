@@ -2,9 +2,6 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:45-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -13,15 +10,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
+<body class="ignore-math">
 <article class="theorem theorem-like"><h4 class="heading">
-<span class="type">Theorem</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">7.2.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="title">Cramer's rule.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Change of basis.</span>
 </h4>
-<p>Let \(A\) be an \(n \times n\) matrix, \(\vec{b} \in \mathbb{R}^n\text{.}\) Then, if \(A\) is invertible, then the unique solution \(\vec{x}\) of the linear system \(A\vec{x} = \vec{b}\) has entries given by,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<div class="para">Let <span class="process-math">\(\mathcal{B} = \set{\vec{b}_1, \dots, \vec{b}_n}, \mathcal{C} = \set{\vec{c}_1, \dots, \vec{c}_n}\)</span> be bases of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Then, there is a unique <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P_{\mathcal{B} \rightarrow \mathcal{C}}\text{,}\)</span> called the <dfn class="terminology">change-of-coordinates matrix from <span class="process-math">\(\mathcal{B}\)</span> to <span class="process-math">\(\mathcal{C}\)</span></dfn>, such that,</div>
+<div class="displaymath process-math">
 \begin{equation*}
-x_i = \frac{\det{A_i(\vec{b})}{\det{A}} \qquad \text{for }
+\boxed{[\vec{x}]_{\mathcal{C}} = P_{\mathcal{B} \rightarrow \mathcal{C}} [\vec{x}]_{\mathcal{B}}}
 \end{equation*}
-</div></article><span class="incontext"><a href="section-CR.html#theorem-52">in-context</a></span>
+</div>
+<div class="para">Further, the columns of <span class="process-math">\(P_{\mathcal{B} \rightarrow \mathcal{C}}\)</span> are the coordinates vectors of the basis <span class="process-math">\(\mathcal{B}\)</span> with respect to <span class="process-math">\(\mathcal{C}\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_{\mathcal{B} \rightarrow \mathcal{C}} = \begin{bmatrix} [\vec{b}_1]_{\mathcal{C}} \amp [\vec{b}_2]_{\mathcal{C}} \amp \dots \amp [\vec{b}_n]_{\mathcal{C}} \end{bmatrix}
+\end{equation*}
+</div></article><span class="incontext"><a href="section-CS.html#theorem-52" class="internal">in-context</a></span>
 </body>
 </html>

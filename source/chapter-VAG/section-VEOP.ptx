@@ -15,7 +15,15 @@
     <subsection>
         <title>Standard Form of a Line, and Normal Vectors</title>
         <p>
-            Recall that previously, we specified a line using a point on the line <m>\vec{r}_0</m>, and a direction vector <m>\vec{v}</m>. Alternatively, we could have instead specified a vector that is perpendicular to the line <m>\vec{n}</m>, called a normal vector. Then, for any point <m>\vec{r}</m> on the line, it has the property that <m>\vec{r} - \vec{r}_0</m> is perpendicular to <m>\vec{n}</m> (previously, recall <m>\vec{r} - \vec{r}_0</m> was <em>parallel</em> to <m>\vec{v}</m>). Using dot products, this means that,
+            Recall that previously, we specified a line using a point on the line <m>\vec{r}_0</m>, and a direction vector <m>\vec{v}</m>. Alternatively, we could have instead specified a vector that is perpendicular to the line <m>\vec{n}</m>, called a <em>normal vector</em>.
+        </p>
+        <definition>
+            <p>
+                A non-zero vector <m>\vec{n}</m> is called a <term>normal vector</term> (or simply <term>normal</term>) for a line (or plane) if it is perpendicular to every vector in the line (or plane).
+            </p>
+        </definition>
+        <p>
+            Then, for any point <m>\vec{r}</m> on the line, it has the property that <m>\vec{r} - \vec{r}_0</m> is perpendicular to <m>\vec{n}</m> (previously, recall <m>\vec{r} - \vec{r}_0</m> was <em>parallel</em> to <m>\vec{v}</m>). Using dot products, this means that,
         </p>
         <me>
             \vec{n} \bullet (\vec{r} - \vec{r}_0) = 0
@@ -45,7 +53,7 @@
     <subsection>
         <title>Planes in <m>\mathbb{R}^3</m></title>
         <p>
-            In a similar way, it turns out that a plane can be specified using a point on the plane, and a vector pointing out of the plane, again called a <term>normal vector</term>. Let <m>\vec{r}_0 = (x_0, y_0, z_0)</m> be a point in space, and let <m>\vec{n} = (a,b,c)</m> be a normal vector for the plane. Then, for any point <m>\vec{r} = (x,y,z)</m> on the plane, it has the property that <m>\vec{r} - \vec{r}_0</m>, which is a vector that line parallel to the plane, is perpendicular to <m>\vec{n}</m>.
+            In a similar way, it turns out that a plane can be specified using a point on the plane, and a vector pointing out of the plane, again called a <em>normal vector</em>. Let <m>\vec{r}_0 = (x_0, y_0, z_0)</m> be a point in space, and let <m>\vec{n} = (a,b,c)</m> be a normal vector for the plane. Then, for any point <m>\vec{r} = (x,y,z)</m> on the plane, it has the property that <m>\vec{r} - \vec{r}_0</m>, which is a vector that line parallel to the plane, is perpendicular to <m>\vec{n}</m>.
         </p>
         <me>
             \vec{n} \bullet (\vec{r} - \vec{r}_0) = 0
@@ -168,7 +176,7 @@
     <subsection>
         <title>Intersecting Planes</title>
         <p>
-            In almost all cases, two planes will intersect, and this intersection will be a line. Let <m>a_1 x + b_1 y + c_1 z \amp = d_1</m> and <m>a_2 x + b_2 y + c_2 z \amp = d_2</m> be the equation of two planes, with normal vectors <m>\vec{n}_1 = \veciii{a_1}{b_1}{c_1}, \vec{n}_2 = \veciii{a_2}{b_2}{c_2}</m>. Then, the line of intersection will be perpendicular to both normal vectors <m>\vec{n}_1</m> and <m>\vec{n}_2</m>. Thus, it will be parallel to their cross product. In other words, <m>\vec{v} = \vec{n}_1 \times \vec{n}_2</m> is a direction vector for the line of intersection.
+            In almost all cases, two planes will intersect, and this intersection will be a line. Let <m>a_1 x + b_1 y + c_1 z = d_1</m> and <m>a_2 x + b_2 y + c_2 z = d_2</m> be the equation of two planes, with normal vectors <m>\vec{n}_1 = \veciii{a_1}{b_1}{c_1}, \vec{n}_2 = \veciii{a_2}{b_2}{c_2}</m>. Then, the line of intersection will be perpendicular to both normal vectors <m>\vec{n}_1</m> and <m>\vec{n}_2</m>. Thus, it will be parallel to their cross product. In other words, <m>\vec{v} = \vec{n}_1 \times \vec{n}_2</m> is a direction vector for the line of intersection.
         </p>
         <p>
             Then, it is sufficient to find a single point on the line. To do this, we can solve the system of equations,

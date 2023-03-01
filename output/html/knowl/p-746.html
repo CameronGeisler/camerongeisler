@@ -2,9 +2,6 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:45-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -13,9 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
+<body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Then, suppose we want to consider many linear systems with the same coefficient matrix, \(A\vec{x} = \vec{b}_1, A\vec{x} = \vec{b}_2, A\vec{x} = \vec{b}_k\) (note here \(\vec{b}_i\) just denotes arbitray constant vectors, and not necessarily denote the column vectors of a matrix \(B\)). To solve each of these systems individually would require performing row reduction and back substitution, so a total of \(\frac{2n^3}{3} + n^2\) for each system. Then, in total, this would be \(k \brac{\frac{2n^3}{3} + n^2}\text{.}\) Instead, using LU factorization, we perform the row reduction once to determine \(U\text{,}\) and determine \(L\) by the matrix inverse procedure. In general, computing matrix inverses is difficult, but for elementary matrices, there are very few non-zero entries, so the multiplication and inversion is very fast. Thus, in total, we will say about \({2n^3}{3}\text{.}\)</p>
-<span class="incontext"><a href="section-LU.html#p-746">in-context</a></span>
+<div class="para">If the LU factorization of <span class="process-math">\(A\)</span> exists, <span class="process-math">\(A = LU\text{,}\)</span> then the linear system <span class="process-math">\(A\vec{x} = \vec{b}\)</span> becomes <span class="process-math">\(LU\vec{x} = \vec{b}\text{,}\)</span> or, <span class="process-math">\(L(U\vec{x}) = \vec{b}\text{.}\)</span> Then, to solve this system for <span class="process-math">\(\vec{x}\text{,}\)</span> we can do it in two parts. First, find the vector(s) <span class="process-math">\(\vec{y}\)</span> such that <span class="process-math">\(L\vec{y} = \vec{b}\text{.}\)</span> Then, find the vectors <span class="process-math">\(\vec{x}\)</span> such that <span class="process-math">\(U\vec{x} = \vec{y}\text{.}\)</span> Both of these systems are easy to solve because their coefficient matrices are triangular. In this way, we solve the original system by solving two simpler systems.</div>
+<span class="incontext"><a href="section-LU.html#p-746" class="internal">in-context</a></span>
 </body>
 </html>

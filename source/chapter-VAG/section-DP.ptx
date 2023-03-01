@@ -148,18 +148,20 @@
     </subsection>
 
     <subsection>
+        <title>Angle Between Vectors</title>
+        <p>
+            Let <m>\vec{v}, \vec{w}</m> be non-zero vectors in <m>\mathbb{R}^2</m>. Then, positioning the vectors with a common tail, this determines a (unique) angle <m>\theta</m> between them. This is the smallest angle between the two vectors, which forces <m>\theta</m> to be in the range <m>\theta \in [0,\pi]</m>. This is called the <term>angle between <m>\vec{v}</m> and <m>\vec{w}</m></term>.
+        </p>
+    </subsection>
+
+    <subsection>
         <title>Alternate Characterization for the Dot Product</title>
         <definition>
             <p>Let <m>\vec{u}, \vec{v}</m> be vectors, <m>\theta</m> be the angle between <m>\vec{u}</m> and <m>\vec{v}</m>. Then,</p>
             <me>
                 \boxed{\vec{u} \bullet \vec{v} = \abs{\vec{u}} \abs{\vec{v}} \cos{\theta}}
             </me>
-        </definition>
-
-        <p>
-            Here, the <q>angle between <m>\vec{u}</m> and <m>\vec{v}</m></q> means the smallest angle between the two vectors. This forces <m>\theta</m> to be between 0 and <m>180^{\circ}</m> (or <m>\pi</m> radians).
-        </p>
-        
+        </definition> 
         <p>
             This is an alternate characterization for the dot product, in that we could have instead defined the dot product using this formula, and then show that this definition implies the previous definition.
         </p>
@@ -191,11 +193,12 @@
     </subsection>
 
     <subsection>
-        <title>Angle Between Vectors</title>
+        <title>Computing the Angle Between Vectors</title>
         <p>
-            The dot product is defined when consider the cosine of the angle between two vectors, so it can be used to compute this angle.
+            The dot product can be written in terms of the cosine of the angle between two vectors, so it can be used to compute this angle.
         </p>
         <theorem>
+            <title>Angle between vectors</title>
             <p>Let <m>\vec{u}, \vec{v} \in \mathbb{R}^2</m> be non-zero vectors, <m>\theta</m> be the angle between them. Then,</p>
             <me>
                 \theta = \arccos{\brac{\frac{\vec{u} \bullet \vec{v}}{\abs{\vec{u}} \abs{\vec{v}}}}}
@@ -206,19 +209,25 @@
     <subsection>
         <title>Dot Product and Parallel-ness</title>
         <p>
-            In particular, if <m>\theta = 90^{\circ}</m>, then
+            If the angle between <m>\vec{u}</m> and <m>\vec{v}</m> is a right angle, i.e. <m>\theta = 90^{\circ}</m>, then we say that <m>\vec{u}</m> and <m>\vec{v}</m> are <em>perpndicular</em>.
+        </p>
+        <p>
+            If <m>\theta = 90^{\circ}</m>, then the formula for the dot product becomes,
         </p>
         <md>
             <mrow>\vec{u} \bullet \vec{v} \amp = \abs{\vec{u}} \abs{\vec{v}} \underbrace{\cos{90^{\circ}}}_{0}</mrow>
             <mrow>\amp = 0</mrow>
         </md>
         <p>
-            Conversely, if <m>\vec{u} \bullet \vec{v} = 0</m>, then <m>\abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = 0</m>. This implies that at least one of <m>\abs{\vec{u}}, \abs{\vec{v}}, \cos{\theta}</m> is equal to 0. If either of <m>\abs{\vec{u}}, \abs{\vec{v}}</m> are 0, then the corresponding vector is the zero vector, and recall that the zero vector is said to be perpendicular to all vectors. If <m>\cos{\theta} = 0</m>, then <m>\theta = 90^{\circ}</m>, and the vectors are perpendicular. In summary,
+            This provides a test to determine if <m>\vec{u}</m> and <m>\vec{v}</m> are perpendicular. That is, if <m>\vec{u} \bullet \vec{v} = 0</m>.
         </p>
-        <corollary>
+        <p>
+            However, conversely, if <m>\vec{u} \bullet \vec{v} = \abs{\vec{u}} \abs{\vec{v}} \cos{\theta} = 0</m>, this implies that at least one of <m>\abs{\vec{u}}, \abs{\vec{v}}, \cos{\theta}</m> is equal to 0. If either of <m>\abs{\vec{u}}, \abs{\vec{v}}</m> are 0, then the corresponding vector is the zero vector. Recall that the zero vector is said to be perpendicular to all vectors (in fact, the reason for this convention is to make this theorem universal). In summary,
+        </p>
+        <theorem>
             <title>Perpendicular if and only if zero dot product</title>
-            <p>Vectors <m>\vec{u}, \vec{v}</m> are perpendicular if and only if <m>\vec{u} \bullet \vec{v} = 0</m></p>
-        </corollary>
+            <p>Vectors <m>\vec{u}, \vec{v}</m> are perpendicular if and only if <m>\vec{u} \bullet \vec{v} = 0</m>.</p>
+        </theorem>
     </subsection>
 
     <subsection>

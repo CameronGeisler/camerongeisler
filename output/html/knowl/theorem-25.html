@@ -2,9 +2,6 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-13T16:19:43-08:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -13,22 +10,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
+<body class="ignore-math">
 <article class="theorem theorem-like"><h4 class="heading">
-<span class="type">Theorem</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">5.3.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="title">Matrix representation of a linear transformation.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">General linear property.</span>
 </h4>
-<p>Let \(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\) be a linear transformation. Then, there exists a unique matrix \(A\) such that,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<div class="para">Let <span class="process-math">\(T\)</span> be a linear transformation, <span class="process-math">\(\vec{v}_1, \dots, \vec{v}_n \in D(T), a_1, \dots, a_n \in \mathbb{R}\text{.}\)</span> Then,</div>
+<div class="displaymath process-math">
 \begin{equation*}
-T(\vec{x}) = A\vec{x} \qquad \text{for all $\vec{x} \in \mathbb{R}^n$}
+\boxed{T(a_1 \vec{v}_1 + \dots + a_n \vec{v}_n) = a_1 T(\vec{v}_1) + \dots + a_n T(\vec{v}_n)}
 \end{equation*}
 </div>
-<p>Further, \(A\) is precisely the \(m \times n\) matrix whose \(j\)th column is given by \(T(\vec{e}_j)\text{,}\) where \(\vec{e}_j\) is the \(j\)th column of the \(n \times n\) identity matrix. In other words,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath">
+<div class="para">More compactly,</div>
+<div class="displaymath process-math">
 \begin{equation*}
-A = \begin{bmatrix} T(\ihat) \amp \cdots \amp T(\vec{e}_n) \end{bmatrix}
+T\brac{\sum_{k=1}^n a_k \vec{v}_k} = \sum_{k=1}^n a_k T(\vec{v}_k)
 \end{equation*}
-</div>
-<p>The matrix \(A\) is called the <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">standard matrix</dfn> for the linear transformation \(T\text{.}\)</p></article><span class="incontext"><a href="section-MALT.html#theorem-25">in-context</a></span>
+</div></article><span class="incontext"><a href="section-ITLT.html#theorem-25" class="internal">in-context</a></span>
 </body>
 </html>

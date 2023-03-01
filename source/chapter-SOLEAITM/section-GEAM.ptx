@@ -381,7 +381,7 @@
             </p>
             <md>
                 <mrow>\amp = 2 \sum_{k=1}^{n-1} (k^2 + k)</mrow>
-                <mrow>\amp = 2 \brac{\sum_{k=1}^{n-1} k^2 + \sum_{k=1}^{n-1} k</mrow>
+                <mrow>\amp = 2 \brac{\sum_{k=1}^{n-1} k^2 + \sum_{k=1}^{n-1} k}</mrow>
             </md>
             <p>
                 Then, we can apply the summation formulas,
@@ -402,13 +402,13 @@
                 <mrow>\amp = 2 \brac{\frac{n(n-1)(2n-1) + 3n(n-1)}{6}}</mrow>
                 <mrow>\amp = 2 \brac{\frac{n(n-1)((2n-1)+3)}{6}}</mrow>
                 <mrow>\amp = 2 \brac{\frac{n(n-1)(2n+2)}{6}}</mrow>
-                <mrow>\amp = \frac{2n(n-1)(n+1)}{3}}</mrow>
+                <mrow>\amp = \frac{2n(n-1)(n+1)}{3}</mrow>
             </md>
             <p>
                 Then, consider the asymptotic behavior. When <m>n</m> is large, 
             </p>
             <me>
-                \frac{2n(n-1)(n+1)}{3}} \approx \frac{2n^3}{3}
+                \frac{2n(n-1)(n+1)}{3} \approx \frac{2n^3}{3}
             </me>
             <p>
                 In particular, about <m>n^3</m> operations.

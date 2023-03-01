@@ -53,8 +53,16 @@
         <title>Gaussian Elimination, Elementary Operations</title>
 
         <p>
-            <term>Gaussian elimination</term> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another somewhat simpler system, without changing the solution set. In other words, the simpler system is <em>equivalent</em> to the original system, in that the simpler system has the same solution set as the original system. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.
+            <term>Gaussian elimination</term> is a procedure, or algorithm, to transform a system of linear equations to triangular form, making it much easier to solve. Broadly, it involves combining equations of a system in various ways. Each step replaces the current system with another somewhat simpler system, without changing the solution set.
         </p>
+        <definition>
+            <p>
+                Two linear systems are called <term>equivalent</term> if they share the same solution set. That is, every solution of the first system is a solution of the second system, and vise versa.
+            </p>
+        </definition>
+        <p>
+            In other words, the simpler system is <em>equivalent</em> to the original system, in that the simpler system has the same solution set as the original system. After the system is converted into triangular form, solving this resulting system gives the solution to the original system.
+        </p>        
 
         <definition>
             <title>Elementary operations</title> Denote equation <m>i</m> by <m>E_i</m>. Then, the elementary operations are,
